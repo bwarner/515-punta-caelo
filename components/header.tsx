@@ -17,22 +17,19 @@ export default function Header({ locale }: { locale: string }) {
             <a href={`/${locale}`}>🏠 Welcome</a>
           </li>
           <li>
-            <a href={`/${locale}/house-rules`}>📜 House Rules</a>
+            <a href={`/${locale}/rules`}>📜 House Rules</a>
           </li>
           <li>
-            <a href={`/${locale}/guest-tips`}>💡 Local Tips</a>
+            <a href={`/${locale}/tips`}>💡 Local Tips</a>
           </li>
           <li>
-            <a href={`/${locale}/things-to-do`}>🗺️ Things To Do</a>
-          </li>
-          <li>
-            <a href={`/${locale}/wifi-and-contacts`}>📶 Wi-Fi & Contacts</a>
+            <a href={`/${locale}/todo`}>🗺️ Things To Do</a>
           </li>
           <li>
             <a href={`/${locale}/faqs`}>❓ FAQs</a>
           </li>
           <li>
-            <a href={`/${locale}/thanks-and-checkout`}>👋 Check-out</a>
+            <a href={`/${locale}/checkout`}>👋 Check out</a>
           </li>
         </ul>
 
