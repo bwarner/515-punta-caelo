@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: system-ui, sans-serif;
+  line-height: 1.6;
+  background-color: #fff;
+  color: #111827;
+  /* Tailwind gray-900 */
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 600;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+ul,
+ol {
+  padding-left: 1.5rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+a {
+  color: #2563eb;
+  /* Tailwind blue-600 */
+  text-decoration: underline;
+}
+
+a:hover {
+  text-decoration: none;
+}
