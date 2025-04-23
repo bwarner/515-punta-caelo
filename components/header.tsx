@@ -2,6 +2,7 @@
 
 import { locales } from "@/i18n";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 
 export default function Header({ locale }: { locale: string }) {
@@ -10,6 +11,7 @@ export default function Header({ locale }: { locale: string }) {
 
   return (
     <header className="w-full px-4 py-3 shadow-md flex justify-between items-center bg-white">
+      <Image src="/favicon.png" alt="Punta Caelo" width={100} height={100} />
       <h1 className="text-xl font-semibold">Punta Caelo</h1>
       <nav className="flex gap-4 text-sm">
         <ul className="list-none flex flex-row gap-4">

@@ -14,11 +14,7 @@ export default async function ContentPage({
       ? await import(`@/content/${slug}-es.mdx`)
       : await import(`@/content/${slug}-en.mdx`);
 
-  return (
-    <main className="max-w-4xl mx-auto px-4 py-8">
-      <Content />
-    </main>
-  );
+  return <Content />;
 }
 type Props = {
   params: Promise<{ locale: Locale; slug: string }>;
