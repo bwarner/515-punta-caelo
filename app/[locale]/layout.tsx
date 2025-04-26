@@ -15,5 +15,10 @@ export default async function LocaleLayout({
     throw new Error(`Invalid locale: ${locale}`);
   }
 
-  return <main>{children}</main>;
+  return (
+    <div>
+      <Header locale={locale} />
+      <main className="mx-auto max-w-5xl p-6 bg-gray-100">{children}</main>
+    </div>
+  );
 }

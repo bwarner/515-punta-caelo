@@ -10,41 +10,56 @@ export default function Header({ locale }: { locale: string }) {
   const currentPath = pathname.split("/").slice(2).join("/");
 
   return (
-    <header className="w-full px-4 py-3 shadow-md flex justify-between items-center bg-white">
-      <Image src="/favicon.png" alt="Punta Caelo" width={100} height={100} />
-      <h1 className="text-xl font-semibold">Punta Caelo</h1>
-      <nav className="flex gap-4 text-sm">
-        <ul className="list-none flex flex-row gap-4">
-          <li>
-            <a href={`/${locale}`}>🏠 Welcome</a>
-          </li>
-          <li>
-            <a href={`/${locale}/rules`}>📜 House Rules</a>
-          </li>
-          <li>
-            <a href={`/${locale}/tips`}>💡 Local Tips</a>
-          </li>
-          <li>
-            <a href={`/${locale}/todo`}>🗺️ Things To Do</a>
-          </li>
-          <li>
-            <a href={`/${locale}/faqs`}>❓ FAQs</a>
-          </li>
-          <li>
-            <a href={`/${locale}/checkout`}>👋 Check out</a>
-          </li>
-        </ul>
+    <header className="site-header">
+      <div className="wrapper">
+        <div className="site-header-wrapper">
+          <div className="site-header-logo">
+            <img
+              src="/images/logo.png"
+              alt="Punta Caelo"
+              width={100}
+              height={100}
+              className="site-header-logo-image"
+            />
+            <h1 className="site-header-title">Punta Caelo</h1>
+          </div>
+          <nav className="site-header-nav">
+            <ul className="site-header-nav-list">
+              <li className="site-header-nav-item">
+                <a href={`/${locale}/introduction`}>🏠 Introduction</a>
+              </li>
+              <li className="site-header-nav-item">
+                <a href={`/${locale}/introduction`}>🏠 Meeting your Your</a>
+              </li>
+              <li className="site-header-nav-item">
+                <a href={`/${locale}/rules`}>📜 House Rules</a>
+              </li>
+              <li className="site-header-nav-item">
+                <a href={`/${locale}/tips`}>💡 Local Tips</a>
+              </li>
+              <li className="site-header-nav-item">
+                <a href={`/${locale}/todo`}>🗺️ Things To Do</a>
+              </li>
+              <li className="site-header-nav-item">
+                <a href={`/${locale}/faqs`}>❓ FAQs</a>
+              </li>
+              <li className="site-header-nav-item">
+                <a href={`/${locale}/checkout`}>👋 Check out</a>
+              </li>
+            </ul>
 
-        {locales.map((loc) => (
-          <Link
-            key={loc}
-            href={`/${loc}/${currentPath}`}
-            className={loc === locale ? "font-bold" : "opacity-70"}
-          >
-            {loc.toUpperCase()}
-          </Link>
-        ))}
-      </nav>
+            {locales.map((loc) => (
+              <Link
+                key={loc}
+                href={`/${loc}/${currentPath}`}
+                className={loc === locale ? "font-bold" : "opacity-70"}
+              >
+                {loc.toUpperCase()}
+              </Link>
+            ))}
+          </nav>
+        </div>
+      </div>
     </header>
   );
 }

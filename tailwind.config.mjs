@@ -1,12 +1,9 @@
-import tailwindTypography from "@tailwindcss/typography";
+// import tailwindTypography from "@tailwindcss/typography";
 
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: [
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./content/**/*.{js,ts,jsx,tsx,mdx}",
-  ],
+  plugins: ["@tailwindcss/postcss"],
+
   darkMode: ["class"],
   theme: {
     container: {
@@ -17,9 +14,6 @@ export default {
       },
     },
     extend: {
-      maxWidth: {
-        "8xl": "90rem",
-      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -87,13 +81,4 @@ export default {
       },
     },
   },
-  safelist: [
-    "bg-sand",
-    "bg-shell",
-    "bg-driftwood",
-    "bg-seaglass",
-    "bg-coral",
-    "bg-sky",
-  ],
-  plugins: [tailwindTypography],
 };

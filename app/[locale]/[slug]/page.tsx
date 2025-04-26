@@ -14,7 +14,7 @@ export default async function ContentPage({
       ? await import(`@/content/${slug}-es.mdx`)
       : await import(`@/content/${slug}-en.mdx`);
 
-  return <Content />;
+  return <Content className="prose dark:prose-invert" />;
 }
 type Props = {
   params: Promise<{ locale: Locale; slug: string }>;
