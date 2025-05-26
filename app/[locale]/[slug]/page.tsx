@@ -40,8 +40,8 @@ export function generateStaticParams() {
   const contentDirectory = path.join(process.cwd(), "content");
   const fileNames = fs.readdirSync(contentDirectory);
   const locales = ["en", "es"];
-  const slugs: string[] = fileNames.map(
-    (fileName: string) => fileName.split("-")[0]
+  const slugs: string[] = fileNames.map((fileName: string) =>
+    fileName.replace(/-(en|es)\.mdx$/, "")
   );
 
   const staticParams: { locale: string; slug: string }[] = [];

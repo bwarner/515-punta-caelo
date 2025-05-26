@@ -215,14 +215,14 @@ body {}
 }
 
 @layer components {
-
+  /* 
   a {
     @apply text-blue-600 underline;
-  }
+  } */
 
-  a:hover {
+  /* a:hover {
     @apply no-underline;
-  }
+  } */
 
   h1,
   h2,
@@ -232,7 +232,25 @@ body {}
 
   ul,
   ol {
-    @apply pl-6 mt-4 mb-4 list-disc;
+    @apply mt-4 mb-4 list-none;
+  }
+
+  .toc li {
+    @apply md:py-4 font-bold md:text-2xl;
+  }
+
+  .toc li a {
+    @apply no-underline hover:underline focus-visible:underline;
+  }
+
+  .image-with-text {
+    @apply grid grid-cols-2 gap-2;
+    grid-template-columns: 200px 1fr;
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+      align-items: center;
+    }
   }
 
   .hero {

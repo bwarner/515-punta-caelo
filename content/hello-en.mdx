@@ -1,0 +1,60 @@
+export const metadata = {
+  title: "Hello",
+  description: "Say welcome to your host",
+  locale: "en",
+};
+
+<LeftImageSplitSection
+  renderImage={() => (
+    <Image
+      src="/images/515-punta-caelo/beach_mobile_view.png"
+      alt="Beach at Punta Caelo"
+      fill
+      className="object-cover"
+      sizes="(max-width: 767px) 100vw, 40vw"
+      srcSet="
+        /images/515-punta-caelo/beach_mobile.png 600w,
+        /images/515-punta-caelo/beach_sidebar.png 1200w,
+        /images/515-punta-caelo/beach_mobile@2x.png 600w,
+        /images/515-punta-caelo/beach_sidebar@2x.png 1200w
+      "
+      priority
+    />
+  )}
+>
+  {/* HELLO banner */}
+  <div className="flex-1">
+    <div className="bg-shell text-center py-4">
+      <span className="font-heading font-black uppercase text-5xl md:text-6xl">
+        Hello!
+      </span>
+    </div>
+
+    {/* body copy; MDX lets you keep regular markdown here too */}
+    <div className="px-4 sm:px-6 lg:px-12 text-lg md:text-2xl leading-relaxed py-6 text-justify">
+      
+        We are absolutely delighted to extend our warmest greetings and welcome
+        you to our breathtaking Beach&nbsp;Condo, where the sun-kissed shores
+        meet the tranquil waters in perfect harmony.
+      
+
+      
+        Nestled along the stunning coastline, this coastal complex is not just a
+        place to stay but a magical escape where cherished memories are waiting
+        to be made.
+      
+
+      
+        As your hosts, we have carefully crafted this welcome book to provide
+        you with all the essential information and insider tips that will make
+        your stay unforgettable. We want your experience here to be nothing
+        short of extraordinary.
+      
+    </div>
+
+    <div className="text-right prose wrapper py-6">
+      <span className="font-script font-black text-5xl md:text-6xl">Fernando</span>
+    </div>
+  </div>
+</LeftImageSplitSection>
+
