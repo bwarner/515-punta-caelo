@@ -2,6 +2,7 @@ import "@/app/globals.css";
 import type { ReactNode } from "react";
 import { locales } from "@/i18n";
 import Header from "@/components/header";
+import Footer from "@/components/footer";
 
 export default async function LocaleLayout({
   children,
@@ -19,6 +20,7 @@ export default async function LocaleLayout({
     <div>
       <Header locale={locale} />
       <main className="mx-auto max-w-5xl bg-gray-100">{children}</main>
+      <Footer />
     </div>
   );
 }

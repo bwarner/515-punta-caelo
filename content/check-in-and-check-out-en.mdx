@@ -1,5 +1,63 @@
-export const metadata = { title: "Check in and Check out", locale: "en" };
+export const metadata = {
+  title: "Check in and Check out",
+  description: "Check in and Check out",
+  locale: "en",
+};
 
-# Check in and Check out
 
- (Placeholder content for Check in and Check out.) 
+
+<LeftImageSplitSection
+  renderImage={() => (
+    <Image
+      src="/images/515-punta-caelo/doorway_mobile.jpg"
+      alt="Doorway at Punta Caelo"
+      fill
+      className="object-cover"
+      sizes="(max-width: 767px) 100vw, 40vw"
+      srcSet="
+        /images/515-punta-caelo/doorway_mobile.jpg 600w,
+        /images/515-punta-caelo/doorway_sidebar.jpg 1200w,
+        /images/515-punta-caelo/doorway_mobile@2x.jpg 600w,
+        /images/515-punta-caelo/doorway_sidebar@2x.jpg 1200w
+      "
+      priority
+    />
+  )}
+>
+  <div className="flex-1">
+    <div className="bg-shell text-center py-4">
+      <span className="font-heading font-black uppercase text-5xl md:text-6xl">
+        Hello!
+      </span>
+    </div>
+
+    {/* body copy; MDX lets you keep regular markdown here too */}
+    <div className="px-4 sm:px-6 lg:px-12 text-lg md:text-2xl leading-relaxed py-6 text-justify">
+      
+       # Check in and Check out
+
+        ## Check-in | 3 pm 
+        
+        We are absolutely delighted to extend our warmest greetings and welcome
+        you to our breathtaking Beach&nbsp;Condo, where the sun-kissed shores
+        meet the tranquil waters in perfect harmony.
+      
+
+      
+        Nestled along the stunning coastline, this coastal complex is not just a
+        place to stay but a magical escape where cherished memories are waiting
+        to be made.
+      
+
+        ## Check-out | 11 am      
+        
+        As your hosts, we have carefully crafted this welcome book to provide
+        you with all the essential information and insider tips that will make
+        your stay unforgettable. We want your experience here to be nothing
+        short of extraordinary.
+      
+    </div>
+
+  </div>
+</LeftImageSplitSection>
+
