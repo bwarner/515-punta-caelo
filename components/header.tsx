@@ -2,11 +2,14 @@
 
 import { locales } from "@/i18n";
 import Link from "next/link";
-import Image from "next/image";
+import { useState } from "react";
 import { usePathname } from "next/navigation";
+import { MenuIcon, XIcon } from "lucide-react";
+import clsx from "clsx";
 
 export default function Header({ locale }: { locale: string }) {
   const pathname = usePathname();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const currentPath = pathname.split("/").slice(2).join("/");
 
   return (
@@ -21,9 +24,55 @@ export default function Header({ locale }: { locale: string }) {
               height={100}
               className="site-header-logo-image"
             />
-            <h1 className="site-header-title">Punta Caelo</h1>
           </div>
-          <nav className="site-header-nav">
+          <div className="site-header-title">
+            <span>Punta Caelo</span>
+          </div>
+
+          <div className="site-header-languages">
+            <ul className="site-header-languages-list flex flex-row gap-2">
+              {locales.map((loc) => (
+                <li className="site-header-languages-item" key={loc}>
+                  <Link
+                    key={loc}
+                    href={`/${loc}/${currentPath}`}
+                    className={loc === locale ? "font-bold" : "opacity-70"}
+                  >
+                    {loc.toUpperCase()}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="site-header-menu-button md:hidden">
+            <button
+              id="site-header-menu-button"
+              className="site-header-menu-button-icon"
+              aria-label="Menu"
+              aria-controls="site-header-nav"
+              aria-expanded="false"
+              onClick={() => {
+                setIsMenuOpen(!isMenuOpen);
+              }}
+            >
+              {isMenuOpen ? (
+                <XIcon className="site-header-menu-button-icon" />
+              ) : (
+                <MenuIcon className="site-header-menu-button-icon" />
+              )}
+              <span className="site-header-menu-button-label sr-only">
+                Menu
+              </span>
+            </button>
+          </div>
+          <nav
+            id="site-header-nav"
+            className={clsx(
+              "site-header-nav md:block",
+              isMenuOpen && "block",
+              !isMenuOpen && "hidden"
+            )}
+          >
             <ul className="site-header-nav-list">
               <li className="site-header-nav-item">
                 <a href={`/${locale}/introduction`}>🏠 Introduction</a>
@@ -47,16 +96,6 @@ export default function Header({ locale }: { locale: string }) {
                 <a href={`/${locale}/checkout`}>👋 Check out</a>
               </li>
             </ul>
-
-            {locales.map((loc) => (
-              <Link
-                key={loc}
-                href={`/${loc}/${currentPath}`}
-                className={loc === locale ? "font-bold" : "opacity-70"}
-              >
-                {loc.toUpperCase()}
-              </Link>
-            ))}
           </nav>
         </div>
       </div>
