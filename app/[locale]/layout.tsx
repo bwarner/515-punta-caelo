@@ -17,9 +17,9 @@ export default async function LocaleLayout({
   }
 
   return (
-    <div>
+    <div className="min-h-screen flex flex-col">
       <Header locale={locale} />
-      <main className="mx-auto max-w-5xl bg-gray-100">{children}</main>
+      <main className="flex-1 mx-auto max-w-5xl w-full bg-gray-100">{children}</main>
       <Footer />
     </div>
   );

@@ -325,7 +325,7 @@ body {}
   }
 
   .site-footer {
-    @apply text-center py-4 gap-4 grid bg-driftwood mt-8;
+    @apply text-center py-4 gap-4 grid mt-8;
   }
 
   .site-footer__title {
