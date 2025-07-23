@@ -10,6 +10,7 @@ import ColorPreview from "@/components/color-preview";
 import IconWithText from "@/components/icon-with-text";
 import SplitSection from "@/components/split-section";
 import LeftImageSplitSection from "@/components/left-image-split-section";
+import WiFiQRCode from "@/components/wifi-qr-code";
 // shadcn/ui components
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Badge } from "@/components/ui/badge";
@@ -85,6 +86,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     IconWithText,
     SplitSection,
     LeftImageSplitSection,
+    WiFiQRCode,
     // shadcn/ui components
     Alert,
     AlertTitle,
