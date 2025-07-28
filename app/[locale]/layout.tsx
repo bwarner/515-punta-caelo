@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import { locales } from "@/i18n";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import LayoutContent from "@/components/layout-content";
 
 export default async function LocaleLayout({
   children,
@@ -15,12 +16,5 @@ export default async function LocaleLayout({
   if (!locales.includes(locale as any)) {
     throw new Error(`Invalid locale: ${locale}`);
   }
-
-  return (
-    <div className="min-h-screen flex flex-col">
-      <Header locale={locale} />
-      <main className="flex-1 mx-auto max-w-5xl w-full bg-gray-100">{children}</main>
-      <Footer />
-    </div>
-  );
+  return <LayoutContent>{children}</LayoutContent>;
 }

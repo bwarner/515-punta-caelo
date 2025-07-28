@@ -1,5 +1,11 @@
 // app/fonts.ts
-import { Dancing_Script, Roboto, Raleway } from "next/font/google";
+import {
+  Dancing_Script,
+  Roboto,
+  Raleway,
+  Montserrat,
+  Belleza,
+} from "next/font/google";
 
 export const dancingScript = Dancing_Script({
   subsets: ["latin"],
@@ -19,5 +25,19 @@ export const raleway = Raleway({
   subsets: ["latin"],
   weight: ["400", "700"],
   variable: "--font-raleway",
+  display: "swap",
+});
+
+export const montserrat = Montserrat({
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  variable: "--font-montserrat",
+  display: "swap",
+});
+
+export const belleza = Belleza({
+  subsets: ["latin"],
+  weight: ["400"],
+  variable: "--font-belleza",
   display: "swap",
 });

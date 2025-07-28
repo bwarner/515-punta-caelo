@@ -11,6 +11,9 @@ import IconWithText from "@/components/icon-with-text";
 import SplitSection from "@/components/split-section";
 import LeftImageSplitSection from "@/components/left-image-split-section";
 import WiFiQRCode from "@/components/wifi-qr-code";
+import AltBackground from "@/components/alt-background";
+import GuideGrid from "@/components/guide-grid";
+import Menubar from "@/components/menubar";
 // shadcn/ui components
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Badge } from "@/components/ui/badge";
@@ -27,13 +30,13 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     // Tailwind-enhanced base tags
     h1: (props: HTMLAttributes<HTMLHeadingElement>) => (
       <h1
-        className="tracking-tight scroll-m-20 font-script text-4xl md:text-8xl font-bold text-center"
+        className="tracking-tight scroll-m-20 font-montserrat font-light text-4xl md:text-6xl text-center"
         {...props}
       />
     ),
     h2: (props: HTMLAttributes<HTMLHeadingElement>) => (
       <h2
-        className=" bg-driftwood text-white capitalize py-2 text-3xl text-center tracking-tight scroll-m-20"
+        className=" capitalize py-2 text-3xl tracking-tight scroll-m-20"
         {...props}
       />
     ),
@@ -44,7 +47,10 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       />
     ),
     p: (props: HTMLAttributes<HTMLParagraphElement>) => (
-      <p className="leading-7 [&:not(:first-child)]:mt-6" {...props} />
+      <p
+        className="wrapper text-justify leading-7 [&:not(:first-child)]:mt-6"
+        {...props}
+      />
     ),
     a: (props: HTMLAttributes<HTMLAnchorElement>) => (
       <a
@@ -78,6 +84,8 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     ),
     // Custom components
     TwoToneBackground,
+    GuideGrid,
+    AltBackground,
     ColorPreview,
     AllImages,
     Header,
@@ -87,6 +95,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     SplitSection,
     LeftImageSplitSection,
     WiFiQRCode,
+    Menubar,
     // shadcn/ui components
     Alert,
     AlertTitle,
