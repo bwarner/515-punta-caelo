@@ -7,9 +7,27 @@ export const metadata = {
 
 <Menubar locale={metadata.locale} title={metadata.title} />
 
-<div className="bg-secondary fg-secondary-foreground">
-  <div className="wrapper flex flex-col items-center justify-center">
-    <div>3 PM </div>
-    <div>CHECK - IN</div>
+<div className="flex flex-col gap-4 mb-4">
+
+  <div className="flex flex-col items-center justify-center banner check-in_banner_bg bg-secondary fg-secondary-foreground h-[100px]">
+    <div className="wrapper flex flex-col items-center text-white">
+      <div className="text-5xl font-bold">3 PM </div>
+      <div className="text-2xl font-bold">CHECK - IN</div>
+    </div>
+  </div>
+You will receive a code for the front door on the day of your arrival. Follow the main entrance and use the provided key code. The keys are waiting for you in the lockbox by the door. 
+</div>
+
+<div className="flex flex-col gap-4">
+
+  <div className="flex flex-col items-center justify-center check-out_banner_bg bg-secondary fg-secondary-foreground h-[100px]">
+    <div className="wrapper flex flex-col items-center text-white">
+      <div className="text-5xl font-bold">11 AM </div>
+      <div className="text-2xl font-bold">CHECK - OUT</div>
+    </div>
+  </div>
+  <div>
+    Check out is prior to 11am. If you'd like to request a late check-out, please contact me.
+    However, please be informed that we may not be able to grant your request if we have a same-day check-in.
   </div>
 </div>

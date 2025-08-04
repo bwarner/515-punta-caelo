@@ -73,7 +73,7 @@ export default function GuideGrid({ locale = "en" }: { locale: string }) {
     {
       title: "Thinks to do",
       icon: <Compass className={iconClass} />,
-      href: `/${locale}/thinks-to-do`,
+      href: `/${locale}/things-to-do`,
     },
     {
       title: "Places to eat",

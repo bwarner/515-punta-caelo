@@ -371,7 +371,7 @@ body {}
   }
 
   .menu-title {
-    @apply text-2xl font-bold uppercase;
+    @apply text-2xl font-bold uppercase pr-3;
   }
 
   h1,
@@ -514,6 +514,29 @@ body {}
 
   .footer_link_item a {
     @apply text-black hover:text-gray-700 no-underline;
+  }
+
+  .check-in_banner_bg {
+    background-image: url("/images/515-punta-caelo/doorway_mobile.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.75;
+  }
+
+  @media (min-width: 768px) {
+    .check-in_banner_bg {
+      background-image: url("/images/515-punta-caelo/doorway_desktop.jpg");
+      background-position-y: 25%
+    }
+  }
+
+  .check-out_banner_bg {
+    background-image: url("/images/515-punta-caelo/pool_small1.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.75;
   }
 
 }

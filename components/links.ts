@@ -26,7 +26,7 @@ export const items = (locale: string) => {
     },
     {
       title: "Thinks to do",
-      href: `/${locale}/thinks-to-do`,
+      href: `/${locale}/things-to-do`,
     },
     {
       title: "Places to eat",

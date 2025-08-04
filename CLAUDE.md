@@ -59,3 +59,6 @@ Uses Tailwind CSS with:
 ### Image Handling
 
 The project contains extensive property photography with both original and optimized formats (AVIF, WebP). Images are organized by property areas (kitchen, bedrooms, pools, amenities).
+
+### Base Design
+The file is a pdf in ./design.pdf
