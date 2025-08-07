@@ -13,7 +13,6 @@ export default function AltBackground({
 }) {
   const { setMetadata } = useUI();
   useEffect(() => {
-    console.log("metadata", metadataProp);
     setMetadata(metadataProp);
   }, [metadataProp]);
   return <>{children}</>;

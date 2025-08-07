@@ -8,7 +8,7 @@ function LayoutInner({ children }: { children: ReactNode }) {
   return (
     <div className="min-h-screen flex flex-col">
       <main
-        className={`flex flex-col justify-start min-h-screen mx-auto max-w-lg w-full ${metadata?.darkBackground ? "bg-background-alt" : "bg-background"}`}
+        className={`flex flex-col justify-start pb-12 mx-auto max-w-lg w-full ${metadata?.darkBackground ? "bg-background-alt" : "bg-background"}`}
       >
         {children}
       </main>

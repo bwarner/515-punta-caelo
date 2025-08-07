@@ -8,7 +8,7 @@ export default function Menubar({
   title: string;
 }) {
   return (
-    <div className="flex flex-col items-center justify-center">
+    <div className="flex flex-col items-center justify-center mb-4">
       <Menu locale={locale} title={title} />
     </div>
   );

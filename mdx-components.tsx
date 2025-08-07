@@ -14,6 +14,7 @@ import WiFiQRCode from "@/components/wifi-qr-code";
 import AltBackground from "@/components/alt-background";
 import GuideGrid from "@/components/guide-grid";
 import Menubar from "@/components/menubar";
+import WiFiPanel from "@/components/wifi.panel";
 // shadcn/ui components
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Badge } from "@/components/ui/badge";
@@ -22,7 +23,7 @@ import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import Image from "next/image";
 import Link from "next/link";
-import { Phone, Mail } from "lucide-react";
+import { Phone, Mail, Plane } from "lucide-react";
 import { HTMLAttributes } from "react";
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
@@ -30,19 +31,20 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     // Tailwind-enhanced base tags
     h1: (props: HTMLAttributes<HTMLHeadingElement>) => (
       <h1
-        className="tracking-tight scroll-m-20 font-montserrat font-light text-4xl md:text-6xl text-center"
+        className="wrapper tracking-tight scroll-m-20 font-montserrat font-light text-4xl md:text-6xl"
+        data-center={props.className?.includes("text-center")}
         {...props}
       />
     ),
     h2: (props: HTMLAttributes<HTMLHeadingElement>) => (
       <h2
-        className=" capitalize py-2 text-3xl tracking-tight scroll-m-20"
+        className="wrapper capitalize py-2 text-3xl tracking-tight scroll-m-20"
         {...props}
       />
     ),
     h3: (props: HTMLAttributes<HTMLHeadingElement>) => (
       <h3
-        className="text-2xl font-semibold tracking-tight scroll-m-20"
+        className="wrapper text-2xl font-semibold tracking-tight scroll-m-20"
         {...props}
       />
     ),
@@ -96,6 +98,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     LeftImageSplitSection,
     WiFiQRCode,
     Menubar,
+    WiFiPanel,
     // shadcn/ui components
     Alert,
     AlertTitle,
@@ -115,6 +118,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     // lucide-react icons
     Phone,
     Mail,
+    Plane,
     ...components,
   };
 }
