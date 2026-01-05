@@ -36,6 +36,10 @@ yarn-error.log*
 # vercel
 .vercel
 
+# MCP
+.mcp.json
+.playwright-mcp/
+
 # Yarn
 .yarn/*
 !.yarn/patches
