@@ -1,13 +1,26 @@
-import type { Metadata, ResolvingMetadata } from "next";
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 
 type Locale = "en" | "es";
+
+// Validate slug to prevent path traversal attacks
+function isValidSlug(slug: string): boolean {
+  // Only allow alphanumeric characters, hyphens, and underscores
+  // Reject any path traversal attempts (.., /, \)
+  return /^[a-zA-Z0-9_-]+$/.test(slug);
+}
 
 export default async function ContentPage({
   params,
 }: {
-  params: { locale: Locale; slug: string };
+  params: Promise<{ locale: Locale; slug: string }>;
 }) {
   const { locale, slug } = await params;
+
+  // Validate slug before using in dynamic import
+  if (!isValidSlug(slug)) {
+    notFound();
+  }
 
   const { default: Content } =
     locale === "es"
@@ -18,11 +31,15 @@ export default async function ContentPage({
 }
 type Props = {
   params: Promise<{ locale: Locale; slug: string }>;
-  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = await params;
+
+  // Validate slug before using in dynamic import
+  if (!isValidSlug(slug)) {
+    return { title: "Not Found" };
+  }
 
   const { metadata } =
     locale === "es"
