@@ -1,0 +1,36 @@
+export const metadata = {
+  title: "Rebook With Us",
+  description: "Save on your next stay",
+  locale: "en",
+};
+
+<Menubar locale={metadata.locale} title={metadata.title} />
+
+<div className="relative w-full h-[200px] mb-6 overflow-hidden rounded-lg">
+  <Image
+    src="/images/515-punta-caelo/livingroom_view1.jpg"
+    alt="Living room"
+    fill
+    className="object-cover"
+  />
+</div>
+
+## Rebook With Us
+
+### Save on your next stay with us!
+
+We would love to host you again! Book directly through our Airbnb listing for your next visit.
+
+<div className="flex justify-center mt-6">
+  <a href="https://www.airbnb.com/rooms/54150577" target="_blank" rel="noopener noreferrer">
+    <Button className="bg-secondary text-secondary-foreground hover:bg-secondary/80 px-8 py-3 text-lg">
+      Book on Airbnb
+    </Button>
+  </a>
+</div>
+
+<div className="bg-secondary/30 p-4 rounded-lg mt-6">
+  <p className="text-center font-medium">
+    Enjoyed your stay? We'd love a review on Airbnb!
+  </p>
+</div>
