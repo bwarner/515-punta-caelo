@@ -2,8 +2,8 @@ import { encode } from "entities";
 import { Wifi } from "lucide-react";
 import WiFiQRCode from "./wifi-qr-code";
 
-const ssid = process.env.WIFI_SSID1 || "Chapel Hill";
-const password = encode(process.env.WIFI_PASSWORD1 || "");
+const ssid = process.env.NEXT_PUBLIC_WIFI_SSID1 || "Chapel Hill";
+const password = encode(process.env.NEXT_PUBLIC_WIFI_PASSWORD1 || "");
 
 export default function WiFiPanel() {
   return (
@@ -16,7 +16,7 @@ export default function WiFiPanel() {
         <div className="text-2xl">Enjoy Our</div>
         <div className="text-4xl py-2">Free WiFi</div>
       </div>
-      {process.env.WIFI_SSID1 && process.env.WIFI_PASSWORD1 && (
+      {process.env.NEXT_PUBLIC_WIFI_SSID1 && process.env.NEXT_PUBLIC_WIFI_PASSWORD1 && (
         <div className="flex flex-col">
           <div className="flex flex-col gap-1 min-w-80 items-center justify-center py-5 bg-white">
             <div className="flex flex-col min-w-80 items-center justify-center">
