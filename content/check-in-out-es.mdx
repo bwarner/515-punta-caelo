@@ -1,0 +1,33 @@
+export const metadata = {
+  title: "Entrada/Salida",
+  description: "Entrada/Salida",
+  darkBackground: true,
+  locale: "es",
+};
+
+<Menubar locale={metadata.locale} title={metadata.title} />
+
+<div className="flex flex-col gap-4 mb-4">
+
+  <div className="flex flex-col items-center justify-center banner check-in_banner_bg bg-secondary fg-secondary-foreground h-[100px]">
+    <div className="wrapper flex flex-col items-center text-white">
+      <div className="text-5xl font-bold">3 PM </div>
+      <div className="text-2xl font-bold">ENTRADA</div>
+    </div>
+  </div>
+Recibirá un código para la puerta principal el día de su llegada. Siga la entrada principal y use el código de llave proporcionado. Las llaves le esperan en la caja de seguridad junto a la puerta.
+</div>
+
+<div className="flex flex-col gap-4">
+
+  <div className="flex flex-col items-center justify-center check-out_banner_bg bg-secondary fg-secondary-foreground h-[100px]">
+    <div className="wrapper flex flex-col items-center text-white">
+      <div className="text-5xl font-bold">11 AM </div>
+      <div className="text-2xl font-bold">SALIDA</div>
+    </div>
+  </div>
+  <div>
+    La salida es antes de las 11am. Si desea solicitar una salida tardía, por favor contácteme.
+    Sin embargo, tenga en cuenta que es posible que no podamos conceder su solicitud si tenemos una entrada el mismo día.
+  </div>
+</div>

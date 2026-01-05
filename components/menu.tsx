@@ -1,6 +1,7 @@
 import { MenuIcon, X } from "lucide-react";
 import { items } from "./links";
 import Link from "next/link";
+import { LanguageSwitcher } from "./language-switcher";
 
 export function Menu({ locale, title }: { locale: string; title: string }) {
   return (
@@ -18,8 +19,9 @@ export function Menu({ locale, title }: { locale: string; title: string }) {
             ))}
           </nav>
         </div>
-        <div className="menu-title">
+        <div className="menu-title flex items-center gap-3">
           <h1>{title}</h1>
+          <LanguageSwitcher locale={locale} />
         </div>
       </div>
     </div>
