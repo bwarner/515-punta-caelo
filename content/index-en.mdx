@@ -1,10 +1,44 @@
-<img className="image-top-half" src="/images/515-punta-caelo/dining_view2.jpg" alt="The Perfect Retreat" />
-<div className="wrapper">
+export const metadata = {
+  title: "Welcome",
+  description: "The Perfect Retreat",
+  locale: "en",
+};
 
-# Welcome To The Perfect Retreat
+<div className="min-h-screen flex flex-col items-center justify-center px-4 py-8 relative">
+  <div className="absolute top-4 right-4">
+    <Link href="/es/index" className="inline-block text-sm font-medium px-3 py-1.5 rounded border border-primary/30 hover:bg-primary/10 transition-colors whitespace-nowrap">ES</Link>
+  </div>
+  <div className="text-center mb-6">
+    <p className="text-sm tracking-widest text-muted-foreground mb-2">The Perfect Retreat</p>
+    <h1 className="text-5xl md:text-6xl font-serif font-light tracking-wide">WELCOME</h1>
+  </div>
 
-Welcome to The Perfect Retreat, please make yourself at home! This guide will give you lots of useful information for an unforgettable stay. 
+  <div className="relative w-64 h-80 md:w-80 md:h-96 mb-8">
+    <div className="absolute inset-0 bg-secondary/30 rounded-t-full overflow-hidden">
+      <Image
+        src="/images/515-punta-caelo/livingroom_view1.jpg"
+        alt="Living room"
+        fill
+        className="object-cover rounded-t-full"
+      />
+    </div>
+  </div>
 
-San Carlos, Panama Oeste, Panamá
+  <div className="text-center mb-8">
+    <p className="text-lg font-semibold">PUNTA CAELO</p>
+    <p className="text-sm text-muted-foreground">San Carlos, Panama</p>
+  </div>
 
+  <div className="flex flex-col gap-3 w-full max-w-xs">
+    <Link href="/en/guide">
+      <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 py-5">
+        Explore Guide
+      </Button>
+    </Link>
+    <a href="https://www.airbnb.com/rooms/54150577?guests=1&adults=1&s=67&unique_share_id=007fa60b-5a15-49ac-908a-8b454378b14a" target="_blank" rel="noopener noreferrer">
+      <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary/10 py-5">
+        Book Now
+      </Button>
+    </a>
+  </div>
 </div>
