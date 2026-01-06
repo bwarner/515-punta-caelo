@@ -1,32 +1,114 @@
 export const metadata = {
-  title: "Location",
+  title: "Directions",
   description: "Where to find us",
   locale: "en",
+  darkBackground: true,
 };
 
-<Menubar locale={metadata.locale} title={metadata.title} />
+<AltBackground metadata={metadata}>
+<Menubar locale={metadata.locale} title={metadata.title} darkBackground={true} />
 
-## 515 Punta Caelo
+{/* Hero image */}
 
-Our apartment is located in the Punta Caelo community, a beachfront development on Panama's Pacific coast.
-
-### Address
-
-Punta Caelo, Unit 515
-San Carlos, Panama
-
-### Getting Here
-
-The property is approximately 1 hour and 15 minutes from Panama City via the Pan-American Highway. Take the San Carlos exit and follow signs to Punta Caelo.
-
-### Nearby
-
-- **Beach** - Direct beach access from the community
-- **San Carlos** - Local town for groceries, restaurants, and shops
-- **Coronado** - 15 minutes for additional shopping and dining
-- **Rio Hato** - 20 minutes
-- **Panama City** - 1 hour 15 minutes
-
-<div className="bg-secondary/30 p-4 rounded-lg mt-6 text-center font-medium">
-Detailed directions will be provided upon booking confirmation.
+<div className="relative w-full h-[180px] overflow-hidden mb-0">
+  <Image
+    src="/images/515-punta-caelo/beach_mobile.jpg"
+    alt="Beach view"
+    fill
+    className="object-cover object-bottom"
+  />
 </div>
+
+{/* Title banner */}
+
+<div className="bg-white py-3 px-4 text-center">
+  <h1 className="text-3xl font-semibold tracking-widest uppercase">
+    Directions
+  </h1>
+</div>
+
+{/* Main Content Card */}
+
+<div className="bg-white mx-4 mt-6 rounded-lg overflow-hidden">
+  <div className="px-6 py-8 text-center">
+    {/* Location Pin Icon */}
+    <div className="flex justify-center mb-4">
+      <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+        <circle cx="12" cy="10" r="3"></circle>
+      </svg>
+    </div>
+
+    <h2 className="text-3xl font-light mb-2">Route to</h2>
+    <h2 className="text-3xl font-light mb-6">Our House</h2>
+
+    <p className="text-lg font-medium">PUNTA CAELO, UNIT 515</p>
+    <p className="text-lg mb-6">SAN CARLOS, PANAMA</p>
+
+    <a
+      href="https://waze.com/ul?q=Punta%20Caelo"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="inline-block bg-[#C4A58C] text-white font-semibold py-3 px-8 rounded-full hover:bg-[#B39579] transition-colors uppercase tracking-wide"
+    >
+      Open in Waze
+    </a>
+
+  </div>
+</div>
+
+{/* Directions Info */}
+
+<div className="px-6 py-6 text-center">
+  <p>
+    The property is approximately 1 hour and 15 minutes from Panama City via the
+    Pan-American Highway. Take the San Carlos exit and follow signs to Punta
+    Caelo.
+  </p>
+</div>
+
+{/* Nearby Section */}
+
+<div className="bg-white mx-4 rounded-lg overflow-hidden">
+  <div className="px-6 py-4">
+    <h2 className="text-xl font-semibold mb-3 text-center">Nearby</h2>
+    <ul className="space-y-2">
+      <li className="flex items-start gap-2">
+        <span className="text-primary font-bold">•</span>{" "}
+        <span>
+          <strong>Beach</strong> - Direct beach access from the community
+        </span>
+      </li>
+      <li className="flex items-start gap-2">
+        <span className="text-primary font-bold">•</span>{" "}
+        <span>
+          <strong>San Carlos</strong> - Local town for groceries, restaurants,
+          and shops
+        </span>
+      </li>
+      <li className="flex items-start gap-2">
+        <span className="text-primary font-bold">•</span>{" "}
+        <span>
+          <strong>Coronado</strong> - 15 minutes for additional shopping and
+          dining
+        </span>
+      </li>
+      <li className="flex items-start gap-2">
+        <span className="text-primary font-bold">•</span>{" "}
+        <span>
+          <strong>Rio Hato</strong> - 20 minutes
+        </span>
+      </li>
+      <li className="flex items-start gap-2">
+        <span className="text-primary font-bold">•</span>{" "}
+        <span>
+          <strong>Panama City</strong> - 1 hour 15 minutes
+        </span>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div className="pb-6"></div>
+
+</AltBackground>

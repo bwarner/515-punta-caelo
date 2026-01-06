@@ -2,11 +2,15 @@ export const metadata = {
   title: "Amenities",
   description: "What We Provide",
   locale: "en",
+  darkBackground: true,
 };
 
-<Menubar locale={metadata.locale} title={metadata.title} />
+<AltBackground metadata={metadata}>
+<Menubar locale={metadata.locale} title={metadata.title} darkBackground={true} />
 
-<div className="relative w-full h-[200px] mb-6 overflow-hidden rounded-lg">
+{/* Hero image */}
+
+<div className="relative w-full h-[180px] overflow-hidden mb-0">
   <Image
     src="/images/515-punta-caelo/livingroom_view1.jpg"
     alt="Living room"
@@ -15,27 +19,176 @@ export const metadata = {
   />
 </div>
 
-## What We Provide
+{/* Title banner */}
 
-- Wi-Fi
-- Smart TV
-- Coffee machine
-- Hairdryer
-- Linens
-- Tableware
-- Air conditioning
-- Washer & dryer
-- Shampoo & body wash
-- Towels for shower, hand, and beach
-- Extra towels & blankets
-- Stylish crockery, cutlery, pans
-- BBQ utensils
-- Washing up essentials
-
-## About The House
-
-The apartment features three bedrooms with maid quarters and is equipped with all the amenities you need for a comfortable stay.
-
-<div className="bg-secondary/30 p-4 rounded-lg mt-6 text-center font-medium">
-Don't see something you need? Please contact us and if it's something we have, we'll let you know.
+<div className="bg-white py-3 px-4 text-center">
+  <h1 className="text-3xl font-semibold tracking-widest uppercase">
+    What We Provide
+  </h1>
 </div>
+
+{/* Kitchen Section */}
+
+<div className="bg-white mx-4 mt-6 rounded-lg overflow-hidden">
+  <div className="relative w-full h-[140px]">
+    <Image
+      src="/images/515-punta-caelo/kitchen_view1.jpg"
+      alt="Kitchen"
+      fill
+      className="object-cover"
+    />
+  </div>
+  <div className="px-6 py-4">
+    <h2 className="text-xl font-semibold mb-3">Kitchen</h2>
+    <ul className="space-y-1">
+      <li className="flex items-center gap-2">
+        <span className="text-primary">•</span> Gas range cooker
+      </li>
+      <li className="flex items-center gap-2">
+        <span className="text-primary">•</span> Electric oven, fridge,
+        microwave, dishwasher
+      </li>
+      <li className="flex items-center gap-2">
+        <span className="text-primary">•</span> Coffee machine & kettle
+      </li>
+      <li className="flex items-center gap-2">
+        <span className="text-primary">•</span> Glassware, cups & cutlery
+      </li>
+      <li className="flex items-center gap-2">
+        <span className="text-primary">•</span> Cooking accessories & utensils
+      </li>
+    </ul>
+  </div>
+</div>
+
+{/* Living Room Section */}
+
+<div className="bg-white mx-4 mt-4 rounded-lg overflow-hidden">
+  <div className="relative w-full h-[140px]">
+    <Image
+      src="/images/515-punta-caelo/livingroom_view1.jpg"
+      alt="Living Room"
+      fill
+      className="object-cover"
+    />
+  </div>
+  <div className="px-6 py-4">
+    <h2 className="text-xl font-semibold mb-3">Living Room</h2>
+    <ul className="space-y-1">
+      <li className="flex items-center gap-2">
+        <span className="text-primary">•</span> Smart TV
+      </li>
+      <li className="flex items-center gap-2">
+        <span className="text-primary">•</span> Air conditioning
+      </li>
+      <li className="flex items-center gap-2">
+        <span className="text-primary">•</span> Wi-Fi throughout
+      </li>
+      <li className="flex items-center gap-2">
+        <span className="text-primary">•</span> Comfortable seating
+      </li>
+    </ul>
+  </div>
+</div>
+
+{/* Bedrooms Section */}
+
+<div className="bg-white mx-4 mt-4 rounded-lg overflow-hidden">
+  <div className="relative w-full h-[140px]">
+    <Image
+      src="/images/515-punta-caelo/bedroom1_view1.jpg"
+      alt="Bedroom"
+      fill
+      className="object-cover"
+    />
+  </div>
+  <div className="px-6 py-4">
+    <h2 className="text-xl font-semibold mb-3">Bedrooms</h2>
+    <ul className="space-y-1">
+      <li className="flex items-center gap-2">
+        <span className="text-primary">•</span> 3 bedrooms with quality linens
+      </li>
+      <li className="flex items-center gap-2">
+        <span className="text-primary">•</span> Air conditioning & ceiling fans
+      </li>
+      <li className="flex items-center gap-2">
+        <span className="text-primary">•</span> Flat-screen TVs
+      </li>
+      <li className="flex items-center gap-2">
+        <span className="text-primary">•</span> Extra towels & blankets
+      </li>
+      <li className="flex items-center gap-2">
+        <span className="text-primary">•</span> Hairdryer
+      </li>
+      <li className="flex items-center gap-2">
+        <span className="text-primary">•</span> Shampoo & body wash
+      </li>
+    </ul>
+  </div>
+</div>
+
+{/* Maid's Quarters Section */}
+
+<div className="bg-white mx-4 mt-4 rounded-lg overflow-hidden">
+  <div className="relative w-full h-[140px]">
+    <Image
+      src="/images/515-punta-caelo/bedroom4_view1.jpg"
+      alt="Maid's Quarters"
+      fill
+      className="object-cover"
+    />
+  </div>
+  <div className="px-6 py-4">
+    <h2 className="text-xl font-semibold mb-3">Maid's Quarters</h2>
+    <ul className="space-y-1">
+      <li className="flex items-center gap-2">
+        <span className="text-primary">•</span> Washer & dryer
+      </li>
+      <li className="flex items-center gap-2">
+        <span className="text-primary">•</span> Iron & ironing board
+      </li>
+      <li className="flex items-center gap-2">
+        <span className="text-primary">•</span> Washing up essentials
+      </li>
+    </ul>
+  </div>
+</div>
+
+{/* Balcony Section */}
+
+<div className="bg-white mx-4 mt-4 rounded-lg overflow-hidden">
+  <div className="relative w-full h-[140px]">
+    <Image
+      src="/images/515-punta-caelo/balcony_view1.jpg"
+      alt="Balcony"
+      fill
+      className="object-cover"
+    />
+  </div>
+  <div className="px-6 py-4">
+    <h2 className="text-xl font-semibold mb-3">Balcony</h2>
+    <ul className="space-y-1">
+      <li className="flex items-center gap-2">
+        <span className="text-primary">•</span> Ocean views
+      </li>
+      <li className="flex items-center gap-2">
+        <span className="text-primary">•</span> BBQ grill & utensils
+      </li>
+      <li className="flex items-center gap-2">
+        <span className="text-primary">•</span> Outdoor table and chairs
+      </li>
+      <li className="flex items-center gap-2">
+        <span className="text-primary">•</span> Beach towels
+      </li>
+    </ul>
+  </div>
+</div>
+
+{/* Contact Section */}
+
+<div className="bg-white/80 p-4 mx-4 mt-6 mb-6 rounded-lg text-center font-medium">
+  Don't see something you need? Please contact us and if it's something we have,
+  we'll let you know.
+</div>
+
+</AltBackground>

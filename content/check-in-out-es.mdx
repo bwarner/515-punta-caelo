@@ -5,29 +5,71 @@ export const metadata = {
   locale: "es",
 };
 
-<Menubar locale={metadata.locale} title={metadata.title} />
+<AltBackground metadata={metadata}>
+<Menubar locale={metadata.locale} title={metadata.title} darkBackground={true} />
 
-<div className="flex flex-col gap-4 mb-4">
+{/* Hero image */}
 
-  <div className="flex flex-col items-center justify-center banner check-in_banner_bg bg-secondary fg-secondary-foreground h-[100px]">
-    <div className="wrapper flex flex-col items-center text-white">
-      <div className="text-5xl font-bold">3 PM </div>
-      <div className="text-2xl font-bold">ENTRADA</div>
-    </div>
-  </div>
-Recibirá un código para la puerta principal el día de su llegada. Siga la entrada principal y use el código de llave proporcionado. Las llaves le esperan en la caja de seguridad junto a la puerta.
+<div className="relative w-full h-[180px] overflow-hidden mb-0">
+  <Image
+    src="/images/515-punta-caelo/doorway_mobile.jpg"
+    alt="Entrada"
+    fill
+    className="object-cover"
+  />
 </div>
 
-<div className="flex flex-col gap-4">
+{/* Title banner */}
 
-  <div className="flex flex-col items-center justify-center check-out_banner_bg bg-secondary fg-secondary-foreground h-[100px]">
-    <div className="wrapper flex flex-col items-center text-white">
-      <div className="text-5xl font-bold">11 AM </div>
-      <div className="text-2xl font-bold">SALIDA</div>
+<div className="bg-white py-3 px-4 text-center">
+  <h1 className="text-3xl font-semibold tracking-widest uppercase">
+    Entrada/Salida
+  </h1>
+</div>
+
+{/* Check-in Section */}
+
+<div className="bg-white mx-4 mt-6 rounded-lg overflow-hidden">
+  <div className="px-6 py-6 text-center">
+    <div className="text-6xl font-light tracking-wide">3 PM</div>
+    <div className="text-xl font-semibold tracking-widest uppercase mt-2">
+      Entrada
     </div>
   </div>
-  <div>
-    La salida es antes de las 11am. Si desea solicitar una salida tardía, por favor contácteme.
-    Sin embargo, tenga en cuenta que es posible que no podamos conceder su solicitud si tenemos una entrada el mismo día.
+</div>
+
+<div className="px-6 py-4 text-center">
+  <p>
+    Recibirá un código para la puerta principal el día de su llegada. Siga la
+    entrada principal y use el código de llave proporcionado. Las llaves le
+    esperan en la caja de seguridad junto a la puerta.
+  </p>
+  <p className="mt-4">
+    Si necesita acomodaciones especiales para su hora de entrada, no dude en
+    contactarnos.
+  </p>
+</div>
+
+{/* Check-out Section */}
+
+<div className="bg-white mx-4 mt-6 rounded-lg overflow-hidden">
+  <div className="px-6 py-6 text-center">
+    <div className="text-6xl font-light tracking-wide">11 AM</div>
+    <div className="text-xl font-semibold tracking-widest uppercase mt-2">
+      Salida
+    </div>
   </div>
 </div>
+
+<div className="px-6 py-4 mb-6 text-center">
+  <p>
+    La salida es antes de las 11am. Si desea solicitar una salida tardía, por
+    favor contácteme.
+  </p>
+  <p className="mt-4">
+    Sin embargo, tenga en cuenta que es posible que no podamos conceder su
+    solicitud si tenemos una entrada el mismo día.
+  </p>
+</div>
+
+</AltBackground>

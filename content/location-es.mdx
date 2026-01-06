@@ -2,31 +2,113 @@ export const metadata = {
   title: "Ubicación",
   description: "Dónde encontrarnos",
   locale: "es",
+  darkBackground: true,
 };
 
-<Menubar locale={metadata.locale} title={metadata.title} />
+<AltBackground metadata={metadata}>
+<Menubar locale={metadata.locale} title={metadata.title} darkBackground={true} />
 
-## 515 Punta Caelo
+{/* Hero image */}
 
-Nuestro apartamento está ubicado en la comunidad Punta Caelo, un desarrollo frente al mar en la costa del Pacífico de Panamá.
-
-### Dirección
-
-Punta Caelo, Unidad 515
-San Carlos, Panamá
-
-### Cómo Llegar
-
-La propiedad está aproximadamente a 1 hora y 15 minutos de la Ciudad de Panamá por la Carretera Panamericana. Tome la salida de San Carlos y siga las señales hacia Punta Caelo.
-
-### Cerca
-
-- **Playa** - Acceso directo a la playa desde la comunidad
-- **San Carlos** - Pueblo local para compras, restaurantes y tiendas
-- **Coronado** - 15 minutos para compras y restaurantes adicionales
-- **Río Hato** - 20 minutos
-- **Ciudad de Panamá** - 1 hora 15 minutos
-
-<div className="bg-secondary/30 p-4 rounded-lg mt-6 text-center font-medium">
-Se proporcionarán instrucciones detalladas al confirmar la reserva.
+<div className="relative w-full h-[180px] overflow-hidden mb-0">
+  <Image
+    src="/images/515-punta-caelo/beach_mobile.jpg"
+    alt="Vista de la playa"
+    fill
+    className="object-cover object-bottom"
+  />
 </div>
+
+{/* Title banner */}
+
+<div className="bg-white py-3 px-4 text-center">
+  <h1 className="text-3xl font-semibold tracking-widest uppercase">
+    Ubicación
+  </h1>
+</div>
+
+{/* Main Content Card */}
+
+<div className="bg-white mx-4 mt-6 rounded-lg overflow-hidden">
+  <div className="px-6 py-8 text-center">
+    {/* Location Pin Icon */}
+    <div className="flex justify-center mb-4">
+      <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+        <circle cx="12" cy="10" r="3"></circle>
+      </svg>
+    </div>
+
+    <h2 className="text-3xl font-light mb-2">Ruta a</h2>
+    <h2 className="text-3xl font-light mb-6">Nuestra Casa</h2>
+
+    <p className="text-lg font-medium">PUNTA CAELO, UNIDAD 515</p>
+    <p className="text-lg mb-6">SAN CARLOS, PANAMÁ</p>
+
+    <a
+      href="https://waze.com/ul?q=Punta%20Caelo"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="inline-block bg-[#C4A58C] text-white font-semibold py-3 px-8 rounded-full hover:bg-[#B39579] transition-colors uppercase tracking-wide"
+    >
+      Abrir en Waze
+    </a>
+
+  </div>
+</div>
+
+{/* Directions Info */}
+
+<div className="px-6 py-6 text-center">
+  <p>
+    La propiedad está aproximadamente a 1 hora y 15 minutos de la Ciudad de
+    Panamá por la Carretera Panamericana. Tome la salida de San Carlos y siga
+    las señales hacia Punta Caelo.
+  </p>
+</div>
+
+{/* Nearby Section */}
+
+<div className="bg-white mx-4 rounded-lg overflow-hidden">
+  <div className="px-6 py-4">
+    <h2 className="text-xl font-semibold mb-3 text-center">Cerca</h2>
+    <ul className="space-y-2">
+      <li className="flex items-start gap-2">
+        <span className="text-primary font-bold">•</span>{" "}
+        <span>
+          <strong>Playa</strong> - Acceso directo a la playa desde la comunidad
+        </span>
+      </li>
+      <li className="flex items-start gap-2">
+        <span className="text-primary font-bold">•</span>{" "}
+        <span>
+          <strong>San Carlos</strong> - Pueblo local para compras, restaurantes
+          y tiendas
+        </span>
+      </li>
+      <li className="flex items-start gap-2">
+        <span className="text-primary font-bold">•</span>{" "}
+        <span>
+          <strong>Coronado</strong> - 15 minutos para compras y restaurantes
+          adicionales
+        </span>
+      </li>
+      <li className="flex items-start gap-2">
+        <span className="text-primary font-bold">•</span>{" "}
+        <span>
+          <strong>Río Hato</strong> - 20 minutos
+        </span>
+      </li>
+      <li className="flex items-start gap-2">
+        <span className="text-primary font-bold">•</span>{" "}
+        <span>
+          <strong>Ciudad de Panamá</strong> - 1 hora 15 minutos
+        </span>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div className="pb-6"></div>
+
+</AltBackground>

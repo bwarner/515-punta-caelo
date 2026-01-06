@@ -89,7 +89,7 @@ body {
 :root {
   --radius: 0.625rem;
   --background: oklch(1 0 0);
-  --background-alt: oklch(0.85 0.05 65);
+  --background-alt: #d5c4b5;
   --foreground: oklch(0.084 0.0996 35.2);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.147 0.004 49.25);
@@ -341,28 +341,37 @@ body {
 
   .hamburger-menu:has(input:checked):after {
     width: var(--x-width);
-    translate: 0 calc(var(--hamburger-line-height));
+    translate: 0 var(--hamburger-line-height);
     @apply -rotate-45;
   }
 
-  /* Dark background variant - circular beige background with white lines */
+  /* Dark background variant - circular taupe background with white lines */
   .hamburger-menu-dark {
-    @apply rounded-full p-4;
-    background-color: var(--secondary);
-    width: calc(var(--hamburger-line-width) + 40px);
-    height: calc(var(--hamburger-line-width) + 40px);
+    --hamburger-line-width: 32px;
+    --hamburger-line-height: 4px;
+    --hamburger-gap: 4px;
+    --hamburger-height: calc(
+      var(--hamburger-line-height) * 3 + var(--hamburger-gap) * 2
+    );
+    --x-width: calc(var(--hamburger-height) * 1.4142135623730951);
+    @apply rounded-full;
+    background-color: #c4a58c;
+    width: 52px;
+    height: 52px;
 
     &:before,
     &:after,
     & input {
       background-color: white;
+      width: var(--hamburger-line-width);
+      height: var(--hamburger-line-height);
     }
 
     &:hover {
       &:before,
       &:after,
       & input {
-        background-color: var(--primary);
+        background-color: rgba(255, 255, 255, 0.8);
       }
     }
   }
@@ -388,7 +397,11 @@ body {
   }
 
   .menu-container nav {
-    @apply flex flex-col items-center justify-center;
+    @apply flex flex-col items-center justify-center gap-2;
+  }
+
+  .menu-container nav a {
+    @apply text-lg py-2 px-4 w-full text-center hover:bg-muted rounded transition-colors;
   }
 
   .menu-title {
