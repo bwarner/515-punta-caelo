@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import posthog from "posthog-js";
 import {
   KeyRound,
   Wifi,
@@ -26,8 +29,15 @@ function GridItem({
   href: string;
   children: React.ReactNode;
 }) {
+  const handleClick = () => {
+    posthog.capture("guide_section_clicked", {
+      section_title: title,
+      destination_href: href,
+    });
+  };
+
   return (
-    <Link href={href}>
+    <Link href={href} onClick={handleClick}>
       <div className="flex flex-col items-center justify-center">
         {children}
         <div>{title}</div>
