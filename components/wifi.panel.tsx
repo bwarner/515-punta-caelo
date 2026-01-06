@@ -38,14 +38,14 @@ export default function WiFiPanel({
 
   if (!mounted) {
     return (
-      <div className="flex flex-col gap-4 items-center">
-        <div
-          className="flex flex-col p-8 bg-white wrapper min-w-80 items-center justify-center"
-          data-width="wide"
-        >
-          <Wifi className="w-[128px] h-[128px]" />
-          <div className="text-2xl">Loading WiFi</div>
-          <div className="text-4xl py-2">Information...</div>
+      <div className="flex flex-col items-center w-full">
+        {/* White card with rounded bottom */}
+        <div className="flex flex-col p-8 pt-12 pb-16 bg-white w-full max-w-md items-center justify-center rounded-b-[3rem] mx-4">
+          <Wifi className="w-[120px] h-[120px]" strokeWidth={1} />
+          <div className="text-lg uppercase tracking-[0.3em] mt-6">Loading</div>
+          <div className="text-5xl font-light tracking-wide mt-2">
+            WiFi Info...
+          </div>
         </div>
       </div>
     );
@@ -53,15 +53,15 @@ export default function WiFiPanel({
 
   if (error) {
     return (
-      <div className="flex flex-col gap-4 items-center">
-        <div
-          className="flex flex-col p-8 bg-red-50 border border-red-200 wrapper min-w-80 items-center justify-center"
-          data-width="wide"
-        >
-          <Wifi className="w-[128px] h-[128px] text-red-500" />
-          <div className="text-2xl text-red-700">WiFi Error</div>
-          <div className="text-lg py-2 text-red-600">{error}</div>
-          <div className="text-sm text-red-500 mt-2">
+      <div className="flex flex-col items-center w-full">
+        {/* White card with rounded bottom */}
+        <div className="flex flex-col p-8 pt-12 pb-16 bg-red-50 border border-red-200 w-full max-w-md items-center justify-center rounded-b-[3rem] mx-4">
+          <Wifi className="w-[120px] h-[120px] text-red-500" strokeWidth={1} />
+          <div className="text-lg uppercase tracking-[0.3em] mt-6 text-red-700">
+            WiFi Error
+          </div>
+          <div className="text-xl mt-2 text-red-600">{error}</div>
+          <div className="text-sm text-red-500 mt-4">
             Please contact your host for WiFi information
           </div>
         </div>
@@ -70,35 +70,39 @@ export default function WiFiPanel({
   }
 
   return (
-    <div className="flex flex-col gap-4 items-center">
-      <div
-        className="flex flex-col p-8 bg-white wrapper min-w-80 items-center justify-center"
-        data-width="wide"
-      >
-        <Wifi className="w-[128px] h-[128px]" />
-        <div className="text-2xl">Enjoy Our</div>
-        <div className="text-4xl py-2">Free WiFi</div>
+    <div className="flex flex-col items-center w-full">
+      {/* White card with rounded bottom - WiFi header */}
+      <div className="flex flex-col p-8 pt-12 pb-16 bg-white w-full max-w-md items-center justify-center rounded-b-[3rem] mx-4">
+        <Wifi className="w-[120px] h-[120px]" strokeWidth={1} />
+        <div className="text-lg uppercase tracking-[0.3em] mt-6">Enjoy Our</div>
+        <div className="text-5xl font-light tracking-wide mt-2">FREE WIFI</div>
       </div>
+
+      {/* Credentials section with rounded top */}
       {ssid && password && (
-        <div className="flex flex-col">
-          <div className="flex flex-col gap-1 min-w-80 items-center justify-center py-5 bg-white">
-            <div className="flex flex-col min-w-80 items-center justify-center">
-              <dl className="grid grid-cols-1 gap-1">
-                <dt className="font-heading font-black uppercase text-md md:text-xl px-8">
+        <div className="flex flex-col w-full max-w-md items-center mt-8 mx-4">
+          <div className="flex flex-col w-full items-center bg-white rounded-t-[3rem] pt-12 pb-8 px-8">
+            <dl className="flex flex-col gap-6 w-full items-center">
+              <div className="flex flex-col items-center w-full">
+                <dt className="text-lg uppercase tracking-[0.3em] mb-3">
                   Network
                 </dt>
-                <dd className="font-sans text-md md:text-lg select-all bg-secondary rounded-full px-8 py-2 text-center">
+                <dd className="font-sans text-lg select-all bg-secondary rounded-full px-8 py-3 text-center w-full max-w-xs">
                   {ssid}
                 </dd>
-                <dt className="font-heading font-black uppercase text-md md:text-xl px-8">
+              </div>
+              <div className="flex flex-col items-center w-full">
+                <dt className="text-lg uppercase tracking-[0.3em] mb-3">
                   Password
                 </dt>
-                <dd className="font-sans text-md md:text-lg select-all bg-secondary rounded-full px-8 py-2 text-center">
+                <dd className="font-sans text-lg select-all bg-secondary rounded-full px-8 py-3 text-center w-full max-w-xs">
                   {password}
                 </dd>
-              </dl>
+              </div>
+            </dl>
+            <div className="mt-8">
+              <WiFiQRCode ssid={ssid} password={password} />
             </div>
-            <WiFiQRCode ssid={ssid} password={password} />
           </div>
         </div>
       )}
