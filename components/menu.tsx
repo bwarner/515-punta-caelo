@@ -1,9 +1,21 @@
+"use client";
+
 import { MenuIcon, X } from "lucide-react";
 import { items } from "./links";
 import Link from "next/link";
 import { LanguageSwitcher } from "./language-switcher";
+import posthog from "posthog-js";
 
 export function Menu({ locale, title }: { locale: string; title: string }) {
+  const handleNavClick = (itemTitle: string, itemHref: string) => {
+    posthog.capture("menu_navigation_clicked", {
+      menu_item_title: itemTitle,
+      destination_href: itemHref,
+      current_page_title: title,
+      locale: locale,
+    });
+  };
+
   return (
     <div className="menu-wrapper w-full">
       <div className="menu-header flex flex-row justify-between items-center">
@@ -13,7 +25,11 @@ export function Menu({ locale, title }: { locale: string; title: string }) {
         <div className="menu-container">
           <nav className="flex flex-col items-center justify-center">
             {items(locale).map((item) => (
-              <Link href={item.href} key={item.title}>
+              <Link
+                href={item.href}
+                key={item.title}
+                onClick={() => handleNavClick(item.title, item.href)}
+              >
                 {item.title}
               </Link>
             ))}
