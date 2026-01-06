@@ -1,7 +1,8 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import QRCode from "qrcode";
+import posthog from "posthog-js";
 
 interface WiFiQRCodeProps {
   ssid: string;
@@ -10,19 +11,20 @@ interface WiFiQRCodeProps {
   hidden?: boolean;
 }
 
-export default function WiFiQRCode({ 
-  ssid, 
-  password, 
-  security = "WPA", 
-  hidden = false 
+export default function WiFiQRCode({
+  ssid,
+  password,
+  security = "WPA",
+  hidden = false,
 }: WiFiQRCodeProps) {
   const [qrCodeDataURL, setQrCodeDataURL] = useState<string>("");
+  const hasTrackedView = useRef(false);
 
   useEffect(() => {
     const generateQRCode = async () => {
       // WiFi QR code format: WIFI:T:WPA;S:ssid;P:password;H:false;;
       const wifiString = `WIFI:T:${security};S:${ssid};P:${password};H:${hidden};;`;
-      
+
       try {
         const url = await QRCode.toDataURL(wifiString, {
           width: 200,
@@ -49,12 +51,24 @@ export default function WiFiQRCode({
     );
   }
 
+  const handleQRCodeInteraction = () => {
+    if (!hasTrackedView.current) {
+      hasTrackedView.current = true;
+      posthog.capture("wifi_qr_code_viewed", {
+        wifi_network: ssid,
+        security_type: security,
+      });
+    }
+  };
+
   return (
     <div className="flex flex-col items-center gap-4">
       <img
         src={qrCodeDataURL}
         alt={`WiFi QR Code for ${ssid}`}
-        className="w-48 h-48 rounded-lg shadow-lg bg-white p-4"
+        className="w-48 h-48 rounded-lg shadow-lg bg-white p-4 cursor-pointer"
+        onClick={handleQRCodeInteraction}
+        onTouchStart={handleQRCodeInteraction}
       />
       <p className="text-sm text-gray-600 text-center max-w-48">
         Scan with your phone's camera to connect automatically

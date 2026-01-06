@@ -1,0 +1,98 @@
+export const metadata = {
+  title: "The Property",
+  description: "Your Beach Retreat in Panama",
+  locale: "en",
+};
+
+<PropertyHeader locale={metadata.locale} title={metadata.title} />
+
+<div className="relative w-full h-[250px] mb-6 overflow-hidden rounded-lg">
+  <Image
+    src="/images/515-punta-caelo/balcony_view1.jpg"
+    alt="Ocean view from balcony"
+    fill
+    className="object-cover"
+  />
+</div>
+
+## Your Beach Retreat in Panama
+
+Welcome to Punta Caelo, a stunning beachfront apartment in San Carlos, Panama. This spacious retreat offers the perfect blend of comfort and coastal living.
+
+### Property Highlights
+
+<div className="grid grid-cols-2 gap-4 my-6">
+  <div className="bg-secondary/20 p-4 rounded-lg text-center">
+    <div className="text-2xl font-bold text-primary">3+1</div>
+    <div className="text-sm text-muted-foreground">Bedrooms + Maid's Quarters</div>
+  </div>
+  <div className="bg-secondary/20 p-4 rounded-lg text-center">
+    <div className="text-2xl font-bold text-primary">3</div>
+    <div className="text-sm text-muted-foreground">Full Bathrooms</div>
+  </div>
+  <div className="bg-secondary/20 p-4 rounded-lg text-center">
+    <div className="text-2xl font-bold text-primary">3</div>
+    <div className="text-sm text-muted-foreground">Community Pools</div>
+  </div>
+  <div className="bg-secondary/20 p-4 rounded-lg text-center">
+    <div className="text-2xl font-bold text-primary">∞</div>
+    <div className="text-sm text-muted-foreground">Ocean Views</div>
+  </div>
+</div>
+
+### Sleeping Arrangements
+
+- **Master Bedroom** — King bed with en-suite bathroom and ocean views
+- **Guest Bedroom 1** — Queen bed, perfect for couples
+- **Guest Bedroom 2** — Twin beds, ideal for children or friends
+- **Maid's Quarters** — Additional private room with bathroom, can serve as 4th bedroom
+
+### Living Spaces
+
+The open-concept living area features a fully equipped kitchen, comfortable seating, and sliding doors that open to a private balcony with breathtaking ocean views. Perfect for morning coffee or sunset cocktails.
+
+### Community Amenities
+
+<div className="grid grid-cols-3 gap-3 my-6 text-center text-sm">
+  <div className="bg-secondary/10 p-3 rounded-lg">
+    <span className="block text-lg">🏊</span>
+    3 Pools
+  </div>
+  <div className="bg-secondary/10 p-3 rounded-lg">
+    <span className="block text-lg">🏖️</span>
+    Beach Access
+  </div>
+  <div className="bg-secondary/10 p-3 rounded-lg">
+    <span className="block text-lg">💪</span>
+    Fitness Center
+  </div>
+  <div className="bg-secondary/10 p-3 rounded-lg">
+    <span className="block text-lg">🎾</span>
+    Paddle Courts
+  </div>
+  <div className="bg-secondary/10 p-3 rounded-lg">
+    <span className="block text-lg">🛹</span>
+    Skate Park
+  </div>
+  <div className="bg-secondary/10 p-3 rounded-lg">
+    <span className="block text-lg">⚽</span>
+    Sports Field
+  </div>
+</div>
+
+### Location
+
+Located in San Carlos, Panama Oeste — just 90 minutes from Panama City and Tocumen International Airport. The area offers beautiful beaches, local restaurants, and a relaxed Pacific coast atmosphere.
+
+<div className="flex flex-col gap-3 mt-8">
+  <Link href="/en/gallery">
+    <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 py-5">
+      View Photo Gallery
+    </Button>
+  </Link>
+  <a href="https://www.airbnb.com/rooms/54150577?guests=1&adults=1&s=67&unique_share_id=007fa60b-5a15-49ac-908a-8b454378b14a" target="_blank" rel="noopener noreferrer">
+    <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary/10 py-5">
+      Book on Airbnb
+    </Button>
+  </a>
+</div>

@@ -1,63 +1,102 @@
+const labels = {
+  en: {
+    checkInOut: "Check-in/out",
+    wifi: "WiFi",
+    amenities: "Amenities",
+    location: "Location",
+    transport: "Transport",
+    thingsToKnow: "Things to know",
+    thingsToDo: "Things to do",
+    placesToEat: "Places to eat",
+    placesToDrink: "Places to drink",
+    rules: "Rules",
+    faq: "FAQ",
+    emergency: "Emergency",
+    beforeYouGo: "Before you go",
+    review: "Review",
+    contact: "Contact",
+  },
+  es: {
+    checkInOut: "Entrada/Salida",
+    wifi: "WiFi",
+    amenities: "Comodidades",
+    location: "Ubicación",
+    transport: "Transporte",
+    thingsToKnow: "Cosas que saber",
+    thingsToDo: "Qué hacer",
+    placesToEat: "Dónde comer",
+    placesToDrink: "Dónde tomar",
+    rules: "Reglas",
+    faq: "Preguntas",
+    emergency: "Emergencias",
+    beforeYouGo: "Antes de irse",
+    review: "Reservar",
+    contact: "Contacto",
+  },
+};
+
 export const items = (locale: string) => {
+  const t = labels[locale as keyof typeof labels] || labels.en;
+
   return [
     {
-      title: "Check-in/out",
+      title: t.checkInOut,
       href: `/${locale}/check-in-out`,
     },
     {
-      title: "WiFi",
+      title: t.wifi,
       href: `/${locale}/wifi`,
     },
     {
-      title: "Amenities",
+      title: t.amenities,
       href: `/${locale}/amenities`,
     },
     {
-      title: "Location",
+      title: t.location,
       href: `/${locale}/location`,
     },
     {
-      title: "Transport",
+      title: t.transport,
       href: `/${locale}/transport`,
     },
     {
-      title: "Things to know",
+      title: t.thingsToKnow,
       href: `/${locale}/things-to-know`,
     },
     {
-      title: "Thinks to do",
+      title: t.thingsToDo,
       href: `/${locale}/things-to-do`,
     },
     {
-      title: "Places to eat",
+      title: t.placesToEat,
       href: `/${locale}/places-to-eat`,
     },
     {
-      title: "Places to drink",
+      title: t.placesToDrink,
       href: `/${locale}/places-to-drink`,
     },
     {
-      title: "Rules",
+      title: t.rules,
       href: `/${locale}/rules`,
     },
     {
-      title: "FAQ",
+      title: t.faq,
       href: `/${locale}/faq`,
     },
     {
-      title: "Emergency",
+      title: t.emergency,
       href: `/${locale}/emergency`,
     },
     {
-      title: "Before you go",
+      title: t.beforeYouGo,
       href: `/${locale}/before-you-go`,
     },
     {
-      title: "Review",
+      title: t.review,
       href: `/${locale}/review`,
     },
     {
-      title: "Contact",
+      title: t.contact,
       href: `/${locale}/contact`,
     },
   ];

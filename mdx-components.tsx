@@ -15,6 +15,8 @@ import AltBackground from "@/components/alt-background";
 import GuideGrid from "@/components/guide-grid";
 import Menubar from "@/components/menubar";
 import WiFiPanel from "@/components/wifi.panel";
+import { PropertyHeader } from "@/components/property-header";
+import TrackedAirbnbButton from "@/components/tracked-airbnb-button";
 // shadcn/ui components
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Badge } from "@/components/ui/badge";
@@ -99,6 +101,8 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     WiFiQRCode,
     Menubar,
     WiFiPanel,
+    PropertyHeader,
+    TrackedAirbnbButton,
     // shadcn/ui components
     Alert,
     AlertTitle,

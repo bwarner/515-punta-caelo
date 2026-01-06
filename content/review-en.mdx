@@ -13,24 +13,36 @@ export const metadata = {
 We would love to host you again! Book directly through our Airbnb listing for your next visit.
 
 <div className="flex justify-center my-6">
-  <div className="airbnb-embed-frame" data-id="54150577" data-view="home" data-hide-price="true" style={{width: "100%", maxWidth: "450px", height: "300px", margin: "auto"}}>
-    <a href="https://www.airbnb.com/rooms/54150577?guests=1&adults=1&s=67&unique_share_id=007fa60b-5a15-49ac-908a-8b454378b14a">View On Airbnb</a>
+  <div
+    className="airbnb-embed-frame"
+    data-id="54150577"
+    data-view="home"
+    data-hide-price="true"
+    style={{
+      width: "100%",
+      maxWidth: "450px",
+      height: "300px",
+      margin: "auto",
+    }}
+  >
+    <a href="https://www.airbnb.com/rooms/54150577?guests=1&adults=1&s=67&unique_share_id=007fa60b-5a15-49ac-908a-8b454378b14a">
+      View On Airbnb
+    </a>
     <script async src="https://www.airbnb.com/embeddable/airbnb_jssdk"></script>
   </div>
 </div>
 
 <div className="flex justify-center mt-6">
-  <a href="https://www.airbnb.com/rooms/54150577?guests=1&adults=1&s=67&unique_share_id=007fa60b-5a15-49ac-908a-8b454378b14a" target="_blank" rel="noopener noreferrer">
-    <Button className="bg-secondary text-secondary-foreground hover:bg-secondary/80 px-8 py-3 text-lg">
-      Book on Airbnb
-    </Button>
-  </a>
+  <TrackedAirbnbButton
+    href="https://www.airbnb.com/rooms/54150577?guests=1&adults=1&s=67&unique_share_id=007fa60b-5a15-49ac-908a-8b454378b14a"
+    eventName="airbnb_booking_clicked"
+    buttonText="Book on Airbnb"
+    className="bg-secondary text-secondary-foreground hover:bg-secondary/80 px-8 py-3 text-lg"
+  />
 </div>
 
-<div className="bg-secondary/30 p-4 rounded-lg mt-6">
-  <p className="text-center font-medium">
-    Enjoyed your stay? We'd love a review on Airbnb!
-  </p>
+<div className="bg-secondary/30 p-4 rounded-lg mt-6 text-center font-medium">
+Enjoyed your stay? We'd love a review on Airbnb!
 </div>
 
 ## Share With Friends
@@ -38,9 +50,10 @@ We would love to host you again! Book directly through our Airbnb listing for yo
 Know someone looking for a beach getaway in Panama? Share our listing!
 
 <div className="flex justify-center mt-4">
-  <a href="https://www.airbnb.com/rooms/54150577?guests=1&adults=1&s=67&unique_share_id=007fa60b-5a15-49ac-908a-8b454378b14a" target="_blank" rel="noopener noreferrer">
-    <Button className="bg-primary text-primary-foreground hover:bg-primary/80 px-8 py-3 text-lg">
-      Share Listing
-    </Button>
-  </a>
+  <TrackedAirbnbButton
+    href="https://www.airbnb.com/rooms/54150577?guests=1&adults=1&s=67&unique_share_id=007fa60b-5a15-49ac-908a-8b454378b14a"
+    eventName="airbnb_share_clicked"
+    buttonText="Share Listing"
+    className="bg-primary text-primary-foreground hover:bg-primary/80 px-8 py-3 text-lg"
+  />
 </div>
