@@ -1,0 +1,20 @@
+# CODEOWNERS for 515-punta-caelo
+# https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# Default owner for everything in the repo
+* @bwarner
+
+# Content files (MDX)
+/content/ @bwarner
+
+# Components
+/components/ @bwarner
+
+# Configuration files
+next.config.js @bwarner
+package.json @bwarner
+tsconfig.json @bwarner
+
+# Security-sensitive files
+.env* @bwarner
+/app/**/page.tsx @bwarner
