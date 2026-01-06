@@ -1,0 +1,36 @@
+export const metadata = {
+  title: "Contacto",
+  description: "Gracias",
+  locale: "es",
+};
+
+<Menubar locale={metadata.locale} title={metadata.title} />
+
+<div className="relative w-full h-[180px] mb-6 overflow-hidden rounded-lg">
+  <Image
+    src="/images/515-punta-caelo/bedroom1_view1.jpg"
+    alt="Habitación"
+    fill
+    className="object-cover"
+  />
+</div>
+
+## Gracias
+
+### Por elegir hospedarse con nosotros
+
+<div className="flex flex-col gap-4 mt-6">
+  <div className="flex items-center gap-3">
+    <Phone className="h-6 w-6 text-primary" />
+    <span>Número de contacto proporcionado al reservar</span>
+  </div>
+
+  <div className="flex items-center gap-3">
+    <Mail className="h-6 w-6 text-primary" />
+    <span>Correo electrónico proporcionado al reservar</span>
+  </div>
+</div>
+
+<div className="bg-secondary/30 p-4 rounded-lg mt-6 text-center font-medium">
+¡Esperamos que haya disfrutado su estadía en 515 Punta Caelo!
+</div>

@@ -1,21 +1,44 @@
 export const metadata = {
-  title: "Welcome to Punta Caelo",
+  title: "Welcome",
+  description: "The Perfect Retreat",
   locale: "en",
 };
 
-## Welcome!
+<div className="min-h-screen flex flex-col items-center justify-center px-4 py-8 relative">
+  <div className="absolute top-4 right-4">
+    <Link href="/es/index" className="inline-block text-sm font-medium px-3 py-1.5 rounded border border-primary/30 hover:bg-primary/10 transition-colors whitespace-nowrap">ES</Link>
+  </div>
+  <div className="text-center mb-6">
+    <p className="text-sm tracking-widest text-muted-foreground mb-2">The Perfect Retreat</p>
+    <h1 className="text-5xl md:text-6xl font-serif font-light tracking-wide">WELCOME</h1>
+  </div>
 
-We're so glad you're here. This site is your digital guidebook for your stay at our Punta Caelo condo in San Carlos, Panama — a beautiful coastal town just outside of Coronado.
+  <div className="relative w-64 h-80 md:w-80 md:h-96 mb-8">
+    <div className="absolute inset-0 bg-secondary/30 rounded-t-full overflow-hidden">
+      <Image
+        src="/images/515-punta-caelo/livingroom_view1.jpg"
+        alt="Living room"
+        fill
+        className="object-cover rounded-t-full"
+      />
+    </div>
+  </div>
 
-Use the menu to access important information like:
+  <div className="text-center mb-8">
+    <p className="text-lg font-semibold">PUNTA CAELO</p>
+    <p className="text-sm text-muted-foreground">San Carlos, Panama</p>
+  </div>
 
-- 🏠 **[House Rules](/en/rules)**
-- 💡 **[Local Tips](/en/tips)**
-- 🗺️ **[Things To Do](/en/todo)**
-- 📶 **[Wi-Fi & Contacts](/en/wifi)**
-- ❓ **[FAQs](/en/faqs)**
-- 👋 **[Check-out Instructions](/en/checkout)**
-
-Whether you're here to relax, surf at El Palmar, or explore El Valle de Antón, we've got you covered.
-
-Feel free to reach out via WhatsApp if you have any questions. Have a fantastic stay!
+  <div className="flex flex-col gap-3 w-full max-w-xs">
+    <Link href="/en/guide">
+      <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 py-5">
+        Explore Guide
+      </Button>
+    </Link>
+    <Link href="/en/property">
+      <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary/10 py-5">
+        Learn More
+      </Button>
+    </Link>
+  </div>
+</div>

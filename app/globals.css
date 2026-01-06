@@ -1,36 +1,567 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-body {
-  font-family: system-ui, sans-serif;
-  line-height: 1.6;
-  background-color: #fff;
-  color: #111827;
-  /* Tailwind gray-900 */
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@plugin "@tailwindcss/typography";
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
 }
 
-h1,
-h2,
-h3 {
-  font-weight: 600;
-  margin-top: 2rem;
-  margin-bottom: 1rem;
+body {}
+
+/*
+  ---break---
+*/
+
+@theme inline {
+  --max-width-8xl: 90rem;
+  --font-script: "Dancing Script", cursive;
+  --font-roboto: "Roboto", sans-serif;
+  --font-montserrat: "Montserrat", sans-serif;
+  --font-belleza: "Belleza", sans-serif;
+  --color-sand: oklch(0.95 0.05 75);
+  --color-shell: oklch(0.92 0.04 70);
+  --color-driftwood: oklch(0.75 0.04 55);
+  --color-seaglass: oklch(0.85 0.12 170);
+  --color-coral: oklch(0.82 0.15 32);
+  --color-sky: oklch(0.93 0.1 235);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-background-alt: var(--background-alt);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
 }
 
-ul,
-ol {
-  padding-left: 1.5rem;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+/*
+  ---break---
+*/
+
+:root {
+  --radius: 0.625rem;
+  --background: oklch(1 0 0);
+  --background-alt: oklch(0.85 0.05 65);
+  --foreground: oklch(0.084 0.0996 35.2);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.147 0.004 49.25);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.147 0.004 49.25);
+  --primary: oklch(0.216 0.006 56.043);
+  --primary-foreground: oklch(0.985 0.001 106.423);
+  --secondary: oklch(0.8584 0.0234 56.91);
+  --secondary-foreground: oklch(1 0 0);
+  --muted-foreground: oklch(0.553 0.013 58.071);
+  --accent: oklch(0.65 0.15 45);
+  --accent-foreground: oklch(0.985 0.001 106.423);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.923 0.003 48.717);
+  --input: oklch(0.923 0.003 48.717);
+  --ring: oklch(0.709 0.01 56.259);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.985 0.001 106.423);
+  --sidebar-foreground: oklch(0.147 0.004 49.25);
+  --sidebar-primary: oklch(0.216 0.006 56.043);
+  --sidebar-primary-foreground: oklch(0.985 0.001 106.423);
+  --sidebar-accent: oklch(0.97 0.001 106.424);
+  --sidebar-accent-foreground: oklch(0.216 0.006 56.043);
+  --sidebar-border: oklch(0.923 0.003 48.717);
+  --sidebar-ring: oklch(0.709 0.01 56.259);
+
+  --bar-width: 200px;
+  --bar-height: 100vh;
+  --bar-background: oklch(0.985 0.001 106.423);
+  --bar-foreground: oklch(0.147 0.004 49.25);
+  --bar-border: oklch(0.923 0.003 48.717);
+  --bar-ring: oklch(0.709 0.01 56.259);
+  --bar-radius: 0.625rem;
+  --bar-padding: 1rem;
+  --bar-margin: 1rem;
+  --bar-border-radius: 0.625rem;
+  --bar-border-width: 1px;
+  --bar-border-style: solid;
+  --bar-border-color: oklch(0.923 0.003 48.717);
+  --hamburger-gap: 6px;
+  --hamburger-margin-top: 10px;
+  --hamburger-margin-left: 10px;
+  --hamburger-background: oklch(0.985 0.001 106.423);
+  --hamburger-border-radius: 0.625rem;
+  --hamburger-line-width: 60px;
+  --hamburger-line-height: 8px;
+  --hamburger-line-radius: 4px;
+  --hamburger-width: 100px;
+  --hamburger-height: calc(var(--hamburger-line-height) * 3 + var(--hamburger-gap) * 2);
+  --hamburger-color: oklch(0.147 0.004 49.25);
+  --hamburger-color-hover: var(--accent);
+  --hamburger-color-active: oklch(0.985 0.001 106.423);
+  --hamburger-color-disabled: oklch(0.553 0.013 58.071);
 }
 
-a {
-  color: #2563eb;
-  /* Tailwind blue-600 */
-  text-decoration: underline;
+/*
+  ---break---
+*/
+
+.dark {
+  --sand: oklch(0.95 0.05 75);
+
+  --background: oklch(0.147 0.004 49.25);
+  --foreground: oklch(0.985 0.001 106.423);
+  --card: oklch(0.216 0.006 56.043);
+  --card-foreground: oklch(0.985 0.001 106.423);
+  --popover: oklch(0.216 0.006 56.043);
+  --popover-foreground: oklch(0.985 0.001 106.423);
+  --primary: oklch(0.923 0.003 48.717);
+  --primary-foreground: oklch(0.216 0.006 56.043);
+  --secondary: oklch(0.268 0.007 34.298);
+  --secondary-foreground: oklch(0.985 0.001 106.423);
+  --muted: oklch(0.268 0.007 34.298);
+  --muted-foreground: oklch(0.709 0.01 56.259);
+  --accent: oklch(0.268 0.007 34.298);
+  --accent-foreground: oklch(0.985 0.001 106.423);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.553 0.013 58.071);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.216 0.006 56.043);
+  --sidebar-foreground: oklch(0.985 0.001 106.423);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0.001 106.423);
+  --sidebar-accent: oklch(0.268 0.007 34.298);
+  --sidebar-accent-foreground: oklch(0.985 0.001 106.423);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.553 0.013 58.071);
 }
 
-a:hover {
-  text-decoration: none;
+/*
+  ---break---
+*/
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+
+@layer layout {
+  .section {
+    @apply md:px-24 px-12;
+  }
+
+  .section[data-compact] {
+    @apply md:px-12 px-6;
+  }
+
+  .wrapper {
+    @apply max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .wrapper[data-center] {
+    @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+
+  .wrapper[data-width="wide"] {
+    @apply max-w-8xl;
+  }
+
+  .wrapper[data-width="narrow"] {
+    @apply max-w-3xl;
+  }
+
+  .equal-columns {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: var(--spacing-4);
+  }
+
+  @media (min-width: 768px) {
+    .equal-columns {
+      grid-auto-flow: column;
+    }
+  }
+
+  .equal-columns[display-gap="large"] {
+    gap: var(--spacing-6);
+  }
+
+  .equal-columns[display-gap="small"] {
+    gap: var(--spacing-2);
+  }
+}
+
+@layer components {
+  /* 
+  a {
+    @apply text-blue-600 underline;
+  } */
+
+  /* a:hover {
+    @apply no-underline;
+  } */
+
+  .hamburger-menu {
+    --x-width: calc(var(--hamburger-height) * 1.4142135623730951);
+    @apply relative top-0 left-0;
+    @apply flex flex-col items-center justify-center;
+    gap: var(--hamburger-gap);
+    margin-top: var(--hamburger-margin-top);
+    margin-left: var(--hamburger-margin-left);
+    width: max-content;
+    z-index: 100;
+    cursor: pointer;
+    border-radius: var(--hamburger-radius);
+    background-color: var(--hamburger-background);
+
+    &:hover {
+
+      &:before,
+      &:after,
+      & input {
+        background-color: var(--hamburger-color-hover);
+      }
+    }
+
+    &:active {
+
+      &:before,
+      &:after,
+      & input {
+        background-color: var(--hamburger-color-active);
+      }
+    }
+
+    &:disabled {
+
+      &:before,
+      &:after,
+      & input {
+        background-color: var(--hamburger-color-disabled);
+      }
+    }
+  }
+
+
+  .hamburger-menu:before,
+  .hamburger-menu:after,
+  .hamburger-menu input {
+    content: "";
+    display: block;
+    width: var(--hamburger-line-width);
+    height: var(--hamburger-line-height);
+    background-color: var(--hamburger-color);
+    border-radius: var(--hamburger-line-radius);
+    transition: all 0.3s ease-in-out;
+    transform-origin: left center;
+
+  }
+
+  .hamburger-menu input {
+    appearance: none;
+    pointer-events: none;
+    cursor: pointer;
+    @apply p-0 m-0 outline-none;
+  }
+
+  .hamburger-menu:has(:focus-visible) {
+
+    &:before,
+    &:after,
+    & input {
+      border: 1px solid var(--foreground);
+      box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.5);
+      background-color: var(--hamburger-color-active);
+    }
+  }
+
+  .hamburger-menu input:checked {
+    @apply bg-red-500 w-0 h-0 opacity-0;
+  }
+
+  .hamburger-menu:has(input:checked):before {
+    width: var(--x-width);
+    translate: 0 calc(var(--hamburger-line-height) * -1);
+    @apply rotate-45;
+  }
+
+  .hamburger-menu:has(input:checked):after {
+    width: var(--x-width);
+    translate: 0 calc(var(--hamburger-line-height));
+    @apply -rotate-45;
+  }
+
+  .menu-wrapper {
+    @apply relative;
+    margin-top: 2rem;
+  }
+
+  .menu-container {
+    @apply absolute w-md border-2 border-foreground left-0 bg-background z-10;
+    top: 100%;
+    margin-left: var(--hamburger-margin-left);
+    padding: 1rem;
+    transform: translateY(calc(-100% - var(--hamburger-margin-top)));
+    display: none;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .hamburger-menu:has(input:checked)+.menu-container {
+    transform: translateY(0);
+    display: block;
+  }
+
+  .menu-container nav {
+    @apply flex flex-col items-center justify-center;
+  }
+
+  .menu-title {
+    @apply text-2xl font-bold uppercase pr-3;
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply font-semibold mt-4 mb-2;
+  }
+
+  ul,
+  ol {
+    @apply mt-4 mb-4 list-none;
+  }
+
+  .toc li {
+    @apply md:py-4 font-bold md:text-2xl;
+  }
+
+  .toc li a {
+    @apply no-underline hover:underline focus-visible:underline;
+  }
+
+  .image-with-text {
+    @apply grid grid-cols-2 gap-2;
+    grid-template-columns: 200px 1fr;
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+      align-items: center;
+    }
+  }
+
+  .image-top-half {
+    @apply w-full h-[50vh] object-cover;
+  }
+
+  .image-banner {
+    @apply w-full h-[320px] object-contain;
+  }
+
+  .hero {
+    @apply text-center;
+  }
+
+  .site-header {
+    /* @apply w-full px-4 py-3 shadow-md flex justify-between items-center bg-white; */
+  }
+
+  .site-header-wrapper {
+    display: flex;
+    gap: 0.5rem 1rem;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+
+    @apply flex flex-row md:flex-row items-center gap-2 justify-between max-w-7xl mx-auto;
+
+
+  }
+
+  @media (max-width: 767px) {
+    .site-header-nav {
+      position: absolute;
+      top: 4rem;
+      right: 0;
+      background-color: #fff;
+      border-radius: 0.5rem;
+      box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+      padding: 1rem;
+      z-index: 100;
+      @apply flex flex-col items-start gap-2;
+    }
+  }
+
+  .site-header-logo {
+    @apply flex items-center gap-2;
+  }
+
+  .site-header-logo-image {
+    @apply w-10 h-10;
+  }
+
+  .site-header-title {
+    @apply text-xl font-semibold;
+  }
+
+  .site-header-nav {
+    @apply flex gap-4 text-sm;
+  }
+
+  .site-header-nav-list {
+    @apply grid grid-flow-col md:auto-cols-max gap-2 text-sm sm:text-base;
+
+    @media (max-width: 767px) {
+      @apply grid-flow-row auto-cols-max;
+    }
+  }
+
+  .site-header-nav-item {
+    @apply list-none;
+  }
+
+  .site-header-nav-item a {
+    @apply text-gray-500 hover:text-gray-700;
+  }
+
+  .site-header-nav-item a:hover {
+    @apply text-gray-700;
+  }
+
+  .site-footer {
+    @apply text-center py-4 gap-4 grid mt-8;
+  }
+
+  .site-footer__title {
+    @apply font-sans text-4xl font-bold text-white;
+  }
+
+  .site-footer a {
+    @apply text-gray-200 hover:text-gray-100 focus-visible:text-gray-100;
+  }
+
+  ul.footer_links {
+    @apply flex flex-col md:flex-row gap-2 list-none font-roboto text-3xl font-bold mx-auto;
+  }
+
+  ul.footer_links[data-align="center"] {
+    @apply text-center;
+  }
+
+  .footer_link_item {
+    @apply text-black;
+  }
+
+
+  .footer_link_item:not(:last-child):after {
+    content: " |";
+    @apply text-black capitalize;
+  }
+
+  .footer_link_item a {
+    @apply text-black hover:text-gray-700 no-underline;
+  }
+
+  .transport_banner_bg {
+    background-image: url("/images/515-punta-caelo/pool_small1.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.75;
+  }
+
+  .check-in_banner_bg {
+    background-image: url("/images/515-punta-caelo/doorway_mobile.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.75;
+  }
+
+  @media (min-width: 768px) {
+    .check-in_banner_bg {
+      background-image: url("/images/515-punta-caelo/doorway_desktop.jpg");
+      background-position-y: 25%
+    }
+  }
+
+  .check-out_banner_bg {
+    background-image: url("/images/515-punta-caelo/pool_small1.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.75;
+  }
+
+}
+
+@layer utilities {
+  .visually-hidden {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
 }

@@ -1,0 +1,33 @@
+export const metadata = {
+  title: "Wi-Fi Information",
+  locale: "en",
+};
+
+<div className="flex flex-col gap-8 justify-center items-center min-h-screen bg-cover bg-center bg-no-repeat" style={{backgroundImage: 'url(/images/515-punta-caelo/dining_view2.jpg)'}}>
+<div className="flex flex-col gap-4 md:gap-8 bg-shell text-center p-8 md:p-16 w-80 h-80 md:w-96 md:h-96 mx-auto justify-center">
+  <div className="font-heading font-black uppercase text-5xl md:text-7xl">
+    WIFI
+  </div>
+  <div className="font-script text-4xl md:text-5xl whitespace-nowrap">
+    is on The house
+  </div>
+
+  <div className="flex flex-row justify-center gap-4 max-w-xl mx-auto">
+
+      <div className="flex flex-col gap-4 border-r-2 border-black pr-4">
+        <p className="font-heading font-black uppercase text-md md:text-xl">Network</p>
+        <p className="font-sans text-md md:text-lg">Chapel Hill</p>
+      </div>
+
+      <div className="flex flex-col gap-4">
+        <p className="font-heading font-black uppercase text-md md:text-xl">Password</p>
+        <p className="font-sans text-md md:text-lg">301byronwifi</p>
+      </div>
+  </div>
+  
+  {/* <div className="mt-8">
+    <WiFiQRCode ssid="Chapel Hill" password="301byronwifi" />
+  </div> */}
+</div>
+ 
+</div>

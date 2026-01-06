@@ -1,0 +1,103 @@
+export const metadata = {
+  title: "Photo Gallery",
+  description: "Explore Our Property",
+  locale: "en",
+};
+
+<PropertyHeader locale={metadata.locale} title={metadata.title} backHref="/en/property" />
+
+## Photo Gallery
+
+### Living Spaces
+
+<div className="grid grid-cols-2 gap-2 my-4">
+  <div className="relative aspect-square overflow-hidden rounded-lg">
+    <Image src="/images/515-punta-caelo/livingroom_view1.jpg" alt="Living Room" fill className="object-cover" />
+  </div>
+  <div className="relative aspect-square overflow-hidden rounded-lg">
+    <Image src="/images/515-punta-caelo/livingroom_view2.jpg" alt="Living Room" fill className="object-cover" />
+  </div>
+  <div className="relative aspect-square overflow-hidden rounded-lg">
+    <Image src="/images/515-punta-caelo/dining_view1.jpg" alt="Dining Area" fill className="object-cover" />
+  </div>
+  <div className="relative aspect-square overflow-hidden rounded-lg">
+    <Image src="/images/515-punta-caelo/kitchen_view1.jpg" alt="Kitchen" fill className="object-cover" />
+  </div>
+</div>
+
+### Ocean Views & Balcony
+
+<div className="grid grid-cols-2 gap-2 my-4">
+  <div className="relative aspect-square overflow-hidden rounded-lg">
+    <Image src="/images/515-punta-caelo/balcony_view1.jpg" alt="Ocean View" fill className="object-cover" />
+  </div>
+  <div className="relative aspect-square overflow-hidden rounded-lg">
+    <Image src="/images/515-punta-caelo/balcony_view2.jpg" alt="Balcony" fill className="object-cover" />
+  </div>
+  <div className="relative aspect-square overflow-hidden rounded-lg">
+    <Image src="/images/515-punta-caelo/balcony_view3.jpg" alt="Balcony Dining" fill className="object-cover" />
+  </div>
+  <div className="relative aspect-square overflow-hidden rounded-lg">
+    <Image src="/images/515-punta-caelo/livingroom_view3.jpg" alt="View from Living Room" fill className="object-cover" />
+  </div>
+</div>
+
+### Bedrooms
+
+<div className="grid grid-cols-2 gap-2 my-4">
+  <div className="relative aspect-square overflow-hidden rounded-lg">
+    <Image src="/images/515-punta-caelo/bedroom1_view1.jpg" alt="Master Bedroom" fill className="object-cover" />
+  </div>
+  <div className="relative aspect-square overflow-hidden rounded-lg">
+    <Image src="/images/515-punta-caelo/bedroom2_view1.jpg" alt="Guest Bedroom" fill className="object-cover" />
+  </div>
+  <div className="relative aspect-square overflow-hidden rounded-lg">
+    <Image src="/images/515-punta-caelo/bedroom3_view1.jpg" alt="Twin Bedroom" fill className="object-cover" />
+  </div>
+  <div className="relative aspect-square overflow-hidden rounded-lg">
+    <Image src="/images/515-punta-caelo/bedroom4_view1.jpg" alt="Maid's Quarters" fill className="object-cover" />
+  </div>
+</div>
+
+### Pools & Recreation
+
+<div className="grid grid-cols-2 gap-2 my-4">
+  <div className="relative aspect-square overflow-hidden rounded-lg">
+    <Image src="/images/515-punta-caelo/pool1_view1.jpg" alt="Main Pool" fill className="object-cover" />
+  </div>
+  <div className="relative aspect-square overflow-hidden rounded-lg">
+    <Image src="/images/515-punta-caelo/pool3_view1.jpg" alt="Lower Pool" fill className="object-cover" />
+  </div>
+  <div className="relative aspect-square overflow-hidden rounded-lg">
+    <Image src="/images/515-punta-caelo/gym_view1.jpg" alt="Fitness Center" fill className="object-cover" />
+  </div>
+  <div className="relative aspect-square overflow-hidden rounded-lg">
+    <Image src="/images/515-punta-caelo/paddle_ball.jpg" alt="Paddle Courts" fill className="object-cover" />
+  </div>
+</div>
+
+### Grounds & Community
+
+<div className="grid grid-cols-2 gap-2 my-4">
+  <div className="relative aspect-square overflow-hidden rounded-lg">
+    <Image src="/images/515-punta-caelo/grounds_view1.jpg" alt="Community Grounds" fill className="object-cover" />
+  </div>
+  <div className="relative aspect-square overflow-hidden rounded-lg">
+    <Image src="/images/515-punta-caelo/grounds_view2.jpg" alt="Tropical Gardens" fill className="object-cover" />
+  </div>
+  <div className="relative aspect-square overflow-hidden rounded-lg">
+    <Image src="/images/515-punta-caelo/skate_view1.jpg" alt="Skate Park" fill className="object-cover" />
+  </div>
+  <div className="relative aspect-square overflow-hidden rounded-lg">
+    <Image src="/images/515-punta-caelo/soccer_view1.jpg" alt="Sports Field" fill className="object-cover" />
+  </div>
+</div>
+
+<div className="bg-secondary/30 p-6 rounded-lg mt-8 text-center">
+  <p className="text-lg font-medium mb-4">Ready to book your stay?</p>
+  <a href="https://www.airbnb.com/rooms/54150577?guests=1&adults=1&s=67&unique_share_id=007fa60b-5a15-49ac-908a-8b454378b14a" target="_blank" rel="noopener noreferrer">
+    <Button className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-5">
+      Book on Airbnb
+    </Button>
+  </a>
+</div>
