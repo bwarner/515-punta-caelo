@@ -6,7 +6,15 @@ import Link from "next/link";
 import { LanguageSwitcher } from "./language-switcher";
 import posthog from "posthog-js";
 
-export function Menu({ locale, title }: { locale: string; title: string }) {
+export function Menu({
+  locale,
+  title,
+  darkBackground = false,
+}: {
+  locale: string;
+  title: string;
+  darkBackground?: boolean;
+}) {
   const handleNavClick = (itemTitle: string, itemHref: string) => {
     posthog.capture("menu_navigation_clicked", {
       menu_item_title: itemTitle,
@@ -19,7 +27,9 @@ export function Menu({ locale, title }: { locale: string; title: string }) {
   return (
     <div className="menu-wrapper w-full">
       <div className="menu-header flex flex-row justify-between items-center">
-        <label className="hamburger-menu">
+        <label
+          className={`hamburger-menu ${darkBackground ? "hamburger-menu-dark" : ""}`}
+        >
           <input type="checkbox" id="menu" className="" />
         </label>
         <div className="menu-container">
