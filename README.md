@@ -1,5 +1,7 @@
 # 515 Punta Caelo - Vacation Rental Digital Guidebook
 
+[![CI](https://github.com/bwarner/515-punta-caelo/actions/workflows/ci.yml/badge.svg)](https://github.com/bwarner/515-punta-caelo/actions/workflows/ci.yml)
+
 A modern, mobile-first digital guidebook for a Panama vacation rental property. Built with Next.js 15, TypeScript, and MDX for content management.
 
 **Live Site:** [515puntacaelo.vercel.app](https://515puntacaelo.vercel.app)
