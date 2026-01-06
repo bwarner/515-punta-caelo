@@ -4,7 +4,7 @@
 
 A modern, mobile-first digital guidebook for a Panama vacation rental property. Built with Next.js 15, TypeScript, and MDX for content management.
 
-**Live Site:** [515puntacaelo.vercel.app](https://515puntacaelo.vercel.app)
+**Live Site:** [casapuntacaelo.com](https://casapuntacaelo.com)
 
 ## Tech Stack
 
