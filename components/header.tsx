@@ -6,6 +6,7 @@ import { useState } from "react";
 import { usePathname } from "next/navigation";
 import { MenuIcon, XIcon } from "lucide-react";
 import clsx from "clsx";
+import posthog from "posthog-js";
 
 export default function Header({ locale }: { locale: string }) {
   const pathname = usePathname();
@@ -37,6 +38,15 @@ export default function Header({ locale }: { locale: string }) {
                     key={loc}
                     href={`/${loc}/${currentPath}`}
                     className={loc === locale ? "font-bold" : "opacity-70"}
+                    onClick={() => {
+                      if (loc !== locale) {
+                        posthog.capture("language_changed", {
+                          from_locale: locale,
+                          to_locale: loc,
+                          current_path: currentPath,
+                        });
+                      }
+                    }}
                   >
                     {loc.toUpperCase()}
                   </Link>
@@ -52,7 +62,12 @@ export default function Header({ locale }: { locale: string }) {
               aria-controls="site-header-nav"
               aria-expanded="false"
               onClick={() => {
-                setIsMenuOpen(!isMenuOpen);
+                const newMenuState = !isMenuOpen;
+                setIsMenuOpen(newMenuState);
+                posthog.capture("mobile_menu_toggled", {
+                  menu_state: newMenuState ? "opened" : "closed",
+                  current_locale: locale,
+                });
               }}
             >
               {isMenuOpen ? (
@@ -70,7 +85,7 @@ export default function Header({ locale }: { locale: string }) {
             className={clsx(
               "site-header-nav md:block",
               isMenuOpen && "block",
-              !isMenuOpen && "hidden"
+              !isMenuOpen && "hidden",
             )}
           >
             <ul className="site-header-nav-list">
