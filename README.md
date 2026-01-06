@@ -1,27 +1,89 @@
-# Example app with MDX
+# 515 Punta Caelo - Vacation Rental Digital Guidebook
 
-This example shows using [MDX](https://github.com/mdx-js/mdx) as top level pages for your next.js app.
+[![CI](https://github.com/bwarner/515-punta-caelo/actions/workflows/ci.yml/badge.svg)](https://github.com/bwarner/515-punta-caelo/actions/workflows/ci.yml)
 
-## Preview
+A modern, mobile-first digital guidebook for a Panama vacation rental property. Built with Next.js 15, TypeScript, and MDX for content management.
 
-Preview the example live on [StackBlitz](http://stackblitz.com/):
+**Live Site:** [515puntacaelo.vercel.app](https://515puntacaelo.vercel.app)
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-mdx)
+## Tech Stack
 
-## Deploy your own
+| Category          | Technology                                         |
+| ----------------- | -------------------------------------------------- |
+| **Framework**     | Next.js 15 (App Router)                            |
+| **Language**      | TypeScript                                         |
+| **Content**       | MDX with frontmatter parsing                       |
+| **Styling**       | Tailwind CSS 4.x                                   |
+| **UI Components** | Radix UI primitives, shadcn/ui                     |
+| **Analytics**     | PostHog (with reverse proxy for ad-blocker bypass) |
+| **Deployment**    | Vercel                                             |
+| **CI/CD**         | GitHub Actions                                     |
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example):
+## Features
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-mdx&project-name=with-mdx&repository-name=with-mdx)
+- **Internationalization** - Full English/Spanish support with locale-based routing
+- **MDX Content Management** - Property info, guides, FAQs managed as MDX files
+- **Mobile-First Design** - Responsive layout optimized for guests on mobile devices
+- **Analytics Integration** - PostHog event tracking with custom events for user behavior analysis
+- **Security Hardened** - Path traversal protection, security headers, input validation
+- **Developer Experience** - ESLint, Prettier, Husky pre-commit hooks, TypeScript strict mode
 
-## How to use
+## Project Structure
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
-
-```bash
-npx create-next-app --example with-mdx with-mdx-app
-# or
-yarn create next-app --example with-mdx with-mdx-app
+```
+├── app/                    # Next.js App Router
+│   ├── [locale]/[slug]/    # Dynamic locale-based routing
+│   └── layout.tsx          # Root layout with fonts & analytics
+├── components/             # React components
+│   ├── ui/                 # shadcn/ui components
+│   └── *.tsx               # Property-specific components
+├── content/                # MDX content files
+│   ├── *-en.mdx            # English content
+│   └── *-es.mdx            # Spanish content
+├── public/images/          # Property photography
+└── .github/workflows/      # CI/CD pipelines
 ```
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+## Development
+
+```bash
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+
+# Run linting
+npx eslint .
+```
+
+## CI/CD Pipeline
+
+The GitHub Actions workflow runs on every PR:
+
+1. **Lint** - ESLint with zero warnings tolerance
+2. **Type Check** - TypeScript compiler validation
+3. **Build** - Vercel CLI build to match production environment
+
+## Code Quality
+
+- **Pre-commit hooks** via Husky + lint-staged
+- **ESLint** with TypeScript, Prettier, and import plugins
+- **Prettier** for consistent code formatting
+- **TypeScript** strict mode enabled
+
+## Architecture Decisions
+
+- **MDX over CMS** - Content changes are version-controlled and deployable via git
+- **App Router** - Leverages React Server Components for optimal performance
+- **Reverse Proxy Analytics** - PostHog requests proxied through `/ingest/*` to bypass ad blockers
+- **Locale-based routing** - Clean URLs like `/en/wifi` and `/es/wifi` for SEO
+
+## Author
+
+**Byron Warner**
+
+- GitHub: [@bwarner](https://github.com/bwarner)
