@@ -5,29 +5,71 @@ export const metadata = {
   locale: "en",
 };
 
-<Menubar locale={metadata.locale} title={metadata.title} />
+<AltBackground metadata={metadata}>
+<Menubar locale={metadata.locale} title={metadata.title} darkBackground={true} />
 
-<div className="flex flex-col gap-4 mb-4">
+{/* Hero image */}
 
-  <div className="flex flex-col items-center justify-center banner check-in_banner_bg bg-secondary fg-secondary-foreground h-[100px]">
-    <div className="wrapper flex flex-col items-center text-white">
-      <div className="text-5xl font-bold">3 PM </div>
-      <div className="text-2xl font-bold">CHECK - IN</div>
-    </div>
-  </div>
-You will receive a code for the front door on the day of your arrival. Follow the main entrance and use the provided key code. The keys are waiting for you in the lockbox by the door. 
+<div className="relative w-full h-[180px] overflow-hidden mb-0">
+  <Image
+    src="/images/515-punta-caelo/doorway_mobile.jpg"
+    alt="Entrance"
+    fill
+    className="object-cover"
+  />
 </div>
 
-<div className="flex flex-col gap-4">
+{/* Title banner */}
 
-  <div className="flex flex-col items-center justify-center check-out_banner_bg bg-secondary fg-secondary-foreground h-[100px]">
-    <div className="wrapper flex flex-col items-center text-white">
-      <div className="text-5xl font-bold">11 AM </div>
-      <div className="text-2xl font-bold">CHECK - OUT</div>
+<div className="bg-white py-3 px-4 text-center">
+  <h1 className="text-3xl font-semibold tracking-widest uppercase">
+    Check-in/out
+  </h1>
+</div>
+
+{/* Check-in Section */}
+
+<div className="bg-white mx-4 mt-6 rounded-lg overflow-hidden">
+  <div className="px-6 py-6 text-center">
+    <div className="text-6xl font-light tracking-wide">3 PM</div>
+    <div className="text-xl font-semibold tracking-widest uppercase mt-2">
+      Check-in
     </div>
   </div>
-  <div>
-    Check out is prior to 11am. If you'd like to request a late check-out, please contact me.
-    However, please be informed that we may not be able to grant your request if we have a same-day check-in.
+</div>
+
+<div className="px-6 py-4 text-center">
+  <p>
+    You will receive a code for the front door on the day of your arrival.
+    Follow the main entrance and use the provided key code. The keys are waiting
+    for you in the lockbox by the door.
+  </p>
+  <p className="mt-4">
+    If you need special accommodations for your check-in time, please don't
+    hesitate to reach out to us.
+  </p>
+</div>
+
+{/* Check-out Section */}
+
+<div className="bg-white mx-4 mt-6 rounded-lg overflow-hidden">
+  <div className="px-6 py-6 text-center">
+    <div className="text-6xl font-light tracking-wide">11 AM</div>
+    <div className="text-xl font-semibold tracking-widest uppercase mt-2">
+      Check-out
+    </div>
   </div>
 </div>
+
+<div className="px-6 py-4 mb-6 text-center">
+  <p>
+    Check out is prior to 11am. If you'd like to request a late check-out,
+    please contact me.
+  </p>
+  <p className="mt-4">
+    However, please be informed that we may not be able to grant your request if
+    we have a same-day check-in.
+  </p>
+</div>
+
+</AltBackground>
