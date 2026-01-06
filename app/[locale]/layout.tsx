@@ -2,6 +2,8 @@ import "@/app/globals.css";
 import type { ReactNode } from "react";
 import { locales } from "@/i18n";
 import Header from "@/components/header";
+import Footer from "@/components/footer";
+import LayoutContent from "@/components/layout-content";
 
 export default async function LocaleLayout({
   children,
@@ -14,16 +16,5 @@ export default async function LocaleLayout({
   if (!locales.includes(locale as any)) {
     throw new Error(`Invalid locale: ${locale}`);
   }
-
-  return (
-    <>
-      <Header locale={locale} />
-      <main className="prose prose-lg max-w-3xl mx-auto py-8 px-4">
-        {children}
-      </main>
-      <footer className="text-center text-sm text-gray-500 py-8">
-        &copy; 2025 All rights reserved.
-      </footer>
-    </>
-  );
+  return <LayoutContent>{children}</LayoutContent>;
 }

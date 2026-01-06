@@ -10,7 +10,7 @@ export default function ImageGallery({
           key={img.src}
           src={img.src}
           alt={img.alt}
-          className="rounded shadow"
+          className="rounded-sm shadow-sm"
         />
       ))}
     </div>
