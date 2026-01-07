@@ -2,6 +2,7 @@
 
 import { locales } from "@/i18n";
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
 import { MenuIcon, XIcon } from "lucide-react";
@@ -18,7 +19,7 @@ export default function Header({ locale }: { locale: string }) {
       <div className="wrapper">
         <div className="site-header-wrapper">
           <div className="site-header-logo">
-            <img
+            <Image
               src="/images/logo.png"
               alt="Punta Caelo"
               width={100}

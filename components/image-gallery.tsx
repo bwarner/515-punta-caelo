@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import posthog from "posthog-js";
 
 export default function ImageGallery({
@@ -22,13 +23,16 @@ export default function ImageGallery({
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
       {images.map((img, index) => (
-        <img
-          key={img.src}
-          src={img.src}
-          alt={img.alt}
-          className="rounded-sm shadow-sm cursor-pointer"
-          onClick={() => handleImageClick(img, index)}
-        />
+        <div key={img.src} className="relative aspect-[4/3]">
+          <Image
+            src={img.src}
+            alt={img.alt}
+            fill
+            sizes="(max-width: 640px) 100vw, 50vw"
+            className="rounded-sm shadow-sm cursor-pointer object-cover"
+            onClick={() => handleImageClick(img, index)}
+          />
+        </div>
       ))}
     </div>
   );
