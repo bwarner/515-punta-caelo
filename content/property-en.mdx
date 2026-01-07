@@ -5,7 +5,11 @@ export const metadata = {
   locale: "en",
 };
 
-<PropertyHeader locale={metadata.locale} title={metadata.title} />
+<PropertyHeader
+  locale={metadata.locale}
+  title={metadata.title}
+  headerTitle="Property Details"
+/>
 
 <div className="relative w-full h-[250px] mb-6 overflow-hidden rounded-lg">
   <Image
@@ -87,20 +91,30 @@ The open-concept living area features a fully equipped kitchen, comfortable seat
 Located in San Carlos, Panama Oeste — just 90 minutes from Panama City and Tocumen International Airport. The area offers beautiful beaches, local restaurants, and a relaxed Pacific coast atmosphere.
 
 <div className="flex flex-col gap-3 mt-8">
-  <Link href="/en/gallery">
-    <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 py-5">
-      View Photo Gallery
-    </Button>
-  </Link>
+  <div className="grid grid-cols-2 gap-3">
+    <Link href="/en/gallery">
+      <Button
+        variant="outline"
+        className="w-full border-primary text-primary hover:bg-primary/10 py-4 text-sm"
+      >
+        Photo Gallery
+      </Button>
+    </Link>
+    <Link href="/en/testimonials">
+      <Button
+        variant="outline"
+        className="w-full border-primary text-primary hover:bg-primary/10 py-4 text-sm"
+      >
+        Reviews (4.9 ★)
+      </Button>
+    </Link>
+  </div>
   <a
     href="https://www.airbnb.com/rooms/54150577?guests=1&adults=1&s=67&unique_share_id=007fa60b-5a15-49ac-908a-8b454378b14a"
     target="_blank"
     rel="noopener noreferrer"
   >
-    <Button
-      variant="outline"
-      className="w-full border-primary text-primary hover:bg-primary/10 py-5"
-    >
+    <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 py-5">
       Check Rates & Availability
     </Button>
   </a>
