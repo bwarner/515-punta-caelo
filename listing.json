@@ -2375,8 +2375,8 @@
               "location": "San Carlos",
               "personCapacity": 6,
               "imageUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-54150577/original/02c28fd6-2b0d-4207-9140-8d06d8317fad.jpeg?im_w=720&width=720&quality=70&auto=webp",
-              "pdpLink": "https://www.airbnb.com/rooms/54150577",
-              "shareUrl": "https://www.airbnb.com/rooms/54150577?viralityEntryPoint=1&s=76",
+              "pdpLink": "https://www.airbnb.com/h/puntacaelopanama",
+              "shareUrl": "https://www.airbnb.com/h/puntacaelopanama",
               "reviewCount": 186,
               "starRating": 4.93
             },
@@ -2429,7 +2429,7 @@
               "__typename": "SeoFeatures",
               "androidAlternateUrl": "android-app://com.airbnb.android/airbnb/rooms/54150577",
               "androidDeeplink": "airbnb://rooms/54150577",
-              "canonicalUrl": "https://www.airbnb.com/rooms/54150577",
+              "canonicalUrl": "https://www.airbnb.com/h/puntacaelopanama",
               "iphoneDeeplink": "airbnb://rooms/54150577",
               "metaDescription": "Jan 5, 2026 · Entire rental unit · Nuevo, acogedor y elegante apartamento de 4 recamaras, totalmente equipado en Punta Caelo.  A solo 70 minutos de la Ciudad de Panamá, disfruta de e...",
               "title": "Punta Caelo Apartment - Apartments for Rent in San Carlos, Panamá, Panama - Airbnb",
@@ -2442,7 +2442,7 @@
                 "ogImage": "https://a0.muscache.com/im/pictures/hosting/Hosting-54150577/original/02c28fd6-2b0d-4207-9140-8d06d8317fad.jpeg?im_w=720&width=720&quality=70&auto=webp",
                 "ogTitle": "Rental unit in San Carlos · ★4.93 · 4 bedrooms · 5 beds · 3 baths",
                 "ogType": "airbedandbreakfast:listing",
-                "ogUrl": "https://www.airbnb.com/rooms/54150577",
+                "ogUrl": "https://www.airbnb.com/h/puntacaelopanama",
                 "ogImageHeight": null,
                 "ogImageWidth": null,
                 "ogVideoUrl": null,
@@ -2458,7 +2458,7 @@
                 "twitterDescription": null,
                 "twitterImage": "https://a0.muscache.com/im/pictures/hosting/Hosting-54150577/original/02c28fd6-2b0d-4207-9140-8d06d8317fad.jpeg?im_w=720&width=720&quality=70&auto=webp",
                 "twitterTitle": null,
-                "twitterUrl": "https://www.airbnb.com/rooms/54150577"
+                "twitterUrl": "https://www.airbnb.com/h/puntacaelopanama"
               },
               "indexInSearchEngines": true
             },

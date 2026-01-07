@@ -6,6 +6,7 @@ import eslintPluginAutofix from "eslint-plugin-autofix";
 import eslintPluginImport from "eslint-plugin-import";
 import typescriptParser from "@typescript-eslint/parser";
 import eslintNodePlugin from "eslint-plugin-node";
+import eslintPluginNext from "@next/eslint-plugin-next";
 
 export default [
   {
@@ -28,6 +29,10 @@ export default [
       globals: {
         console: "readonly",
         process: "readonly",
+        React: "readonly",
+        JSX: "readonly",
+        atob: "readonly",
+        btoa: "readonly",
       },
       ecmaVersion: "latest",
       sourceType: "module",
@@ -70,10 +75,12 @@ export default [
     },
   },
   {
+    files: ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx", "**/*.mjs"],
     plugins: {
       import: eslintPluginImport,
       autofix: eslintPluginAutofix,
       "@typescript-eslint": eslintPluginTypescript,
+      "@next/next": eslintPluginNext,
     },
     rules: {
       "no-unused-vars": "off",
@@ -90,6 +97,9 @@ export default [
       "prettier/prettier": "warn",
       "@typescript-eslint/no-useless-constructor": "off",
       "@typescript-eslint/no-empty-function": "off",
+      // Next.js rules
+      ...eslintPluginNext.configs.recommended.rules,
+      ...eslintPluginNext.configs["core-web-vitals"].rules,
     },
   },
   {

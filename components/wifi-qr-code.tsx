@@ -63,6 +63,7 @@ export default function WiFiQRCode({
 
   return (
     <div className="flex flex-col items-center gap-4">
+      {/* eslint-disable-next-line @next/next/no-img-element -- QR code uses dynamically generated data URL */}
       <img
         src={qrCodeDataURL}
         alt={`WiFi QR Code for ${ssid}`}
