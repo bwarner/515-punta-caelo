@@ -1,20 +1,11 @@
 "use client";
 
-import { MenuIcon, X } from "lucide-react";
 import { items } from "./links";
 import Link from "next/link";
 import { LanguageSwitcher } from "./language-switcher";
 import posthog from "posthog-js";
 
-export function Menu({
-  locale,
-  title,
-  darkBackground = false,
-}: {
-  locale: string;
-  title: string;
-  darkBackground?: boolean;
-}) {
+export function Menu({ locale, title }: { locale: string; title: string }) {
   const handleNavClick = (itemTitle: string, itemHref: string) => {
     posthog.capture("menu_navigation_clicked", {
       menu_item_title: itemTitle,
@@ -27,9 +18,7 @@ export function Menu({
   return (
     <div className="menu-wrapper w-full">
       <div className="menu-header flex flex-row justify-between items-center">
-        <label
-          className={`hamburger-menu ${darkBackground ? "hamburger-menu-dark" : ""}`}
-        >
+        <label className="hamburger-menu">
           <input type="checkbox" id="menu" className="" />
         </label>
         <div className="menu-container">

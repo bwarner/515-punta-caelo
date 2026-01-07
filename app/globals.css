@@ -133,22 +133,20 @@ body {
   --bar-border-width: 1px;
   --bar-border-style: solid;
   --bar-border-color: oklch(0.923 0.003 48.717);
-  --hamburger-gap: 6px;
+  --hamburger-gap: 4px;
   --hamburger-margin-top: 10px;
   --hamburger-margin-left: 10px;
-  --hamburger-background: oklch(0.985 0.001 106.423);
-  --hamburger-border-radius: 0.625rem;
-  --hamburger-line-width: 60px;
-  --hamburger-line-height: 8px;
+  --hamburger-background: #c4a58c;
+  --hamburger-border-radius: 50%;
+  --hamburger-line-width: 32px;
+  --hamburger-line-height: 4px;
   --hamburger-line-radius: 4px;
-  --hamburger-width: 100px;
-  --hamburger-height: calc(
-    var(--hamburger-line-height) * 3 + var(--hamburger-gap) * 2
-  );
-  --hamburger-color: oklch(0.147 0.004 49.25);
-  --hamburger-color-hover: var(--accent);
-  --hamburger-color-active: oklch(0.985 0.001 106.423);
-  --hamburger-color-disabled: oklch(0.553 0.013 58.071);
+  --hamburger-width: 52px;
+  --hamburger-height: 52px;
+  --hamburger-color: white;
+  --hamburger-color-hover: rgba(255, 255, 255, 0.8);
+  --hamburger-color-active: rgba(255, 255, 255, 0.6);
+  --hamburger-color-disabled: rgba(255, 255, 255, 0.5);
 }
 
 /*
@@ -262,17 +260,16 @@ body {
   } */
 
   .hamburger-menu {
-    --x-width: calc(var(--hamburger-height) * 1.4142135623730951);
     @apply relative top-0 left-0;
-    @apply flex flex-col items-center justify-center;
-    gap: var(--hamburger-gap);
     margin-top: var(--hamburger-margin-top);
     margin-left: var(--hamburger-margin-left);
-    width: max-content;
+    width: var(--hamburger-width);
+    height: var(--hamburger-height);
     z-index: 100;
     cursor: pointer;
-    border-radius: var(--hamburger-radius);
     background-color: var(--hamburger-background);
+    border-radius: var(--hamburger-border-radius);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 
     &:hover {
       &:before,
@@ -303,20 +300,35 @@ body {
   .hamburger-menu:after,
   .hamburger-menu input {
     content: "";
-    display: block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
     width: var(--hamburger-line-width);
     height: var(--hamburger-line-height);
     background-color: var(--hamburger-color);
     border-radius: var(--hamburger-line-radius);
     transition: all 0.3s ease-in-out;
-    transform-origin: left center;
+    transform-origin: center center;
+    margin-left: calc(var(--hamburger-line-width) / -2);
+  }
+
+  .hamburger-menu:before {
+    margin-top: calc(
+      (var(--hamburger-gap) + var(--hamburger-line-height)) * -1 -
+        var(--hamburger-line-height) / 2
+    );
   }
 
   .hamburger-menu input {
     appearance: none;
     pointer-events: none;
     cursor: pointer;
-    @apply p-0 m-0 outline-none;
+    margin-top: calc(var(--hamburger-line-height) / -2);
+    @apply p-0 outline-none;
+  }
+
+  .hamburger-menu:after {
+    margin-top: calc(var(--hamburger-gap) + var(--hamburger-line-height) / 2);
   }
 
   .hamburger-menu:has(:focus-visible) {
@@ -334,46 +346,13 @@ body {
   }
 
   .hamburger-menu:has(input:checked):before {
-    width: var(--x-width);
-    translate: 0 calc(var(--hamburger-line-height) * -1);
-    @apply rotate-45;
+    margin-top: calc(var(--hamburger-line-height) / -2);
+    transform: rotate(45deg);
   }
 
   .hamburger-menu:has(input:checked):after {
-    width: var(--x-width);
-    translate: 0 var(--hamburger-line-height);
-    @apply -rotate-45;
-  }
-
-  /* Dark background variant - circular taupe background with white lines */
-  .hamburger-menu-dark {
-    --hamburger-line-width: 32px;
-    --hamburger-line-height: 4px;
-    --hamburger-gap: 4px;
-    --hamburger-height: calc(
-      var(--hamburger-line-height) * 3 + var(--hamburger-gap) * 2
-    );
-    --x-width: calc(var(--hamburger-height) * 1.4142135623730951);
-    @apply rounded-full;
-    background-color: #c4a58c;
-    width: 52px;
-    height: 52px;
-
-    &:before,
-    &:after,
-    & input {
-      background-color: white;
-      width: var(--hamburger-line-width);
-      height: var(--hamburger-line-height);
-    }
-
-    &:hover {
-      &:before,
-      &:after,
-      & input {
-        background-color: rgba(255, 255, 255, 0.8);
-      }
-    }
+    margin-top: calc(var(--hamburger-line-height) / -2);
+    transform: rotate(-45deg);
   }
 
   .menu-wrapper {
@@ -382,13 +361,14 @@ body {
   }
 
   .menu-container {
-    @apply absolute w-md border-2 border-foreground left-0 bg-background z-10;
+    @apply absolute border-2 border-foreground left-0 bg-background z-10;
     top: 100%;
     margin-left: var(--hamburger-margin-left);
     padding: 1rem;
     transform: translateY(calc(-100% - var(--hamburger-margin-top)));
     display: none;
     transition: all 0.3s ease-in-out;
+    width: min(280px, calc(100vw - 2 * var(--hamburger-margin-left)));
   }
 
   .hamburger-menu:has(input:checked) + .menu-container {
@@ -401,7 +381,15 @@ body {
   }
 
   .menu-container nav a {
-    @apply text-lg py-2 px-4 w-full text-center hover:bg-muted rounded transition-colors;
+    @apply text-lg py-2 px-4 w-full text-center rounded transition-all duration-150;
+  }
+
+  .menu-container nav a:hover {
+    @apply bg-primary/10;
+  }
+
+  .menu-container nav a:active {
+    @apply bg-primary/20 scale-[0.98];
   }
 
   .menu-title {
@@ -417,6 +405,28 @@ body {
   ul,
   ol {
     @apply mt-4 mb-4 list-none;
+    padding-left: 1.5rem;
+    /* 24px left padding for mobile */
+  }
+
+  /* Restore list markers for content lists */
+  ul {
+    list-style-type: disc;
+  }
+
+  ol {
+    list-style-type: decimal;
+  }
+
+  /* Ensure proper spacing on mobile */
+  @media (max-width: 768px) {
+    ul,
+    ol {
+      padding-left: 1.25rem;
+      /* 20px on mobile */
+      margin-left: 0.5rem;
+      /* 8px additional margin on mobile */
+    }
   }
 
   .toc li {

@@ -1,5 +1,6 @@
 const labels = {
   en: {
+    guide: "Guide",
     checkInOut: "Check-in/out",
     wifi: "WiFi",
     amenities: "Amenities",
@@ -17,6 +18,7 @@ const labels = {
     contact: "Contact",
   },
   es: {
+    guide: "Guía",
     checkInOut: "Entrada/Salida",
     wifi: "WiFi",
     amenities: "Comodidades",
@@ -39,6 +41,10 @@ export const items = (locale: string) => {
   const t = labels[locale as keyof typeof labels] || labels.en;
 
   return [
+    {
+      title: t.guide,
+      href: `/${locale}/guide`,
+    },
     {
       title: t.checkInOut,
       href: `/${locale}/check-in-out`,

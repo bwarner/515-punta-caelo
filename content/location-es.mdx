@@ -42,8 +42,8 @@ export const metadata = {
     <h2 className="text-3xl font-light mb-2">Ruta a</h2>
     <h2 className="text-3xl font-light mb-6">Nuestra Casa</h2>
 
-    <p className="text-lg font-medium">PUNTA CAELO, UNIDAD 515</p>
-    <p className="text-lg mb-6">SAN CARLOS, PANAMÁ</p>
+    <div className="text-lg font-medium">PUNTA CAELO, UNIDAD 515</div>
+    <div className="text-lg mb-6">SAN CARLOS, PANAMÁ</div>
 
     <a
       href="https://waze.com/ul?q=Punta%20Caelo"
@@ -51,7 +51,7 @@ export const metadata = {
       rel="noopener noreferrer"
       className="inline-block bg-[#C4A58C] text-white font-semibold py-3 px-8 rounded-full hover:bg-[#B39579] transition-colors uppercase tracking-wide"
     >
-      Abrir en Waze
+      <span>Abrir en Waze</span>
     </a>
 
   </div>
@@ -60,11 +60,11 @@ export const metadata = {
 {/* Directions Info */}
 
 <div className="px-6 py-6 text-center">
-  <p>
+  <span>
     La propiedad está aproximadamente a 1 hora y 15 minutos de la Ciudad de
     Panamá por la Carretera Panamericana. Tome la salida de San Carlos y siga
     las señales hacia Punta Caelo.
-  </p>
+  </span>
 </div>
 
 {/* Nearby Section */}
