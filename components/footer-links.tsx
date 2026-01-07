@@ -1,9 +1,9 @@
 export default function FooterLinks({
   children,
-  className,
+  _className,
 }: {
   children: React.ReactNode;
-  className?: string;
+  _className?: string;
 }) {
   return (
     <div className="wrapper" data-width="narrow" data-align="center">

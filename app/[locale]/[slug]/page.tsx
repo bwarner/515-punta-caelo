@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import fs from "fs";
+import path from "path";
 
 type Locale = "en" | "es";
 
@@ -52,13 +54,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export const dynamicParams = false;
 
 export function generateStaticParams() {
-  const fs = require("fs");
-  const path = require("path");
   const contentDirectory = path.join(process.cwd(), "content");
   const fileNames = fs.readdirSync(contentDirectory);
   const locales = ["en", "es"];
   const slugs: string[] = fileNames.map((fileName: string) =>
-    fileName.replace(/-(en|es)\.mdx$/, "")
+    fileName.replace(/-(en|es)\.mdx$/, ""),
   );
 
   const staticParams: { locale: string; slug: string }[] = [];
