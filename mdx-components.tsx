@@ -25,7 +25,7 @@ import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import Image from "next/image";
 import Link from "next/link";
-import { Phone, Mail, Plane } from "lucide-react";
+import { Phone, Mail, Plane, Globe, MapPin } from "lucide-react";
 import { HTMLAttributes } from "react";
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
@@ -123,6 +123,8 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     Phone,
     Mail,
     Plane,
+    Globe,
+    MapPin,
     ...components,
   };
 }

@@ -55,6 +55,34 @@ export const metadata = {
   </div>
 </div>
 
+{/* Map */}
+
+<div className="bg-white mx-4 mt-4 rounded-lg overflow-hidden">
+  <div className="px-6 py-4">
+    <h2 className="text-xl font-semibold mb-3 text-center">Map</h2>
+  </div>
+  <div className="w-full aspect-[16/10]">
+    <iframe
+      title="Punta Caelo map"
+      src="https://www.google.com/maps?output=embed&q=Punta+Caelo,+San+Carlos,+Panama&z=15"
+      className="w-full h-full border-0"
+      loading="lazy"
+      referrerPolicy="no-referrer-when-downgrade"
+      allowFullScreen
+    />
+  </div>
+  <div className="px-6 py-4 flex justify-center">
+    <a
+      href="https://www.google.com/maps?q=Punta%20Caelo%20Panama"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="inline-flex items-center text-sm font-medium underline underline-offset-4 hover:opacity-80"
+    >
+      Open in Google Maps
+    </a>
+  </div>
+</div>
+
 {/* Directions Info */}
 
 <div className="px-6 py-6 text-center">
