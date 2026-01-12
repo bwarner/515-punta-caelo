@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import fs from "fs";
 import path from "path";
-
-type Locale = "en" | "es";
+import { generateAlternates, type Locale } from "@/lib/seo";
 
 // Validate slug to prevent path traversal attacks
 function isValidSlug(slug: string): boolean {
@@ -48,7 +47,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       ? await import(`@/content/${slug}-es.mdx`)
       : await import(`@/content/${slug}-en.mdx`);
 
-  return metadata;
+  return {
+    ...metadata,
+    alternates: generateAlternates(locale, slug),
+  };
 }
 
 export const dynamicParams = false;
