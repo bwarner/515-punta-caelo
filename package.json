@@ -5,6 +5,8 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
+    "test": "vitest run",
+    "test:watch": "vitest",
     "prepare": "husky"
   },
   "dependencies": {
@@ -39,7 +41,7 @@
     "@next/eslint-plugin-next": "^16.1.1",
     "@tailwindcss/postcss": "^4.1.4",
     "@tailwindcss/typography": "^0.5.16",
-    "@types/node": "^22.9.0",
+    "@types/node": "^22.19.5",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
     "@typescript-eslint/eslint-plugin": "^8.31.0",
@@ -56,7 +58,8 @@
     "postcss": "^8.5.3",
     "prettier": "^3.5.3",
     "typescript": "^5.5.4",
-    "typescript-eslint": "^8.24.0"
+    "typescript-eslint": "^8.24.0",
+    "vitest": "^4.0.16"
   },
   "optionalDependencies": {
     "lightningcss-darwin-arm64": "1.30.2",
