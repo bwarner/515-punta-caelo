@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+# Disallow sensitive pages with WiFi credentials
+Disallow: /en/wifi
+Disallow: /es/wifi
