@@ -163,3 +163,5 @@ Remember to update the Github actions if need for add things like tests, formatt
 Format the code before committing it
 
 Make change in a feature branch
+
+Use kebab-case for file names (e.g., `json-ld.tsx` not `JsonLd.tsx`) to avoid issues with case-insensitive file systems

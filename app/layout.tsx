@@ -1,6 +1,7 @@
 import "./globals.css";
 import type { ReactNode } from "react";
 import { roboto, raleway, montserrat } from "./font";
+import { JsonLd } from "@/components/json-ld";
 
 export const metadata = {
   title: "Panama Vacation Rental",
@@ -21,6 +22,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     >
       <head></head>
       <body className="antialiased text-gray-900 font-monserrat ">
+        <JsonLd />
         {children}
       </body>
     </html>
