@@ -43,6 +43,8 @@ npx eslint .
 
 Content is managed through MDX files in the `/content/` directory. Files follow the pattern `{name}-{locale}.mdx` (e.g., `introduction-en.mdx`, `faqs-es.mdx`). The gallery images are defined in `content/gallery-images.mjs` as a centralized image registry.
 
+**MDX Gotcha - Nested Paragraph Elements**: When writing MDX content, avoid using `<p>` tags directly. MDX automatically wraps text content in `<p>` tags, which can cause React hydration errors if you also use explicit `<p>` tags (resulting in nested `<p>` inside `<p>`). Instead, use `<span className="block">` for paragraph-like content inside JSX elements, or let MDX handle paragraphs naturally with blank lines between text.
+
 ### Routing Structure
 
 The app uses locale-based routing:

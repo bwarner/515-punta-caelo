@@ -1,6 +1,7 @@
 export const metadata = {
   title: "Check-in/out",
-  description: "Check-in/out",
+  description:
+    "Check-in and check-out instructions for your stay at 515 Punta Caelo",
   darkBackground: true,
   locale: "en",
 };
@@ -38,16 +39,37 @@ export const metadata = {
   </div>
 </div>
 
-<div className="px-6 py-4 text-center">
-  <p>
-    You will receive a code for the front door on the day of your arrival.
-    Follow the main entrance and use the provided key code. The keys are waiting
-    for you in the lockbox by the door.
-  </p>
-  <p className="mt-4">
-    If you need special accommodations for your check-in time, please don't
-    hesitate to reach out to us.
-  </p>
+<div className="px-6 py-4 text-left space-y-4">
+  <div>
+    <h3 className="font-semibold text-lg mb-1">Gate Procedure</h3>
+    <span className="block">
+      At the main entrance, please notify the security guard that you are heading
+      to Apartment 515. Access will be granted via an app approval from the host.
+    </span>
+  </div>
+
+<div>
+  <h3 className="font-semibold text-lg mb-1">Keys</h3>
+  <span className="block">
+    Your keys will be handed to you by the guard or concierge upon arrival.
+  </span>
+</div>
+
+<div>
+  <h3 className="font-semibold text-lg mb-1">Parking</h3>
+  <span className="block">
+    You have a designated parking space located on Floor 3. Visitor parking is
+    also available within the complex.
+  </span>
+</div>
+
+  <div>
+    <h3 className="font-semibold text-lg mb-1">Location</h3>
+    <span className="block">
+      The apartment is located on Floor 5. The concierge can assist you in
+      finding the unit if needed.
+    </span>
+  </div>
 </div>
 
 {/* Check-out Section */}
@@ -61,15 +83,38 @@ export const metadata = {
   </div>
 </div>
 
-<div className="px-6 py-4 mb-6 text-center">
-  <p>
-    Check out is prior to 11am. If you'd like to request a late check-out,
-    please contact me.
-  </p>
-  <p className="mt-4">
-    However, please be informed that we may not be able to grant your request if
-    we have a same-day check-in.
-  </p>
+<div className="px-6 py-4 text-left space-y-4">
+  <div>
+    <h3 className="font-semibold text-lg mb-1">Key Return</h3>
+    <span className="block">
+      Please leave the apartment keys on the table inside the unit before
+      departing.
+    </span>
+  </div>
+</div>
+
+{/* Flexibility Section */}
+
+<div className="bg-white mx-4 mt-6 rounded-lg overflow-hidden">
+  <div className="px-6 py-4 text-center">
+    <div className="text-xl font-semibold tracking-widest uppercase">
+      Flexibility
+    </div>
+  </div>
+</div>
+
+<div className="px-6 py-4 mb-6 text-left">
+  <div>
+    <h3 className="font-semibold text-lg mb-1">Early/Late Access</h3>
+    <span className="block">
+      We aim to be flexible with check-in and check-out times. If there are no
+      guests arriving or departing on the same day, we are happy to accommodate
+      earlier arrivals or later departures.
+    </span>
+    <span className="block mt-2">
+      Please contact us 24 hours in advance to check availability.
+    </span>
+  </div>
 </div>
 
 </AltBackground>
