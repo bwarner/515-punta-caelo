@@ -1,8 +1,8 @@
-export const metadata = {
-  title: "Información Wi-Fi",
-  locale: "es",
-  darkBackground: true,
-};
+---
+title: "Información Wi-Fi"
+locale: "es"
+darkBackground: true
+---
 
 export const wifiCredentials = {
   ssid: process.env.WIFI_SSID1
@@ -13,8 +13,8 @@ export const wifiCredentials = {
     : "",
 };
 
-<AltBackground metadata={metadata}>
-<Menubar locale={metadata.locale} title={metadata.title} />
+<AltBackground title="Información Wi-Fi" darkBackground={true} locale="es">
+<Menubar locale="es" title="Información Wi-Fi" />
 
 <WiFiPanel
   encodedSsid={wifiCredentials.ssid}

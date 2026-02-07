@@ -1,16 +1,13 @@
-export const metadata = {
-  title: "Guest Guide | Punta Caelo",
-  description: "Everything you need for your stay - WiFi, check-in, amenities, local recommendations, and more.",
-  locale: "en",
-};
+---
+title: "Guest Guide | Punta Caelo"
+description: "Everything you need for your stay - WiFi, check-in, amenities, local recommendations, and more."
+locale: "en"
+---
 
 export default function Guide() {
   return (
     <div className="">
-      <Menubar
-        locale={metadata.locale}
-        title="Your Guide"
-      />
+      <Menubar locale="en" title="Your Guide" />
       <div className="text-center text-5xl capitalize">Your guide</div>
       <div className="text-center text-2xl">The Perfect Retreat</div>
       <GuideGrid />
