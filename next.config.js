@@ -42,11 +42,8 @@ const nextConfig = {
 };
 
 const withMDX = createMDX({
-  // 👇 This is the important part
   options: {
-    mdxOptions: {
-      parseFrontmatter: true,
-    },
+    parseFrontmatter: true,
   },
 });
 
