@@ -37,10 +37,8 @@ if (clientId && token) {
   console.log("✅ Tina Cloud credentials found — running tinacms build...");
   try {
     execSync("npx tinacms build", { stdio: "inherit" });
-  } catch (err) {
-    console.warn(
-      "⚠️  tinacms build failed — continuing with Next.js build.",
-    );
+  } catch {
+    console.warn("⚠️  tinacms build failed — continuing with Next.js build.");
     console.warn(
       "   This is expected if Tina Cloud has not yet indexed this branch.",
     );
