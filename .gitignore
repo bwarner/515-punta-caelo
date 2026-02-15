@@ -46,8 +46,8 @@ yarn-error.log*
 # vercel
 .vercel
 
-# TinaCMS
-tina/__generated__
+# TinaCMS - cache only (generated files must be committed for Tina Cloud)
+tina/__generated__/.cache
 
 # MCP
 .mcp.json
