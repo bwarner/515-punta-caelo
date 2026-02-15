@@ -6,6 +6,26 @@
  */
 
 import { execSync } from "child_process";
+import { readFileSync } from "fs";
+import { resolve } from "path";
+
+// Load .env.local for local builds (Vercel injects env vars natively)
+try {
+  const envFile = readFileSync(resolve(process.cwd(), ".env.local"), "utf-8");
+  for (const line of envFile.split("\n")) {
+    const trimmed = line.trim();
+    if (!trimmed || trimmed.startsWith("#")) continue;
+    const eqIndex = trimmed.indexOf("=");
+    if (eqIndex === -1) continue;
+    const key = trimmed.slice(0, eqIndex);
+    const value = trimmed.slice(eqIndex + 1).replace(/^["']|["']$/g, "");
+    if (!process.env[key]) {
+      process.env[key] = value;
+    }
+  }
+} catch {
+  // No .env.local file — that's fine
+}
 
 const clientId = process.env.NEXT_PUBLIC_TINA_CLIENT_ID;
 const token = process.env.TINA_TOKEN;
