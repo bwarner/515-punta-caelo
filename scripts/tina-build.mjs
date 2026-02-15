@@ -3,6 +3,9 @@
  * Only runs `tinacms build` when Tina Cloud credentials are configured.
  * This allows the site to build normally without Tina Cloud in environments
  * where the CMS is not needed (e.g., preview deployments).
+ *
+ * The Tina build is non-blocking — if it fails (e.g., branch not yet indexed
+ * by Tina Cloud), the Next.js build will still proceed.
  */
 
 import { execSync } from "child_process";
@@ -32,7 +35,17 @@ const token = process.env.TINA_TOKEN;
 
 if (clientId && token) {
   console.log("✅ Tina Cloud credentials found — running tinacms build...");
-  execSync("npx tinacms build", { stdio: "inherit" });
+  try {
+    execSync("npx tinacms build", { stdio: "inherit" });
+  } catch {
+    console.warn("⚠️  tinacms build failed — continuing with Next.js build.");
+    console.warn(
+      "   This is expected if Tina Cloud has not yet indexed this branch.",
+    );
+    console.warn(
+      "   The /admin page may not work until Tina Cloud indexes the branch.",
+    );
+  }
 } else {
   console.log(
     "⏭️  Tina Cloud credentials not configured — skipping tinacms build.",

@@ -1,0 +1,382 @@
+{
+  "version": {
+    "fullVersion": "2.1.1",
+    "major": "2",
+    "minor": "1",
+    "patch": "1"
+  },
+  "meta": { "flags": ["experimentalData"] },
+  "collections": [
+    {
+      "name": "pages_en",
+      "label": "Pages (English)",
+      "path": "content",
+      "format": "mdx",
+      "match": { "include": "*-en" },
+      "fields": [
+        {
+          "type": "string",
+          "name": "title",
+          "label": "Title",
+          "required": true,
+          "isTitle": true,
+          "namespace": ["pages_en", "title"],
+          "searchable": true,
+          "uid": false
+        },
+        {
+          "type": "string",
+          "name": "description",
+          "label": "Description",
+          "namespace": ["pages_en", "description"],
+          "searchable": true,
+          "uid": false
+        },
+        {
+          "type": "string",
+          "name": "locale",
+          "label": "Locale",
+          "options": ["en", "es"],
+          "namespace": ["pages_en", "locale"],
+          "searchable": true,
+          "uid": false
+        },
+        {
+          "type": "boolean",
+          "name": "darkBackground",
+          "label": "Dark Background",
+          "namespace": ["pages_en", "darkBackground"],
+          "searchable": true,
+          "uid": false
+        },
+        {
+          "type": "rich-text",
+          "name": "body",
+          "label": "Body",
+          "isBody": true,
+          "templates": [
+            {
+              "name": "Menubar",
+              "label": "Menubar",
+              "fields": [
+                {
+                  "name": "locale",
+                  "label": "Locale",
+                  "type": "string",
+                  "namespace": ["pages_en", "body", "Menubar", "locale"],
+                  "searchable": true,
+                  "uid": false
+                },
+                {
+                  "name": "title",
+                  "label": "Title",
+                  "type": "string",
+                  "namespace": ["pages_en", "body", "Menubar", "title"],
+                  "searchable": true,
+                  "uid": false
+                }
+              ],
+              "namespace": ["pages_en", "body", "Menubar"]
+            },
+            {
+              "name": "Image",
+              "label": "Image",
+              "fields": [
+                {
+                  "name": "src",
+                  "label": "Source",
+                  "type": "image",
+                  "namespace": ["pages_en", "body", "Image", "src"],
+                  "searchable": false,
+                  "uid": false
+                },
+                {
+                  "name": "alt",
+                  "label": "Alt Text",
+                  "type": "string",
+                  "namespace": ["pages_en", "body", "Image", "alt"],
+                  "searchable": true,
+                  "uid": false
+                },
+                {
+                  "name": "fill",
+                  "label": "Fill",
+                  "type": "boolean",
+                  "namespace": ["pages_en", "body", "Image", "fill"],
+                  "searchable": true,
+                  "uid": false
+                },
+                {
+                  "name": "className",
+                  "label": "CSS Class",
+                  "type": "string",
+                  "namespace": ["pages_en", "body", "Image", "className"],
+                  "searchable": true,
+                  "uid": false
+                }
+              ],
+              "namespace": ["pages_en", "body", "Image"]
+            },
+            {
+              "name": "Alert",
+              "label": "Alert",
+              "fields": [
+                {
+                  "name": "children",
+                  "label": "Content",
+                  "type": "rich-text",
+                  "namespace": ["pages_en", "body", "Alert", "children"],
+                  "searchable": true,
+                  "parser": { "type": "mdx" },
+                  "uid": false
+                }
+              ],
+              "namespace": ["pages_en", "body", "Alert"]
+            },
+            {
+              "name": "Card",
+              "label": "Card",
+              "fields": [
+                {
+                  "name": "children",
+                  "label": "Content",
+                  "type": "rich-text",
+                  "namespace": ["pages_en", "body", "Card", "children"],
+                  "searchable": true,
+                  "parser": { "type": "mdx" },
+                  "uid": false
+                }
+              ],
+              "namespace": ["pages_en", "body", "Card"]
+            },
+            {
+              "name": "TrackedAirbnbButton",
+              "label": "Airbnb Button",
+              "fields": [
+                {
+                  "name": "href",
+                  "label": "URL",
+                  "type": "string",
+                  "namespace": [
+                    "pages_en",
+                    "body",
+                    "TrackedAirbnbButton",
+                    "href"
+                  ],
+                  "searchable": true,
+                  "uid": false
+                },
+                {
+                  "name": "label",
+                  "label": "Label",
+                  "type": "string",
+                  "namespace": [
+                    "pages_en",
+                    "body",
+                    "TrackedAirbnbButton",
+                    "label"
+                  ],
+                  "searchable": true,
+                  "uid": false
+                }
+              ],
+              "namespace": ["pages_en", "body", "TrackedAirbnbButton"]
+            }
+          ],
+          "namespace": ["pages_en", "body"],
+          "searchable": true,
+          "parser": { "type": "mdx" },
+          "uid": false
+        }
+      ],
+      "namespace": ["pages_en"]
+    },
+    {
+      "name": "pages_es",
+      "label": "Pages (Spanish)",
+      "path": "content",
+      "format": "mdx",
+      "match": { "include": "*-es" },
+      "fields": [
+        {
+          "type": "string",
+          "name": "title",
+          "label": "Título",
+          "required": true,
+          "isTitle": true,
+          "namespace": ["pages_es", "title"],
+          "searchable": true,
+          "uid": false
+        },
+        {
+          "type": "string",
+          "name": "description",
+          "label": "Descripción",
+          "namespace": ["pages_es", "description"],
+          "searchable": true,
+          "uid": false
+        },
+        {
+          "type": "string",
+          "name": "locale",
+          "label": "Locale",
+          "options": ["en", "es"],
+          "namespace": ["pages_es", "locale"],
+          "searchable": true,
+          "uid": false
+        },
+        {
+          "type": "boolean",
+          "name": "darkBackground",
+          "label": "Fondo Oscuro",
+          "namespace": ["pages_es", "darkBackground"],
+          "searchable": true,
+          "uid": false
+        },
+        {
+          "type": "rich-text",
+          "name": "body",
+          "label": "Contenido",
+          "isBody": true,
+          "templates": [
+            {
+              "name": "Menubar",
+              "label": "Menubar",
+              "fields": [
+                {
+                  "name": "locale",
+                  "label": "Locale",
+                  "type": "string",
+                  "namespace": ["pages_es", "body", "Menubar", "locale"],
+                  "searchable": true,
+                  "uid": false
+                },
+                {
+                  "name": "title",
+                  "label": "Title",
+                  "type": "string",
+                  "namespace": ["pages_es", "body", "Menubar", "title"],
+                  "searchable": true,
+                  "uid": false
+                }
+              ],
+              "namespace": ["pages_es", "body", "Menubar"]
+            },
+            {
+              "name": "Image",
+              "label": "Image",
+              "fields": [
+                {
+                  "name": "src",
+                  "label": "Source",
+                  "type": "image",
+                  "namespace": ["pages_es", "body", "Image", "src"],
+                  "searchable": false,
+                  "uid": false
+                },
+                {
+                  "name": "alt",
+                  "label": "Alt Text",
+                  "type": "string",
+                  "namespace": ["pages_es", "body", "Image", "alt"],
+                  "searchable": true,
+                  "uid": false
+                },
+                {
+                  "name": "fill",
+                  "label": "Fill",
+                  "type": "boolean",
+                  "namespace": ["pages_es", "body", "Image", "fill"],
+                  "searchable": true,
+                  "uid": false
+                },
+                {
+                  "name": "className",
+                  "label": "CSS Class",
+                  "type": "string",
+                  "namespace": ["pages_es", "body", "Image", "className"],
+                  "searchable": true,
+                  "uid": false
+                }
+              ],
+              "namespace": ["pages_es", "body", "Image"]
+            },
+            {
+              "name": "Alert",
+              "label": "Alerta",
+              "fields": [
+                {
+                  "name": "children",
+                  "label": "Contenido",
+                  "type": "rich-text",
+                  "namespace": ["pages_es", "body", "Alert", "children"],
+                  "searchable": true,
+                  "parser": { "type": "mdx" },
+                  "uid": false
+                }
+              ],
+              "namespace": ["pages_es", "body", "Alert"]
+            },
+            {
+              "name": "Card",
+              "label": "Tarjeta",
+              "fields": [
+                {
+                  "name": "children",
+                  "label": "Contenido",
+                  "type": "rich-text",
+                  "namespace": ["pages_es", "body", "Card", "children"],
+                  "searchable": true,
+                  "parser": { "type": "mdx" },
+                  "uid": false
+                }
+              ],
+              "namespace": ["pages_es", "body", "Card"]
+            },
+            {
+              "name": "TrackedAirbnbButton",
+              "label": "Botón de Airbnb",
+              "fields": [
+                {
+                  "name": "href",
+                  "label": "URL",
+                  "type": "string",
+                  "namespace": [
+                    "pages_es",
+                    "body",
+                    "TrackedAirbnbButton",
+                    "href"
+                  ],
+                  "searchable": true,
+                  "uid": false
+                },
+                {
+                  "name": "label",
+                  "label": "Etiqueta",
+                  "type": "string",
+                  "namespace": [
+                    "pages_es",
+                    "body",
+                    "TrackedAirbnbButton",
+                    "label"
+                  ],
+                  "searchable": true,
+                  "uid": false
+                }
+              ],
+              "namespace": ["pages_es", "body", "TrackedAirbnbButton"]
+            }
+          ],
+          "namespace": ["pages_es", "body"],
+          "searchable": true,
+          "parser": { "type": "mdx" },
+          "uid": false
+        }
+      ],
+      "namespace": ["pages_es"]
+    }
+  ],
+  "config": {
+    "media": { "tina": { "publicFolder": "public", "mediaRoot": "images" } }
+  }
+}
