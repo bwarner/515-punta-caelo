@@ -17,6 +17,7 @@ export default [
       "dist/**",
       "tmp/**",
       "coverage/**",
+      "tina/__generated__/**",
       // 'jest.config.ts',
     ],
   },

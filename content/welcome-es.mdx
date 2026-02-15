@@ -1,14 +1,26 @@
-export const metadata = {
-  title: "Bienvenido",
-  description: "El Refugio Perfecto",
-  darkBackground: true,
-};
+---
+title: "Bienvenido"
+description: "El Refugio Perfecto"
+darkBackground: true
+---
 
-<AltBackground metadata={metadata}>
+<AltBackground title="Bienvenido" description="El Refugio Perfecto" darkBackground={true}>
 # Tu Estadía Perfecta Comienza Ahora.
 
-<div style={{ position: 'relative', width: '100%', height: '200px', overflow: 'hidden' }}>
-<Image className="image-top-half" fill src="/images/515-punta-caelo/livingroom_view2.jpg" alt="El Refugio Perfecto" />
+<div
+  style={{
+    position: "relative",
+    width: "100%",
+    height: "200px",
+    overflow: "hidden",
+  }}
+>
+  <Image
+    className="image-top-half"
+    fill
+    src="/images/515-punta-caelo/livingroom_view2.jpg"
+    alt="El Refugio Perfecto"
+  />
 </div>
 
 <div className="wrapper">

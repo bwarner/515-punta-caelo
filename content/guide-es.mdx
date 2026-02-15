@@ -1,14 +1,12 @@
-export const metadata = {
-  title: "Guía del Huésped | Punta Caelo",
-  description:
-    "Todo lo que necesitas para tu estadía - WiFi, check-in, amenidades, recomendaciones locales y más.",
-  locale: "es",
-};
+---
+title: "Guía del Huésped | Punta Caelo"
+locale: "es"
+---
 
 export default function Guide() {
   return (
     <div className="">
-      <Menubar locale={metadata.locale} title="Tu Guía" />
+      <Menubar locale="es" title="Tu Guía" />
       <div className="text-center text-5xl capitalize">Tu guía</div>
       <div className="text-center text-2xl">El Refugio Perfecto</div>
       <GuideGrid locale="es" />

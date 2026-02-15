@@ -1,17 +1,21 @@
-export const metadata = {
-  title: "Transporte",
-  description: "Cómo llegar al área",
-  darkBackground: false,
-  locale: "es",
-};
+---
+title: "Transporte"
+description: "Cómo llegar al área"
+darkBackground: false
+locale: "es"
+---
 
-
-<Menubar locale={metadata.locale} title={metadata.title} />
+<Menubar locale="es" title="Transporte" />
 <div className="relative w-full h-[150px]">
- <Image src="/images/515-punta-caelo/pool_small1.png" alt="Transporte" layout="fill" />
+  <Image
+    src="/images/515-punta-caelo/pool_small1.png"
+    alt="Transporte"
+    layout="fill"
+  />
 </div>
 
 ## Autobús
+
 En la comunidad Punta Caelo cerca de Coronado en Panamá Oeste,
 el transporte local es principalmente servido por minibuses estilo coaster con aire acondicionado que operan rutas frecuentes
 entre los vecindarios circundantes, playas y San Carlos. La ruta [L041](https://moovitapp.com/index/en/public_transit-line-l041-Panam%C3%A1-4674-1799010-27147736-0) "Coronado Interno" recorre Coronado, comenzando en Avenida Eisenmann & Punta Prieta—aproximadamente cada 14 minutos en días de semana (≈ cada 18–24 minutos fines de semana), desde aproximadamente 5:20 AM hasta 10:20 PM, completando un circuito completo en ~33 minutos
@@ -24,16 +28,15 @@ Uber opera en el área de Coronado y San Carlos, pero la disponibilidad puede se
 
 Los taxis son una alternativa. No usan taxímetros, así que siempre acuerde un precio antes de subir. Para viajes locales alrededor de San Carlos o Coronado, las tarifas generalmente van de $2–$5, mientras que viajes más largos (ej., a Ciudad de Panamá o El Valle) serán más costosos.
 
-
 <div className="flex flex-row gap-4 bg-secondary justify-center items-center py-6 px-10" >
 
-  <Plane  className="w-20 h-20"/>
+<Plane className="w-20 h-20" />
 
   <div className="flex flex-col gap-4">
   <div className="wrapper text-2xl font-bold">Aeropuertos Internacionales</div>
 
-  2 horas en carro
-  3 horas en tren y autobús
+2 horas en carro
+3 horas en tren y autobús
 
   </div>
 
