@@ -10,7 +10,11 @@ function compactRecord(input: Record<string, unknown>) {
 }
 
 posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY!, {
-  api_host: "/ingest",
+  // Use direct API in development to avoid 431 errors from reverse proxy
+  api_host:
+    process.env.NODE_ENV === "development"
+      ? "https://us.i.posthog.com"
+      : "/ingest",
   ui_host: process.env.NEXT_PUBLIC_POSTHOG_HOST,
   // Include the defaults option as required by PostHog
   defaults: "2025-05-24",
