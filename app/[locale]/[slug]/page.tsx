@@ -59,10 +59,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const { title, description } = parsed.data;
 
+  // Prevent search engines from indexing sensitive pages
+  const noIndexPages = ["wifi"];
+  const shouldNoIndex = noIndexPages.includes(slug);
+
   return {
     title,
     description,
     alternates: generateAlternates(locale, slug),
+    ...(shouldNoIndex && {
+      robots: {
+        index: false,
+        follow: false,
+      },
+    }),
   };
 }
 
