@@ -219,15 +219,12 @@ locale: "en"
 </div>
 
 <div className="flex flex-col gap-3 mt-8 mx-4">
-  <a
-    href="https://www.airbnb.com/h/puntacaelopanama"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 py-5">
-      Read All 186 Reviews on Airbnb
-    </Button>
-  </a>
+  <TrackedAirbnbButton
+    source="testimonials-read-reviews"
+    locale="en"
+    buttonText="Read All 186 Reviews on Airbnb"
+    className="w-full bg-primary text-primary-foreground hover:bg-primary/90 py-5"
+  />
   <Link href="/en/property">
     <Button
       variant="outline"

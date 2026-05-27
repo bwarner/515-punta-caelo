@@ -1,28 +1,25 @@
-import { Button } from "@/components/ui/button";
 import { ReactNode } from "react";
 
-interface TrackedAirbnbButtonProps {
+interface TrackedAirbnbLinkProps {
   source: string;
   locale: string;
-  buttonText: string;
   label?: string;
   className?: string;
-  children?: ReactNode;
+  children: ReactNode;
 }
 
-export default function TrackedAirbnbButton({
+export default function TrackedAirbnbLink({
   source,
   locale,
-  buttonText,
   label,
-  className = "",
+  className,
   children,
-}: TrackedAirbnbButtonProps) {
+}: TrackedAirbnbLinkProps) {
   const params = new URLSearchParams({
     source,
     locale,
-    variant: "button",
-    label: label ?? buttonText,
+    variant: "link",
+    ...(label ? { label } : {}),
   });
 
   return (
@@ -30,8 +27,9 @@ export default function TrackedAirbnbButton({
       href={`/go/airbnb?${params.toString()}`}
       target="_blank"
       rel="noopener noreferrer"
+      className={className}
     >
-      <Button className={className}>{children ?? buttonText}</Button>
+      {children}
     </a>
   );
 }
