@@ -5,6 +5,7 @@ import path from "path";
 // Pages with known external scripts that cause unavoidable hydration mismatches
 const SKIP_PAGES = [
   "review", // Airbnb embed script modifies DOM after hydration
+  "home", // Home is rendered at /:locale, not /:locale/home (see app/[locale]/page.tsx)
 ];
 
 // Get all content pages from the content directory

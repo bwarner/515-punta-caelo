@@ -10,18 +10,16 @@ This is a Next.js vacation rental website for a Panama property (515 Punta Caelo
 
 ```bash
 # Start development server
-npm run dev
-# or
-yarn dev
+pnpm dev
 
 # Build production version
-npm run build
+pnpm build
 
 # Start production server
-npm run start
+pnpm start
 
 # Lint code (ESLint with Prettier)
-npx eslint .
+pnpm exec eslint .
 ```
 
 ## Architecture

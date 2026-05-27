@@ -17,6 +17,8 @@ import Menubar from "@/components/menubar";
 import WiFiPanel from "@/components/wifi.panel";
 import { PropertyHeader } from "@/components/property-header";
 import TrackedAirbnbButton from "@/components/tracked-airbnb-button";
+import TrackedAirbnbLink from "@/components/tracked-airbnb-link";
+import { LanguageSwitcher } from "@/components/language-switcher";
 // shadcn/ui components
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Badge } from "@/components/ui/badge";
@@ -103,6 +105,8 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     WiFiPanel,
     PropertyHeader,
     TrackedAirbnbButton,
+    TrackedAirbnbLink,
+    LanguageSwitcher,
     // shadcn/ui components
     Alert,
     AlertTitle,

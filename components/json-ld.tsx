@@ -7,7 +7,7 @@ export function JsonLd() {
     "@id": "https://casapuntacaelo.com/#lodging",
     name: "Punta Caelo Beach Rental",
     description:
-      "Stunning 3-bedroom oceanfront condo in San Carlos, Panama with ocean views, 3 pools, beach access, fitness center, and full amenities. Just 90 minutes from Panama City.",
+      "Stunning 3-bedroom oceanfront condo with maid's quarters in San Carlos, Panama. Ocean views, 3 pools, beach access, fitness center, and full amenities. Just 90 minutes from Panama City.",
     url: "https://casapuntacaelo.com",
     telephone: "+507-6310-9953",
     image: [
@@ -65,7 +65,6 @@ export function JsonLd() {
     ],
     checkinTime: "15:00",
     checkoutTime: "11:00",
-    numberOfRooms: 4,
     petsAllowed: true,
     priceRange: "$$",
     sameAs: ["https://www.airbnb.com/h/puntacaelopanama"],
@@ -77,11 +76,11 @@ export function JsonLd() {
     "@id": "https://casapuntacaelo.com/#vacation-rental",
     name: "Punta Caelo Oceanfront Apartment",
     description:
-      "Spacious 3-bedroom oceanfront condo with stunning ocean views. Perfect for families seeking a peaceful beach getaway in Panama.",
+      "Spacious 3-bedroom oceanfront condo with maid's quarters and stunning ocean views. Perfect for families seeking a peaceful beach getaway in Panama.",
     url: "https://casapuntacaelo.com",
     image:
       "https://casapuntacaelo.com/images/515-punta-caelo/balcony_view1.jpg",
-    numberOfBedrooms: 4,
+    numberOfBedrooms: 3,
     numberOfBathroomsTotal: 3,
     numberOfFullBathrooms: 3,
     occupancy: {
@@ -96,6 +95,10 @@ export function JsonLd() {
     amenityFeature: [
       { "@type": "LocationFeatureSpecification", name: "Ocean View" },
       { "@type": "LocationFeatureSpecification", name: "Balcony" },
+      {
+        "@type": "LocationFeatureSpecification",
+        name: "Maid's quarters with private bathroom and in-unit washer/dryer",
+      },
       { "@type": "LocationFeatureSpecification", name: "3 Swimming Pools" },
       { "@type": "LocationFeatureSpecification", name: "Direct Beach Access" },
       { "@type": "LocationFeatureSpecification", name: "Fitness Center" },

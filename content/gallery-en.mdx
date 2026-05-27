@@ -195,13 +195,10 @@ locale: "en"
 
 <div className="bg-secondary/30 p-6 rounded-lg mt-8 text-center">
   <p className="text-lg font-medium mb-4">Ready to book your stay?</p>
-  <a
-    href="https://www.airbnb.com/h/puntacaelopanama"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    <Button className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-5">
-      Book on Airbnb
-    </Button>
-  </a>
+  <TrackedAirbnbButton
+    source="gallery"
+    locale="en"
+    buttonText="Book on Airbnb"
+    className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-5"
+  />
 </div>

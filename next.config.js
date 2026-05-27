@@ -26,15 +26,34 @@ const nextConfig = {
       },
     ];
   },
-  // PostHog reverse proxy configuration
+  // Legacy + collision redirects:
+  // - /:locale/index was the old home URL → /:locale
+  // - /:locale/home would collide with home-${locale}.mdx + [slug] route → /:locale
+  async redirects() {
+    return [
+      {
+        source: "/:locale(en|es)/index",
+        destination: "/:locale",
+        permanent: true,
+      },
+      {
+        source: "/:locale(en|es)/home",
+        destination: "/:locale",
+        permanent: true,
+      },
+    ];
+  },
+  // PostHog reverse proxy. Path is intentionally generic to avoid common
+  // ad-blocker filter rules that pattern-match PostHog-flavored paths like
+  // /ingest, /ph, /posthog. Client uses /relay as api_host in production.
   async rewrites() {
     return [
       {
-        source: "/ingest/static/:path*",
+        source: "/relay/static/:path*",
         destination: "https://us-assets.i.posthog.com/static/:path*",
       },
       {
-        source: "/ingest/:path*",
+        source: "/relay/:path*",
         destination: "https://us.i.posthog.com/:path*",
       },
     ];
