@@ -3,8 +3,8 @@ import { MetadataRoute } from "next";
 const BASE_URL = "https://casapuntacaelo.com";
 
 // Public pages to index (excludes sensitive guest info like WiFi, check-in codes, etc.)
+// Home is served at /${locale} (no slug), tracked separately below.
 const pages = [
-  "index",
   "guide",
   "property",
   "amenities",
@@ -27,14 +27,20 @@ const locales = ["en", "es"];
 export default function sitemap(): MetadataRoute.Sitemap {
   const routes: MetadataRoute.Sitemap = [];
 
-  // Add all locale/page combinations
   for (const locale of locales) {
+    routes.push({
+      url: `${BASE_URL}/${locale}`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 1.0,
+    });
+
     for (const page of pages) {
       routes.push({
         url: `${BASE_URL}/${locale}/${page}`,
         lastModified: new Date(),
-        changeFrequency: page === "index" ? "weekly" : "monthly",
-        priority: page === "index" ? 1.0 : page === "guide" ? 0.9 : 0.7,
+        changeFrequency: "monthly",
+        priority: page === "guide" ? 0.9 : 0.7,
       });
     }
   }

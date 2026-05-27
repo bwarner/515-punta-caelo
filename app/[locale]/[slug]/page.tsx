@@ -82,9 +82,10 @@ export function generateStaticParams() {
   const contentDirectory = path.join(process.cwd(), "content");
   const fileNames = fs.readdirSync(contentDirectory);
   const locales = ["en", "es"];
-  const slugs: string[] = fileNames.map((fileName: string) =>
-    fileName.replace(/-(en|es)\.mdx$/, ""),
-  );
+  // "home" is served by app/[locale]/page.tsx; exclude here to avoid duplicate content.
+  const slugs: string[] = fileNames
+    .map((fileName: string) => fileName.replace(/-(en|es)\.mdx$/, ""))
+    .filter((slug) => slug !== "home");
 
   const staticParams: { locale: string; slug: string }[] = [];
 

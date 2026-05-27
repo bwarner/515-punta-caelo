@@ -26,6 +26,23 @@ const nextConfig = {
       },
     ];
   },
+  // Legacy + collision redirects:
+  // - /:locale/index was the old home URL → /:locale
+  // - /:locale/home would collide with home-${locale}.mdx + [slug] route → /:locale
+  async redirects() {
+    return [
+      {
+        source: "/:locale(en|es)/index",
+        destination: "/:locale",
+        permanent: true,
+      },
+      {
+        source: "/:locale(en|es)/home",
+        destination: "/:locale",
+        permanent: true,
+      },
+    ];
+  },
   // PostHog reverse proxy configuration
   async rewrites() {
     return [
