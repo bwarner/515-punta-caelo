@@ -1,3 +1,9 @@
+# Flat node_modules layout (no symlinks). Required for Vercel's serverless
+# function packager, which fails on pnpm's default isolated layout with
+# "framework produced an invalid deployment package... files in symlinked
+# directories".
+nodeLinker: hoisted
+
 minimumReleaseAgeExclude:
   - "@posthog/core@1.29.11"
   - "@posthog/types@1.376.2"
