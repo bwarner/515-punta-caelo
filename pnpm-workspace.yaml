@@ -1,0 +1,13 @@
+minimumReleaseAgeExclude:
+  - "@posthog/core@1.29.11"
+  - "@posthog/types@1.376.2"
+  - posthog-js@1.376.2
+
+allowBuilds:
+  "@parcel/watcher": true
+  better-sqlite3: true
+  core-js: false
+  esbuild: true
+  protobufjs: false
+  sharp: true
+  unrs-resolver: true

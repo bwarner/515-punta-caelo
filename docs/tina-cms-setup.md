@@ -14,7 +14,7 @@ This project uses [Tina CMS](https://tina.io) to provide a visual content editin
 Run the dev server with Tina's local content API:
 
 ```bash
-npm run dev
+pnpm dev
 ```
 
 This starts both Tina's local GraphQL server and Next.js. Visit `http://localhost:3000/admin` to access the CMS locally.
@@ -22,7 +22,7 @@ This starts both Tina's local GraphQL server and Next.js. Visit `http://localhos
 To run Next.js without Tina (faster startup):
 
 ```bash
-npm run dev:next
+pnpm dev:next
 ```
 
 ## Setting Up Tina Cloud (Production)

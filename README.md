@@ -46,18 +46,20 @@ A modern, mobile-first digital guidebook for a Panama vacation rental property. 
 
 ## Development
 
+This project uses [pnpm](https://pnpm.io). Install it with `npm i -g pnpm` or via [Corepack](https://nodejs.org/api/corepack.html).
+
 ```bash
 # Install dependencies
-npm install
+pnpm install
 
 # Start development server
-npm run dev
+pnpm dev
 
 # Build for production
-npm run build
+pnpm build
 
 # Run linting
-npx eslint .
+pnpm exec eslint .
 ```
 
 ## CI/CD Pipeline
