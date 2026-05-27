@@ -43,15 +43,17 @@ const nextConfig = {
       },
     ];
   },
-  // PostHog reverse proxy configuration
+  // PostHog reverse proxy. Path is intentionally generic to avoid common
+  // ad-blocker filter rules that pattern-match PostHog-flavored paths like
+  // /ingest, /ph, /posthog. Client uses /relay as api_host in production.
   async rewrites() {
     return [
       {
-        source: "/ingest/static/:path*",
+        source: "/relay/static/:path*",
         destination: "https://us-assets.i.posthog.com/static/:path*",
       },
       {
-        source: "/ingest/:path*",
+        source: "/relay/:path*",
         destination: "https://us.i.posthog.com/:path*",
       },
     ];

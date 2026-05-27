@@ -3,7 +3,7 @@ import { MetadataRoute } from "next";
 // Sensitive guest pages should never appear in any index (search or LLM).
 const SENSITIVE_PATHS = [
   "/api/",
-  "/ingest/",
+  "/relay/", // PostHog reverse proxy (see next.config.js)
   "/*/wifi",
   "/*/check-in-out",
   "/*/emergency",
