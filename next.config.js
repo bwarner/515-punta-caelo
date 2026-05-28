@@ -31,6 +31,13 @@ const nextConfig = {
   // - /:locale/home would collide with home-${locale}.mdx + [slug] route → /:locale
   async redirects() {
     return [
+      // Redirect non-www to www for SEO consistency
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "casapuntacaelo.com" }],
+        destination: "https://www.casapuntacaelo.com/:path*",
+        permanent: true,
+      },
       {
         source: "/:locale(en|es)/index",
         destination: "/:locale",

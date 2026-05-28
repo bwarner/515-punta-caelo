@@ -39,6 +39,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: SENSITIVE_PATHS,
       })),
     ],
-    sitemap: "https://casapuntacaelo.com/sitemap.xml",
+    sitemap: "https://www.casapuntacaelo.com/sitemap.xml",
   };
 }

@@ -1,6 +1,6 @@
 import { MetadataRoute } from "next";
 
-const BASE_URL = "https://casapuntacaelo.com";
+const BASE_URL = "https://www.casapuntacaelo.com";
 
 // Public pages to index (excludes sensitive guest info like WiFi, check-in codes, etc.)
 // Home is served at /${locale} (no slug), tracked separately below.
@@ -19,6 +19,7 @@ const pages = [
   "review",
   "gallery",
   "welcome",
+  "testimonials",
   // Excluded: wifi, check-in-out, emergency, contact, rules (sensitive guest info)
 ];
 
