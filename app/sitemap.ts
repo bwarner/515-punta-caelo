@@ -5,7 +5,6 @@ const BASE_URL = "https://www.casapuntacaelo.com";
 // Public pages to index (excludes sensitive guest info like WiFi, check-in codes, etc.)
 // Home is served at /${locale} (no slug), tracked separately below.
 const pages = [
-  "guide",
   "property",
   "amenities",
   "location",
@@ -18,9 +17,9 @@ const pages = [
   "before-you-go",
   "review",
   "gallery",
-  "welcome",
   "testimonials",
   // Excluded: wifi, check-in-out, emergency, contact, rules (sensitive guest info)
+  // Excluded: guide (nav-only, noindex)
 ];
 
 const locales = ["en", "es"];
@@ -41,7 +40,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         url: `${BASE_URL}/${locale}/${page}`,
         lastModified: new Date(),
         changeFrequency: "monthly",
-        priority: page === "guide" ? 0.9 : 0.7,
+        priority: page === "property" ? 0.9 : 0.7,
       });
     }
   }
