@@ -22,9 +22,12 @@ export function JsonLd() {
       addressCountry: "PA",
     },
     geo: {
+      // Coarse to ~1km precision so we keep the "Panama beach" map signal
+      // without pinpointing the building. See app/robots.ts for the matching
+      // /:locale/location noindex policy — these need to stay consistent.
       "@type": "GeoCoordinates",
-      latitude: 8.4487,
-      longitude: -79.9475,
+      latitude: 8.45,
+      longitude: -79.95,
     },
     aggregateRating: {
       "@type": "AggregateRating",
@@ -118,9 +121,12 @@ export function JsonLd() {
       addressCountry: "PA",
     },
     geo: {
+      // Coarse to ~1km precision so we keep the "Panama beach" map signal
+      // without pinpointing the building. See app/robots.ts for the matching
+      // /:locale/location noindex policy — these need to stay consistent.
       "@type": "GeoCoordinates",
-      latitude: 8.4487,
-      longitude: -79.9475,
+      latitude: 8.45,
+      longitude: -79.95,
     },
     containedInPlace: {
       "@type": "Resort",
