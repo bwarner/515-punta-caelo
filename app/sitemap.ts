@@ -7,7 +7,6 @@ const BASE_URL = "https://www.casapuntacaelo.com";
 const pages = [
   "property",
   "amenities",
-  "location",
   "transport",
   "things-to-know",
   "things-to-do",
@@ -19,6 +18,7 @@ const pages = [
   "gallery",
   "testimonials",
   // Excluded: wifi, check-in-out, emergency, contact, rules (sensitive guest info)
+  // Excluded: location (contains full street address)
   // Excluded: guide (nav-only, noindex)
 ];
 

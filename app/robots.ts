@@ -9,6 +9,7 @@ const SENSITIVE_PATHS = [
   "/*/emergency",
   "/*/contact",
   "/*/rules",
+  "/*/location", // contains full street address — keep out of search + LLM indexes
 ];
 
 // AI/LLM crawlers we explicitly allow on public content (for citation in
