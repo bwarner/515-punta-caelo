@@ -23,6 +23,10 @@ export async function GET(req: NextRequest) {
   const locale = url.searchParams.get("locale") || "unknown";
   const variant = url.searchParams.get("variant") || "button";
   const label = url.searchParams.get("label") || undefined;
+  // Client component passes the visitor's posthog distinct_id via URL so
+  // we don't have to depend on cookie parsing (which varies across SDK
+  // versions). See components/tracked-airbnb-button.tsx.
+  const didFromParam = url.searchParams.get("did") || null;
 
   const apiKey = process.env.NEXT_PUBLIC_POSTHOG_KEY;
   if (apiKey) {
@@ -31,7 +35,8 @@ export async function GET(req: NextRequest) {
       flushAt: 1,
       flushInterval: 0,
     });
-    const distinctId = distinctIdFromCookie(req) ?? `anon_${randomUUID()}`;
+    const distinctId =
+      didFromParam ?? distinctIdFromCookie(req) ?? `anon_${randomUUID()}`;
     const now = new Date().toISOString();
     const referer = req.headers.get("referer") || undefined;
 
