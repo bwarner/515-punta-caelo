@@ -1,6 +1,7 @@
 import { randomUUID } from "node:crypto";
 import { NextRequest, NextResponse } from "next/server";
 import { PostHog } from "posthog-node";
+import { getAppTags } from "@/lib/app-env";
 
 const AIRBNB_BASE = "https://www.airbnb.com/h/puntacaelopanama";
 
@@ -50,6 +51,7 @@ export async function GET(req: NextRequest) {
         label,
         $current_url: referer,
         $referrer: referer,
+        ...getAppTags(),
       },
     });
 

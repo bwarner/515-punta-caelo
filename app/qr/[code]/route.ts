@@ -3,6 +3,7 @@ import { cookies, headers } from "next/headers";
 import { NextRequest, NextResponse } from "next/server";
 import { PostHog } from "posthog-node";
 import { defaultLocale, locales } from "@/i18n";
+import { getAppTags } from "@/lib/app-env";
 import { isValidQrCode, QR_CODES } from "@/lib/qr-codes";
 
 const BASE_URL = "https://www.casapuntacaelo.com";
@@ -79,6 +80,7 @@ export async function GET(
         $current_url: req.url,
         $referrer: referer,
         is_new_identity: isNewIdentity,
+        ...getAppTags(),
       },
     });
 
