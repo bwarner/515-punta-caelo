@@ -9,6 +9,9 @@ const SENSITIVE_PATHS = [
   "/*/emergency",
   "/*/contact",
   "/*/rules",
+  "/*/location", // contains full street address — keep out of search + LLM indexes
+  "/qr/", // in-unit QR redirector — not for indexing
+  "/print/", // print-only pages — not for indexing
 ];
 
 // AI/LLM crawlers we explicitly allow on public content (for citation in
@@ -39,6 +42,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: SENSITIVE_PATHS,
       })),
     ],
-    sitemap: "https://casapuntacaelo.com/sitemap.xml",
+    sitemap: "https://www.casapuntacaelo.com/sitemap.xml",
   };
 }

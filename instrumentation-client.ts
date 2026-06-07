@@ -1,5 +1,6 @@
 /* global window */
 import posthog from "posthog-js";
+import { getAppTags, getAppEnv } from "@/lib/app-env";
 
 function compactRecord(input: Record<string, unknown>) {
   return Object.fromEntries(
@@ -28,12 +29,7 @@ posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY!, {
     const host =
       typeof window !== "undefined" ? window.location.host : undefined;
 
-    // Vercel provides NEXT_PUBLIC_VERCEL_ENV in many setups ("production" | "preview" | "development").
-    // Fall back to NODE_ENV so this still works locally even without Vercel env vars.
-    const appEnv =
-      process.env.NEXT_PUBLIC_VERCEL_ENV ??
-      (process.env.NODE_ENV === "development" ? "development" : "production");
-
+    const appEnv = getAppEnv();
     const trafficType =
       host === "localhost:3000" || host === "127.0.0.1:3000"
         ? "local"
@@ -43,14 +39,10 @@ posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY!, {
 
     ph.register(
       compactRecord({
-        app: "punta-caelo",
-        app_env: appEnv,
+        ...getAppTags(),
         traffic_type: trafficType,
         // Helpful for filtering (even though $host/$current_url already exist)
         app_host: host,
-        deployment_url: process.env.NEXT_PUBLIC_VERCEL_URL,
-        git_commit_sha: process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA,
-        git_branch: process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_REF,
       }),
     );
   },

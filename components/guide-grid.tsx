@@ -18,6 +18,7 @@ import {
   Luggage,
   Star,
   PhoneCall,
+  Home,
 } from "lucide-react";
 
 function GridItem({
@@ -50,6 +51,7 @@ const iconClass =
 
 const labels = {
   en: {
+    home: "Home",
     checkInOut: "Check-in/out",
     wifi: "WiFi",
     amenities: "Amenities",
@@ -67,6 +69,7 @@ const labels = {
     contact: "Contact",
   },
   es: {
+    home: "Inicio",
     checkInOut: "Entrada/Salida",
     wifi: "WiFi",
     amenities: "Comodidades",
@@ -89,6 +92,11 @@ export default function GuideGrid({ locale = "en" }: { locale?: string }) {
   const t = labels[locale as keyof typeof labels] || labels.en;
 
   const items = [
+    {
+      title: t.home,
+      icon: <Home className={iconClass} />,
+      href: `/${locale}`,
+    },
     {
       title: t.checkInOut,
       icon: <KeyRound className={iconClass} />,

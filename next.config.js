@@ -5,6 +5,16 @@ import remarkMdxFrontmatter from "remark-mdx-frontmatter";
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
+  // Expose Vercel system env vars to the client bundle so PostHog can tag
+  // every event with the right environment + deploy. Server reads VERCEL_*
+  // directly at runtime; client needs NEXT_PUBLIC_* baked in at build time.
+  // See lib/app-env.ts for how they are consumed.
+  env: {
+    NEXT_PUBLIC_VERCEL_ENV: process.env.VERCEL_ENV ?? "",
+    NEXT_PUBLIC_VERCEL_URL: process.env.VERCEL_URL ?? "",
+    NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA: process.env.VERCEL_GIT_COMMIT_SHA ?? "",
+    NEXT_PUBLIC_VERCEL_GIT_COMMIT_REF: process.env.VERCEL_GIT_COMMIT_REF ?? "",
+  },
   async headers() {
     return [
       {
@@ -31,6 +41,13 @@ const nextConfig = {
   // - /:locale/home would collide with home-${locale}.mdx + [slug] route → /:locale
   async redirects() {
     return [
+      // Redirect non-www to www for SEO consistency
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "casapuntacaelo.com" }],
+        destination: "https://www.casapuntacaelo.com/:path*",
+        permanent: true,
+      },
       {
         source: "/:locale(en|es)/index",
         destination: "/:locale",
