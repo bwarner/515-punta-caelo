@@ -112,20 +112,21 @@ export async function GET(
   // If we minted a fresh distinct_id (cold scan, no prior PostHog cookie),
   // write the PostHog persistence cookie so posthog-js on the destination
   // page restores this id and the qr_scanned event + subsequent pageviews
-  // land on the same person. PostHog reads the cookie as URL-encoded JSON
-  // and expects at minimum a distinct_id field; $device_id keeps anonymous
-  // → identified linking consistent.
+  // land on the same person. PostHog-js reads the cookie value with a single
+  // decodeURIComponent then JSON.parse, so the value on the wire must be
+  // URL-encoded JSON exactly once. NextResponse.cookies.set() URL-encodes
+  // the value internally — passing raw JSON is correct; pre-encoding here
+  // would produce a double-encoded value that PostHog-js silently fails
+  // to parse, causing it to generate a new distinct_id on the destination
+  // page and breaking the identity stitch.
   if (isNewIdentity && apiKey) {
     const cookieName = `ph_${apiKey}_posthog`;
-    const cookieValue = encodeURIComponent(
-      JSON.stringify({
+    response.cookies.set({
+      name: cookieName,
+      value: JSON.stringify({
         distinct_id: distinctId,
         $device_id: distinctId,
       }),
-    );
-    response.cookies.set({
-      name: cookieName,
-      value: cookieValue,
       path: "/",
       sameSite: "lax",
       maxAge: 60 * 60 * 24 * 365, // 1 year, matches posthog-js default
