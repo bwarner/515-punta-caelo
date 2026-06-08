@@ -1,6 +1,7 @@
 "use client";
 
-import { ReactNode, MouseEvent } from "react";
+/* global setTimeout, clearTimeout */
+import { ReactNode, useEffect, useState } from "react";
 import posthog from "posthog-js";
 
 interface TrackedAirbnbLinkProps {
@@ -26,23 +27,38 @@ export default function TrackedAirbnbLink({
   });
   const baseHref = `/go/airbnb?${baseParams.toString()}`;
 
-  // See TrackedAirbnbButton for why we pass did via URL — server uses this
-  // to stitch the click onto the same PostHog person as the autocapture
-  // events from this browser session.
-  const handleClick = (e: MouseEvent<HTMLAnchorElement>) => {
-    const did = posthog?.get_distinct_id?.();
-    if (did) {
-      e.currentTarget.href = `${baseHref}&did=${encodeURIComponent(did)}`;
-    }
-  };
+  // See TrackedAirbnbButton for the full rationale — populate `did` once
+  // posthog-js is ready, before the user can click, so target="_blank"
+  // navigation always carries the visitor's distinct_id.
+  const [href, setHref] = useState(baseHref);
+
+  useEffect(() => {
+    let cancelled = false;
+    let timer: ReturnType<typeof setTimeout> | undefined;
+
+    const attach = () => {
+      if (cancelled) return;
+      const did = posthog?.get_distinct_id?.();
+      if (did) {
+        setHref(`${baseHref}&did=${encodeURIComponent(did)}`);
+        return;
+      }
+      timer = setTimeout(attach, 100);
+    };
+    attach();
+
+    return () => {
+      cancelled = true;
+      if (timer) clearTimeout(timer);
+    };
+  }, [baseHref]);
 
   return (
     <a
-      href={baseHref}
+      href={href}
       target="_blank"
       rel="noopener noreferrer"
       className={className}
-      onClick={handleClick}
     >
       {children}
     </a>
