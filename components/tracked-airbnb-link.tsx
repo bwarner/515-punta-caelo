@@ -1,8 +1,7 @@
 "use client";
 
-/* global setTimeout, clearTimeout */
-import { ReactNode, useEffect, useState } from "react";
-import posthog from "posthog-js";
+import { ReactNode } from "react";
+import { usePosthogDidHref } from "@/lib/use-posthog-did-href";
 
 interface TrackedAirbnbLinkProps {
   source: string;
@@ -25,33 +24,7 @@ export default function TrackedAirbnbLink({
     variant: "link",
     ...(label ? { label } : {}),
   });
-  const baseHref = `/go/airbnb?${baseParams.toString()}`;
-
-  // See TrackedAirbnbButton for the full rationale — populate `did` once
-  // posthog-js is ready, before the user can click, so target="_blank"
-  // navigation always carries the visitor's distinct_id.
-  const [href, setHref] = useState(baseHref);
-
-  useEffect(() => {
-    let cancelled = false;
-    let timer: ReturnType<typeof setTimeout> | undefined;
-
-    const attach = () => {
-      if (cancelled) return;
-      const did = posthog?.get_distinct_id?.();
-      if (did) {
-        setHref(`${baseHref}&did=${encodeURIComponent(did)}`);
-        return;
-      }
-      timer = setTimeout(attach, 100);
-    };
-    attach();
-
-    return () => {
-      cancelled = true;
-      if (timer) clearTimeout(timer);
-    };
-  }, [baseHref]);
+  const href = usePosthogDidHref(`/go/airbnb?${baseParams.toString()}`);
 
   return (
     <a
