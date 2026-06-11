@@ -48,6 +48,12 @@ const nextConfig = {
         destination: "https://www.casapuntacaelo.com/:path*",
         permanent: true,
       },
+      // TinaCMS admin redirect
+      {
+        source: "/admin",
+        destination: "/admin/index.html",
+        permanent: false,
+      },
       {
         source: "/:locale(en|es)/index",
         destination: "/:locale",

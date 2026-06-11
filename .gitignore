@@ -23,6 +23,8 @@ design.pdf
 # misc
 .DS_Store
 *.pem
+*.swp
+*.swo
 
 # MCP and testing
 .mcp.json

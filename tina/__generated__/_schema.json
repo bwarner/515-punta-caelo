@@ -1,9 +1,9 @@
 {
   "version": {
-    "fullVersion": "2.1.1",
+    "fullVersion": "2.4.2",
     "major": "2",
-    "minor": "1",
-    "patch": "1"
+    "minor": "4",
+    "patch": "2"
   },
   "meta": { "flags": ["experimentalData"] },
   "collections": [
