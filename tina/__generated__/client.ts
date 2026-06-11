@@ -1,10 +1,10 @@
 import { createClient } from "tinacms/dist/client";
-import { queries } from "./types";
+import { queries } from "./types.js";
 export const client = createClient({
   cacheDir:
-    "/Users/bwarner/devel/515-punta-caelo/tina/__generated__/.cache/1771145938734",
-  url: "https://content.tinajs.io/2.1/content/88b70312-f5f7-4781-a2b4-f79704cc43bd/github/main",
-  token: "647b13c50017efe4e6d51658217044e7c04514c9",
+    "/Users/bwarner/devel/515-punta-caelo/tina/__generated__/.cache/1780938349967",
+  url: "https://content.tinajs.io/2.4/content/e17bde00-9308-484c-bdbd-247c42a25514/github/main",
+  token: "9952e49d810013949f5c870c1a9de6e88003621e",
   queries,
 });
 export default client;
