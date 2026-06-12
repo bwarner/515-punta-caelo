@@ -1,8 +1,7 @@
 "use client";
 
-/* global setTimeout, clearTimeout */
 import { useEffect, useState } from "react";
-import posthog from "posthog-js";
+import { usePostHog } from "posthog-js/react";
 
 /**
  * Appends `&did=<distinct_id>` to the href if PostHog ID is available.
@@ -10,18 +9,6 @@ import posthog from "posthog-js";
 function appendDid(baseHref: string, did: string): string {
   const separator = baseHref.includes("?") ? "&" : "?";
   return `${baseHref}${separator}did=${encodeURIComponent(did)}`;
-}
-
-/**
- * Try to get PostHog distinct_id synchronously (works if already initialized).
- */
-function getDidSync(): string | null {
-  try {
-    const did = posthog?.get_distinct_id?.();
-    return typeof did === "string" && did.length > 0 ? did : null;
-  } catch {
-    return null;
-  }
 }
 
 /**
@@ -35,11 +22,9 @@ function getDidSync(): string | null {
  * visitor's autocapture events. See `app/go/airbnb/route.ts` for the
  * server-side counterpart.
  *
- * Implementation detail: posthog-js's distinct_id isn't guaranteed to be
- * available at the moment a client component first renders — `posthog.init`
- * runs from `instrumentation-client.ts` but the `loaded` lifecycle can lag
- * a tick or two. We try synchronously first, then poll every 50ms until
- * the id is available (max 3 seconds), then stop.
+ * Implementation: Uses the `usePostHog()` hook from posthog-js/react.
+ * The hook provides direct access to the PostHog instance, making the
+ * distinct_id immediately available once PostHog loads.
  *
  * The href is updated via `setHref` (not by mutating an anchor in `onClick`)
  * because `target="_blank"` navigation timing makes onClick-time href
@@ -47,43 +32,18 @@ function getDidSync(): string | null {
  * the rendered anchor already carries `&did=...`.
  */
 export function usePosthogDidHref(baseHref: string): string {
-  // Try synchronously first - often works on subsequent renders
-  const initialDid = getDidSync();
-  const [href, setHref] = useState(
-    initialDid ? appendDid(baseHref, initialDid) : baseHref,
-  );
+  const posthog = usePostHog();
+  const [href, setHref] = useState(baseHref);
 
   useEffect(() => {
-    // If we already have the ID, no need to poll
-    if (initialDid) return;
+    // PostHog may not be loaded yet on first render
+    if (!posthog) return;
 
-    let cancelled = false;
-    let timer: ReturnType<typeof setTimeout> | undefined;
-    let attempts = 0;
-    const maxAttempts = 60; // 50ms * 60 = 3 seconds max
-
-    const attach = () => {
-      if (cancelled) return;
-      attempts++;
-
-      const did = getDidSync();
-      if (did) {
-        setHref(appendDid(baseHref, did));
-        return;
-      }
-
-      // Stop polling after max attempts (PostHog probably blocked)
-      if (attempts < maxAttempts) {
-        timer = setTimeout(attach, 50);
-      }
-    };
-    attach();
-
-    return () => {
-      cancelled = true;
-      if (timer) clearTimeout(timer);
-    };
-  }, [baseHref, initialDid]);
+    const distinctId = posthog.get_distinct_id();
+    if (distinctId) {
+      setHref(appendDid(baseHref, distinctId));
+    }
+  }, [baseHref, posthog]);
 
   return href;
 }
