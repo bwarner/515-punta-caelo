@@ -36,8 +36,12 @@ export async function GET(req: NextRequest) {
       flushAt: 1,
       flushInterval: 0,
     });
-    const distinctId =
-      didFromParam ?? distinctIdFromCookie(req) ?? `anon_${randomUUID()}`;
+
+    // Identity resolution chain: URL param > cookie > anonymous
+    const cookieId = distinctIdFromCookie(req);
+    const distinctId = didFromParam ?? cookieId ?? `anon_${randomUUID()}`;
+    const idSource = didFromParam ? "url_param" : cookieId ? "cookie" : "anon";
+
     const now = new Date().toISOString();
     const referer = req.headers.get("referer") || undefined;
 
@@ -49,6 +53,7 @@ export async function GET(req: NextRequest) {
         locale,
         variant,
         label,
+        id_source: idSource, // Track how identity was resolved (url_param/cookie/anon)
         $current_url: referer,
         $referrer: referer,
         ...getAppTags(),
