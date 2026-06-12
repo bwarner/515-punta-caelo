@@ -10,10 +10,11 @@ function compactRecord(input: Record<string, unknown>) {
   );
 }
 
+// Initialize PostHog early via Next.js instrumentation.
+// The PostHogProvider component also checks __loaded to avoid double init.
 posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY!, {
   // Use direct API in development to avoid 431 errors from reverse proxy.
-  // In prod, /relay is rewritten to PostHog in next.config.js — see comment
-  // there for why the path is intentionally generic.
+  // In prod, /relay is rewritten to PostHog in next.config.js
   api_host:
     process.env.NODE_ENV === "development"
       ? "https://us.i.posthog.com"
@@ -41,7 +42,6 @@ posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY!, {
       compactRecord({
         ...getAppTags(),
         traffic_type: trafficType,
-        // Helpful for filtering (even though $host/$current_url already exist)
         app_host: host,
       }),
     );

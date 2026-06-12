@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import type { Metadata } from "next";
 import { roboto, raleway, montserrat } from "./font";
 import { JsonLd } from "@/components/json-ld";
+import { PostHogProvider } from "@/components/posthog-provider";
 import { BASE_URL } from "@/lib/seo";
 
 const SITE_NAME = "Casa Punta Caelo";
@@ -52,8 +53,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     >
       <head></head>
       <body className="antialiased text-gray-900 font-monserrat ">
-        <JsonLd />
-        {children}
+        <PostHogProvider>
+          <JsonLd />
+          {children}
+        </PostHogProvider>
       </body>
     </html>
   );

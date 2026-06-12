@@ -1,0 +1,62 @@
+/* global window */
+"use client";
+
+import posthog from "posthog-js";
+import { PostHogProvider as PHProvider } from "posthog-js/react";
+import { useEffect, type ReactNode } from "react";
+import { getAppTags, getAppEnv } from "@/lib/app-env";
+
+function compactRecord(input: Record<string, unknown>) {
+  return Object.fromEntries(
+    Object.entries(input).filter(
+      ([, value]) => value !== undefined && value !== null && value !== "",
+    ),
+  );
+}
+
+export function PostHogProvider({ children }: { children: ReactNode }) {
+  useEffect(() => {
+    // Only initialize once
+    if (posthog.__loaded) return;
+
+    posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY!, {
+      // Use direct API in development to avoid 431 errors from reverse proxy.
+      // In prod, /relay is rewritten to PostHog in next.config.js
+      api_host:
+        process.env.NODE_ENV === "development"
+          ? "https://us.i.posthog.com"
+          : "/relay",
+      ui_host: process.env.NEXT_PUBLIC_POSTHOG_HOST,
+      // Include the defaults option as required by PostHog
+      defaults: "2025-05-24",
+      // Enables capturing unhandled exceptions via Error Tracking
+      capture_exceptions: true,
+      // Turn on debug in development mode
+      debug: process.env.NODE_ENV === "development",
+      // Disable automatic pageview capture - we'll handle it manually for SPA navigation
+      capture_pageview: false,
+      loaded: (ph) => {
+        const host =
+          typeof window !== "undefined" ? window.location.host : undefined;
+
+        const appEnv = getAppEnv();
+        const trafficType =
+          host === "localhost:3000" || host === "127.0.0.1:3000"
+            ? "local"
+            : appEnv === "preview"
+              ? "preview"
+              : "production";
+
+        ph.register(
+          compactRecord({
+            ...getAppTags(),
+            traffic_type: trafficType,
+            app_host: host,
+          }),
+        );
+      },
+    });
+  }, []);
+
+  return <PHProvider client={posthog}>{children}</PHProvider>;
+}
