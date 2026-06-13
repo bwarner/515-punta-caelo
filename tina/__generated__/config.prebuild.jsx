@@ -5,6 +5,124 @@ var branch =
   process.env.VERCEL_GIT_COMMIT_REF ||
   process.env.HEAD ||
   "main";
+var contentTemplates = [
+  {
+    name: "Menubar",
+    label: "Menubar",
+    fields: [
+      { name: "locale", label: "Locale", type: "string" },
+      { name: "title", label: "Title", type: "string" },
+    ],
+  },
+  {
+    name: "Image",
+    label: "Image",
+    fields: [
+      { name: "src", label: "Source", type: "image" },
+      { name: "alt", label: "Alt Text", type: "string" },
+      { name: "fill", label: "Fill", type: "boolean" },
+      { name: "className", label: "CSS Class", type: "string" },
+    ],
+  },
+  {
+    name: "Alert",
+    label: "Alert",
+    fields: [{ name: "children", label: "Content", type: "rich-text" }],
+  },
+  {
+    name: "Card",
+    label: "Card",
+    fields: [{ name: "children", label: "Content", type: "rich-text" }],
+  },
+  {
+    name: "TrackedAirbnbButton",
+    label: "Airbnb Button",
+    fields: [
+      { name: "href", label: "URL", type: "string" },
+      { name: "label", label: "Label", type: "string" },
+    ],
+  },
+  // Content wrapper components
+  {
+    name: "PageHero",
+    label: "Page Hero",
+    fields: [
+      { name: "image", label: "Hero Image", type: "image", required: true },
+      {
+        name: "imageAlt",
+        label: "Image Alt Text",
+        type: "string",
+        required: true,
+      },
+      { name: "title", label: "Page Title", type: "string", required: true },
+      { name: "subtitle", label: "Subtitle", type: "string" },
+    ],
+  },
+  {
+    name: "ContentCard",
+    label: "Content Card",
+    fields: [
+      { name: "image", label: "Header Image", type: "image" },
+      { name: "imageAlt", label: "Image Alt Text", type: "string" },
+      { name: "title", label: "Card Title", type: "string" },
+      { name: "children", label: "Card Content", type: "rich-text" },
+      { name: "className", label: "CSS Class", type: "string" },
+    ],
+  },
+  {
+    name: "TimeDisplay",
+    label: "Time Display",
+    fields: [
+      { name: "time", label: "Time", type: "string", required: true },
+      { name: "label", label: "Label", type: "string", required: true },
+    ],
+  },
+  {
+    name: "CalloutBox",
+    label: "Callout Box",
+    fields: [
+      {
+        name: "variant",
+        label: "Variant",
+        type: "string",
+        options: ["default", "info"],
+      },
+      { name: "centered", label: "Centered Text", type: "boolean" },
+      { name: "children", label: "Content", type: "rich-text" },
+    ],
+  },
+  {
+    name: "InfoSection",
+    label: "Info Section",
+    fields: [
+      { name: "title", label: "Section Title", type: "string", required: true },
+      { name: "children", label: "Content", type: "rich-text" },
+    ],
+  },
+  {
+    name: "AmenityList",
+    label: "Amenity List",
+    fields: [
+      {
+        name: "items",
+        label: "Amenities",
+        type: "string",
+        list: true,
+        required: true,
+      },
+    ],
+  },
+  {
+    name: "MapEmbed",
+    label: "Map Embed",
+    fields: [
+      { name: "lat", label: "Latitude", type: "number", required: true },
+      { name: "lng", label: "Longitude", type: "number", required: true },
+      { name: "title", label: "Map Title", type: "string" },
+      { name: "zoom", label: "Zoom Level", type: "number" },
+    ],
+  },
+];
 var config_default = defineConfig({
   branch,
   // Get these from tina.io after creating a project
@@ -60,88 +178,7 @@ var config_default = defineConfig({
             name: "body",
             label: "Body",
             isBody: true,
-            templates: [
-              {
-                name: "Menubar",
-                label: "Menubar",
-                fields: [
-                  {
-                    name: "locale",
-                    label: "Locale",
-                    type: "string",
-                  },
-                  {
-                    name: "title",
-                    label: "Title",
-                    type: "string",
-                  },
-                ],
-              },
-              {
-                name: "Image",
-                label: "Image",
-                fields: [
-                  {
-                    name: "src",
-                    label: "Source",
-                    type: "image",
-                  },
-                  {
-                    name: "alt",
-                    label: "Alt Text",
-                    type: "string",
-                  },
-                  {
-                    name: "fill",
-                    label: "Fill",
-                    type: "boolean",
-                  },
-                  {
-                    name: "className",
-                    label: "CSS Class",
-                    type: "string",
-                  },
-                ],
-              },
-              {
-                name: "Alert",
-                label: "Alert",
-                fields: [
-                  {
-                    name: "children",
-                    label: "Content",
-                    type: "rich-text",
-                  },
-                ],
-              },
-              {
-                name: "Card",
-                label: "Card",
-                fields: [
-                  {
-                    name: "children",
-                    label: "Content",
-                    type: "rich-text",
-                  },
-                ],
-              },
-              {
-                name: "TrackedAirbnbButton",
-                label: "Airbnb Button",
-                fields: [
-                  {
-                    name: "href",
-                    label: "URL",
-                    type: "string",
-                  },
-                  {
-                    name: "label",
-                    label: "Label",
-                    type: "string",
-                  },
-                ],
-              },
-            ],
+            templates: contentTemplates,
           },
         ],
       },
@@ -182,88 +219,7 @@ var config_default = defineConfig({
             name: "body",
             label: "Contenido",
             isBody: true,
-            templates: [
-              {
-                name: "Menubar",
-                label: "Menubar",
-                fields: [
-                  {
-                    name: "locale",
-                    label: "Locale",
-                    type: "string",
-                  },
-                  {
-                    name: "title",
-                    label: "Title",
-                    type: "string",
-                  },
-                ],
-              },
-              {
-                name: "Image",
-                label: "Image",
-                fields: [
-                  {
-                    name: "src",
-                    label: "Source",
-                    type: "image",
-                  },
-                  {
-                    name: "alt",
-                    label: "Alt Text",
-                    type: "string",
-                  },
-                  {
-                    name: "fill",
-                    label: "Fill",
-                    type: "boolean",
-                  },
-                  {
-                    name: "className",
-                    label: "CSS Class",
-                    type: "string",
-                  },
-                ],
-              },
-              {
-                name: "Alert",
-                label: "Alerta",
-                fields: [
-                  {
-                    name: "children",
-                    label: "Contenido",
-                    type: "rich-text",
-                  },
-                ],
-              },
-              {
-                name: "Card",
-                label: "Tarjeta",
-                fields: [
-                  {
-                    name: "children",
-                    label: "Contenido",
-                    type: "rich-text",
-                  },
-                ],
-              },
-              {
-                name: "TrackedAirbnbButton",
-                label: "Bot\xF3n de Airbnb",
-                fields: [
-                  {
-                    name: "href",
-                    label: "URL",
-                    type: "string",
-                  },
-                  {
-                    name: "label",
-                    label: "Etiqueta",
-                    type: "string",
-                  },
-                ],
-              },
-            ],
+            templates: contentTemplates,
           },
         ],
       },

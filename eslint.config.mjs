@@ -1,3 +1,6 @@
+// For more info, see https://github.com/storybookjs/eslint-plugin-storybook#configuration-flat-config-format
+import storybook from "eslint-plugin-storybook";
+
 // eslint.config.mjs
 import js from "@eslint/js";
 import eslintPluginTypescript from "@typescript-eslint/eslint-plugin";
@@ -18,6 +21,11 @@ export default [
       "tmp/**",
       "coverage/**",
       "tina/__generated__/**",
+      "**/*.stories.ts",
+      "**/*.stories.tsx",
+      ".storybook/**",
+      "vitest.config.ts",
+      "vitest-setup.ts",
       // 'jest.config.ts',
     ],
   },
@@ -58,8 +66,8 @@ export default [
         __dirname: "readonly", // ✅ Allow __dirname
       },
     },
-  },
-  js.configs.recommended, // ESLint recommended rules for JavaScript
+  }, // ESLint recommended rules for JavaScript
+  js.configs.recommended,
   {
     files: ["*.js", "*.jsx"],
     ...eslintNodePlugin.configs["flat/typescript"],
@@ -128,8 +136,7 @@ export default [
         require: "readonly", // ✅ Allow `require()`
       },
     },
-  },
-  // TypeScript and JavaScript overrides
+  }, // TypeScript and JavaScript overrides
   {
     files: ["*.ts", "*.tsx", "*.js", "*.jsx"],
     rules: {
@@ -145,6 +152,7 @@ export default [
       },
     },
     rules: {},
-  },
-  prettier, // Prettier integration
+  }, // Prettier integration
+  prettier,
+  ...storybook.configs["flat/recommended"],
 ];

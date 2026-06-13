@@ -8,82 +8,34 @@ darkBackground: true
 <AltBackground title="Location" description="Where to find us" darkBackground={true} locale="en">
 <Menubar locale="en" title="Location" />
 
-{/* Hero image */}
+<PageHero
+  image="/images/515-punta-caelo/beach_mobile.jpg"
+  imageAlt="Beach view"
+  title="Location"
+/>
 
-<div className="relative w-full h-[180px] overflow-hidden mb-0">
-  <Image
-    src="/images/515-punta-caelo/beach_mobile.jpg"
-    alt="Beach view"
-    fill
-    className="object-cover object-bottom"
-  />
-</div>
-
-{/* Title banner */}
-
-<div className="bg-white py-3 px-4 text-center">
-  <h1 className="text-3xl font-semibold tracking-widest uppercase">Location</h1>
-</div>
-
-{/* Main Content Card */}
-
-<div className="bg-white mx-4 mt-6 rounded-lg overflow-hidden">
-  <div className="px-6 py-8 text-center">
-    {/* Location Pin Icon */}
-    <div className="flex justify-center mb-4">
-      <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-        <circle cx="12" cy="10" r="3"></circle>
-      </svg>
-    </div>
-
-    <h2 className="text-3xl font-light mb-2">Route to</h2>
-    <h2 className="text-3xl font-light mb-6">Our House</h2>
-
-    <div className="text-lg font-medium">PUNTA CAELO, UNIT 515</div>
-    <div className="text-lg mb-6">SAN CARLOS, PANAMA</div>
-
-    <a
-      href="https://www.waze.com/ul?ll=8.4487%2C-79.9475&navigate=yes"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="inline-block bg-[#C4A58C] text-white font-semibold py-3 px-8 rounded-full hover:bg-[#B39579] transition-colors uppercase tracking-wide"
-    >
-      <span>Open in Waze</span>
-    </a>
-
+<ContentCard className="text-center">
+  <div className="flex justify-center mb-4">
+    <MapPin size={48} strokeWidth={1.5} />
   </div>
-</div>
 
-{/* Map */}
+<h2 className="text-3xl font-light mb-2">Route to</h2>
+<h2 className="text-3xl font-light mb-6">Our House</h2>
 
-<div className="bg-white mx-4 mt-4 rounded-lg overflow-hidden">
-  <div className="px-6 py-4">
-    <h2 className="text-xl font-semibold mb-3 text-center">Map</h2>
-  </div>
-  <div className="w-full aspect-[16/10]">
-    <iframe
-      title="Punta Caelo map"
-      src="https://www.google.com/maps?output=embed&q=8.4487,-79.9475&z=18"
-      className="w-full h-full border-0"
-      loading="lazy"
-      referrerPolicy="no-referrer-when-downgrade"
-      allowFullScreen
-    />
-  </div>
-  <div className="px-6 py-4 flex justify-center">
-    <a
-      href="https://www.google.com/maps?q=8.4487,-79.9475"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="inline-flex items-center text-sm font-medium underline underline-offset-4 hover:opacity-80"
-    >
-      Open in Google Maps
-    </a>
-  </div>
-</div>
+<div className="text-lg font-medium">PUNTA CAELO, UNIT 515</div>
+<div className="text-lg mb-6">SAN CARLOS, PANAMA</div>
 
-{/* Directions Info */}
+  <a
+    href="https://www.waze.com/ul?ll=8.4487%2C-79.9475&navigate=yes"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="inline-block bg-[#C4A58C] text-white font-semibold py-3 px-8 rounded-full hover:bg-[#B39579] transition-colors uppercase tracking-wide"
+  >
+    Open in Waze
+  </a>
+</ContentCard>
+
+<MapEmbed lat={8.4487} lng={-79.9475} title="Punta Caelo map" zoom={18} />
 
 <div className="px-6 py-6 text-center">
   <span>
@@ -93,47 +45,17 @@ darkBackground: true
   </span>
 </div>
 
-{/* Nearby Section */}
-
-<div className="bg-white mx-4 rounded-lg overflow-hidden">
-  <div className="px-6 py-4">
-    <h2 className="text-xl font-semibold mb-3 text-center">Nearby</h2>
-    <ul className="space-y-2">
-      <li className="flex items-start gap-2">
-        <span className="text-primary font-bold">•</span>{" "}
-        <span>
-          <strong>Beach</strong> - Direct beach access from the community
-        </span>
-      </li>
-      <li className="flex items-start gap-2">
-        <span className="text-primary font-bold">•</span>{" "}
-        <span>
-          <strong>San Carlos</strong> - Local town for groceries, restaurants,
-          and shops
-        </span>
-      </li>
-      <li className="flex items-start gap-2">
-        <span className="text-primary font-bold">•</span>{" "}
-        <span>
-          <strong>Coronado</strong> - 15 minutes for additional shopping and
-          dining
-        </span>
-      </li>
-      <li className="flex items-start gap-2">
-        <span className="text-primary font-bold">•</span>{" "}
-        <span>
-          <strong>Rio Hato</strong> - 20 minutes
-        </span>
-      </li>
-      <li className="flex items-start gap-2">
-        <span className="text-primary font-bold">•</span>{" "}
-        <span>
-          <strong>Panama City</strong> - 1 hour 15 minutes
-        </span>
-      </li>
-    </ul>
-  </div>
-</div>
+<ContentCard title="Nearby">
+  <AmenityList
+    items={[
+      "Beach - Direct beach access from the community",
+      "San Carlos - Local town for groceries, restaurants, and shops",
+      "Coronado - 15 minutes for additional shopping and dining",
+      "Rio Hato - 20 minutes",
+      "Panama City - 1 hour 15 minutes",
+    ]}
+  />
+</ContentCard>
 
 <div className="pb-6"></div>
 

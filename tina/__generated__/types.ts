@@ -249,12 +249,71 @@ export type Pages_EnBodyTrackedAirbnbButtonFilter = {
   label?: InputMaybe<StringFilter>;
 };
 
+export type Pages_EnBodyPageHeroFilter = {
+  image?: InputMaybe<ImageFilter>;
+  imageAlt?: InputMaybe<StringFilter>;
+  title?: InputMaybe<StringFilter>;
+  subtitle?: InputMaybe<StringFilter>;
+};
+
+export type Pages_EnBodyContentCardFilter = {
+  image?: InputMaybe<ImageFilter>;
+  imageAlt?: InputMaybe<StringFilter>;
+  title?: InputMaybe<StringFilter>;
+  children?: InputMaybe<RichTextFilter>;
+  className?: InputMaybe<StringFilter>;
+};
+
+export type Pages_EnBodyTimeDisplayFilter = {
+  time?: InputMaybe<StringFilter>;
+  label?: InputMaybe<StringFilter>;
+};
+
+export type Pages_EnBodyCalloutBoxFilter = {
+  variant?: InputMaybe<StringFilter>;
+  centered?: InputMaybe<BooleanFilter>;
+  children?: InputMaybe<RichTextFilter>;
+};
+
+export type Pages_EnBodyInfoSectionFilter = {
+  title?: InputMaybe<StringFilter>;
+  children?: InputMaybe<RichTextFilter>;
+};
+
+export type Pages_EnBodyAmenityListFilter = {
+  items?: InputMaybe<StringFilter>;
+};
+
+export type NumberFilter = {
+  lt?: InputMaybe<Scalars["Float"]["input"]>;
+  lte?: InputMaybe<Scalars["Float"]["input"]>;
+  gte?: InputMaybe<Scalars["Float"]["input"]>;
+  gt?: InputMaybe<Scalars["Float"]["input"]>;
+  eq?: InputMaybe<Scalars["Float"]["input"]>;
+  exists?: InputMaybe<Scalars["Boolean"]["input"]>;
+  in?: InputMaybe<Array<InputMaybe<Scalars["Float"]["input"]>>>;
+};
+
+export type Pages_EnBodyMapEmbedFilter = {
+  lat?: InputMaybe<NumberFilter>;
+  lng?: InputMaybe<NumberFilter>;
+  title?: InputMaybe<StringFilter>;
+  zoom?: InputMaybe<NumberFilter>;
+};
+
 export type Pages_EnBodyFilter = {
   Menubar?: InputMaybe<Pages_EnBodyMenubarFilter>;
   Image?: InputMaybe<Pages_EnBodyImageFilter>;
   Alert?: InputMaybe<Pages_EnBodyAlertFilter>;
   Card?: InputMaybe<Pages_EnBodyCardFilter>;
   TrackedAirbnbButton?: InputMaybe<Pages_EnBodyTrackedAirbnbButtonFilter>;
+  PageHero?: InputMaybe<Pages_EnBodyPageHeroFilter>;
+  ContentCard?: InputMaybe<Pages_EnBodyContentCardFilter>;
+  TimeDisplay?: InputMaybe<Pages_EnBodyTimeDisplayFilter>;
+  CalloutBox?: InputMaybe<Pages_EnBodyCalloutBoxFilter>;
+  InfoSection?: InputMaybe<Pages_EnBodyInfoSectionFilter>;
+  AmenityList?: InputMaybe<Pages_EnBodyAmenityListFilter>;
+  MapEmbed?: InputMaybe<Pages_EnBodyMapEmbedFilter>;
 };
 
 export type Pages_EnFilter = {
@@ -316,12 +375,61 @@ export type Pages_EsBodyTrackedAirbnbButtonFilter = {
   label?: InputMaybe<StringFilter>;
 };
 
+export type Pages_EsBodyPageHeroFilter = {
+  image?: InputMaybe<ImageFilter>;
+  imageAlt?: InputMaybe<StringFilter>;
+  title?: InputMaybe<StringFilter>;
+  subtitle?: InputMaybe<StringFilter>;
+};
+
+export type Pages_EsBodyContentCardFilter = {
+  image?: InputMaybe<ImageFilter>;
+  imageAlt?: InputMaybe<StringFilter>;
+  title?: InputMaybe<StringFilter>;
+  children?: InputMaybe<RichTextFilter>;
+  className?: InputMaybe<StringFilter>;
+};
+
+export type Pages_EsBodyTimeDisplayFilter = {
+  time?: InputMaybe<StringFilter>;
+  label?: InputMaybe<StringFilter>;
+};
+
+export type Pages_EsBodyCalloutBoxFilter = {
+  variant?: InputMaybe<StringFilter>;
+  centered?: InputMaybe<BooleanFilter>;
+  children?: InputMaybe<RichTextFilter>;
+};
+
+export type Pages_EsBodyInfoSectionFilter = {
+  title?: InputMaybe<StringFilter>;
+  children?: InputMaybe<RichTextFilter>;
+};
+
+export type Pages_EsBodyAmenityListFilter = {
+  items?: InputMaybe<StringFilter>;
+};
+
+export type Pages_EsBodyMapEmbedFilter = {
+  lat?: InputMaybe<NumberFilter>;
+  lng?: InputMaybe<NumberFilter>;
+  title?: InputMaybe<StringFilter>;
+  zoom?: InputMaybe<NumberFilter>;
+};
+
 export type Pages_EsBodyFilter = {
   Menubar?: InputMaybe<Pages_EsBodyMenubarFilter>;
   Image?: InputMaybe<Pages_EsBodyImageFilter>;
   Alert?: InputMaybe<Pages_EsBodyAlertFilter>;
   Card?: InputMaybe<Pages_EsBodyCardFilter>;
   TrackedAirbnbButton?: InputMaybe<Pages_EsBodyTrackedAirbnbButtonFilter>;
+  PageHero?: InputMaybe<Pages_EsBodyPageHeroFilter>;
+  ContentCard?: InputMaybe<Pages_EsBodyContentCardFilter>;
+  TimeDisplay?: InputMaybe<Pages_EsBodyTimeDisplayFilter>;
+  CalloutBox?: InputMaybe<Pages_EsBodyCalloutBoxFilter>;
+  InfoSection?: InputMaybe<Pages_EsBodyInfoSectionFilter>;
+  AmenityList?: InputMaybe<Pages_EsBodyAmenityListFilter>;
+  MapEmbed?: InputMaybe<Pages_EsBodyMapEmbedFilter>;
 };
 
 export type Pages_EsFilter = {
@@ -919,7 +1027,7 @@ export const ExperimentalGetTinaClient = () =>
   getSdk(
     generateRequester(
       createClient({
-        url: "https://content.tinajs.io/2.4/content/e17bde00-9308-484c-bdbd-247c42a25514/github/main",
+        url: "http://localhost:4001/graphql",
         queries,
       }),
     ),
