@@ -19,6 +19,16 @@ import { PropertyHeader } from "@/components/property-header";
 import TrackedAirbnbButton from "@/components/tracked-airbnb-button";
 import TrackedAirbnbLink from "@/components/tracked-airbnb-link";
 import { LanguageSwitcher } from "@/components/language-switcher";
+// Content wrapper components for TinaCMS
+import {
+  PageHero,
+  ContentCard,
+  TimeDisplay,
+  CalloutBox,
+  InfoSection,
+  AmenityList,
+  MapEmbed,
+} from "@/components/content";
 // shadcn/ui components
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Badge } from "@/components/ui/badge";
@@ -107,6 +117,14 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     TrackedAirbnbButton,
     TrackedAirbnbLink,
     LanguageSwitcher,
+    // Content wrapper components for TinaCMS
+    PageHero,
+    ContentCard,
+    TimeDisplay,
+    CalloutBox,
+    InfoSection,
+    AmenityList,
+    MapEmbed,
     // shadcn/ui components
     Alert,
     AlertTitle,

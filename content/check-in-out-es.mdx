@@ -8,114 +8,61 @@ locale: "es"
 <AltBackground title="Entrada/Salida" darkBackground={true} locale="es">
 <Menubar locale="es" title="Entrada/Salida" />
 
-{/* Hero image */}
+<PageHero
+  image="/images/515-punta-caelo/doorway_mobile.jpg"
+  imageAlt="Entrada"
+  title="Entrada/Salida"
+/>
 
-<div className="relative w-full h-[180px] overflow-hidden mb-0">
-  <Image
-    src="/images/515-punta-caelo/doorway_mobile.jpg"
-    alt="Entrada"
-    fill
-    className="object-cover"
-  />
-</div>
-
-{/* Title banner */}
-
-<div className="bg-white py-3 px-4 text-center">
-  <h1 className="text-3xl font-semibold tracking-widest uppercase">
-    Entrada/Salida
-  </h1>
-</div>
-
-{/* Check-in Section */}
-
-<div className="bg-white mx-4 mt-6 rounded-lg overflow-hidden">
-  <div className="px-6 py-6 text-center">
-    <div className="text-6xl font-light tracking-wide">3 PM</div>
-    <div className="text-xl font-semibold tracking-widest uppercase mt-2">
-      Entrada
-    </div>
-  </div>
-</div>
+<ContentCard>
+  <TimeDisplay time="3 PM" label="Entrada" />
+</ContentCard>
 
 <div className="px-6 py-4 text-left space-y-4">
-  <div>
-    <h3 className="font-semibold text-lg mb-1">Procedimiento en la Entrada</h3>
-    <span className="block">
-      En la entrada principal, por favor notifique al guardia de seguridad que se
-      dirige al Apartamento 515. El acceso sera otorgado mediante una aprobacion
-      por aplicacion del anfitrion.
-    </span>
-  </div>
+  <InfoSection title="Procedimiento en la Entrada">
+    En la entrada principal, por favor notifique al guardia de seguridad que se
+    dirige al Apartamento 515. El acceso sera otorgado mediante una aprobacion
+    por aplicacion del anfitrion.
+  </InfoSection>
 
-<div>
-  <h3 className="font-semibold text-lg mb-1">Llaves</h3>
-  <span className="block">
-    Sus llaves le seran entregadas por el guardia o conserje a su llegada.
-  </span>
+<InfoSection title="Llaves">
+  Sus llaves le seran entregadas por el guardia o conserje a su llegada.
+</InfoSection>
+
+<InfoSection title="Estacionamiento">
+  Tiene un espacio de estacionamiento designado ubicado en el Piso 3. Tambien
+  hay estacionamiento para visitantes disponible dentro del complejo.
+</InfoSection>
+
+  <InfoSection title="Ubicacion">
+    El apartamento esta ubicado en el Piso 5. El conserje puede ayudarle a
+    encontrar la unidad si es necesario.
+  </InfoSection>
 </div>
 
-<div>
-  <h3 className="font-semibold text-lg mb-1">Estacionamiento</h3>
-  <span className="block">
-    Tiene un espacio de estacionamiento designado ubicado en el Piso 3. Tambien
-    hay estacionamiento para visitantes disponible dentro del complejo.
-  </span>
-</div>
-
-  <div>
-    <h3 className="font-semibold text-lg mb-1">Ubicacion</h3>
-    <span className="block">
-      El apartamento esta ubicado en el Piso 5. El conserje puede ayudarle a
-      encontrar la unidad si es necesario.
-    </span>
-  </div>
-</div>
-
-{/* Check-out Section */}
-
-<div className="bg-white mx-4 mt-6 rounded-lg overflow-hidden">
-  <div className="px-6 py-6 text-center">
-    <div className="text-6xl font-light tracking-wide">11 AM</div>
-    <div className="text-xl font-semibold tracking-widest uppercase mt-2">
-      Salida
-    </div>
-  </div>
-</div>
+<ContentCard>
+  <TimeDisplay time="11 AM" label="Salida" />
+</ContentCard>
 
 <div className="px-6 py-4 text-left space-y-4">
-  <div>
-    <h3 className="font-semibold text-lg mb-1">Devolucion de Llaves</h3>
-    <span className="block">
-      Por favor deje las llaves del apartamento sobre la mesa dentro de la
-      unidad antes de partir.
-    </span>
-  </div>
+  <InfoSection title="Devolucion de Llaves">
+    Por favor deje las llaves del apartamento sobre la mesa dentro de la unidad
+    antes de partir.
+  </InfoSection>
 </div>
 
-{/* Flexibility Section */}
-
-<div className="bg-white mx-4 mt-6 rounded-lg overflow-hidden">
-  <div className="px-6 py-4 text-center">
-    <div className="text-xl font-semibold tracking-widest uppercase">
-      Flexibilidad
-    </div>
-  </div>
-</div>
+<ContentCard title="Flexibilidad" />
 
 <div className="px-6 py-4 mb-6 text-left">
-  <div>
-    <h3 className="font-semibold text-lg mb-1">Acceso Temprano/Tardio</h3>
-    <span className="block">
-      Buscamos ser flexibles con los horarios de entrada y salida. Si no hay
-      huespedes llegando o saliendo el mismo dia, estaremos encantados de
-      acomodar llegadas mas tempranas o salidas mas tardias.
-    </span>
-    <span className="block mt-2">
-      Por favor contactenos con 24 horas de anticipacion para verificar
-      disponibilidad.
-    </span>
-  </div>
+  <InfoSection title="Acceso Temprano/Tardio">
+    Buscamos ser flexibles con los horarios de entrada y salida. Si no hay
+    huespedes llegando o saliendo el mismo dia, estaremos encantados de
+    acomodar llegadas mas tempranas o salidas mas tardias.
+
+    Por favor contactenos con 24 horas de anticipacion para verificar
+    disponibilidad.
+
+  </InfoSection>
 </div>
 
 </AltBackground>

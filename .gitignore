@@ -66,3 +66,6 @@ tina/__generated__/.cache
 .yarn/install-state.gz
 .yarn/install-state.json
 .pnp.*
+
+*storybook.log
+storybook-static

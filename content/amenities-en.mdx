@@ -8,197 +8,91 @@ darkBackground: true
 <AltBackground title="Amenities" description="What We Provide" darkBackground={true} locale="en">
 <Menubar locale="en" title="Amenities" />
 
-{/* Hero image */}
+<PageHero
+  image="/images/515-punta-caelo/livingroom_view1.jpg"
+  imageAlt="Living room"
+  title="What We Provide"
+/>
 
-<div className="relative w-full h-[180px] overflow-hidden mb-0">
-  <Image
-    src="/images/515-punta-caelo/livingroom_view1.jpg"
-    alt="Living room"
-    fill
-    className="object-cover"
+<ContentCard
+  image="/images/515-punta-caelo/kitchen_view1.jpg"
+  imageAlt="Kitchen"
+  title="Kitchen"
+>
+  <AmenityList
+    items={[
+      "Gas range cooker",
+      "Electric oven",
+      "Fridge",
+      "Microwave",
+      "Dishwasher",
+      "Coffee machine & kettle",
+      "Glassware, cups & cutlery",
+      "Cooking accessories & utensils",
+    ]}
   />
-</div>
+</ContentCard>
 
-{/* Title banner */}
+<ContentCard
+  image="/images/515-punta-caelo/livingroom_view1.jpg"
+  imageAlt="Living Room"
+  title="Living Room"
+>
+  <AmenityList
+    items={[
+      "Smart TV with IPTV (SmarterTV Pro app with live channels)",
+      "Air conditioning",
+      "Wi-Fi throughout",
+      "Comfortable seating",
+    ]}
+  />
+</ContentCard>
 
-<div className="bg-white py-3 px-4 text-center">
-  <h1 className="text-3xl font-semibold tracking-widest uppercase">
-    What We Provide
-  </h1>
-</div>
+<ContentCard
+  image="/images/515-punta-caelo/bedroom1_view1.jpg"
+  imageAlt="Bedroom"
+  title="Bedrooms"
+>
+  <AmenityList
+    items={[
+      "3 bedrooms with quality linens",
+      "Air conditioning & ceiling fans",
+      "Smart TVs with IPTV (live channels available)",
+      "Extra towels & blankets",
+      "Hairdryer",
+      "Shampoo & body wash",
+    ]}
+  />
+</ContentCard>
 
-{/* Kitchen Section */}
+<ContentCard
+  image="/images/515-punta-caelo/bedroom4_view1.jpg"
+  imageAlt="Maid's Quarters"
+  title="Maid's Quarters"
+>
+  <AmenityList
+    items={["Washer & dryer", "Iron & ironing board", "Washing up essentials"]}
+  />
+</ContentCard>
 
-<div className="bg-white mx-4 mt-6 rounded-lg overflow-hidden">
-  <div className="relative w-full h-[140px]">
-    <Image
-      src="/images/515-punta-caelo/kitchen_view1.jpg"
-      alt="Kitchen"
-      fill
-      className="object-cover"
-    />
-  </div>
-  <div className="px-6 py-4">
-    <h2 className="text-xl font-semibold mb-3">Kitchen</h2>
-    <ul className="space-y-1">
-      <li className="flex items-center gap-2">
-        <span className="text-primary">•</span> Gas range cooker
-      </li>
-      <li className="flex items-center gap-2">
-        <span className="text-primary">•</span> Electric oven
-      </li>
-      <li className="flex items-center gap-2">
-        <span className="text-primary">•</span> Fridge
-      </li>
-      <li className="flex items-center gap-2">
-        <span className="text-primary">•</span> Microwave
-      </li>
-      <li className="flex items-center gap-2">
-        <span className="text-primary">•</span> Dishwasher
-      </li>
-      <li className="flex items-center gap-2">
-        <span className="text-primary">•</span> Coffee machine & kettle
-      </li>
-      <li className="flex items-center gap-2">
-        <span className="text-primary">•</span> Glassware, cups & cutlery
-      </li>
-      <li className="flex items-center gap-2">
-        <span className="text-primary">•</span> Cooking accessories & utensils
-      </li>
-    </ul>
-  </div>
-</div>
+<ContentCard
+  image="/images/515-punta-caelo/balcony_view1.jpg"
+  imageAlt="Balcony"
+  title="Balcony"
+>
+  <AmenityList
+    items={[
+      "Ocean views",
+      "BBQ grill & utensils",
+      "Outdoor table and chairs",
+      "Beach towels",
+    ]}
+  />
+</ContentCard>
 
-{/* Living Room Section */}
-
-<div className="bg-white mx-4 mt-4 rounded-lg overflow-hidden">
-  <div className="relative w-full h-[140px]">
-    <Image
-      src="/images/515-punta-caelo/livingroom_view1.jpg"
-      alt="Living Room"
-      fill
-      className="object-cover"
-    />
-  </div>
-  <div className="px-6 py-4">
-    <h2 className="text-xl font-semibold mb-3">Living Room</h2>
-    <ul className="space-y-1">
-      <li className="flex items-center gap-2">
-        <span className="text-primary">•</span> Smart TV with IPTV (SmarterTV
-        Pro app with live channels)
-      </li>
-      <li className="flex items-center gap-2">
-        <span className="text-primary">•</span> Air conditioning
-      </li>
-      <li className="flex items-center gap-2">
-        <span className="text-primary">•</span> Wi-Fi throughout
-      </li>
-      <li className="flex items-center gap-2">
-        <span className="text-primary">•</span> Comfortable seating
-      </li>
-    </ul>
-  </div>
-</div>
-
-{/* Bedrooms Section */}
-
-<div className="bg-white mx-4 mt-4 rounded-lg overflow-hidden">
-  <div className="relative w-full h-[140px]">
-    <Image
-      src="/images/515-punta-caelo/bedroom1_view1.jpg"
-      alt="Bedroom"
-      fill
-      className="object-cover"
-    />
-  </div>
-  <div className="px-6 py-4">
-    <h2 className="text-xl font-semibold mb-3">Bedrooms</h2>
-    <ul className="space-y-1">
-      <li className="flex items-center gap-2">
-        <span className="text-primary">•</span> 3 bedrooms with quality linens
-      </li>
-      <li className="flex items-center gap-2">
-        <span className="text-primary">•</span> Air conditioning & ceiling fans
-      </li>
-      <li className="flex items-center gap-2">
-        <span className="text-primary">•</span> Smart TVs with IPTV (live
-        channels available)
-      </li>
-      <li className="flex items-center gap-2">
-        <span className="text-primary">•</span> Extra towels & blankets
-      </li>
-      <li className="flex items-center gap-2">
-        <span className="text-primary">•</span> Hairdryer
-      </li>
-      <li className="flex items-center gap-2">
-        <span className="text-primary">•</span> Shampoo & body wash
-      </li>
-    </ul>
-  </div>
-</div>
-
-{/* Maid's Quarters Section */}
-
-<div className="bg-white mx-4 mt-4 rounded-lg overflow-hidden">
-  <div className="relative w-full h-[140px]">
-    <Image
-      src="/images/515-punta-caelo/bedroom4_view1.jpg"
-      alt="Maid's Quarters"
-      fill
-      className="object-cover"
-    />
-  </div>
-  <div className="px-6 py-4">
-    <h2 className="text-xl font-semibold mb-3">Maid's Quarters</h2>
-    <ul className="space-y-1">
-      <li className="flex items-center gap-2">
-        <span className="text-primary">•</span> Washer & dryer
-      </li>
-      <li className="flex items-center gap-2">
-        <span className="text-primary">•</span> Iron & ironing board
-      </li>
-      <li className="flex items-center gap-2">
-        <span className="text-primary">•</span> Washing up essentials
-      </li>
-    </ul>
-  </div>
-</div>
-
-{/* Balcony Section */}
-
-<div className="bg-white mx-4 mt-4 rounded-lg overflow-hidden">
-  <div className="relative w-full h-[140px]">
-    <Image
-      src="/images/515-punta-caelo/balcony_view1.jpg"
-      alt="Balcony"
-      fill
-      className="object-cover"
-    />
-  </div>
-  <div className="px-6 py-4">
-    <h2 className="text-xl font-semibold mb-3">Balcony</h2>
-    <ul className="space-y-1">
-      <li className="flex items-center gap-2">
-        <span className="text-primary">•</span> Ocean views
-      </li>
-      <li className="flex items-center gap-2">
-        <span className="text-primary">•</span> BBQ grill & utensils
-      </li>
-      <li className="flex items-center gap-2">
-        <span className="text-primary">•</span> Outdoor table and chairs
-      </li>
-      <li className="flex items-center gap-2">
-        <span className="text-primary">•</span> Beach towels
-      </li>
-    </ul>
-  </div>
-</div>
-
-{/* Contact Section */}
-
-<div className="bg-white/80 p-4 mx-4 mt-6 mb-6 rounded-lg text-center font-medium">
+<CalloutBox>
   Don't see something you need? Please contact us and if it's something we have,
   we'll let you know.
-</div>
+</CalloutBox>
 
 </AltBackground>
