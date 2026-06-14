@@ -1521,6 +1521,166 @@
     },
     {
       "kind": "InputObjectTypeDefinition",
+      "name": { "kind": "Name", "value": "Pages_enBodyAltBackgroundFilter" },
+      "fields": [
+        {
+          "kind": "InputValueDefinition",
+          "name": { "kind": "Name", "value": "title" },
+          "type": {
+            "kind": "NamedType",
+            "name": { "kind": "Name", "value": "StringFilter" }
+          }
+        },
+        {
+          "kind": "InputValueDefinition",
+          "name": { "kind": "Name", "value": "description" },
+          "type": {
+            "kind": "NamedType",
+            "name": { "kind": "Name", "value": "StringFilter" }
+          }
+        },
+        {
+          "kind": "InputValueDefinition",
+          "name": { "kind": "Name", "value": "darkBackground" },
+          "type": {
+            "kind": "NamedType",
+            "name": { "kind": "Name", "value": "BooleanFilter" }
+          }
+        },
+        {
+          "kind": "InputValueDefinition",
+          "name": { "kind": "Name", "value": "locale" },
+          "type": {
+            "kind": "NamedType",
+            "name": { "kind": "Name", "value": "StringFilter" }
+          }
+        },
+        {
+          "kind": "InputValueDefinition",
+          "name": { "kind": "Name", "value": "children" },
+          "type": {
+            "kind": "NamedType",
+            "name": { "kind": "Name", "value": "RichTextFilter" }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "InputObjectTypeDefinition",
+      "name": { "kind": "Name", "value": "Pages_enBodySectionFilter" },
+      "fields": [
+        {
+          "kind": "InputValueDefinition",
+          "name": { "kind": "Name", "value": "layout" },
+          "type": {
+            "kind": "NamedType",
+            "name": { "kind": "Name", "value": "StringFilter" }
+          }
+        },
+        {
+          "kind": "InputValueDefinition",
+          "name": { "kind": "Name", "value": "spacing" },
+          "type": {
+            "kind": "NamedType",
+            "name": { "kind": "Name", "value": "StringFilter" }
+          }
+        },
+        {
+          "kind": "InputValueDefinition",
+          "name": { "kind": "Name", "value": "padding" },
+          "type": {
+            "kind": "NamedType",
+            "name": { "kind": "Name", "value": "StringFilter" }
+          }
+        },
+        {
+          "kind": "InputValueDefinition",
+          "name": { "kind": "Name", "value": "className" },
+          "type": {
+            "kind": "NamedType",
+            "name": { "kind": "Name", "value": "StringFilter" }
+          }
+        },
+        {
+          "kind": "InputValueDefinition",
+          "name": { "kind": "Name", "value": "children" },
+          "type": {
+            "kind": "NamedType",
+            "name": { "kind": "Name", "value": "RichTextFilter" }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "InputObjectTypeDefinition",
+      "name": { "kind": "Name", "value": "Pages_enBodyImageGridFilter" },
+      "fields": [
+        {
+          "kind": "InputValueDefinition",
+          "name": { "kind": "Name", "value": "columns" },
+          "type": {
+            "kind": "NamedType",
+            "name": { "kind": "Name", "value": "NumberFilter" }
+          }
+        },
+        {
+          "kind": "InputValueDefinition",
+          "name": { "kind": "Name", "value": "gap" },
+          "type": {
+            "kind": "NamedType",
+            "name": { "kind": "Name", "value": "StringFilter" }
+          }
+        },
+        {
+          "kind": "InputValueDefinition",
+          "name": { "kind": "Name", "value": "children" },
+          "type": {
+            "kind": "NamedType",
+            "name": { "kind": "Name", "value": "RichTextFilter" }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "InputObjectTypeDefinition",
+      "name": { "kind": "Name", "value": "Pages_enBodyFlexRowFilter" },
+      "fields": [
+        {
+          "kind": "InputValueDefinition",
+          "name": { "kind": "Name", "value": "justify" },
+          "type": {
+            "kind": "NamedType",
+            "name": { "kind": "Name", "value": "StringFilter" }
+          }
+        },
+        {
+          "kind": "InputValueDefinition",
+          "name": { "kind": "Name", "value": "align" },
+          "type": {
+            "kind": "NamedType",
+            "name": { "kind": "Name", "value": "StringFilter" }
+          }
+        },
+        {
+          "kind": "InputValueDefinition",
+          "name": { "kind": "Name", "value": "gap" },
+          "type": {
+            "kind": "NamedType",
+            "name": { "kind": "Name", "value": "StringFilter" }
+          }
+        },
+        {
+          "kind": "InputValueDefinition",
+          "name": { "kind": "Name", "value": "children" },
+          "type": {
+            "kind": "NamedType",
+            "name": { "kind": "Name", "value": "RichTextFilter" }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "InputObjectTypeDefinition",
       "name": { "kind": "Name", "value": "Pages_enBodyFilter" },
       "fields": [
         {
@@ -1620,6 +1780,41 @@
           "type": {
             "kind": "NamedType",
             "name": { "kind": "Name", "value": "Pages_enBodyMapEmbedFilter" }
+          }
+        },
+        {
+          "kind": "InputValueDefinition",
+          "name": { "kind": "Name", "value": "AltBackground" },
+          "type": {
+            "kind": "NamedType",
+            "name": {
+              "kind": "Name",
+              "value": "Pages_enBodyAltBackgroundFilter"
+            }
+          }
+        },
+        {
+          "kind": "InputValueDefinition",
+          "name": { "kind": "Name", "value": "Section" },
+          "type": {
+            "kind": "NamedType",
+            "name": { "kind": "Name", "value": "Pages_enBodySectionFilter" }
+          }
+        },
+        {
+          "kind": "InputValueDefinition",
+          "name": { "kind": "Name", "value": "ImageGrid" },
+          "type": {
+            "kind": "NamedType",
+            "name": { "kind": "Name", "value": "Pages_enBodyImageGridFilter" }
+          }
+        },
+        {
+          "kind": "InputValueDefinition",
+          "name": { "kind": "Name", "value": "FlexRow" },
+          "type": {
+            "kind": "NamedType",
+            "name": { "kind": "Name", "value": "Pages_enBodyFlexRowFilter" }
           }
         }
       ]
@@ -2168,6 +2363,166 @@
     },
     {
       "kind": "InputObjectTypeDefinition",
+      "name": { "kind": "Name", "value": "Pages_esBodyAltBackgroundFilter" },
+      "fields": [
+        {
+          "kind": "InputValueDefinition",
+          "name": { "kind": "Name", "value": "title" },
+          "type": {
+            "kind": "NamedType",
+            "name": { "kind": "Name", "value": "StringFilter" }
+          }
+        },
+        {
+          "kind": "InputValueDefinition",
+          "name": { "kind": "Name", "value": "description" },
+          "type": {
+            "kind": "NamedType",
+            "name": { "kind": "Name", "value": "StringFilter" }
+          }
+        },
+        {
+          "kind": "InputValueDefinition",
+          "name": { "kind": "Name", "value": "darkBackground" },
+          "type": {
+            "kind": "NamedType",
+            "name": { "kind": "Name", "value": "BooleanFilter" }
+          }
+        },
+        {
+          "kind": "InputValueDefinition",
+          "name": { "kind": "Name", "value": "locale" },
+          "type": {
+            "kind": "NamedType",
+            "name": { "kind": "Name", "value": "StringFilter" }
+          }
+        },
+        {
+          "kind": "InputValueDefinition",
+          "name": { "kind": "Name", "value": "children" },
+          "type": {
+            "kind": "NamedType",
+            "name": { "kind": "Name", "value": "RichTextFilter" }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "InputObjectTypeDefinition",
+      "name": { "kind": "Name", "value": "Pages_esBodySectionFilter" },
+      "fields": [
+        {
+          "kind": "InputValueDefinition",
+          "name": { "kind": "Name", "value": "layout" },
+          "type": {
+            "kind": "NamedType",
+            "name": { "kind": "Name", "value": "StringFilter" }
+          }
+        },
+        {
+          "kind": "InputValueDefinition",
+          "name": { "kind": "Name", "value": "spacing" },
+          "type": {
+            "kind": "NamedType",
+            "name": { "kind": "Name", "value": "StringFilter" }
+          }
+        },
+        {
+          "kind": "InputValueDefinition",
+          "name": { "kind": "Name", "value": "padding" },
+          "type": {
+            "kind": "NamedType",
+            "name": { "kind": "Name", "value": "StringFilter" }
+          }
+        },
+        {
+          "kind": "InputValueDefinition",
+          "name": { "kind": "Name", "value": "className" },
+          "type": {
+            "kind": "NamedType",
+            "name": { "kind": "Name", "value": "StringFilter" }
+          }
+        },
+        {
+          "kind": "InputValueDefinition",
+          "name": { "kind": "Name", "value": "children" },
+          "type": {
+            "kind": "NamedType",
+            "name": { "kind": "Name", "value": "RichTextFilter" }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "InputObjectTypeDefinition",
+      "name": { "kind": "Name", "value": "Pages_esBodyImageGridFilter" },
+      "fields": [
+        {
+          "kind": "InputValueDefinition",
+          "name": { "kind": "Name", "value": "columns" },
+          "type": {
+            "kind": "NamedType",
+            "name": { "kind": "Name", "value": "NumberFilter" }
+          }
+        },
+        {
+          "kind": "InputValueDefinition",
+          "name": { "kind": "Name", "value": "gap" },
+          "type": {
+            "kind": "NamedType",
+            "name": { "kind": "Name", "value": "StringFilter" }
+          }
+        },
+        {
+          "kind": "InputValueDefinition",
+          "name": { "kind": "Name", "value": "children" },
+          "type": {
+            "kind": "NamedType",
+            "name": { "kind": "Name", "value": "RichTextFilter" }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "InputObjectTypeDefinition",
+      "name": { "kind": "Name", "value": "Pages_esBodyFlexRowFilter" },
+      "fields": [
+        {
+          "kind": "InputValueDefinition",
+          "name": { "kind": "Name", "value": "justify" },
+          "type": {
+            "kind": "NamedType",
+            "name": { "kind": "Name", "value": "StringFilter" }
+          }
+        },
+        {
+          "kind": "InputValueDefinition",
+          "name": { "kind": "Name", "value": "align" },
+          "type": {
+            "kind": "NamedType",
+            "name": { "kind": "Name", "value": "StringFilter" }
+          }
+        },
+        {
+          "kind": "InputValueDefinition",
+          "name": { "kind": "Name", "value": "gap" },
+          "type": {
+            "kind": "NamedType",
+            "name": { "kind": "Name", "value": "StringFilter" }
+          }
+        },
+        {
+          "kind": "InputValueDefinition",
+          "name": { "kind": "Name", "value": "children" },
+          "type": {
+            "kind": "NamedType",
+            "name": { "kind": "Name", "value": "RichTextFilter" }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "InputObjectTypeDefinition",
       "name": { "kind": "Name", "value": "Pages_esBodyFilter" },
       "fields": [
         {
@@ -2267,6 +2622,41 @@
           "type": {
             "kind": "NamedType",
             "name": { "kind": "Name", "value": "Pages_esBodyMapEmbedFilter" }
+          }
+        },
+        {
+          "kind": "InputValueDefinition",
+          "name": { "kind": "Name", "value": "AltBackground" },
+          "type": {
+            "kind": "NamedType",
+            "name": {
+              "kind": "Name",
+              "value": "Pages_esBodyAltBackgroundFilter"
+            }
+          }
+        },
+        {
+          "kind": "InputValueDefinition",
+          "name": { "kind": "Name", "value": "Section" },
+          "type": {
+            "kind": "NamedType",
+            "name": { "kind": "Name", "value": "Pages_esBodySectionFilter" }
+          }
+        },
+        {
+          "kind": "InputValueDefinition",
+          "name": { "kind": "Name", "value": "ImageGrid" },
+          "type": {
+            "kind": "NamedType",
+            "name": { "kind": "Name", "value": "Pages_esBodyImageGridFilter" }
+          }
+        },
+        {
+          "kind": "InputValueDefinition",
+          "name": { "kind": "Name", "value": "FlexRow" },
+          "type": {
+            "kind": "NamedType",
+            "name": { "kind": "Name", "value": "Pages_esBodyFlexRowFilter" }
           }
         }
       ]

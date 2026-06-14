@@ -12,7 +12,7 @@ locale: "en"
 
 We would love to host you again! Book directly through our Airbnb listing for your next visit.
 
-<div className="flex justify-center my-6">
+<FlexRow justify="center" gap="md">
   <div
     className="airbnb-embed-frame"
     data-id="54150577"
@@ -28,16 +28,16 @@ We would love to host you again! Book directly through our Airbnb listing for yo
     <a href="https://www.airbnb.com/h/puntacaelopanama">View On Airbnb</a>
     <script async src="https://www.airbnb.com/embeddable/airbnb_jssdk"></script>
   </div>
-</div>
+</FlexRow>
 
-<div className="flex justify-center mt-6">
+<FlexRow justify="center" gap="md">
   <TrackedAirbnbButton
     source="review-rebook"
     locale="en"
     buttonText="Book on Airbnb"
     className="bg-secondary text-secondary-foreground hover:bg-secondary/80 px-8 py-3 text-lg"
   />
-</div>
+</FlexRow>
 
 <CalloutBox>Enjoyed your stay? We'd love a review on Airbnb!</CalloutBox>
 
@@ -45,11 +45,11 @@ We would love to host you again! Book directly through our Airbnb listing for yo
 
 Know someone looking for a beach getaway in Panama? Share our listing!
 
-<div className="flex justify-center mt-4">
+<FlexRow justify="center" gap="md">
   <TrackedAirbnbButton
     source="review-share"
     locale="en"
     buttonText="Share Listing"
     className="bg-primary text-primary-foreground hover:bg-primary/80 px-8 py-3 text-lg"
   />
-</div>
+</FlexRow>

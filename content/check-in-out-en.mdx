@@ -5,7 +5,8 @@ darkBackground: true
 locale: "en"
 ---
 
-<AltBackground title="Check-in/out" darkBackground={true} locale="en">
+<AltBackground darkBackground={true} locale="en" />
+
 <Menubar locale="en" title="Check-in/out" />
 
 <PageHero
@@ -18,7 +19,7 @@ locale: "en"
   <TimeDisplay time="3 PM" label="Check-in" />
 </ContentCard>
 
-<div className="px-6 py-4 text-left space-y-4">
+<Section layout="stack" spacing="md" padding="md">
   <InfoSection title="Gate Procedure">
     At the main entrance, please notify the security guard that you are heading
     to Apartment 515. Access will be granted via an app approval from the host.
@@ -37,22 +38,22 @@ locale: "en"
     The apartment is located on Floor 5. The concierge can assist you in
     finding the unit if needed.
   </InfoSection>
-</div>
+</Section>
 
 <ContentCard>
   <TimeDisplay time="11 AM" label="Check-out" />
 </ContentCard>
 
-<div className="px-6 py-4 text-left space-y-4">
+<Section layout="stack" spacing="md" padding="md">
   <InfoSection title="Key Return">
     Please leave the apartment keys on the table inside the unit before
     departing.
   </InfoSection>
-</div>
+</Section>
 
 <ContentCard title="Flexibility" />
 
-<div className="px-6 py-4 mb-6 text-left">
+<Section layout="stack" spacing="none" padding="md">
   <InfoSection title="Early/Late Access">
     We aim to be flexible with check-in and check-out times. If there are no
     guests arriving or departing on the same day, we are happy to accommodate
@@ -61,6 +62,4 @@ locale: "en"
     Please contact us 24 hours in advance to check availability.
 
   </InfoSection>
-</div>
-
-</AltBackground>
+</Section>

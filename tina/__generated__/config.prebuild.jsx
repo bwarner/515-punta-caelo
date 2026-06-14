@@ -122,6 +122,89 @@ var contentTemplates = [
       { name: "zoom", label: "Zoom Level", type: "number" },
     ],
   },
+  // Page wrapper components
+  {
+    name: "AltBackground",
+    label: "Alt Background (Dark Mode)",
+    fields: [
+      { name: "title", label: "Page Title", type: "string" },
+      { name: "description", label: "Description", type: "string" },
+      { name: "darkBackground", label: "Dark Background", type: "boolean" },
+      { name: "locale", label: "Locale", type: "string" },
+      { name: "children", label: "Page Content", type: "rich-text" },
+    ],
+  },
+  // Layout wrapper components
+  {
+    name: "Section",
+    label: "Section",
+    fields: [
+      {
+        name: "layout",
+        label: "Layout",
+        type: "string",
+        options: ["stack", "flex-row", "grid-2", "grid-3", "centered"],
+      },
+      {
+        name: "spacing",
+        label: "Spacing",
+        type: "string",
+        options: ["none", "sm", "md", "lg"],
+      },
+      {
+        name: "padding",
+        label: "Padding",
+        type: "string",
+        options: ["none", "sm", "md", "lg"],
+      },
+      { name: "className", label: "Custom CSS Class", type: "string" },
+      { name: "children", label: "Content", type: "rich-text" },
+    ],
+  },
+  {
+    name: "ImageGrid",
+    label: "Image Grid",
+    fields: [
+      {
+        name: "columns",
+        label: "Columns",
+        type: "number",
+        required: true,
+      },
+      {
+        name: "gap",
+        label: "Gap Size",
+        type: "string",
+        options: ["sm", "md", "lg"],
+      },
+      { name: "children", label: "Images", type: "rich-text" },
+    ],
+  },
+  {
+    name: "FlexRow",
+    label: "Flex Row",
+    fields: [
+      {
+        name: "justify",
+        label: "Justify",
+        type: "string",
+        options: ["start", "center", "end", "between", "around"],
+      },
+      {
+        name: "align",
+        label: "Align",
+        type: "string",
+        options: ["start", "center", "end", "stretch"],
+      },
+      {
+        name: "gap",
+        label: "Gap",
+        type: "string",
+        options: ["sm", "md", "lg"],
+      },
+      { name: "children", label: "Content", type: "rich-text" },
+    ],
+  },
 ];
 var config_default = defineConfig({
   branch,

@@ -28,6 +28,9 @@ import {
   InfoSection,
   AmenityList,
   MapEmbed,
+  Section,
+  ImageGrid,
+  FlexRow,
 } from "@/components/content";
 // shadcn/ui components
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
@@ -125,6 +128,9 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     InfoSection,
     AmenityList,
     MapEmbed,
+    Section,
+    ImageGrid,
+    FlexRow,
     // shadcn/ui components
     Alert,
     AlertTitle,

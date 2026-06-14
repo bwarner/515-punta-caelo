@@ -5,7 +5,8 @@ darkBackground: true
 locale: "es"
 ---
 
-<AltBackground title="Entrada/Salida" darkBackground={true} locale="es">
+<AltBackground darkBackground={true} locale="es" />
+
 <Menubar locale="es" title="Entrada/Salida" />
 
 <PageHero
@@ -18,7 +19,7 @@ locale: "es"
   <TimeDisplay time="3 PM" label="Entrada" />
 </ContentCard>
 
-<div className="px-6 py-4 text-left space-y-4">
+<Section layout="stack" spacing="md" padding="md">
   <InfoSection title="Procedimiento en la Entrada">
     En la entrada principal, por favor notifique al guardia de seguridad que se
     dirige al Apartamento 515. El acceso sera otorgado mediante una aprobacion
@@ -38,22 +39,22 @@ locale: "es"
     El apartamento esta ubicado en el Piso 5. El conserje puede ayudarle a
     encontrar la unidad si es necesario.
   </InfoSection>
-</div>
+</Section>
 
 <ContentCard>
   <TimeDisplay time="11 AM" label="Salida" />
 </ContentCard>
 
-<div className="px-6 py-4 text-left space-y-4">
+<Section layout="stack" spacing="md" padding="md">
   <InfoSection title="Devolucion de Llaves">
     Por favor deje las llaves del apartamento sobre la mesa dentro de la unidad
     antes de partir.
   </InfoSection>
-</div>
+</Section>
 
 <ContentCard title="Flexibilidad" />
 
-<div className="px-6 py-4 mb-6 text-left">
+<Section layout="stack" spacing="none" padding="md">
   <InfoSection title="Acceso Temprano/Tardio">
     Buscamos ser flexibles con los horarios de entrada y salida. Si no hay
     huespedes llegando o saliendo el mismo dia, estaremos encantados de
@@ -63,6 +64,4 @@ locale: "es"
     disponibilidad.
 
   </InfoSection>
-</div>
-
-</AltBackground>
+</Section>

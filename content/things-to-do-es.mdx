@@ -5,27 +5,29 @@ locale: "es"
 darkBackground: true
 ---
 
-<AltBackground title="Qué Hacer" description="Qué Hacer" darkBackground={true} locale="es">
+<AltBackground darkBackground={true} locale="es" />
 <Menubar locale="es" title="Qué Hacer" />
 
 {/* Hero image */}
 
-<div className="relative w-full h-[180px] overflow-hidden mb-0">
-  <Image
-    src="/images/515-punta-caelo/beach_mobile.jpg"
-    alt="Vista de la playa"
-    fill
-    className="object-cover object-bottom"
-  />
-</div>
+<Section layout="stack" spacing="none" padding="none">
+  <div className="relative w-full h-[180px] overflow-hidden">
+    <Image
+      src="/images/515-punta-caelo/beach_mobile.jpg"
+      alt="Vista de la playa"
+      fill
+      className="object-cover object-bottom"
+    />
+  </div>
+</Section>
 
 {/* Title banner */}
 
-<div className="bg-white py-3 px-4 text-center">
-  <h1 className="text-3xl font-semibold tracking-widest uppercase">
+<Section layout="stack" spacing="sm" padding="md">
+  <h1 className="text-3xl font-semibold tracking-widest uppercase text-center">
     Qué Hacer
   </h1>
-</div>
+</Section>
 
 ## Playas
 
@@ -78,5 +80,3 @@ Participe en varias actividades como golf, paseos a caballo, senderismo, pesca y
 ## Tours
 
 Descubra tours guiados disponibles para explorar atracciones naturales, cultura local, lugares históricos y encuentros con vida silvestre, mejorando su experiencia en Panamá.
-
-</AltBackground>

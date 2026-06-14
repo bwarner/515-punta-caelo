@@ -433,6 +433,208 @@
                   }
                 ],
                 "namespace": ["pages_en", "body", "MapEmbed"]
+              },
+              {
+                "name": "AltBackground",
+                "label": "Alt Background (Dark Mode)",
+                "fields": [
+                  {
+                    "name": "title",
+                    "label": "Page Title",
+                    "type": "string",
+                    "namespace": ["pages_en", "body", "AltBackground", "title"],
+                    "searchable": true,
+                    "uid": false
+                  },
+                  {
+                    "name": "description",
+                    "label": "Description",
+                    "type": "string",
+                    "namespace": [
+                      "pages_en",
+                      "body",
+                      "AltBackground",
+                      "description"
+                    ],
+                    "searchable": true,
+                    "uid": false
+                  },
+                  {
+                    "name": "darkBackground",
+                    "label": "Dark Background",
+                    "type": "boolean",
+                    "namespace": [
+                      "pages_en",
+                      "body",
+                      "AltBackground",
+                      "darkBackground"
+                    ],
+                    "searchable": true,
+                    "uid": false
+                  },
+                  {
+                    "name": "locale",
+                    "label": "Locale",
+                    "type": "string",
+                    "namespace": [
+                      "pages_en",
+                      "body",
+                      "AltBackground",
+                      "locale"
+                    ],
+                    "searchable": true,
+                    "uid": false
+                  },
+                  {
+                    "name": "children",
+                    "label": "Page Content",
+                    "type": "rich-text",
+                    "namespace": [
+                      "pages_en",
+                      "body",
+                      "AltBackground",
+                      "children"
+                    ],
+                    "searchable": true,
+                    "parser": { "type": "mdx" },
+                    "uid": false
+                  }
+                ],
+                "namespace": ["pages_en", "body", "AltBackground"]
+              },
+              {
+                "name": "Section",
+                "label": "Section",
+                "fields": [
+                  {
+                    "name": "layout",
+                    "label": "Layout",
+                    "type": "string",
+                    "options": [
+                      "stack",
+                      "flex-row",
+                      "grid-2",
+                      "grid-3",
+                      "centered"
+                    ],
+                    "namespace": ["pages_en", "body", "Section", "layout"],
+                    "searchable": true,
+                    "uid": false
+                  },
+                  {
+                    "name": "spacing",
+                    "label": "Spacing",
+                    "type": "string",
+                    "options": ["none", "sm", "md", "lg"],
+                    "namespace": ["pages_en", "body", "Section", "spacing"],
+                    "searchable": true,
+                    "uid": false
+                  },
+                  {
+                    "name": "padding",
+                    "label": "Padding",
+                    "type": "string",
+                    "options": ["none", "sm", "md", "lg"],
+                    "namespace": ["pages_en", "body", "Section", "padding"],
+                    "searchable": true,
+                    "uid": false
+                  },
+                  {
+                    "name": "className",
+                    "label": "Custom CSS Class",
+                    "type": "string",
+                    "namespace": ["pages_en", "body", "Section", "className"],
+                    "searchable": true,
+                    "uid": false
+                  },
+                  {
+                    "name": "children",
+                    "label": "Content",
+                    "type": "rich-text",
+                    "namespace": ["pages_en", "body", "Section", "children"],
+                    "searchable": true,
+                    "parser": { "type": "mdx" },
+                    "uid": false
+                  }
+                ],
+                "namespace": ["pages_en", "body", "Section"]
+              },
+              {
+                "name": "ImageGrid",
+                "label": "Image Grid",
+                "fields": [
+                  {
+                    "name": "columns",
+                    "label": "Columns",
+                    "type": "number",
+                    "required": true,
+                    "namespace": ["pages_en", "body", "ImageGrid", "columns"],
+                    "searchable": true,
+                    "uid": false
+                  },
+                  {
+                    "name": "gap",
+                    "label": "Gap Size",
+                    "type": "string",
+                    "options": ["sm", "md", "lg"],
+                    "namespace": ["pages_en", "body", "ImageGrid", "gap"],
+                    "searchable": true,
+                    "uid": false
+                  },
+                  {
+                    "name": "children",
+                    "label": "Images",
+                    "type": "rich-text",
+                    "namespace": ["pages_en", "body", "ImageGrid", "children"],
+                    "searchable": true,
+                    "parser": { "type": "mdx" },
+                    "uid": false
+                  }
+                ],
+                "namespace": ["pages_en", "body", "ImageGrid"]
+              },
+              {
+                "name": "FlexRow",
+                "label": "Flex Row",
+                "fields": [
+                  {
+                    "name": "justify",
+                    "label": "Justify",
+                    "type": "string",
+                    "options": ["start", "center", "end", "between", "around"],
+                    "namespace": ["pages_en", "body", "FlexRow", "justify"],
+                    "searchable": true,
+                    "uid": false
+                  },
+                  {
+                    "name": "align",
+                    "label": "Align",
+                    "type": "string",
+                    "options": ["start", "center", "end", "stretch"],
+                    "namespace": ["pages_en", "body", "FlexRow", "align"],
+                    "searchable": true,
+                    "uid": false
+                  },
+                  {
+                    "name": "gap",
+                    "label": "Gap",
+                    "type": "string",
+                    "options": ["sm", "md", "lg"],
+                    "namespace": ["pages_en", "body", "FlexRow", "gap"],
+                    "searchable": true,
+                    "uid": false
+                  },
+                  {
+                    "name": "children",
+                    "label": "Content",
+                    "type": "rich-text",
+                    "namespace": ["pages_en", "body", "FlexRow", "children"],
+                    "searchable": true,
+                    "parser": { "type": "mdx" },
+                    "uid": false
+                  }
+                ],
+                "namespace": ["pages_en", "body", "FlexRow"]
               }
             ],
             "namespace": ["pages_en", "body"],
@@ -868,6 +1070,208 @@
                   }
                 ],
                 "namespace": ["pages_es", "body", "MapEmbed"]
+              },
+              {
+                "name": "AltBackground",
+                "label": "Alt Background (Dark Mode)",
+                "fields": [
+                  {
+                    "name": "title",
+                    "label": "Page Title",
+                    "type": "string",
+                    "namespace": ["pages_es", "body", "AltBackground", "title"],
+                    "searchable": true,
+                    "uid": false
+                  },
+                  {
+                    "name": "description",
+                    "label": "Description",
+                    "type": "string",
+                    "namespace": [
+                      "pages_es",
+                      "body",
+                      "AltBackground",
+                      "description"
+                    ],
+                    "searchable": true,
+                    "uid": false
+                  },
+                  {
+                    "name": "darkBackground",
+                    "label": "Dark Background",
+                    "type": "boolean",
+                    "namespace": [
+                      "pages_es",
+                      "body",
+                      "AltBackground",
+                      "darkBackground"
+                    ],
+                    "searchable": true,
+                    "uid": false
+                  },
+                  {
+                    "name": "locale",
+                    "label": "Locale",
+                    "type": "string",
+                    "namespace": [
+                      "pages_es",
+                      "body",
+                      "AltBackground",
+                      "locale"
+                    ],
+                    "searchable": true,
+                    "uid": false
+                  },
+                  {
+                    "name": "children",
+                    "label": "Page Content",
+                    "type": "rich-text",
+                    "namespace": [
+                      "pages_es",
+                      "body",
+                      "AltBackground",
+                      "children"
+                    ],
+                    "searchable": true,
+                    "parser": { "type": "mdx" },
+                    "uid": false
+                  }
+                ],
+                "namespace": ["pages_es", "body", "AltBackground"]
+              },
+              {
+                "name": "Section",
+                "label": "Section",
+                "fields": [
+                  {
+                    "name": "layout",
+                    "label": "Layout",
+                    "type": "string",
+                    "options": [
+                      "stack",
+                      "flex-row",
+                      "grid-2",
+                      "grid-3",
+                      "centered"
+                    ],
+                    "namespace": ["pages_es", "body", "Section", "layout"],
+                    "searchable": true,
+                    "uid": false
+                  },
+                  {
+                    "name": "spacing",
+                    "label": "Spacing",
+                    "type": "string",
+                    "options": ["none", "sm", "md", "lg"],
+                    "namespace": ["pages_es", "body", "Section", "spacing"],
+                    "searchable": true,
+                    "uid": false
+                  },
+                  {
+                    "name": "padding",
+                    "label": "Padding",
+                    "type": "string",
+                    "options": ["none", "sm", "md", "lg"],
+                    "namespace": ["pages_es", "body", "Section", "padding"],
+                    "searchable": true,
+                    "uid": false
+                  },
+                  {
+                    "name": "className",
+                    "label": "Custom CSS Class",
+                    "type": "string",
+                    "namespace": ["pages_es", "body", "Section", "className"],
+                    "searchable": true,
+                    "uid": false
+                  },
+                  {
+                    "name": "children",
+                    "label": "Content",
+                    "type": "rich-text",
+                    "namespace": ["pages_es", "body", "Section", "children"],
+                    "searchable": true,
+                    "parser": { "type": "mdx" },
+                    "uid": false
+                  }
+                ],
+                "namespace": ["pages_es", "body", "Section"]
+              },
+              {
+                "name": "ImageGrid",
+                "label": "Image Grid",
+                "fields": [
+                  {
+                    "name": "columns",
+                    "label": "Columns",
+                    "type": "number",
+                    "required": true,
+                    "namespace": ["pages_es", "body", "ImageGrid", "columns"],
+                    "searchable": true,
+                    "uid": false
+                  },
+                  {
+                    "name": "gap",
+                    "label": "Gap Size",
+                    "type": "string",
+                    "options": ["sm", "md", "lg"],
+                    "namespace": ["pages_es", "body", "ImageGrid", "gap"],
+                    "searchable": true,
+                    "uid": false
+                  },
+                  {
+                    "name": "children",
+                    "label": "Images",
+                    "type": "rich-text",
+                    "namespace": ["pages_es", "body", "ImageGrid", "children"],
+                    "searchable": true,
+                    "parser": { "type": "mdx" },
+                    "uid": false
+                  }
+                ],
+                "namespace": ["pages_es", "body", "ImageGrid"]
+              },
+              {
+                "name": "FlexRow",
+                "label": "Flex Row",
+                "fields": [
+                  {
+                    "name": "justify",
+                    "label": "Justify",
+                    "type": "string",
+                    "options": ["start", "center", "end", "between", "around"],
+                    "namespace": ["pages_es", "body", "FlexRow", "justify"],
+                    "searchable": true,
+                    "uid": false
+                  },
+                  {
+                    "name": "align",
+                    "label": "Align",
+                    "type": "string",
+                    "options": ["start", "center", "end", "stretch"],
+                    "namespace": ["pages_es", "body", "FlexRow", "align"],
+                    "searchable": true,
+                    "uid": false
+                  },
+                  {
+                    "name": "gap",
+                    "label": "Gap",
+                    "type": "string",
+                    "options": ["sm", "md", "lg"],
+                    "namespace": ["pages_es", "body", "FlexRow", "gap"],
+                    "searchable": true,
+                    "uid": false
+                  },
+                  {
+                    "name": "children",
+                    "label": "Content",
+                    "type": "rich-text",
+                    "namespace": ["pages_es", "body", "FlexRow", "children"],
+                    "searchable": true,
+                    "parser": { "type": "mdx" },
+                    "uid": false
+                  }
+                ],
+                "namespace": ["pages_es", "body", "FlexRow"]
               }
             ],
             "namespace": ["pages_es", "body"],
@@ -2447,6 +2851,166 @@
       },
       {
         "kind": "InputObjectTypeDefinition",
+        "name": { "kind": "Name", "value": "Pages_enBodyAltBackgroundFilter" },
+        "fields": [
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "title" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "description" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "darkBackground" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "BooleanFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "locale" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "children" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "RichTextFilter" }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "InputObjectTypeDefinition",
+        "name": { "kind": "Name", "value": "Pages_enBodySectionFilter" },
+        "fields": [
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "layout" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "spacing" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "padding" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "className" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "children" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "RichTextFilter" }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "InputObjectTypeDefinition",
+        "name": { "kind": "Name", "value": "Pages_enBodyImageGridFilter" },
+        "fields": [
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "columns" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "NumberFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "gap" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "children" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "RichTextFilter" }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "InputObjectTypeDefinition",
+        "name": { "kind": "Name", "value": "Pages_enBodyFlexRowFilter" },
+        "fields": [
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "justify" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "align" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "gap" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "children" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "RichTextFilter" }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "InputObjectTypeDefinition",
         "name": { "kind": "Name", "value": "Pages_enBodyFilter" },
         "fields": [
           {
@@ -2561,6 +3125,41 @@
             "type": {
               "kind": "NamedType",
               "name": { "kind": "Name", "value": "Pages_enBodyMapEmbedFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "AltBackground" },
+            "type": {
+              "kind": "NamedType",
+              "name": {
+                "kind": "Name",
+                "value": "Pages_enBodyAltBackgroundFilter"
+              }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "Section" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "Pages_enBodySectionFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "ImageGrid" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "Pages_enBodyImageGridFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "FlexRow" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "Pages_enBodyFlexRowFilter" }
             }
           }
         ]
@@ -3112,6 +3711,166 @@
       },
       {
         "kind": "InputObjectTypeDefinition",
+        "name": { "kind": "Name", "value": "Pages_esBodyAltBackgroundFilter" },
+        "fields": [
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "title" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "description" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "darkBackground" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "BooleanFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "locale" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "children" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "RichTextFilter" }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "InputObjectTypeDefinition",
+        "name": { "kind": "Name", "value": "Pages_esBodySectionFilter" },
+        "fields": [
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "layout" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "spacing" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "padding" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "className" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "children" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "RichTextFilter" }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "InputObjectTypeDefinition",
+        "name": { "kind": "Name", "value": "Pages_esBodyImageGridFilter" },
+        "fields": [
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "columns" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "NumberFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "gap" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "children" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "RichTextFilter" }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "InputObjectTypeDefinition",
+        "name": { "kind": "Name", "value": "Pages_esBodyFlexRowFilter" },
+        "fields": [
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "justify" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "align" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "gap" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "children" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "RichTextFilter" }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "InputObjectTypeDefinition",
         "name": { "kind": "Name", "value": "Pages_esBodyFilter" },
         "fields": [
           {
@@ -3226,6 +3985,41 @@
             "type": {
               "kind": "NamedType",
               "name": { "kind": "Name", "value": "Pages_esBodyMapEmbedFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "AltBackground" },
+            "type": {
+              "kind": "NamedType",
+              "name": {
+                "kind": "Name",
+                "value": "Pages_esBodyAltBackgroundFilter"
+              }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "Section" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "Pages_esBodySectionFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "ImageGrid" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "Pages_esBodyImageGridFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "FlexRow" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "Pages_esBodyFlexRowFilter" }
             }
           }
         ]

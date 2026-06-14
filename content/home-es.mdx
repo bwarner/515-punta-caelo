@@ -4,14 +4,14 @@ description: "Alquiler vacacional frente al mar de 3 habitaciones con cuarto de 
 locale: "es"
 ---
 
-<div className="min-h-screen flex flex-col items-center justify-center px-4 py-8 relative">
+<Section layout="centered" spacing="md" padding="md" className="min-h-screen relative">
   <div className="absolute top-4 right-4">
     <LanguageSwitcher locale="es" className="inline-block text-sm font-medium px-3 py-1.5 rounded border border-primary/30 hover:bg-primary/10 transition-colors whitespace-nowrap" />
   </div>
-  <div className="text-center mb-6">
+  <Section layout="centered" spacing="none" padding="none" className="mb-6">
     <p className="text-sm tracking-widest text-muted-foreground mb-2">El Refugio Perfecto</p>
     <h1 className="text-5xl md:text-6xl font-serif font-light tracking-wide">BIENVENIDO</h1>
-  </div>
+  </Section>
 
 <div className="relative w-64 h-80 md:w-80 md:h-96 mb-8">
   <div className="absolute inset-0 bg-secondary/30 rounded-t-full overflow-hidden">
@@ -26,12 +26,12 @@ locale: "es"
   </div>
 </div>
 
-<div className="text-center mb-8">
+<Section layout="centered" spacing="none" padding="none" className="mb-8">
   <p className="text-lg font-semibold">PUNTA CAELO</p>
   <p className="text-sm text-muted-foreground">San Carlos, Panamá</p>
-</div>
+</Section>
 
-  <div className="flex flex-col gap-3 w-full max-w-xs">
+  <Section layout="stack" spacing="sm" padding="none" className="w-full max-w-xs">
     <Link href="/es/guide">
       <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 py-5">
         Ver Guía
@@ -42,5 +42,5 @@ locale: "es"
         Más Info
       </Button>
     </Link>
-  </div>
-</div>
+  </Section>
+</Section>

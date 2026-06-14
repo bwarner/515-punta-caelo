@@ -5,7 +5,7 @@ locale: "es"
 darkBackground: true
 ---
 
-<AltBackground title="Ubicación" description="Dónde encontrarnos" darkBackground={true} locale="es">
+<AltBackground darkBackground={true} locale="es" />
 <Menubar locale="es" title="Ubicación" />
 
 <PageHero
@@ -15,15 +15,24 @@ darkBackground: true
 />
 
 <ContentCard className="text-center">
-  <div className="flex justify-center mb-4">
+  <Section layout="centered" spacing="none" padding="none" className="mb-4">
     <MapPin size={48} strokeWidth={1.5} />
-  </div>
+  </Section>
 
 <h2 className="text-3xl font-light mb-2">Ruta a</h2>
 <h2 className="text-3xl font-light mb-6">Nuestra Casa</h2>
 
-<div className="text-lg font-medium">PUNTA CAELO, UNIDAD 515</div>
-<div className="text-lg mb-6">SAN CARLOS, PANAMÁ</div>
+<Section
+  layout="stack"
+  spacing="none"
+  padding="none"
+  className="text-lg font-medium"
+>
+  PUNTA CAELO, UNIDAD 515
+</Section>
+<Section layout="stack" spacing="none" padding="none" className="text-lg mb-6">
+  SAN CARLOS, PANAMÁ
+</Section>
 
   <a
     href="https://www.waze.com/ul?ll=8.4487%2C-79.9475&navigate=yes"
@@ -37,13 +46,13 @@ darkBackground: true
 
 <MapEmbed lat={8.4487} lng={-79.9475} title="Mapa de Punta Caelo" zoom={18} />
 
-<div className="px-6 py-6 text-center">
+<Section layout="centered" spacing="none" padding="lg">
   <span>
     La propiedad está aproximadamente a 1 hora y 15 minutos de la Ciudad de
     Panamá por la Carretera Panamericana. Tome la salida de San Carlos y siga
     las señales hacia Punta Caelo.
   </span>
-</div>
+</Section>
 
 <ContentCard title="Cerca">
   <AmenityList
@@ -57,6 +66,4 @@ darkBackground: true
   />
 </ContentCard>
 
-<div className="pb-6"></div>
-
-</AltBackground>
+<Section layout="stack" spacing="none" padding="none" className="pb-6" />

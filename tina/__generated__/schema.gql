@@ -203,6 +203,35 @@ input Pages_enBodyMapEmbedFilter {
   zoom: NumberFilter
 }
 
+input Pages_enBodyAltBackgroundFilter {
+  title: StringFilter
+  description: StringFilter
+  darkBackground: BooleanFilter
+  locale: StringFilter
+  children: RichTextFilter
+}
+
+input Pages_enBodySectionFilter {
+  layout: StringFilter
+  spacing: StringFilter
+  padding: StringFilter
+  className: StringFilter
+  children: RichTextFilter
+}
+
+input Pages_enBodyImageGridFilter {
+  columns: NumberFilter
+  gap: StringFilter
+  children: RichTextFilter
+}
+
+input Pages_enBodyFlexRowFilter {
+  justify: StringFilter
+  align: StringFilter
+  gap: StringFilter
+  children: RichTextFilter
+}
+
 input Pages_enBodyFilter {
   Menubar: Pages_enBodyMenubarFilter
   Image: Pages_enBodyImageFilter
@@ -216,6 +245,10 @@ input Pages_enBodyFilter {
   InfoSection: Pages_enBodyInfoSectionFilter
   AmenityList: Pages_enBodyAmenityListFilter
   MapEmbed: Pages_enBodyMapEmbedFilter
+  AltBackground: Pages_enBodyAltBackgroundFilter
+  Section: Pages_enBodySectionFilter
+  ImageGrid: Pages_enBodyImageGridFilter
+  FlexRow: Pages_enBodyFlexRowFilter
 }
 
 input Pages_enFilter {
@@ -315,6 +348,35 @@ input Pages_esBodyMapEmbedFilter {
   zoom: NumberFilter
 }
 
+input Pages_esBodyAltBackgroundFilter {
+  title: StringFilter
+  description: StringFilter
+  darkBackground: BooleanFilter
+  locale: StringFilter
+  children: RichTextFilter
+}
+
+input Pages_esBodySectionFilter {
+  layout: StringFilter
+  spacing: StringFilter
+  padding: StringFilter
+  className: StringFilter
+  children: RichTextFilter
+}
+
+input Pages_esBodyImageGridFilter {
+  columns: NumberFilter
+  gap: StringFilter
+  children: RichTextFilter
+}
+
+input Pages_esBodyFlexRowFilter {
+  justify: StringFilter
+  align: StringFilter
+  gap: StringFilter
+  children: RichTextFilter
+}
+
 input Pages_esBodyFilter {
   Menubar: Pages_esBodyMenubarFilter
   Image: Pages_esBodyImageFilter
@@ -328,6 +390,10 @@ input Pages_esBodyFilter {
   InfoSection: Pages_esBodyInfoSectionFilter
   AmenityList: Pages_esBodyAmenityListFilter
   MapEmbed: Pages_esBodyMapEmbedFilter
+  AltBackground: Pages_esBodyAltBackgroundFilter
+  Section: Pages_esBodySectionFilter
+  ImageGrid: Pages_esBodyImageGridFilter
+  FlexRow: Pages_esBodyFlexRowFilter
 }
 
 input Pages_esFilter {

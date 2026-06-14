@@ -301,6 +301,35 @@ export type Pages_EnBodyMapEmbedFilter = {
   zoom?: InputMaybe<NumberFilter>;
 };
 
+export type Pages_EnBodyAltBackgroundFilter = {
+  title?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+  darkBackground?: InputMaybe<BooleanFilter>;
+  locale?: InputMaybe<StringFilter>;
+  children?: InputMaybe<RichTextFilter>;
+};
+
+export type Pages_EnBodySectionFilter = {
+  layout?: InputMaybe<StringFilter>;
+  spacing?: InputMaybe<StringFilter>;
+  padding?: InputMaybe<StringFilter>;
+  className?: InputMaybe<StringFilter>;
+  children?: InputMaybe<RichTextFilter>;
+};
+
+export type Pages_EnBodyImageGridFilter = {
+  columns?: InputMaybe<NumberFilter>;
+  gap?: InputMaybe<StringFilter>;
+  children?: InputMaybe<RichTextFilter>;
+};
+
+export type Pages_EnBodyFlexRowFilter = {
+  justify?: InputMaybe<StringFilter>;
+  align?: InputMaybe<StringFilter>;
+  gap?: InputMaybe<StringFilter>;
+  children?: InputMaybe<RichTextFilter>;
+};
+
 export type Pages_EnBodyFilter = {
   Menubar?: InputMaybe<Pages_EnBodyMenubarFilter>;
   Image?: InputMaybe<Pages_EnBodyImageFilter>;
@@ -314,6 +343,10 @@ export type Pages_EnBodyFilter = {
   InfoSection?: InputMaybe<Pages_EnBodyInfoSectionFilter>;
   AmenityList?: InputMaybe<Pages_EnBodyAmenityListFilter>;
   MapEmbed?: InputMaybe<Pages_EnBodyMapEmbedFilter>;
+  AltBackground?: InputMaybe<Pages_EnBodyAltBackgroundFilter>;
+  Section?: InputMaybe<Pages_EnBodySectionFilter>;
+  ImageGrid?: InputMaybe<Pages_EnBodyImageGridFilter>;
+  FlexRow?: InputMaybe<Pages_EnBodyFlexRowFilter>;
 };
 
 export type Pages_EnFilter = {
@@ -417,6 +450,35 @@ export type Pages_EsBodyMapEmbedFilter = {
   zoom?: InputMaybe<NumberFilter>;
 };
 
+export type Pages_EsBodyAltBackgroundFilter = {
+  title?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+  darkBackground?: InputMaybe<BooleanFilter>;
+  locale?: InputMaybe<StringFilter>;
+  children?: InputMaybe<RichTextFilter>;
+};
+
+export type Pages_EsBodySectionFilter = {
+  layout?: InputMaybe<StringFilter>;
+  spacing?: InputMaybe<StringFilter>;
+  padding?: InputMaybe<StringFilter>;
+  className?: InputMaybe<StringFilter>;
+  children?: InputMaybe<RichTextFilter>;
+};
+
+export type Pages_EsBodyImageGridFilter = {
+  columns?: InputMaybe<NumberFilter>;
+  gap?: InputMaybe<StringFilter>;
+  children?: InputMaybe<RichTextFilter>;
+};
+
+export type Pages_EsBodyFlexRowFilter = {
+  justify?: InputMaybe<StringFilter>;
+  align?: InputMaybe<StringFilter>;
+  gap?: InputMaybe<StringFilter>;
+  children?: InputMaybe<RichTextFilter>;
+};
+
 export type Pages_EsBodyFilter = {
   Menubar?: InputMaybe<Pages_EsBodyMenubarFilter>;
   Image?: InputMaybe<Pages_EsBodyImageFilter>;
@@ -430,6 +492,10 @@ export type Pages_EsBodyFilter = {
   InfoSection?: InputMaybe<Pages_EsBodyInfoSectionFilter>;
   AmenityList?: InputMaybe<Pages_EsBodyAmenityListFilter>;
   MapEmbed?: InputMaybe<Pages_EsBodyMapEmbedFilter>;
+  AltBackground?: InputMaybe<Pages_EsBodyAltBackgroundFilter>;
+  Section?: InputMaybe<Pages_EsBodySectionFilter>;
+  ImageGrid?: InputMaybe<Pages_EsBodyImageGridFilter>;
+  FlexRow?: InputMaybe<Pages_EsBodyFlexRowFilter>;
 };
 
 export type Pages_EsFilter = {

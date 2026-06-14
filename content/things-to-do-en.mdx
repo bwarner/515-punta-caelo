@@ -5,27 +5,29 @@ locale: "en"
 darkBackground: true
 ---
 
-<AltBackground title="Things to Do" description="Things to Do" darkBackground={true} locale="en">
+<AltBackground darkBackground={true} locale="en" />
 <Menubar locale="en" title="Things to Do" />
 
 {/* Hero image */}
 
-<div className="relative w-full h-[180px] overflow-hidden mb-0">
-  <Image
-    src="/images/515-punta-caelo/beach_mobile.jpg"
-    alt="Beach view"
-    fill
-    className="object-cover object-bottom"
-  />
-</div>
+<Section layout="stack" spacing="none" padding="none">
+  <div className="relative w-full h-[180px] overflow-hidden">
+    <Image
+      src="/images/515-punta-caelo/beach_mobile.jpg"
+      alt="Beach view"
+      fill
+      className="object-cover object-bottom"
+    />
+  </div>
+</Section>
 
 {/* Title banner */}
 
-<div className="bg-white py-3 px-4 text-center">
-  <h1 className="text-3xl font-semibold tracking-widest uppercase">
+<Section layout="stack" spacing="sm" padding="md">
+  <h1 className="text-3xl font-semibold tracking-widest uppercase text-center">
     Things to Do
   </h1>
-</div>
+</Section>
 
 ## Beaches
 
@@ -57,7 +59,7 @@ A tranquil hidden gem across from the El Valle entrance road. Stay overnight and
 
 ### Playa Farallón
 
-Wide, beautiful white sand beaches with activities including horseback riding and jet skiing. Popular [Hotel Royal Decameron Golf Beach Resort Villas](https://www.decameron.com/en/otr-destinations/panama/farallon/royal-decameron-panama) offers numerous amenities. One of the best entry points is near Nico’s Beach, which has a beachfront bar and restaurant perfect for casual dining and sunset views.
+Wide, beautiful white sand beaches with activities including horseback riding and jet skiing. Popular [Hotel Royal Decameron Golf Beach Resort Villas](https://www.decameron.com/en/otr-destinations/panama/farallon/royal-decameron-panama) offers numerous amenities. One of the best entry points is near Nico's Beach, which has a beachfront bar and restaurant perfect for casual dining and sunset views.
 
 ### Playa Ensenada, San Carlos
 
@@ -78,5 +80,3 @@ Participate in various activities like golfing, horseback riding, hiking, fishin
 ## Tours
 
 Discover guided tours available for exploring natural attractions, local culture, historical landmarks, and wildlife encounters, enhancing your Panama experience.
-
-</AltBackground>
