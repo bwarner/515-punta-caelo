@@ -4,6 +4,7 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import { generateAlternates, type Locale } from "@/lib/seo";
+import { PageMetadataProvider } from "@/components/page-metadata-provider";
 
 // Validate slug to prevent path traversal attacks
 function isValidSlug(slug: string): boolean {
@@ -32,12 +33,20 @@ export default async function ContentPage({
     notFound();
   }
 
+  // Read frontmatter for metadata
+  const parsed = getContentFile(locale, slug);
+  const darkBackground = parsed?.data?.darkBackground ?? false;
+
   const { default: Content } =
     locale === "es"
       ? await import(`@/content/${slug}-es.mdx`)
       : await import(`@/content/${slug}-en.mdx`);
 
-  return <Content className="prose dark:prose-invert" />;
+  return (
+    <PageMetadataProvider locale={locale} darkBackground={darkBackground}>
+      <Content className="prose dark:prose-invert" />
+    </PageMetadataProvider>
+  );
 }
 type Props = {
   params: Promise<{ locale: Locale; slug: string }>;
