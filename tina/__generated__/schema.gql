@@ -151,12 +151,104 @@ input Pages_enBodyTrackedAirbnbButtonFilter {
   label: StringFilter
 }
 
+input Pages_enBodyPageHeroFilter {
+  image: ImageFilter
+  imageAlt: StringFilter
+  title: StringFilter
+  subtitle: StringFilter
+}
+
+input Pages_enBodyContentCardFilter {
+  image: ImageFilter
+  imageAlt: StringFilter
+  title: StringFilter
+  children: RichTextFilter
+  className: StringFilter
+}
+
+input Pages_enBodyTimeDisplayFilter {
+  time: StringFilter
+  label: StringFilter
+}
+
+input Pages_enBodyCalloutBoxFilter {
+  variant: StringFilter
+  centered: BooleanFilter
+  children: RichTextFilter
+}
+
+input Pages_enBodyInfoSectionFilter {
+  title: StringFilter
+  children: RichTextFilter
+}
+
+input Pages_enBodyAmenityListFilter {
+  items: StringFilter
+}
+
+input NumberFilter {
+  lt: Float
+  lte: Float
+  gte: Float
+  gt: Float
+  eq: Float
+  exists: Boolean
+  in: [Float]
+}
+
+input Pages_enBodyMapEmbedFilter {
+  lat: NumberFilter
+  lng: NumberFilter
+  title: StringFilter
+  zoom: NumberFilter
+}
+
+input Pages_enBodyAltBackgroundFilter {
+  title: StringFilter
+  description: StringFilter
+  darkBackground: BooleanFilter
+  locale: StringFilter
+  children: RichTextFilter
+}
+
+input Pages_enBodySectionFilter {
+  layout: StringFilter
+  spacing: StringFilter
+  padding: StringFilter
+  className: StringFilter
+  children: RichTextFilter
+}
+
+input Pages_enBodyImageGridFilter {
+  columns: NumberFilter
+  gap: StringFilter
+  children: RichTextFilter
+}
+
+input Pages_enBodyFlexRowFilter {
+  justify: StringFilter
+  align: StringFilter
+  gap: StringFilter
+  children: RichTextFilter
+}
+
 input Pages_enBodyFilter {
   Menubar: Pages_enBodyMenubarFilter
   Image: Pages_enBodyImageFilter
   Alert: Pages_enBodyAlertFilter
   Card: Pages_enBodyCardFilter
   TrackedAirbnbButton: Pages_enBodyTrackedAirbnbButtonFilter
+  PageHero: Pages_enBodyPageHeroFilter
+  ContentCard: Pages_enBodyContentCardFilter
+  TimeDisplay: Pages_enBodyTimeDisplayFilter
+  CalloutBox: Pages_enBodyCalloutBoxFilter
+  InfoSection: Pages_enBodyInfoSectionFilter
+  AmenityList: Pages_enBodyAmenityListFilter
+  MapEmbed: Pages_enBodyMapEmbedFilter
+  AltBackground: Pages_enBodyAltBackgroundFilter
+  Section: Pages_enBodySectionFilter
+  ImageGrid: Pages_enBodyImageGridFilter
+  FlexRow: Pages_enBodyFlexRowFilter
 }
 
 input Pages_enFilter {
@@ -214,12 +306,94 @@ input Pages_esBodyTrackedAirbnbButtonFilter {
   label: StringFilter
 }
 
+input Pages_esBodyPageHeroFilter {
+  image: ImageFilter
+  imageAlt: StringFilter
+  title: StringFilter
+  subtitle: StringFilter
+}
+
+input Pages_esBodyContentCardFilter {
+  image: ImageFilter
+  imageAlt: StringFilter
+  title: StringFilter
+  children: RichTextFilter
+  className: StringFilter
+}
+
+input Pages_esBodyTimeDisplayFilter {
+  time: StringFilter
+  label: StringFilter
+}
+
+input Pages_esBodyCalloutBoxFilter {
+  variant: StringFilter
+  centered: BooleanFilter
+  children: RichTextFilter
+}
+
+input Pages_esBodyInfoSectionFilter {
+  title: StringFilter
+  children: RichTextFilter
+}
+
+input Pages_esBodyAmenityListFilter {
+  items: StringFilter
+}
+
+input Pages_esBodyMapEmbedFilter {
+  lat: NumberFilter
+  lng: NumberFilter
+  title: StringFilter
+  zoom: NumberFilter
+}
+
+input Pages_esBodyAltBackgroundFilter {
+  title: StringFilter
+  description: StringFilter
+  darkBackground: BooleanFilter
+  locale: StringFilter
+  children: RichTextFilter
+}
+
+input Pages_esBodySectionFilter {
+  layout: StringFilter
+  spacing: StringFilter
+  padding: StringFilter
+  className: StringFilter
+  children: RichTextFilter
+}
+
+input Pages_esBodyImageGridFilter {
+  columns: NumberFilter
+  gap: StringFilter
+  children: RichTextFilter
+}
+
+input Pages_esBodyFlexRowFilter {
+  justify: StringFilter
+  align: StringFilter
+  gap: StringFilter
+  children: RichTextFilter
+}
+
 input Pages_esBodyFilter {
   Menubar: Pages_esBodyMenubarFilter
   Image: Pages_esBodyImageFilter
   Alert: Pages_esBodyAlertFilter
   Card: Pages_esBodyCardFilter
   TrackedAirbnbButton: Pages_esBodyTrackedAirbnbButtonFilter
+  PageHero: Pages_esBodyPageHeroFilter
+  ContentCard: Pages_esBodyContentCardFilter
+  TimeDisplay: Pages_esBodyTimeDisplayFilter
+  CalloutBox: Pages_esBodyCalloutBoxFilter
+  InfoSection: Pages_esBodyInfoSectionFilter
+  AmenityList: Pages_esBodyAmenityListFilter
+  MapEmbed: Pages_esBodyMapEmbedFilter
+  AltBackground: Pages_esBodyAltBackgroundFilter
+  Section: Pages_esBodySectionFilter
+  ImageGrid: Pages_esBodyImageGridFilter
+  FlexRow: Pages_esBodyFlexRowFilter
 }
 
 input Pages_esFilter {

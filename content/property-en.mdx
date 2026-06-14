@@ -24,7 +24,7 @@ Welcome to Punta Caelo, a stunning beachfront apartment in San Carlos, Panama. T
 
 ### Property Highlights
 
-<div className="grid grid-cols-2 gap-4 my-6">
+<Section layout="grid-2" spacing="md" padding="none" className="my-6">
   <div className="bg-secondary/20 p-4 rounded-lg text-center">
     <div className="text-2xl font-bold text-primary">3+1</div>
     <div className="text-sm text-muted-foreground">
@@ -43,7 +43,7 @@ Welcome to Punta Caelo, a stunning beachfront apartment in San Carlos, Panama. T
     <div className="text-2xl font-bold text-primary">∞</div>
     <div className="text-sm text-muted-foreground">Ocean Views</div>
   </div>
-</div>
+</Section>
 
 ### Sleeping Arrangements
 
@@ -58,7 +58,12 @@ The open-concept living area features a fully equipped kitchen, comfortable seat
 
 ### Community Amenities
 
-<div className="grid grid-cols-3 gap-3 my-6 text-center text-sm">
+<Section
+  layout="grid-3"
+  spacing="sm"
+  padding="none"
+  className="my-6 text-center text-sm"
+>
   <div className="bg-secondary/10 p-3 rounded-lg">
     <span className="block text-lg">🏊</span>3 Pools
   </div>
@@ -82,14 +87,14 @@ The open-concept living area features a fully equipped kitchen, comfortable seat
     <span className="block text-lg">⚽</span>
     Sports Field
   </div>
-</div>
+</Section>
 
 ### Location
 
 Located in San Carlos, Panama Oeste — just 90 minutes from Panama City and Tocumen International Airport. The area offers beautiful beaches, local restaurants, and a relaxed Pacific coast atmosphere.
 
-<div className="flex flex-col gap-3 mt-8">
-  <div className="grid grid-cols-2 gap-3">
+<Section layout="stack" spacing="sm" padding="none" className="mt-8">
+  <Section layout="grid-2" spacing="sm" padding="none">
     <Link href="/en/gallery">
       <Button
         variant="outline"
@@ -106,7 +111,7 @@ Located in San Carlos, Panama Oeste — just 90 minutes from Panama City and Toc
         Reviews (4.9 ★)
       </Button>
     </Link>
-  </div>
+  </Section>
   <TrackedAirbnbButton
     source="property-cta"
     locale="en"
@@ -132,4 +137,4 @@ Located in San Carlos, Panama Oeste — just 90 minutes from Panama City and Toc
       <span>Contact on WhatsApp</span>
     </Button>
   </a>
-</div>
+</Section>

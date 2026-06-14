@@ -182,6 +182,459 @@
                   }
                 ],
                 "namespace": ["pages_en", "body", "TrackedAirbnbButton"]
+              },
+              {
+                "name": "PageHero",
+                "label": "Page Hero",
+                "fields": [
+                  {
+                    "name": "image",
+                    "label": "Hero Image",
+                    "type": "image",
+                    "required": true,
+                    "namespace": ["pages_en", "body", "PageHero", "image"],
+                    "searchable": false,
+                    "uid": false
+                  },
+                  {
+                    "name": "imageAlt",
+                    "label": "Image Alt Text",
+                    "type": "string",
+                    "required": true,
+                    "namespace": ["pages_en", "body", "PageHero", "imageAlt"],
+                    "searchable": true,
+                    "uid": false
+                  },
+                  {
+                    "name": "title",
+                    "label": "Page Title",
+                    "type": "string",
+                    "required": true,
+                    "namespace": ["pages_en", "body", "PageHero", "title"],
+                    "searchable": true,
+                    "uid": false
+                  },
+                  {
+                    "name": "subtitle",
+                    "label": "Subtitle",
+                    "type": "string",
+                    "namespace": ["pages_en", "body", "PageHero", "subtitle"],
+                    "searchable": true,
+                    "uid": false
+                  }
+                ],
+                "namespace": ["pages_en", "body", "PageHero"]
+              },
+              {
+                "name": "ContentCard",
+                "label": "Content Card",
+                "fields": [
+                  {
+                    "name": "image",
+                    "label": "Header Image",
+                    "type": "image",
+                    "namespace": ["pages_en", "body", "ContentCard", "image"],
+                    "searchable": false,
+                    "uid": false
+                  },
+                  {
+                    "name": "imageAlt",
+                    "label": "Image Alt Text",
+                    "type": "string",
+                    "namespace": [
+                      "pages_en",
+                      "body",
+                      "ContentCard",
+                      "imageAlt"
+                    ],
+                    "searchable": true,
+                    "uid": false
+                  },
+                  {
+                    "name": "title",
+                    "label": "Card Title",
+                    "type": "string",
+                    "namespace": ["pages_en", "body", "ContentCard", "title"],
+                    "searchable": true,
+                    "uid": false
+                  },
+                  {
+                    "name": "children",
+                    "label": "Card Content",
+                    "type": "rich-text",
+                    "namespace": [
+                      "pages_en",
+                      "body",
+                      "ContentCard",
+                      "children"
+                    ],
+                    "searchable": true,
+                    "parser": { "type": "mdx" },
+                    "uid": false
+                  },
+                  {
+                    "name": "className",
+                    "label": "CSS Class",
+                    "type": "string",
+                    "namespace": [
+                      "pages_en",
+                      "body",
+                      "ContentCard",
+                      "className"
+                    ],
+                    "searchable": true,
+                    "uid": false
+                  }
+                ],
+                "namespace": ["pages_en", "body", "ContentCard"]
+              },
+              {
+                "name": "TimeDisplay",
+                "label": "Time Display",
+                "fields": [
+                  {
+                    "name": "time",
+                    "label": "Time",
+                    "type": "string",
+                    "required": true,
+                    "namespace": ["pages_en", "body", "TimeDisplay", "time"],
+                    "searchable": true,
+                    "uid": false
+                  },
+                  {
+                    "name": "label",
+                    "label": "Label",
+                    "type": "string",
+                    "required": true,
+                    "namespace": ["pages_en", "body", "TimeDisplay", "label"],
+                    "searchable": true,
+                    "uid": false
+                  }
+                ],
+                "namespace": ["pages_en", "body", "TimeDisplay"]
+              },
+              {
+                "name": "CalloutBox",
+                "label": "Callout Box",
+                "fields": [
+                  {
+                    "name": "variant",
+                    "label": "Variant",
+                    "type": "string",
+                    "options": ["default", "info"],
+                    "namespace": ["pages_en", "body", "CalloutBox", "variant"],
+                    "searchable": true,
+                    "uid": false
+                  },
+                  {
+                    "name": "centered",
+                    "label": "Centered Text",
+                    "type": "boolean",
+                    "namespace": ["pages_en", "body", "CalloutBox", "centered"],
+                    "searchable": true,
+                    "uid": false
+                  },
+                  {
+                    "name": "children",
+                    "label": "Content",
+                    "type": "rich-text",
+                    "namespace": ["pages_en", "body", "CalloutBox", "children"],
+                    "searchable": true,
+                    "parser": { "type": "mdx" },
+                    "uid": false
+                  }
+                ],
+                "namespace": ["pages_en", "body", "CalloutBox"]
+              },
+              {
+                "name": "InfoSection",
+                "label": "Info Section",
+                "fields": [
+                  {
+                    "name": "title",
+                    "label": "Section Title",
+                    "type": "string",
+                    "required": true,
+                    "namespace": ["pages_en", "body", "InfoSection", "title"],
+                    "searchable": true,
+                    "uid": false
+                  },
+                  {
+                    "name": "children",
+                    "label": "Content",
+                    "type": "rich-text",
+                    "namespace": [
+                      "pages_en",
+                      "body",
+                      "InfoSection",
+                      "children"
+                    ],
+                    "searchable": true,
+                    "parser": { "type": "mdx" },
+                    "uid": false
+                  }
+                ],
+                "namespace": ["pages_en", "body", "InfoSection"]
+              },
+              {
+                "name": "AmenityList",
+                "label": "Amenity List",
+                "fields": [
+                  {
+                    "name": "items",
+                    "label": "Amenities",
+                    "type": "string",
+                    "list": true,
+                    "required": true,
+                    "namespace": ["pages_en", "body", "AmenityList", "items"],
+                    "searchable": true,
+                    "uid": false
+                  }
+                ],
+                "namespace": ["pages_en", "body", "AmenityList"]
+              },
+              {
+                "name": "MapEmbed",
+                "label": "Map Embed",
+                "fields": [
+                  {
+                    "name": "lat",
+                    "label": "Latitude",
+                    "type": "number",
+                    "required": true,
+                    "namespace": ["pages_en", "body", "MapEmbed", "lat"],
+                    "searchable": true,
+                    "uid": false
+                  },
+                  {
+                    "name": "lng",
+                    "label": "Longitude",
+                    "type": "number",
+                    "required": true,
+                    "namespace": ["pages_en", "body", "MapEmbed", "lng"],
+                    "searchable": true,
+                    "uid": false
+                  },
+                  {
+                    "name": "title",
+                    "label": "Map Title",
+                    "type": "string",
+                    "namespace": ["pages_en", "body", "MapEmbed", "title"],
+                    "searchable": true,
+                    "uid": false
+                  },
+                  {
+                    "name": "zoom",
+                    "label": "Zoom Level",
+                    "type": "number",
+                    "namespace": ["pages_en", "body", "MapEmbed", "zoom"],
+                    "searchable": true,
+                    "uid": false
+                  }
+                ],
+                "namespace": ["pages_en", "body", "MapEmbed"]
+              },
+              {
+                "name": "AltBackground",
+                "label": "Alt Background (Dark Mode)",
+                "fields": [
+                  {
+                    "name": "title",
+                    "label": "Page Title",
+                    "type": "string",
+                    "namespace": ["pages_en", "body", "AltBackground", "title"],
+                    "searchable": true,
+                    "uid": false
+                  },
+                  {
+                    "name": "description",
+                    "label": "Description",
+                    "type": "string",
+                    "namespace": [
+                      "pages_en",
+                      "body",
+                      "AltBackground",
+                      "description"
+                    ],
+                    "searchable": true,
+                    "uid": false
+                  },
+                  {
+                    "name": "darkBackground",
+                    "label": "Dark Background",
+                    "type": "boolean",
+                    "namespace": [
+                      "pages_en",
+                      "body",
+                      "AltBackground",
+                      "darkBackground"
+                    ],
+                    "searchable": true,
+                    "uid": false
+                  },
+                  {
+                    "name": "locale",
+                    "label": "Locale",
+                    "type": "string",
+                    "namespace": [
+                      "pages_en",
+                      "body",
+                      "AltBackground",
+                      "locale"
+                    ],
+                    "searchable": true,
+                    "uid": false
+                  },
+                  {
+                    "name": "children",
+                    "label": "Page Content",
+                    "type": "rich-text",
+                    "namespace": [
+                      "pages_en",
+                      "body",
+                      "AltBackground",
+                      "children"
+                    ],
+                    "searchable": true,
+                    "parser": { "type": "mdx" },
+                    "uid": false
+                  }
+                ],
+                "namespace": ["pages_en", "body", "AltBackground"]
+              },
+              {
+                "name": "Section",
+                "label": "Section",
+                "fields": [
+                  {
+                    "name": "layout",
+                    "label": "Layout",
+                    "type": "string",
+                    "options": [
+                      "stack",
+                      "flex-row",
+                      "grid-2",
+                      "grid-3",
+                      "centered"
+                    ],
+                    "namespace": ["pages_en", "body", "Section", "layout"],
+                    "searchable": true,
+                    "uid": false
+                  },
+                  {
+                    "name": "spacing",
+                    "label": "Spacing",
+                    "type": "string",
+                    "options": ["none", "sm", "md", "lg"],
+                    "namespace": ["pages_en", "body", "Section", "spacing"],
+                    "searchable": true,
+                    "uid": false
+                  },
+                  {
+                    "name": "padding",
+                    "label": "Padding",
+                    "type": "string",
+                    "options": ["none", "sm", "md", "lg"],
+                    "namespace": ["pages_en", "body", "Section", "padding"],
+                    "searchable": true,
+                    "uid": false
+                  },
+                  {
+                    "name": "className",
+                    "label": "Custom CSS Class",
+                    "type": "string",
+                    "namespace": ["pages_en", "body", "Section", "className"],
+                    "searchable": true,
+                    "uid": false
+                  },
+                  {
+                    "name": "children",
+                    "label": "Content",
+                    "type": "rich-text",
+                    "namespace": ["pages_en", "body", "Section", "children"],
+                    "searchable": true,
+                    "parser": { "type": "mdx" },
+                    "uid": false
+                  }
+                ],
+                "namespace": ["pages_en", "body", "Section"]
+              },
+              {
+                "name": "ImageGrid",
+                "label": "Image Grid",
+                "fields": [
+                  {
+                    "name": "columns",
+                    "label": "Columns",
+                    "type": "number",
+                    "required": true,
+                    "namespace": ["pages_en", "body", "ImageGrid", "columns"],
+                    "searchable": true,
+                    "uid": false
+                  },
+                  {
+                    "name": "gap",
+                    "label": "Gap Size",
+                    "type": "string",
+                    "options": ["sm", "md", "lg"],
+                    "namespace": ["pages_en", "body", "ImageGrid", "gap"],
+                    "searchable": true,
+                    "uid": false
+                  },
+                  {
+                    "name": "children",
+                    "label": "Images",
+                    "type": "rich-text",
+                    "namespace": ["pages_en", "body", "ImageGrid", "children"],
+                    "searchable": true,
+                    "parser": { "type": "mdx" },
+                    "uid": false
+                  }
+                ],
+                "namespace": ["pages_en", "body", "ImageGrid"]
+              },
+              {
+                "name": "FlexRow",
+                "label": "Flex Row",
+                "fields": [
+                  {
+                    "name": "justify",
+                    "label": "Justify",
+                    "type": "string",
+                    "options": ["start", "center", "end", "between", "around"],
+                    "namespace": ["pages_en", "body", "FlexRow", "justify"],
+                    "searchable": true,
+                    "uid": false
+                  },
+                  {
+                    "name": "align",
+                    "label": "Align",
+                    "type": "string",
+                    "options": ["start", "center", "end", "stretch"],
+                    "namespace": ["pages_en", "body", "FlexRow", "align"],
+                    "searchable": true,
+                    "uid": false
+                  },
+                  {
+                    "name": "gap",
+                    "label": "Gap",
+                    "type": "string",
+                    "options": ["sm", "md", "lg"],
+                    "namespace": ["pages_en", "body", "FlexRow", "gap"],
+                    "searchable": true,
+                    "uid": false
+                  },
+                  {
+                    "name": "children",
+                    "label": "Content",
+                    "type": "rich-text",
+                    "namespace": ["pages_en", "body", "FlexRow", "children"],
+                    "searchable": true,
+                    "parser": { "type": "mdx" },
+                    "uid": false
+                  }
+                ],
+                "namespace": ["pages_en", "body", "FlexRow"]
               }
             ],
             "namespace": ["pages_en", "body"],
@@ -304,11 +757,11 @@
               },
               {
                 "name": "Alert",
-                "label": "Alerta",
+                "label": "Alert",
                 "fields": [
                   {
                     "name": "children",
-                    "label": "Contenido",
+                    "label": "Content",
                     "type": "rich-text",
                     "namespace": ["pages_es", "body", "Alert", "children"],
                     "searchable": true,
@@ -320,11 +773,11 @@
               },
               {
                 "name": "Card",
-                "label": "Tarjeta",
+                "label": "Card",
                 "fields": [
                   {
                     "name": "children",
-                    "label": "Contenido",
+                    "label": "Content",
                     "type": "rich-text",
                     "namespace": ["pages_es", "body", "Card", "children"],
                     "searchable": true,
@@ -336,7 +789,7 @@
               },
               {
                 "name": "TrackedAirbnbButton",
-                "label": "Botón de Airbnb",
+                "label": "Airbnb Button",
                 "fields": [
                   {
                     "name": "href",
@@ -353,7 +806,7 @@
                   },
                   {
                     "name": "label",
-                    "label": "Etiqueta",
+                    "label": "Label",
                     "type": "string",
                     "namespace": [
                       "pages_es",
@@ -366,6 +819,459 @@
                   }
                 ],
                 "namespace": ["pages_es", "body", "TrackedAirbnbButton"]
+              },
+              {
+                "name": "PageHero",
+                "label": "Page Hero",
+                "fields": [
+                  {
+                    "name": "image",
+                    "label": "Hero Image",
+                    "type": "image",
+                    "required": true,
+                    "namespace": ["pages_es", "body", "PageHero", "image"],
+                    "searchable": false,
+                    "uid": false
+                  },
+                  {
+                    "name": "imageAlt",
+                    "label": "Image Alt Text",
+                    "type": "string",
+                    "required": true,
+                    "namespace": ["pages_es", "body", "PageHero", "imageAlt"],
+                    "searchable": true,
+                    "uid": false
+                  },
+                  {
+                    "name": "title",
+                    "label": "Page Title",
+                    "type": "string",
+                    "required": true,
+                    "namespace": ["pages_es", "body", "PageHero", "title"],
+                    "searchable": true,
+                    "uid": false
+                  },
+                  {
+                    "name": "subtitle",
+                    "label": "Subtitle",
+                    "type": "string",
+                    "namespace": ["pages_es", "body", "PageHero", "subtitle"],
+                    "searchable": true,
+                    "uid": false
+                  }
+                ],
+                "namespace": ["pages_es", "body", "PageHero"]
+              },
+              {
+                "name": "ContentCard",
+                "label": "Content Card",
+                "fields": [
+                  {
+                    "name": "image",
+                    "label": "Header Image",
+                    "type": "image",
+                    "namespace": ["pages_es", "body", "ContentCard", "image"],
+                    "searchable": false,
+                    "uid": false
+                  },
+                  {
+                    "name": "imageAlt",
+                    "label": "Image Alt Text",
+                    "type": "string",
+                    "namespace": [
+                      "pages_es",
+                      "body",
+                      "ContentCard",
+                      "imageAlt"
+                    ],
+                    "searchable": true,
+                    "uid": false
+                  },
+                  {
+                    "name": "title",
+                    "label": "Card Title",
+                    "type": "string",
+                    "namespace": ["pages_es", "body", "ContentCard", "title"],
+                    "searchable": true,
+                    "uid": false
+                  },
+                  {
+                    "name": "children",
+                    "label": "Card Content",
+                    "type": "rich-text",
+                    "namespace": [
+                      "pages_es",
+                      "body",
+                      "ContentCard",
+                      "children"
+                    ],
+                    "searchable": true,
+                    "parser": { "type": "mdx" },
+                    "uid": false
+                  },
+                  {
+                    "name": "className",
+                    "label": "CSS Class",
+                    "type": "string",
+                    "namespace": [
+                      "pages_es",
+                      "body",
+                      "ContentCard",
+                      "className"
+                    ],
+                    "searchable": true,
+                    "uid": false
+                  }
+                ],
+                "namespace": ["pages_es", "body", "ContentCard"]
+              },
+              {
+                "name": "TimeDisplay",
+                "label": "Time Display",
+                "fields": [
+                  {
+                    "name": "time",
+                    "label": "Time",
+                    "type": "string",
+                    "required": true,
+                    "namespace": ["pages_es", "body", "TimeDisplay", "time"],
+                    "searchable": true,
+                    "uid": false
+                  },
+                  {
+                    "name": "label",
+                    "label": "Label",
+                    "type": "string",
+                    "required": true,
+                    "namespace": ["pages_es", "body", "TimeDisplay", "label"],
+                    "searchable": true,
+                    "uid": false
+                  }
+                ],
+                "namespace": ["pages_es", "body", "TimeDisplay"]
+              },
+              {
+                "name": "CalloutBox",
+                "label": "Callout Box",
+                "fields": [
+                  {
+                    "name": "variant",
+                    "label": "Variant",
+                    "type": "string",
+                    "options": ["default", "info"],
+                    "namespace": ["pages_es", "body", "CalloutBox", "variant"],
+                    "searchable": true,
+                    "uid": false
+                  },
+                  {
+                    "name": "centered",
+                    "label": "Centered Text",
+                    "type": "boolean",
+                    "namespace": ["pages_es", "body", "CalloutBox", "centered"],
+                    "searchable": true,
+                    "uid": false
+                  },
+                  {
+                    "name": "children",
+                    "label": "Content",
+                    "type": "rich-text",
+                    "namespace": ["pages_es", "body", "CalloutBox", "children"],
+                    "searchable": true,
+                    "parser": { "type": "mdx" },
+                    "uid": false
+                  }
+                ],
+                "namespace": ["pages_es", "body", "CalloutBox"]
+              },
+              {
+                "name": "InfoSection",
+                "label": "Info Section",
+                "fields": [
+                  {
+                    "name": "title",
+                    "label": "Section Title",
+                    "type": "string",
+                    "required": true,
+                    "namespace": ["pages_es", "body", "InfoSection", "title"],
+                    "searchable": true,
+                    "uid": false
+                  },
+                  {
+                    "name": "children",
+                    "label": "Content",
+                    "type": "rich-text",
+                    "namespace": [
+                      "pages_es",
+                      "body",
+                      "InfoSection",
+                      "children"
+                    ],
+                    "searchable": true,
+                    "parser": { "type": "mdx" },
+                    "uid": false
+                  }
+                ],
+                "namespace": ["pages_es", "body", "InfoSection"]
+              },
+              {
+                "name": "AmenityList",
+                "label": "Amenity List",
+                "fields": [
+                  {
+                    "name": "items",
+                    "label": "Amenities",
+                    "type": "string",
+                    "list": true,
+                    "required": true,
+                    "namespace": ["pages_es", "body", "AmenityList", "items"],
+                    "searchable": true,
+                    "uid": false
+                  }
+                ],
+                "namespace": ["pages_es", "body", "AmenityList"]
+              },
+              {
+                "name": "MapEmbed",
+                "label": "Map Embed",
+                "fields": [
+                  {
+                    "name": "lat",
+                    "label": "Latitude",
+                    "type": "number",
+                    "required": true,
+                    "namespace": ["pages_es", "body", "MapEmbed", "lat"],
+                    "searchable": true,
+                    "uid": false
+                  },
+                  {
+                    "name": "lng",
+                    "label": "Longitude",
+                    "type": "number",
+                    "required": true,
+                    "namespace": ["pages_es", "body", "MapEmbed", "lng"],
+                    "searchable": true,
+                    "uid": false
+                  },
+                  {
+                    "name": "title",
+                    "label": "Map Title",
+                    "type": "string",
+                    "namespace": ["pages_es", "body", "MapEmbed", "title"],
+                    "searchable": true,
+                    "uid": false
+                  },
+                  {
+                    "name": "zoom",
+                    "label": "Zoom Level",
+                    "type": "number",
+                    "namespace": ["pages_es", "body", "MapEmbed", "zoom"],
+                    "searchable": true,
+                    "uid": false
+                  }
+                ],
+                "namespace": ["pages_es", "body", "MapEmbed"]
+              },
+              {
+                "name": "AltBackground",
+                "label": "Alt Background (Dark Mode)",
+                "fields": [
+                  {
+                    "name": "title",
+                    "label": "Page Title",
+                    "type": "string",
+                    "namespace": ["pages_es", "body", "AltBackground", "title"],
+                    "searchable": true,
+                    "uid": false
+                  },
+                  {
+                    "name": "description",
+                    "label": "Description",
+                    "type": "string",
+                    "namespace": [
+                      "pages_es",
+                      "body",
+                      "AltBackground",
+                      "description"
+                    ],
+                    "searchable": true,
+                    "uid": false
+                  },
+                  {
+                    "name": "darkBackground",
+                    "label": "Dark Background",
+                    "type": "boolean",
+                    "namespace": [
+                      "pages_es",
+                      "body",
+                      "AltBackground",
+                      "darkBackground"
+                    ],
+                    "searchable": true,
+                    "uid": false
+                  },
+                  {
+                    "name": "locale",
+                    "label": "Locale",
+                    "type": "string",
+                    "namespace": [
+                      "pages_es",
+                      "body",
+                      "AltBackground",
+                      "locale"
+                    ],
+                    "searchable": true,
+                    "uid": false
+                  },
+                  {
+                    "name": "children",
+                    "label": "Page Content",
+                    "type": "rich-text",
+                    "namespace": [
+                      "pages_es",
+                      "body",
+                      "AltBackground",
+                      "children"
+                    ],
+                    "searchable": true,
+                    "parser": { "type": "mdx" },
+                    "uid": false
+                  }
+                ],
+                "namespace": ["pages_es", "body", "AltBackground"]
+              },
+              {
+                "name": "Section",
+                "label": "Section",
+                "fields": [
+                  {
+                    "name": "layout",
+                    "label": "Layout",
+                    "type": "string",
+                    "options": [
+                      "stack",
+                      "flex-row",
+                      "grid-2",
+                      "grid-3",
+                      "centered"
+                    ],
+                    "namespace": ["pages_es", "body", "Section", "layout"],
+                    "searchable": true,
+                    "uid": false
+                  },
+                  {
+                    "name": "spacing",
+                    "label": "Spacing",
+                    "type": "string",
+                    "options": ["none", "sm", "md", "lg"],
+                    "namespace": ["pages_es", "body", "Section", "spacing"],
+                    "searchable": true,
+                    "uid": false
+                  },
+                  {
+                    "name": "padding",
+                    "label": "Padding",
+                    "type": "string",
+                    "options": ["none", "sm", "md", "lg"],
+                    "namespace": ["pages_es", "body", "Section", "padding"],
+                    "searchable": true,
+                    "uid": false
+                  },
+                  {
+                    "name": "className",
+                    "label": "Custom CSS Class",
+                    "type": "string",
+                    "namespace": ["pages_es", "body", "Section", "className"],
+                    "searchable": true,
+                    "uid": false
+                  },
+                  {
+                    "name": "children",
+                    "label": "Content",
+                    "type": "rich-text",
+                    "namespace": ["pages_es", "body", "Section", "children"],
+                    "searchable": true,
+                    "parser": { "type": "mdx" },
+                    "uid": false
+                  }
+                ],
+                "namespace": ["pages_es", "body", "Section"]
+              },
+              {
+                "name": "ImageGrid",
+                "label": "Image Grid",
+                "fields": [
+                  {
+                    "name": "columns",
+                    "label": "Columns",
+                    "type": "number",
+                    "required": true,
+                    "namespace": ["pages_es", "body", "ImageGrid", "columns"],
+                    "searchable": true,
+                    "uid": false
+                  },
+                  {
+                    "name": "gap",
+                    "label": "Gap Size",
+                    "type": "string",
+                    "options": ["sm", "md", "lg"],
+                    "namespace": ["pages_es", "body", "ImageGrid", "gap"],
+                    "searchable": true,
+                    "uid": false
+                  },
+                  {
+                    "name": "children",
+                    "label": "Images",
+                    "type": "rich-text",
+                    "namespace": ["pages_es", "body", "ImageGrid", "children"],
+                    "searchable": true,
+                    "parser": { "type": "mdx" },
+                    "uid": false
+                  }
+                ],
+                "namespace": ["pages_es", "body", "ImageGrid"]
+              },
+              {
+                "name": "FlexRow",
+                "label": "Flex Row",
+                "fields": [
+                  {
+                    "name": "justify",
+                    "label": "Justify",
+                    "type": "string",
+                    "options": ["start", "center", "end", "between", "around"],
+                    "namespace": ["pages_es", "body", "FlexRow", "justify"],
+                    "searchable": true,
+                    "uid": false
+                  },
+                  {
+                    "name": "align",
+                    "label": "Align",
+                    "type": "string",
+                    "options": ["start", "center", "end", "stretch"],
+                    "namespace": ["pages_es", "body", "FlexRow", "align"],
+                    "searchable": true,
+                    "uid": false
+                  },
+                  {
+                    "name": "gap",
+                    "label": "Gap",
+                    "type": "string",
+                    "options": ["sm", "md", "lg"],
+                    "namespace": ["pages_es", "body", "FlexRow", "gap"],
+                    "searchable": true,
+                    "uid": false
+                  },
+                  {
+                    "name": "children",
+                    "label": "Content",
+                    "type": "rich-text",
+                    "namespace": ["pages_es", "body", "FlexRow", "children"],
+                    "searchable": true,
+                    "parser": { "type": "mdx" },
+                    "uid": false
+                  }
+                ],
+                "namespace": ["pages_es", "body", "FlexRow"]
               }
             ],
             "namespace": ["pages_es", "body"],
@@ -1670,6 +2576,441 @@
       },
       {
         "kind": "InputObjectTypeDefinition",
+        "name": { "kind": "Name", "value": "Pages_enBodyPageHeroFilter" },
+        "fields": [
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "image" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "ImageFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "imageAlt" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "title" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "subtitle" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "InputObjectTypeDefinition",
+        "name": { "kind": "Name", "value": "Pages_enBodyContentCardFilter" },
+        "fields": [
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "image" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "ImageFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "imageAlt" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "title" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "children" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "RichTextFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "className" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "InputObjectTypeDefinition",
+        "name": { "kind": "Name", "value": "Pages_enBodyTimeDisplayFilter" },
+        "fields": [
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "time" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "label" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "InputObjectTypeDefinition",
+        "name": { "kind": "Name", "value": "Pages_enBodyCalloutBoxFilter" },
+        "fields": [
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "variant" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "centered" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "BooleanFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "children" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "RichTextFilter" }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "InputObjectTypeDefinition",
+        "name": { "kind": "Name", "value": "Pages_enBodyInfoSectionFilter" },
+        "fields": [
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "title" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "children" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "RichTextFilter" }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "InputObjectTypeDefinition",
+        "name": { "kind": "Name", "value": "Pages_enBodyAmenityListFilter" },
+        "fields": [
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "items" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "InputObjectTypeDefinition",
+        "name": { "kind": "Name", "value": "NumberFilter" },
+        "fields": [
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "lt" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "Float" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "lte" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "Float" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "gte" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "Float" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "gt" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "Float" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "eq" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "Float" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "exists" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "Boolean" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "in" },
+            "type": {
+              "kind": "ListType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "Float" }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "InputObjectTypeDefinition",
+        "name": { "kind": "Name", "value": "Pages_enBodyMapEmbedFilter" },
+        "fields": [
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "lat" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "NumberFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "lng" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "NumberFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "title" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "zoom" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "NumberFilter" }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "InputObjectTypeDefinition",
+        "name": { "kind": "Name", "value": "Pages_enBodyAltBackgroundFilter" },
+        "fields": [
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "title" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "description" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "darkBackground" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "BooleanFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "locale" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "children" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "RichTextFilter" }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "InputObjectTypeDefinition",
+        "name": { "kind": "Name", "value": "Pages_enBodySectionFilter" },
+        "fields": [
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "layout" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "spacing" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "padding" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "className" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "children" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "RichTextFilter" }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "InputObjectTypeDefinition",
+        "name": { "kind": "Name", "value": "Pages_enBodyImageGridFilter" },
+        "fields": [
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "columns" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "NumberFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "gap" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "children" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "RichTextFilter" }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "InputObjectTypeDefinition",
+        "name": { "kind": "Name", "value": "Pages_enBodyFlexRowFilter" },
+        "fields": [
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "justify" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "align" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "gap" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "children" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "RichTextFilter" }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "InputObjectTypeDefinition",
         "name": { "kind": "Name", "value": "Pages_enBodyFilter" },
         "fields": [
           {
@@ -1713,6 +3054,112 @@
                 "kind": "Name",
                 "value": "Pages_enBodyTrackedAirbnbButtonFilter"
               }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "PageHero" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "Pages_enBodyPageHeroFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "ContentCard" },
+            "type": {
+              "kind": "NamedType",
+              "name": {
+                "kind": "Name",
+                "value": "Pages_enBodyContentCardFilter"
+              }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "TimeDisplay" },
+            "type": {
+              "kind": "NamedType",
+              "name": {
+                "kind": "Name",
+                "value": "Pages_enBodyTimeDisplayFilter"
+              }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "CalloutBox" },
+            "type": {
+              "kind": "NamedType",
+              "name": {
+                "kind": "Name",
+                "value": "Pages_enBodyCalloutBoxFilter"
+              }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "InfoSection" },
+            "type": {
+              "kind": "NamedType",
+              "name": {
+                "kind": "Name",
+                "value": "Pages_enBodyInfoSectionFilter"
+              }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "AmenityList" },
+            "type": {
+              "kind": "NamedType",
+              "name": {
+                "kind": "Name",
+                "value": "Pages_enBodyAmenityListFilter"
+              }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "MapEmbed" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "Pages_enBodyMapEmbedFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "AltBackground" },
+            "type": {
+              "kind": "NamedType",
+              "name": {
+                "kind": "Name",
+                "value": "Pages_enBodyAltBackgroundFilter"
+              }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "Section" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "Pages_enBodySectionFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "ImageGrid" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "Pages_enBodyImageGridFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "FlexRow" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "Pages_enBodyFlexRowFilter" }
             }
           }
         ]
@@ -2054,6 +3501,376 @@
       },
       {
         "kind": "InputObjectTypeDefinition",
+        "name": { "kind": "Name", "value": "Pages_esBodyPageHeroFilter" },
+        "fields": [
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "image" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "ImageFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "imageAlt" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "title" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "subtitle" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "InputObjectTypeDefinition",
+        "name": { "kind": "Name", "value": "Pages_esBodyContentCardFilter" },
+        "fields": [
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "image" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "ImageFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "imageAlt" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "title" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "children" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "RichTextFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "className" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "InputObjectTypeDefinition",
+        "name": { "kind": "Name", "value": "Pages_esBodyTimeDisplayFilter" },
+        "fields": [
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "time" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "label" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "InputObjectTypeDefinition",
+        "name": { "kind": "Name", "value": "Pages_esBodyCalloutBoxFilter" },
+        "fields": [
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "variant" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "centered" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "BooleanFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "children" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "RichTextFilter" }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "InputObjectTypeDefinition",
+        "name": { "kind": "Name", "value": "Pages_esBodyInfoSectionFilter" },
+        "fields": [
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "title" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "children" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "RichTextFilter" }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "InputObjectTypeDefinition",
+        "name": { "kind": "Name", "value": "Pages_esBodyAmenityListFilter" },
+        "fields": [
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "items" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "InputObjectTypeDefinition",
+        "name": { "kind": "Name", "value": "Pages_esBodyMapEmbedFilter" },
+        "fields": [
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "lat" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "NumberFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "lng" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "NumberFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "title" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "zoom" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "NumberFilter" }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "InputObjectTypeDefinition",
+        "name": { "kind": "Name", "value": "Pages_esBodyAltBackgroundFilter" },
+        "fields": [
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "title" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "description" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "darkBackground" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "BooleanFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "locale" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "children" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "RichTextFilter" }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "InputObjectTypeDefinition",
+        "name": { "kind": "Name", "value": "Pages_esBodySectionFilter" },
+        "fields": [
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "layout" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "spacing" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "padding" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "className" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "children" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "RichTextFilter" }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "InputObjectTypeDefinition",
+        "name": { "kind": "Name", "value": "Pages_esBodyImageGridFilter" },
+        "fields": [
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "columns" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "NumberFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "gap" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "children" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "RichTextFilter" }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "InputObjectTypeDefinition",
+        "name": { "kind": "Name", "value": "Pages_esBodyFlexRowFilter" },
+        "fields": [
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "justify" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "align" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "gap" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "children" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "RichTextFilter" }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "InputObjectTypeDefinition",
         "name": { "kind": "Name", "value": "Pages_esBodyFilter" },
         "fields": [
           {
@@ -2097,6 +3914,112 @@
                 "kind": "Name",
                 "value": "Pages_esBodyTrackedAirbnbButtonFilter"
               }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "PageHero" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "Pages_esBodyPageHeroFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "ContentCard" },
+            "type": {
+              "kind": "NamedType",
+              "name": {
+                "kind": "Name",
+                "value": "Pages_esBodyContentCardFilter"
+              }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "TimeDisplay" },
+            "type": {
+              "kind": "NamedType",
+              "name": {
+                "kind": "Name",
+                "value": "Pages_esBodyTimeDisplayFilter"
+              }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "CalloutBox" },
+            "type": {
+              "kind": "NamedType",
+              "name": {
+                "kind": "Name",
+                "value": "Pages_esBodyCalloutBoxFilter"
+              }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "InfoSection" },
+            "type": {
+              "kind": "NamedType",
+              "name": {
+                "kind": "Name",
+                "value": "Pages_esBodyInfoSectionFilter"
+              }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "AmenityList" },
+            "type": {
+              "kind": "NamedType",
+              "name": {
+                "kind": "Name",
+                "value": "Pages_esBodyAmenityListFilter"
+              }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "MapEmbed" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "Pages_esBodyMapEmbedFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "AltBackground" },
+            "type": {
+              "kind": "NamedType",
+              "name": {
+                "kind": "Name",
+                "value": "Pages_esBodyAltBackgroundFilter"
+              }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "Section" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "Pages_esBodySectionFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "ImageGrid" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "Pages_esBodyImageGridFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "FlexRow" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "Pages_esBodyFlexRowFilter" }
             }
           }
         ]

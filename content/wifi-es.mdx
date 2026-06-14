@@ -13,12 +13,10 @@ export const wifiCredentials = {
     : "",
 };
 
-<AltBackground title="Información Wi-Fi" darkBackground={true} locale="es">
+<AltBackground darkBackground={true} locale="es" />
 <Menubar locale="es" title="Información Wi-Fi" />
 
 <WiFiPanel
   encodedSsid={wifiCredentials.ssid}
   encodedPassword={wifiCredentials.password}
 />
-
-</AltBackground>

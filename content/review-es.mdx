@@ -12,7 +12,7 @@ locale: "es"
 
 ¡Nos encantaría hospedarlo de nuevo! Reserve directamente a través de nuestro listado de Airbnb para su próxima visita.
 
-<div className="flex justify-center my-6">
+<FlexRow justify="center" gap="md">
   <div
     className="airbnb-embed-frame"
     data-id="54150577"
@@ -28,30 +28,30 @@ locale: "es"
     <a href="https://www.airbnb.com/h/puntacaelopanama">Ver en Airbnb</a>
     <script async src="https://www.airbnb.com/embeddable/airbnb_jssdk"></script>
   </div>
-</div>
+</FlexRow>
 
-<div className="flex justify-center mt-6">
+<FlexRow justify="center" gap="md">
   <TrackedAirbnbButton
     source="review-rebook"
     locale="es"
     buttonText="Reservar en Airbnb"
     className="bg-secondary text-secondary-foreground hover:bg-secondary/80 px-8 py-3 text-lg"
   />
-</div>
+</FlexRow>
 
-<div className="bg-secondary/30 p-4 rounded-lg mt-6 text-center font-medium">
+<CalloutBox>
   ¿Disfrutó su estadía? ¡Nos encantaría una reseña en Airbnb!
-</div>
+</CalloutBox>
 
 ## Compartir con Amigos
 
 ¿Conoce a alguien buscando una escapada de playa en Panamá? ¡Comparta nuestro listado!
 
-<div className="flex justify-center mt-4">
+<FlexRow justify="center" gap="md">
   <TrackedAirbnbButton
     source="review-share"
     locale="es"
     buttonText="Compartir Listado"
     className="bg-primary text-primary-foreground hover:bg-primary/80 px-8 py-3 text-lg"
   />
-</div>
+</FlexRow>

@@ -15,29 +15,29 @@ locale: "en"
   />
 </div>
 
-<div className="text-center mb-8">
+<Section layout="centered" spacing="md" padding="none" className="mb-8">
   <h1 className="text-4xl md:text-5xl font-serif font-light tracking-wide mb-2">
     THANK YOU
   </h1>
   <span className="block text-sm tracking-widest text-muted-foreground uppercase">
     For choosing to stay with us
   </span>
-</div>
+</Section>
 
-<div className="flex flex-col gap-5 px-6">
-  <div className="flex items-center gap-4">
+<Section layout="stack" spacing="lg" padding="md">
+  <FlexRow justify="start" align="center" gap="md">
     <div className="w-10 h-10 rounded-full bg-secondary/40 flex items-center justify-center flex-shrink-0">
       <Phone className="h-5 w-5 text-primary" />
     </div>
     <span className="text-sm">Contact number provided upon booking</span>
-  </div>
+  </FlexRow>
 
-<div className="flex items-center gap-4">
+<FlexRow justify="start" align="center" gap="md">
   <div className="w-10 h-10 rounded-full bg-secondary/40 flex items-center justify-center flex-shrink-0">
     <Mail className="h-5 w-5 text-primary" />
   </div>
   <span className="text-sm">Email provided upon booking</span>
-</div>
+</FlexRow>
 
 <TrackedAirbnbLink
   source="contact"
@@ -51,12 +51,12 @@ locale: "en"
   <span className="text-sm underline">View listing on Airbnb</span>
 </TrackedAirbnbLink>
 
-<div className="flex items-center gap-4">
+<FlexRow justify="start" align="center" gap="md">
   <div className="w-10 h-10 rounded-full bg-secondary/40 flex items-center justify-center flex-shrink-0">
     <MapPin className="h-5 w-5 text-primary" />
   </div>
   <span className="text-sm">San Carlos, Panama</span>
-</div>
+</FlexRow>
 
   <a href="https://wa.me/50763798581?text=Hi%20Fernando%2C%20I%27m%20interested%20in%20booking%20Punta%20Caelo" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4">
     <div className="w-10 h-10 rounded-full bg-[#25D366]/20 flex items-center justify-center flex-shrink-0">
@@ -66,10 +66,15 @@ locale: "en"
     </div>
     <span className="text-sm">Contact us on WhatsApp</span>
   </a>
-</div>
+</Section>
 
-<div className="bg-secondary/30 p-5 rounded-lg mt-10 mx-4 text-center">
+<Section
+  layout="centered"
+  spacing="none"
+  padding="md"
+  className="bg-secondary/30 rounded-lg mt-10 mx-4"
+>
   <span className="block font-medium">
     We hope you enjoyed your stay at Punta Caelo!
   </span>
-</div>
+</Section>

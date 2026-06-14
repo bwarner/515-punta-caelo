@@ -5,6 +5,7 @@ import path from "path";
 import matter from "gray-matter";
 import { generateAlternates, type Locale } from "@/lib/seo";
 import { locales } from "@/i18n";
+import { PageMetadataProvider } from "@/components/page-metadata-provider";
 
 function getHomeFrontmatter(locale: Locale) {
   const filePath = path.join(process.cwd(), "content", `home-${locale}.mdx`);
@@ -35,12 +36,20 @@ export default async function LocaleHome({ params }: Props) {
   const { locale } = await params;
   if (!locales.includes(locale as Locale)) notFound();
 
+  // Read frontmatter for metadata
+  const parsed = getHomeFrontmatter(locale as Locale);
+  const darkBackground = parsed?.data?.darkBackground ?? false;
+
   const { default: Content } =
     locale === "es"
       ? await import("@/content/home-es.mdx")
       : await import("@/content/home-en.mdx");
 
-  return <Content className="prose dark:prose-invert" />;
+  return (
+    <PageMetadataProvider locale={locale} darkBackground={darkBackground}>
+      <Content className="prose dark:prose-invert" />
+    </PageMetadataProvider>
+  );
 }
 
 export function generateStaticParams() {
