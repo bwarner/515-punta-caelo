@@ -3,7 +3,7 @@
 
 import posthog from "posthog-js";
 import { PostHogProvider as PHProvider } from "posthog-js/react";
-import { useEffect, type ReactNode } from "react";
+import { Suspense, useEffect, type ReactNode } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 import { getAppTags, getAppEnv } from "@/lib/app-env";
 import { capturePageview } from "@/lib/posthog-capture";
@@ -61,8 +61,22 @@ export function PostHogProvider({ children }: { children: ReactNode }) {
     });
   }, []);
 
-  // Capture pageviews on route changes using direct fetch
-  // This works around posthog-js issue #3663 where SDK capture() never sends
+  return (
+    <PHProvider client={posthog}>
+      <Suspense fallback={null}>
+        <PostHogPageview />
+      </Suspense>
+      {children}
+    </PHProvider>
+  );
+}
+
+/**
+ * Captures pageviews on route changes using direct fetch.
+ * This works around posthog-js issue #3663 where SDK capture() never sends.
+ * Wrapped in Suspense because useSearchParams requires it for static rendering.
+ */
+function PostHogPageview() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
@@ -76,5 +90,5 @@ export function PostHogProvider({ children }: { children: ReactNode }) {
     });
   }, [pathname, searchParams]);
 
-  return <PHProvider client={posthog}>{children}</PHProvider>;
+  return null;
 }
