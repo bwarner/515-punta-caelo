@@ -24,6 +24,8 @@ posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY!, {
   defaults: "2025-05-24",
   // Capture events and create person profiles for all users
   person_profiles: "always",
+  // Explicitly capture pageviews on page load
+  capture_pageview: true,
   // Enables capturing unhandled exceptions via Error Tracking
   capture_exceptions: true,
   // Turn on debug mode to diagnose event capture issues
