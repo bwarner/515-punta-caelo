@@ -22,8 +22,8 @@ posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY!, {
   ui_host: process.env.NEXT_PUBLIC_POSTHOG_HOST,
   // Include the defaults option as required by PostHog
   defaults: "2025-05-24",
-  // Capture events without creating person profiles (privacy-focused)
-  person_profiles: "never",
+  // Capture events and create person profiles for all users
+  person_profiles: "always",
   // Enables capturing unhandled exceptions via Error Tracking
   capture_exceptions: true,
   // Turn on debug in development mode
