@@ -26,8 +26,8 @@ posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY!, {
   person_profiles: "always",
   // Enables capturing unhandled exceptions via Error Tracking
   capture_exceptions: true,
-  // Turn on debug in development mode
-  debug: process.env.NODE_ENV === "development",
+  // Turn on debug mode to diagnose event capture issues
+  debug: true,
   loaded: (ph) => {
     const host =
       typeof window !== "undefined" ? window.location.host : undefined;

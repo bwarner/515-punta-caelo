@@ -33,8 +33,8 @@ export function PostHogProvider({ children }: { children: ReactNode }) {
       person_profiles: "always",
       // Enables capturing unhandled exceptions via Error Tracking
       capture_exceptions: true,
-      // Turn on debug in development mode
-      debug: process.env.NODE_ENV === "development",
+      // Turn on debug mode to diagnose event capture issues
+      debug: true,
       // Disable automatic pageview capture - we'll handle it manually for SPA navigation
       capture_pageview: false,
       loaded: (ph) => {
