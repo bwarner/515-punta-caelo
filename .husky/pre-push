@@ -1,0 +1,26 @@
+#!/bin/sh
+
+echo "🔍 Running pre-push checks..."
+
+# Type check
+echo "📝 Type checking..."
+pnpm exec tsc --noEmit || {
+  echo "❌ Type check failed. Push aborted."
+  exit 1
+}
+
+# Lint
+echo "🧹 Linting..."
+pnpm exec eslint . --max-warnings 0 || {
+  echo "❌ Lint failed. Push aborted."
+  exit 1
+}
+
+# Build (ensures the app compiles)
+echo "🏗️  Building..."
+pnpm build || {
+  echo "❌ Build failed. Push aborted."
+  exit 1
+}
+
+echo "✅ All pre-push checks passed!"
