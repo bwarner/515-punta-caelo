@@ -3,8 +3,10 @@
 
 import posthog from "posthog-js";
 import { PostHogProvider as PHProvider } from "posthog-js/react";
-import { useEffect, type ReactNode } from "react";
+import { Suspense, useEffect, type ReactNode } from "react";
+import { usePathname, useSearchParams } from "next/navigation";
 import { getAppTags, getAppEnv } from "@/lib/app-env";
+import { capturePageview } from "@/lib/posthog-capture";
 
 function compactRecord(input: Record<string, unknown>) {
   return Object.fromEntries(
@@ -29,11 +31,12 @@ export function PostHogProvider({ children }: { children: ReactNode }) {
       ui_host: process.env.NEXT_PUBLIC_POSTHOG_HOST,
       // Include the defaults option as required by PostHog
       defaults: "2025-05-24",
+      // Capture events and create person profiles for all users
+      person_profiles: "always",
       // Enables capturing unhandled exceptions via Error Tracking
       capture_exceptions: true,
-      // Turn on debug in development mode
-      debug: process.env.NODE_ENV === "development",
-      // Disable automatic pageview capture - we'll handle it manually for SPA navigation
+      // Disable automatic pageview - handled via direct capture below
+      // due to posthog-js issue #3663 where SDK capture() never sends events
       capture_pageview: false,
       loaded: (ph) => {
         const host =
@@ -58,5 +61,34 @@ export function PostHogProvider({ children }: { children: ReactNode }) {
     });
   }, []);
 
-  return <PHProvider client={posthog}>{children}</PHProvider>;
+  return (
+    <PHProvider client={posthog}>
+      <Suspense fallback={null}>
+        <PostHogPageview />
+      </Suspense>
+      {children}
+    </PHProvider>
+  );
+}
+
+/**
+ * Captures pageviews on route changes using direct fetch.
+ * This works around posthog-js issue #3663 where SDK capture() never sends.
+ * Wrapped in Suspense because useSearchParams requires it for static rendering.
+ */
+function PostHogPageview() {
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+
+  useEffect(() => {
+    if (!posthog.__loaded) return;
+
+    const url = pathname + (searchParams?.toString() ? `?${searchParams}` : "");
+    capturePageview({
+      $current_url: typeof window !== "undefined" ? window.location.href : url,
+      $pathname: pathname,
+    });
+  }, [pathname, searchParams]);
+
+  return null;
 }

@@ -22,10 +22,13 @@ posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY!, {
   ui_host: process.env.NEXT_PUBLIC_POSTHOG_HOST,
   // Include the defaults option as required by PostHog
   defaults: "2025-05-24",
+  // Capture events and create person profiles for all users
+  person_profiles: "always",
+  // Disable automatic pageview - handled via direct capture in PostHogProvider
+  // due to posthog-js issue #3663 where SDK capture() never sends events
+  capture_pageview: false,
   // Enables capturing unhandled exceptions via Error Tracking
   capture_exceptions: true,
-  // Turn on debug in development mode
-  debug: process.env.NODE_ENV === "development",
   loaded: (ph) => {
     const host =
       typeof window !== "undefined" ? window.location.host : undefined;
