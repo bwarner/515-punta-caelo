@@ -24,12 +24,11 @@ posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY!, {
   defaults: "2025-05-24",
   // Capture events and create person profiles for all users
   person_profiles: "always",
-  // Explicitly capture pageviews on page load
-  capture_pageview: true,
+  // Disable automatic pageview - handled via direct capture in PostHogProvider
+  // due to posthog-js issue #3663 where SDK capture() never sends events
+  capture_pageview: false,
   // Enables capturing unhandled exceptions via Error Tracking
   capture_exceptions: true,
-  // Turn on debug mode to diagnose event capture issues
-  debug: true,
   loaded: (ph) => {
     const host =
       typeof window !== "undefined" ? window.location.host : undefined;

@@ -4,7 +4,9 @@
 import posthog from "posthog-js";
 import { PostHogProvider as PHProvider } from "posthog-js/react";
 import { useEffect, type ReactNode } from "react";
+import { usePathname, useSearchParams } from "next/navigation";
 import { getAppTags, getAppEnv } from "@/lib/app-env";
+import { capturePageview } from "@/lib/posthog-capture";
 
 function compactRecord(input: Record<string, unknown>) {
   return Object.fromEntries(
@@ -33,9 +35,8 @@ export function PostHogProvider({ children }: { children: ReactNode }) {
       person_profiles: "always",
       // Enables capturing unhandled exceptions via Error Tracking
       capture_exceptions: true,
-      // Turn on debug mode to diagnose event capture issues
-      debug: true,
-      // Disable automatic pageview capture - we'll handle it manually for SPA navigation
+      // Disable automatic pageview - handled via direct capture below
+      // due to posthog-js issue #3663 where SDK capture() never sends events
       capture_pageview: false,
       loaded: (ph) => {
         const host =
@@ -59,6 +60,21 @@ export function PostHogProvider({ children }: { children: ReactNode }) {
       },
     });
   }, []);
+
+  // Capture pageviews on route changes using direct fetch
+  // This works around posthog-js issue #3663 where SDK capture() never sends
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+
+  useEffect(() => {
+    if (!posthog.__loaded) return;
+
+    const url = pathname + (searchParams?.toString() ? `?${searchParams}` : "");
+    capturePageview({
+      $current_url: typeof window !== "undefined" ? window.location.href : url,
+      $pathname: pathname,
+    });
+  }, [pathname, searchParams]);
 
   return <PHProvider client={posthog}>{children}</PHProvider>;
 }
