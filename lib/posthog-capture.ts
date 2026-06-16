@@ -30,10 +30,12 @@ function generateUUID(): string {
   });
 }
 
-interface PostHogEvent {
+interface PostHogBatchEvent {
+  type: "capture" | "identify" | "page" | "screen" | "group" | "alias";
   event: string;
+  distinct_id: string;
   properties: Record<string, unknown>;
-  timestamp?: string;
+  timestamp: string;
 }
 
 /**
@@ -69,10 +71,11 @@ export async function captureEvent(
     // Ignore errors accessing persistence
   }
 
-  const event: PostHogEvent = {
+  const event: PostHogBatchEvent = {
+    type: "capture",
     event: eventName,
+    distinct_id: distinctId,
     properties: {
-      distinct_id: distinctId,
       $lib: "posthog-js",
       $lib_version: "direct-capture",
       $current_url: typeof window !== "undefined" ? window.location.href : "",
