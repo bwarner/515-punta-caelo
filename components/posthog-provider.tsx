@@ -38,6 +38,8 @@ export function PostHogProvider({ children }: { children: ReactNode }) {
       // Disable automatic pageview - handled via direct capture below
       // due to posthog-js issue #3663 where SDK capture() never sends events
       capture_pageview: false,
+      // Disable autocapture - too noisy, we use custom events instead
+      autocapture: false,
       loaded: (ph) => {
         const host =
           typeof window !== "undefined" ? window.location.host : undefined;
