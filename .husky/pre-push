@@ -2,19 +2,30 @@
 
 echo "🔍 Running pre-push checks..."
 
-# Type check
+# Get the remote branch we're pushing to
+remote="$1"
+url="$2"
+
+# Find changed files compared to remote main
+CHANGED_FILES=$(git diff --name-only origin/main...HEAD -- '*.ts' '*.tsx' '*.js' '*.jsx' 2>/dev/null)
+
+# Type check (always run - it's fast and checks the whole project)
 echo "📝 Type checking..."
 pnpm exec tsc --noEmit || {
   echo "❌ Type check failed. Push aborted."
   exit 1
 }
 
-# Lint
-echo "🧹 Linting..."
-pnpm exec eslint . --max-warnings 0 || {
-  echo "❌ Lint failed. Push aborted."
-  exit 1
-}
+# Lint only changed files (saves memory and time)
+if [ -n "$CHANGED_FILES" ]; then
+  echo "🧹 Linting changed files..."
+  echo "$CHANGED_FILES" | xargs pnpm exec eslint --max-warnings 0 || {
+    echo "❌ Lint failed. Push aborted."
+    exit 1
+  }
+else
+  echo "🧹 No JS/TS files changed, skipping lint."
+fi
 
 # Build (ensures the app compiles)
 echo "🏗️  Building..."
