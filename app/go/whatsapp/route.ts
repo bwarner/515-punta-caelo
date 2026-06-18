@@ -1,4 +1,3 @@
-import { randomUUID } from "node:crypto";
 import { NextRequest, NextResponse } from "next/server";
 import { PostHog } from "posthog-node";
 
@@ -34,15 +33,21 @@ export async function GET(req: NextRequest) {
     );
   }
 
+  // Only track when the first-party ph_..._posthog cookie identifies a real
+  // visitor. We deliberately do NOT mint a random anonymous ID: a request
+  // with no cookie is a link-preview / crawler bot hitting /go/whatsapp
+  // directly, and tracking it would create a throwaway person plus an
+  // identify per hit and inflate person counts. Skip those and just redirect.
+  const distinctId = distinctIdFromCookie(req);
+
   const apiKey = process.env.NEXT_PUBLIC_POSTHOG_KEY;
-  if (apiKey) {
+  if (apiKey && distinctId) {
     try {
       const client = new PostHog(apiKey, {
         host: "https://us.i.posthog.com",
         flushAt: 1,
         flushInterval: 0,
       });
-      const distinctId = distinctIdFromCookie(req) ?? `anon_${randomUUID()}`;
       const now = new Date().toISOString();
       const referer = req.headers.get("referer") || undefined;
 
