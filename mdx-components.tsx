@@ -18,6 +18,7 @@ import WiFiPanel from "@/components/wifi.panel";
 import { PropertyHeader } from "@/components/property-header";
 import TrackedAirbnbButton from "@/components/tracked-airbnb-button";
 import TrackedAirbnbLink from "@/components/tracked-airbnb-link";
+import TrackedWhatsappLink from "@/components/tracked-whatsapp-link";
 import { LanguageSwitcher } from "@/components/language-switcher";
 // Content wrapper components for TinaCMS
 import {
@@ -119,6 +120,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     PropertyHeader,
     TrackedAirbnbButton,
     TrackedAirbnbLink,
+    TrackedWhatsappLink,
     LanguageSwitcher,
     // Content wrapper components for TinaCMS
     PageHero,

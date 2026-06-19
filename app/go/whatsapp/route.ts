@@ -20,6 +20,10 @@ export async function GET(req: NextRequest) {
   const phone = url.searchParams.get("phone");
   const locale = url.searchParams.get("locale") || "unknown";
   const source = url.searchParams.get("source") || "unknown";
+  // Client component passes the visitor's posthog distinct_id via URL so we
+  // don't have to depend on cookie parsing (which varies across SDK
+  // versions). See components/tracked-whatsapp-link.tsx.
+  const didFromParam = url.searchParams.get("did") || null;
 
   if (!phone) {
     console.warn("[whatsapp] Missing phone parameter", {
@@ -33,12 +37,16 @@ export async function GET(req: NextRequest) {
     );
   }
 
-  // Only track when the first-party ph_..._posthog cookie identifies a real
-  // visitor. We deliberately do NOT mint a random anonymous ID: a request
-  // with no cookie is a link-preview / crawler bot hitting /go/whatsapp
-  // directly, and tracking it would create a throwaway person plus an
-  // identify per hit and inflate person counts. Skip those and just redirect.
-  const distinctId = distinctIdFromCookie(req);
+  // Identity resolution chain: URL param > cookie. We deliberately do NOT
+  // mint a random anonymous ID. Real visitors always carry either the `did`
+  // param (added client-side, see lib/use-posthog-did-href.ts) or the
+  // first-party `ph_..._posthog` cookie. A request with neither is a
+  // link-preview / crawler bot hitting /go/whatsapp directly — tracking it
+  // would create a throwaway person plus an identify per hit and inflate
+  // person counts. Skip tracking for those and just redirect.
+  const cookieId = distinctIdFromCookie(req);
+  const distinctId = didFromParam ?? cookieId;
+  const idSource = didFromParam ? "url_param" : "cookie";
 
   const apiKey = process.env.NEXT_PUBLIC_POSTHOG_KEY;
   if (apiKey && distinctId) {
@@ -59,6 +67,7 @@ export async function GET(req: NextRequest) {
           phone,
           locale,
           source,
+          id_source: idSource, // Track how identity was resolved (url_param/cookie)
           $current_url: referer,
           $referrer: referer,
         },
