@@ -1,4 +1,3 @@
-import { randomUUID } from "node:crypto";
 import { NextRequest, NextResponse } from "next/server";
 import { PostHog } from "posthog-node";
 import { getAppTags } from "@/lib/app-env";
@@ -29,18 +28,24 @@ export async function GET(req: NextRequest) {
   // versions). See components/tracked-airbnb-button.tsx.
   const didFromParam = url.searchParams.get("did") || null;
 
+  // Identity resolution chain: URL param > cookie. We deliberately do NOT
+  // mint a random anonymous ID. Real visitors always carry either the `did`
+  // param (added client-side, see lib/use-posthog-did-href.ts) or the
+  // first-party `ph_..._posthog` cookie. A request with neither is a
+  // link-preview / crawler bot hitting /go/airbnb directly — tracking it
+  // would create a throwaway person plus an identify per hit and inflate
+  // person counts. Skip tracking for those and just redirect.
+  const cookieId = distinctIdFromCookie(req);
+  const distinctId = didFromParam ?? cookieId;
+  const idSource = didFromParam ? "url_param" : "cookie";
+
   const apiKey = process.env.NEXT_PUBLIC_POSTHOG_KEY;
-  if (apiKey) {
+  if (apiKey && distinctId) {
     const client = new PostHog(apiKey, {
       host: "https://us.i.posthog.com",
       flushAt: 1,
       flushInterval: 0,
     });
-
-    // Identity resolution chain: URL param > cookie > anonymous
-    const cookieId = distinctIdFromCookie(req);
-    const distinctId = didFromParam ?? cookieId ?? `anon_${randomUUID()}`;
-    const idSource = didFromParam ? "url_param" : cookieId ? "cookie" : "anon";
 
     const now = new Date().toISOString();
     const referer = req.headers.get("referer") || undefined;
@@ -53,7 +58,7 @@ export async function GET(req: NextRequest) {
         locale,
         variant,
         label,
-        id_source: idSource, // Track how identity was resolved (url_param/cookie/anon)
+        id_source: idSource, // Track how identity was resolved (url_param/cookie)
         $current_url: referer,
         $referrer: referer,
         ...getAppTags(),

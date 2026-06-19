@@ -1,4 +1,3 @@
-import { randomUUID } from "node:crypto";
 import { NextRequest, NextResponse } from "next/server";
 import { PostHog } from "posthog-node";
 
@@ -21,6 +20,12 @@ export async function GET(req: NextRequest) {
   const phone = url.searchParams.get("phone");
   const locale = url.searchParams.get("locale") || "unknown";
   const source = url.searchParams.get("source") || "unknown";
+  // Optional prefilled message, forwarded to wa.me as the `text` param.
+  const message = url.searchParams.get("message");
+  // Client component passes the visitor's posthog distinct_id via URL so we
+  // don't have to depend on cookie parsing (which varies across SDK
+  // versions). See components/tracked-whatsapp-link.tsx.
+  const didFromParam = url.searchParams.get("did") || null;
 
   if (!phone) {
     console.warn("[whatsapp] Missing phone parameter", {
@@ -34,15 +39,25 @@ export async function GET(req: NextRequest) {
     );
   }
 
+  // Identity resolution chain: URL param > cookie. We deliberately do NOT
+  // mint a random anonymous ID. Real visitors always carry either the `did`
+  // param (added client-side, see lib/use-posthog-did-href.ts) or the
+  // first-party `ph_..._posthog` cookie. A request with neither is a
+  // link-preview / crawler bot hitting /go/whatsapp directly — tracking it
+  // would create a throwaway person plus an identify per hit and inflate
+  // person counts. Skip tracking for those and just redirect.
+  const cookieId = distinctIdFromCookie(req);
+  const distinctId = didFromParam ?? cookieId;
+  const idSource = didFromParam ? "url_param" : "cookie";
+
   const apiKey = process.env.NEXT_PUBLIC_POSTHOG_KEY;
-  if (apiKey) {
+  if (apiKey && distinctId) {
     try {
       const client = new PostHog(apiKey, {
         host: "https://us.i.posthog.com",
         flushAt: 1,
         flushInterval: 0,
       });
-      const distinctId = distinctIdFromCookie(req) ?? `anon_${randomUUID()}`;
       const now = new Date().toISOString();
       const referer = req.headers.get("referer") || undefined;
 
@@ -54,6 +69,7 @@ export async function GET(req: NextRequest) {
           phone,
           locale,
           source,
+          id_source: idSource, // Track how identity was resolved (url_param/cookie)
           $current_url: referer,
           $referrer: referer,
         },
@@ -78,7 +94,8 @@ export async function GET(req: NextRequest) {
     }
   }
 
-  // Redirect to WhatsApp
-  const dest = `https://wa.me/${phone}`;
-  return NextResponse.redirect(dest, 302);
+  // Redirect to WhatsApp, preserving any prefilled message.
+  const dest = new URL(`https://wa.me/${phone}`);
+  if (message) dest.searchParams.set("text", message);
+  return NextResponse.redirect(dest.toString(), 302);
 }
