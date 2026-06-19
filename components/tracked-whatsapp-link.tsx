@@ -8,6 +8,10 @@ interface TrackedWhatsappLinkProps {
   phone: string;
   locale: string;
   source: string;
+  /** Optional prefilled WhatsApp message; forwarded to wa.me as `?text=`. */
+  message?: string;
+  /** Open in a new tab (also sets rel="noopener noreferrer"). */
+  newTab?: boolean;
   className?: string;
   children: ReactNode;
 }
@@ -24,6 +28,8 @@ export default function TrackedWhatsappLink({
   phone,
   locale,
   source,
+  message,
+  newTab,
   className,
   children,
 }: TrackedWhatsappLinkProps) {
@@ -33,10 +39,15 @@ export default function TrackedWhatsappLink({
     locale,
     source,
   });
+  if (message) baseParams.set("message", message);
   const href = usePosthogDidHref(`/go/whatsapp?${baseParams.toString()}`);
 
   return (
-    <a href={href} className={className}>
+    <a
+      href={href}
+      className={className}
+      {...(newTab ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+    >
       {children}
     </a>
   );

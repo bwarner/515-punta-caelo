@@ -118,10 +118,13 @@ Located in San Carlos, Panama Oeste — just 90 minutes from Panama City and Toc
     buttonText="Check Rates & Availability"
     className="w-full bg-primary text-primary-foreground hover:bg-primary/90 py-5"
   />
-  <a
-    href="https://wa.me/50763798581?text=Hi%20Fernando%2C%20I%27m%20interested%20in%20booking%20Punta%20Caelo"
-    target="_blank"
-    rel="noopener noreferrer"
+  <TrackedWhatsappLink
+    phone="50763798581"
+    venue="booking"
+    source="property-cta"
+    locale="en"
+    message="Hi Fernando, I'm interested in booking Punta Caelo"
+    newTab
   >
     <Button className="w-full bg-[#25D366] text-white hover:bg-[#1ebe5d] h-12">
       <svg
@@ -136,5 +139,5 @@ Located in San Carlos, Panama Oeste — just 90 minutes from Panama City and Toc
       </svg>
       <span>Contact on WhatsApp</span>
     </Button>
-  </a>
+  </TrackedWhatsappLink>
 </Section>

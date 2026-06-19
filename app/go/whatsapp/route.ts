@@ -20,6 +20,8 @@ export async function GET(req: NextRequest) {
   const phone = url.searchParams.get("phone");
   const locale = url.searchParams.get("locale") || "unknown";
   const source = url.searchParams.get("source") || "unknown";
+  // Optional prefilled message, forwarded to wa.me as the `text` param.
+  const message = url.searchParams.get("message");
   // Client component passes the visitor's posthog distinct_id via URL so we
   // don't have to depend on cookie parsing (which varies across SDK
   // versions). See components/tracked-whatsapp-link.tsx.
@@ -92,7 +94,8 @@ export async function GET(req: NextRequest) {
     }
   }
 
-  // Redirect to WhatsApp
-  const dest = `https://wa.me/${phone}`;
-  return NextResponse.redirect(dest, 302);
+  // Redirect to WhatsApp, preserving any prefilled message.
+  const dest = new URL(`https://wa.me/${phone}`);
+  if (message) dest.searchParams.set("text", message);
+  return NextResponse.redirect(dest.toString(), 302);
 }
