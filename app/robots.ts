@@ -11,6 +11,7 @@ const SENSITIVE_PATHS = [
   "/*/rules",
   "/*/location", // contains full street address — keep out of search + LLM indexes
   "/qr/", // in-unit QR redirector — not for indexing
+  "/go/", // outbound click-tracking redirectors (whatsapp/airbnb) — not for indexing or crawling
   "/print/", // print-only pages — not for indexing
 ];
 
