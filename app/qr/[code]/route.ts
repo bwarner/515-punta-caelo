@@ -70,6 +70,9 @@ export async function GET(
     const now = new Date().toISOString();
     const referer = req.headers.get("referer") || undefined;
 
+    // Person properties ride along on the capture via $set/$set_once.
+    // Do NOT call client.identify() — it emits a separate $identify event
+    // on every scan, doubling event volume for no benefit here.
     client.capture({
       distinctId,
       event: "qr_scanned",
@@ -80,13 +83,6 @@ export async function GET(
         $current_url: req.url,
         $referrer: referer,
         is_new_identity: isNewIdentity,
-        ...getAppTags(),
-      },
-    });
-
-    client.identify({
-      distinctId,
-      properties: {
         $set: {
           last_qr_scanned_code: code,
           last_qr_scanned_at: now,
@@ -95,6 +91,7 @@ export async function GET(
           first_qr_scanned_code: code,
           first_qr_scanned_at: now,
         },
+        ...getAppTags(),
       },
     });
 

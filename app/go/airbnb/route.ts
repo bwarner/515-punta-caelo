@@ -50,6 +50,9 @@ export async function GET(req: NextRequest) {
     const now = new Date().toISOString();
     const referer = req.headers.get("referer") || undefined;
 
+    // Person properties ride along on the capture via $set/$set_once.
+    // Do NOT call client.identify() — it emits a separate $identify event
+    // on every click, doubling event volume for no benefit here.
     client.capture({
       distinctId,
       event: "airbnb_link_clicked",
@@ -61,15 +64,9 @@ export async function GET(req: NextRequest) {
         id_source: idSource, // Track how identity was resolved (url_param/cookie)
         $current_url: referer,
         $referrer: referer,
-        ...getAppTags(),
-      },
-    });
-
-    client.identify({
-      distinctId,
-      properties: {
         $set: { last_airbnb_click_at: now },
         $set_once: { first_airbnb_click_at: now },
+        ...getAppTags(),
       },
     });
 
