@@ -12,6 +12,22 @@ export default function Guide() {
         <span className="text-2xl">El Refugio Perfecto</span>
       </Section>
       <GuideGrid locale="es" />
+      <Section
+        layout="centered"
+        spacing="sm"
+        padding="md"
+        className="w-full max-w-xs mx-auto"
+      >
+        <span className="text-sm tracking-widest text-muted-foreground">
+          ¿Listo para tu estadía?
+        </span>
+        <TrackedAirbnbButton
+          source="guide-cta"
+          locale="es"
+          buttonText="Ver Tarifas y Disponibilidad"
+          className="w-full bg-primary text-primary-foreground hover:bg-primary/90 py-5"
+        />
+      </Section>
     </Section>
   );
 }
