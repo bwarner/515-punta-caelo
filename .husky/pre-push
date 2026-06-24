@@ -6,8 +6,8 @@ echo "🔍 Running pre-push checks..."
 remote="$1"
 url="$2"
 
-# Find changed files compared to remote main
-CHANGED_FILES=$(git diff --name-only origin/main...HEAD -- '*.ts' '*.tsx' '*.js' '*.jsx' 2>/dev/null)
+# Find changed files compared to remote main (exclude deletions — nothing to lint)
+CHANGED_FILES=$(git diff --name-only --diff-filter=d origin/main...HEAD -- '*.ts' '*.tsx' '*.js' '*.jsx' 2>/dev/null)
 
 # Type check (always run - it's fast and checks the whole project)
 echo "📝 Type checking..."
