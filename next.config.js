@@ -5,6 +5,11 @@ import remarkMdxFrontmatter from "remark-mdx-frontmatter";
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
+  // Serve AVIF first (≈20-30% smaller than WebP), falling back to WebP for
+  // browsers without AVIF support. Helps the gallery and full-size lightbox loads.
+  images: {
+    formats: ["image/avif", "image/webp"],
+  },
   // Expose Vercel system env vars to the client bundle so PostHog can tag
   // every event with the right environment + deploy. Server reads VERCEL_*
   // directly at runtime; client needs NEXT_PUBLIC_* baked in at build time.
