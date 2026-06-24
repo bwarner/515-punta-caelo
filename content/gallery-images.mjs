@@ -119,3 +119,156 @@ export const galleryImages = [
   },
   { src: "/images/515-punta-caelo/bathroom3_view1.jpg", alt: "Third Bathroom" },
 ];
+
+/**
+ * Curated, captioned sections used by the <GalleryShowcase /> component.
+ * Titles and captions are bilingual (en/es); the flat `galleryImages` export
+ * above is kept for the legacy <AllImages /> grid.
+ */
+export const gallerySections = [
+  {
+    id: "living",
+    title: { en: "Living Spaces", es: "Espacios de Estar" },
+    images: [
+      {
+        src: "/images/515-punta-caelo/livingroom_view1.jpg",
+        alt: "Living Room",
+        caption: {
+          en: "Living room with ocean view",
+          es: "Sala con vista al mar",
+        },
+      },
+      {
+        src: "/images/515-punta-caelo/livingroom_view2.jpg",
+        alt: "Open Living Space",
+        caption: {
+          en: "Open-plan living space",
+          es: "Espacio de estar abierto",
+        },
+      },
+      {
+        src: "/images/515-punta-caelo/dining_view1.jpg",
+        alt: "Dining Area",
+        caption: { en: "Dining area seats six", es: "Comedor para seis" },
+      },
+      {
+        src: "/images/515-punta-caelo/kitchen_view1.jpg",
+        alt: "Kitchen",
+        caption: {
+          en: "Fully equipped kitchen",
+          es: "Cocina totalmente equipada",
+        },
+      },
+    ],
+  },
+  {
+    id: "ocean",
+    title: { en: "Ocean Views & Balcony", es: "Vistas al Mar y Balcón" },
+    images: [
+      {
+        src: "/images/515-punta-caelo/balcony_view1.jpg",
+        alt: "Oceanfront Balcony",
+        caption: { en: "Oceanfront balcony", es: "Balcón frente al mar" },
+      },
+      {
+        src: "/images/515-punta-caelo/balcony_view2.jpg",
+        alt: "Balcony Lounge",
+        caption: { en: "Balcony lounge chairs", es: "Tumbonas en el balcón" },
+      },
+      {
+        src: "/images/515-punta-caelo/balcony_view3.jpg",
+        alt: "Balcony Dining",
+        caption: {
+          en: "Al fresco balcony dining",
+          es: "Comedor al aire libre",
+        },
+      },
+      {
+        src: "/images/515-punta-caelo/livingroom_view3.jpg",
+        alt: "View from Living Room",
+        caption: {
+          en: "Ocean view from the living room",
+          es: "Vista al mar desde la sala",
+        },
+      },
+    ],
+  },
+  {
+    id: "bedrooms",
+    title: { en: "Bedrooms", es: "Habitaciones" },
+    images: [
+      {
+        src: "/images/515-punta-caelo/bedroom1_view1.jpg",
+        alt: "Master Bedroom",
+        caption: { en: "Master bedroom", es: "Habitación principal" },
+      },
+      {
+        src: "/images/515-punta-caelo/bedroom2_view1.jpg",
+        alt: "Guest Bedroom",
+        caption: { en: "Guest bedroom", es: "Habitación de huéspedes" },
+      },
+      {
+        src: "/images/515-punta-caelo/bedroom3_view1.jpg",
+        alt: "Twin Bedroom",
+        caption: { en: "Twin bedroom", es: "Habitación con camas gemelas" },
+      },
+      {
+        src: "/images/515-punta-caelo/bedroom4_view1.jpg",
+        alt: "Fourth Bedroom",
+        caption: { en: "Fourth bedroom", es: "Cuarta habitación" },
+      },
+    ],
+  },
+  {
+    id: "pools",
+    title: { en: "Pools & Recreation", es: "Piscinas y Recreación" },
+    images: [
+      {
+        src: "/images/515-punta-caelo/pool1_view1.jpg",
+        alt: "Main Pool",
+        caption: { en: "Main pool", es: "Piscina principal" },
+      },
+      {
+        src: "/images/515-punta-caelo/pool3_view1.jpg",
+        alt: "Lower Pool",
+        caption: { en: "Lower-level pool", es: "Piscina del nivel inferior" },
+      },
+      {
+        src: "/images/515-punta-caelo/gym_view1.jpg",
+        alt: "Fitness Center",
+        caption: { en: "Fitness center", es: "Gimnasio" },
+      },
+      {
+        src: "/images/515-punta-caelo/paddle_ball.jpg",
+        alt: "Paddle Court",
+        caption: { en: "Paddle ball court", es: "Cancha de paddle" },
+      },
+    ],
+  },
+  {
+    id: "grounds",
+    title: { en: "Grounds & Community", es: "Jardines y Comunidad" },
+    images: [
+      {
+        src: "/images/515-punta-caelo/grounds_view1.jpg",
+        alt: "Community Grounds",
+        caption: { en: "Community grounds", es: "Jardines de la comunidad" },
+      },
+      {
+        src: "/images/515-punta-caelo/grounds_view2.jpg",
+        alt: "Tropical Gardens",
+        caption: { en: "Tropical gardens", es: "Jardines tropicales" },
+      },
+      {
+        src: "/images/515-punta-caelo/skate_view1.jpg",
+        alt: "Skate Park",
+        caption: { en: "Skate park", es: "Pista de skate" },
+      },
+      {
+        src: "/images/515-punta-caelo/soccer_view1.jpg",
+        alt: "Mini Soccer Field",
+        caption: { en: "Mini soccer field", es: "Cancha de fútbol" },
+      },
+    ],
+  },
+];
