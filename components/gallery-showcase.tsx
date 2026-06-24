@@ -2,9 +2,9 @@
 
 /* global window, document */
 
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
-import posthog from "posthog-js";
+import { captureEvent } from "@/lib/posthog-capture";
 import {
   LazyMotion,
   domMax,
@@ -56,27 +56,48 @@ export default function GalleryShowcase({
   const [active, setActive] = useState<number | null>(null);
   const [direction, setDirection] = useState(0);
 
+  // Distinct images seen in the current lightbox session, so we can report
+  // browse depth on close (prev/next/swipe aren't otherwise tracked).
+  const viewed = useRef<Set<number>>(new Set());
+
   const open = useCallback(
-    (img: GalleryImage, index: number) => {
+    (img: GalleryImage, index: number, sectionId: string) => {
+      viewed.current = new Set([index]);
       setActive(index);
-      posthog.capture("image_gallery_interacted", {
+      captureEvent("image_gallery_interacted", {
         image_src: img.src,
         image_alt: img.alt,
         image_index: index,
         total_images: flat.length,
+        locale,
+        section: sectionId,
+        caption: img.caption?.[locale] ?? null,
       });
     },
-    [flat.length],
+    [flat.length, locale],
   );
 
-  const close = useCallback(() => setActive(null), []);
+  const close = useCallback(() => {
+    if (viewed.current.size > 0) {
+      captureEvent("gallery_lightbox_closed", {
+        images_viewed: viewed.current.size,
+        total_images: flat.length,
+        locale,
+      });
+      viewed.current = new Set();
+    }
+    setActive(null);
+  }, [flat.length, locale]);
 
   const paginate = useCallback(
     (dir: number) => {
       setDirection(dir);
-      setActive((i) =>
-        i === null ? i : (i + dir + flat.length) % flat.length,
-      );
+      setActive((i) => {
+        if (i === null) return i;
+        const next = (i + dir + flat.length) % flat.length;
+        viewed.current.add(next);
+        return next;
+      });
     },
     [flat.length],
   );
@@ -135,7 +156,7 @@ export default function GalleryShowcase({
                   <m.button
                     key={img.src}
                     type="button"
-                    onClick={() => open(img, index)}
+                    onClick={() => open(img, index, section.id)}
                     initial={reduce ? false : { opacity: 0, y: 14 }}
                     whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-40px" }}
