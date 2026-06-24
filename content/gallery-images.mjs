@@ -100,7 +100,7 @@ export const galleryImages = [
   },
 
   {
-    src: "/images/515-punta-caelo/dining_view1.jpg",
+    src: "/images/515-punta-caelo/dining_view1-2.jpg",
     alt: "Dining Area with 6 Chairs",
   },
   {
@@ -147,7 +147,7 @@ export const gallerySections = [
         },
       },
       {
-        src: "/images/515-punta-caelo/dining_view1.jpg",
+        src: "/images/515-punta-caelo/dining_view1-2.jpg",
         alt: "Dining Area",
         caption: { en: "Dining area seats six", es: "Comedor para seis" },
       },
