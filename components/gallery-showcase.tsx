@@ -175,7 +175,7 @@ export default function GalleryShowcase({
               type="button"
               onClick={close}
               aria-label={t.close}
-              className="absolute right-4 top-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20"
+              className="absolute right-3 top-3 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-black/45 text-white shadow-lg ring-1 ring-white/25 transition-colors hover:bg-black/65"
             >
               <svg
                 width="20"
@@ -197,7 +197,7 @@ export default function GalleryShowcase({
                 paginate(-1);
               }}
               aria-label={t.prev}
-              className="absolute left-2 sm:left-4 z-10 flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20"
+              className="absolute left-3 top-1/2 z-20 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-black/45 text-white shadow-lg ring-1 ring-white/25 transition-colors hover:bg-black/65"
             >
               <svg
                 width="22"
@@ -219,7 +219,7 @@ export default function GalleryShowcase({
                 paginate(1);
               }}
               aria-label={t.next}
-              className="absolute right-2 sm:right-4 z-10 flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20"
+              className="absolute right-3 top-1/2 z-20 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-black/45 text-white shadow-lg ring-1 ring-white/25 transition-colors hover:bg-black/65"
             >
               <svg
                 width="22"
