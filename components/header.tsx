@@ -7,7 +7,7 @@ import { useState } from "react";
 import { usePathname } from "next/navigation";
 import { MenuIcon, XIcon } from "lucide-react";
 import clsx from "clsx";
-import posthog from "posthog-js";
+import { captureEvent } from "@/lib/posthog-capture";
 
 export default function Header({ locale }: { locale: string }) {
   const pathname = usePathname();
@@ -41,7 +41,7 @@ export default function Header({ locale }: { locale: string }) {
                     className={loc === locale ? "font-bold" : "opacity-70"}
                     onClick={() => {
                       if (loc !== locale) {
-                        posthog.capture("language_changed", {
+                        captureEvent("language_changed", {
                           from_locale: locale,
                           to_locale: loc,
                           current_path: currentPath,
@@ -65,7 +65,7 @@ export default function Header({ locale }: { locale: string }) {
               onClick={() => {
                 const newMenuState = !isMenuOpen;
                 setIsMenuOpen(newMenuState);
-                posthog.capture("mobile_menu_toggled", {
+                captureEvent("mobile_menu_toggled", {
                   menu_state: newMenuState ? "opened" : "closed",
                   current_locale: locale,
                 });

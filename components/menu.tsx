@@ -3,11 +3,11 @@
 import { items } from "./links";
 import Link from "next/link";
 import { LanguageSwitcher } from "./language-switcher";
-import posthog from "posthog-js";
+import { captureEvent } from "@/lib/posthog-capture";
 
 export function Menu({ locale, title }: { locale: string; title: string }) {
   const handleNavClick = (itemTitle: string, itemHref: string) => {
-    posthog.capture("menu_navigation_clicked", {
+    captureEvent("menu_navigation_clicked", {
       menu_item_title: itemTitle,
       destination_href: itemHref,
       current_page_title: title,
