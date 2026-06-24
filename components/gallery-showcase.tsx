@@ -109,6 +109,15 @@ export default function GalleryShowcase({
 
   const t = labels[locale];
   const activeImage = active === null ? null : flat[active];
+  // Adjacent images, preloaded while the lightbox is open so paging is instant.
+  const neighbors = (() => {
+    if (active === null) return [];
+    const n = flat.length;
+    const cand = [(active + 1) % n, (active - 1 + n) % n];
+    return cand
+      .filter((i, k) => i !== active && cand.indexOf(i) === k)
+      .map((i) => flat[i]);
+  })();
   let globalIndex = 0;
 
   return (
@@ -281,6 +290,20 @@ export default function GalleryShowcase({
               <span className="text-xs text-white/60">
                 {active! + 1} / {flat.length}
               </span>
+            </div>
+
+            {/* Warm the next/prev full-size images so navigation is instant.
+                Same sizes="92vw" as the visible image, priority so the offscreen
+                elements actually fetch instead of lazy-loading. */}
+            <div
+              aria-hidden
+              className="pointer-events-none fixed left-0 top-0 h-px w-px overflow-hidden opacity-0"
+            >
+              {neighbors.map((im) => (
+                <div key={im.src} className="relative h-px w-px">
+                  <Image src={im.src} alt="" fill sizes="92vw" priority />
+                </div>
+              ))}
             </div>
           </m.div>
         ) : null}
