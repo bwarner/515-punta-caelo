@@ -95,24 +95,87 @@ export function JsonLd() {
       value: 200,
       unitCode: "MTK",
     },
+    identifier: "515-punta-caelo",
     amenityFeature: [
-      { "@type": "LocationFeatureSpecification", name: "Ocean View" },
-      { "@type": "LocationFeatureSpecification", name: "Balcony" },
+      {
+        "@type": "LocationFeatureSpecification",
+        name: "Ocean View",
+        value: true,
+      },
+      { "@type": "LocationFeatureSpecification", name: "Balcony", value: true },
       {
         "@type": "LocationFeatureSpecification",
         name: "Maid's quarters with private bathroom and in-unit washer/dryer",
+        value: true,
       },
-      { "@type": "LocationFeatureSpecification", name: "3 Swimming Pools" },
-      { "@type": "LocationFeatureSpecification", name: "Direct Beach Access" },
-      { "@type": "LocationFeatureSpecification", name: "Fitness Center" },
+      {
+        "@type": "LocationFeatureSpecification",
+        name: "3 Swimming Pools",
+        value: true,
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        name: "Direct Beach Access",
+        value: true,
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        name: "Fitness Center",
+        value: true,
+      },
       {
         "@type": "LocationFeatureSpecification",
         name: "Fully Equipped Kitchen",
+        value: true,
       },
-      { "@type": "LocationFeatureSpecification", name: "Air Conditioning" },
-      { "@type": "LocationFeatureSpecification", name: "High-Speed WiFi" },
-      { "@type": "LocationFeatureSpecification", name: "Washer/Dryer" },
-      { "@type": "LocationFeatureSpecification", name: "Parking" },
+      {
+        "@type": "LocationFeatureSpecification",
+        name: "Air Conditioning",
+        value: true,
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        name: "High-Speed WiFi",
+        value: true,
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        name: "Washer/Dryer",
+        value: true,
+      },
+      { "@type": "LocationFeatureSpecification", name: "Parking", value: true },
+    ],
+    containsPlace: [
+      {
+        "@type": "Room",
+        name: "Master Bedroom",
+        description: "King bed with ocean views and ensuite bathroom",
+      },
+      {
+        "@type": "Room",
+        name: "Second Bedroom",
+        description: "Queen bed with ensuite bathroom",
+      },
+      {
+        "@type": "Room",
+        name: "Third Bedroom",
+        description: "Two twin beds with ensuite bathroom",
+      },
+      {
+        "@type": "Room",
+        name: "Maid's Quarters",
+        description: "Private room with bathroom and washer/dryer",
+      },
+      {
+        "@type": "Room",
+        name: "Living Room",
+        description: "Open-plan living area with ocean views",
+      },
+      {
+        "@type": "Room",
+        name: "Kitchen",
+        description: "Fully equipped kitchen with modern appliances",
+      },
     ],
     address: {
       "@type": "PostalAddress",
