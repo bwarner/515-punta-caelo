@@ -3,6 +3,7 @@ import type { MDXComponents } from "mdx/types";
 // Custom components
 import AllImages from "@/components/all-images";
 import GalleryShowcase from "@/components/gallery-showcase";
+import GalleryTeaser from "@/components/gallery-teaser";
 import FooterLinks from "@/components/footer-links";
 import FooterLinkItem from "@/components/footer-link-item";
 import Header from "@/components/header";
@@ -110,6 +111,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     ColorPreview,
     AllImages,
     GalleryShowcase,
+    GalleryTeaser,
     Header,
     FooterLinks,
     FooterLinkItem,

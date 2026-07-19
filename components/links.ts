@@ -1,6 +1,7 @@
 const labels = {
   en: {
     guide: "Guide",
+    gallery: "Photo Gallery",
     checkInOut: "Check-in/out",
     wifi: "WiFi",
     amenities: "Amenities",
@@ -19,6 +20,7 @@ const labels = {
   },
   es: {
     guide: "Guía",
+    gallery: "Galería de Fotos",
     checkInOut: "Entrada/Salida",
     wifi: "WiFi",
     amenities: "Comodidades",
@@ -44,6 +46,10 @@ export const items = (locale: string) => {
     {
       title: t.guide,
       href: `/${locale}/guide`,
+    },
+    {
+      title: t.gallery,
+      href: `/${locale}/gallery`,
     },
     {
       title: t.checkInOut,
