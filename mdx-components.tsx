@@ -18,6 +18,7 @@ import GuideGrid from "@/components/guide-grid";
 import Menubar from "@/components/menubar";
 import WiFiPanel from "@/components/wifi.panel";
 import { PropertyHeader } from "@/components/property-header";
+import { Breadcrumbs } from "@/components/breadcrumbs";
 import TrackedAirbnbButton from "@/components/tracked-airbnb-button";
 import TrackedAirbnbLink from "@/components/tracked-airbnb-link";
 import TrackedWhatsappLink from "@/components/tracked-whatsapp-link";
@@ -122,6 +123,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     Menubar,
     WiFiPanel,
     PropertyHeader,
+    Breadcrumbs,
     TrackedAirbnbButton,
     TrackedAirbnbLink,
     TrackedWhatsappLink,
