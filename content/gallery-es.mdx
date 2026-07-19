@@ -4,7 +4,14 @@ description: "Explora Nuestra Propiedad"
 locale: "es"
 ---
 
-<PropertyHeader locale="es" title="Galería de Fotos" backHref="/es/property" />
+<Breadcrumbs
+  locale="es"
+  items={[
+    { label: "Inicio", href: "/es" },
+    { label: "Propiedad", href: "/es/property" },
+  ]}
+  current="Galería de Fotos"
+/>
 
 <GalleryShowcase locale="es" />
 

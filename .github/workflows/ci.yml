@@ -112,6 +112,9 @@ jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
+    env:
+      VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+      VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
     steps:
       - name: Checkout
         uses: actions/checkout@v6
@@ -137,7 +140,9 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Install Vercel CLI
-        run: npm install -g vercel
+        # Pinned major: `latest` broke CI when v56 changed team-scope
+        # resolution in `vercel pull` (job passed on v54, failed on v56).
+        run: npm install -g vercel@56
 
       - name: Pull Vercel Environment (preview)
         if: github.event_name == 'pull_request'

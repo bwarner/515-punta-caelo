@@ -4,7 +4,14 @@ description: "Explore Our Property"
 locale: "en"
 ---
 
-<PropertyHeader locale="en" title="Photo Gallery" backHref="/en/property" />
+<Breadcrumbs
+  locale="en"
+  items={[
+    { label: "Home", href: "/en" },
+    { label: "Property", href: "/en/property" },
+  ]}
+  current="Photo Gallery"
+/>
 
 <GalleryShowcase locale="en" />
 
