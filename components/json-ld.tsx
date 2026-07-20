@@ -7,7 +7,7 @@ export function JsonLd() {
     "@id": "https://casapuntacaelo.com/#lodging",
     name: "Punta Caelo Beach Rental",
     description:
-      "Stunning 3-bedroom oceanfront condo with maid's quarters in San Carlos, Panama. Ocean views, 3 pools, beach access, fitness center, and full amenities. Just 90 minutes from Panama City.",
+      "Stunning 4-bedroom oceanfront condo in San Carlos, Panama. Three spacious bedrooms plus a private maid's/nanny suite with its own full bathroom (walk-in shower) and in-unit washer-dryer — ideal for families traveling with staff or anyone wanting a separate, self-contained space. Breathtaking ocean views, three pools, direct beach access, a fitness center, and full amenities, just 90 minutes from Panama City.",
     url: "https://casapuntacaelo.com",
     telephone: "+507-6310-9953",
     image: [
@@ -169,10 +169,18 @@ export function JsonLd() {
       },
       {
         "@type": "Room",
-        name: "Maid's Quarters",
-        description: "Private room with bathroom and washer/dryer",
-        occupancy: { "@type": "QuantitativeValue", value: 2 },
-        bed: { "@type": "BedDetails", numberOfBeds: 1, typeOfBed: "Single" },
+        name: "Additional Private Bedroom",
+        description:
+          "Compact private bedroom with one single bed, a private bathroom, and convenient access to the in-unit washer and dryer.",
+        occupancy: {
+          "@type": "QuantitativeValue",
+          value: 1,
+        },
+        bed: {
+          "@type": "BedDetails",
+          numberOfBeds: 1,
+          typeOfBed: "Single",
+        },
       },
     ],
     address: {
