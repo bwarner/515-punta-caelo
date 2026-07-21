@@ -17,6 +17,9 @@ export function JsonLd() {
     ],
     address: {
       "@type": "PostalAddress",
+      // Panama has no door-to-door postal addressing; development + road is
+      // how the property is actually addressed, so no postalCode here.
+      streetAddress: "Punta Caelo, Carretera Panamericana",
       addressLocality: "San Carlos",
       addressRegion: "Panamá Oeste",
       addressCountry: "PA",
@@ -111,7 +114,7 @@ export function JsonLd() {
     },
     floorSize: {
       "@type": "QuantitativeValue",
-      value: 200,
+      value: 140,
       unitCode: "MTK",
     },
     identifier: "515-punta-caelo",
@@ -178,7 +181,7 @@ export function JsonLd() {
       numberOfBathroomsTotal: 3,
       floorSize: {
         "@type": "QuantitativeValue",
-        value: 200,
+        value: 140,
         unitCode: "MTK",
       },
       bed: [
@@ -227,6 +230,9 @@ export function JsonLd() {
     },
     address: {
       "@type": "PostalAddress",
+      // Panama has no door-to-door postal addressing; development + road is
+      // how the property is actually addressed, so no postalCode here.
+      streetAddress: "Punta Caelo, Carretera Panamericana",
       addressLocality: "San Carlos",
       addressRegion: "Panamá Oeste",
       addressCountry: "PA",
