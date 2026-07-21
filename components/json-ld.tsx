@@ -68,6 +68,11 @@ export function JsonLd() {
       },
       { "@type": "LocationFeatureSpecification", name: "Kitchen", value: true },
       { "@type": "LocationFeatureSpecification", name: "Parking", value: true },
+      {
+        "@type": "LocationFeatureSpecification",
+        name: "Gas BBQ Grill",
+        value: true,
+      },
     ],
     checkinTime: "15:00",
     checkoutTime: "11:00",
@@ -166,6 +171,11 @@ export function JsonLd() {
         value: true,
       },
       { "@type": "LocationFeatureSpecification", name: "Parking", value: true },
+      {
+        "@type": "LocationFeatureSpecification",
+        name: "Gas BBQ Grill",
+        value: true,
+      },
     ],
     // Google's vacation rental schema reads containsPlace as ONE unit-level
     // Accommodation (occupancy required; additionalType, bed, room counts,
@@ -224,6 +234,11 @@ export function JsonLd() {
         {
           "@type": "LocationFeatureSpecification",
           name: "Washer/Dryer",
+          value: true,
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          name: "Gas BBQ Grill",
           value: true,
         },
       ],
