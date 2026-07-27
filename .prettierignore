@@ -1,0 +1,6 @@
+# Tina regenerates these on every build in its own raw format (minified JSON,
+# different quote style). Formatting them causes permanent git churn: commit
+# formats them, next build unformats them. Keep them byte-identical to what
+# `tinacms build` emits. See also the tina entries in .gitignore.
+tina/__generated__/
+tina/tina-lock.json
