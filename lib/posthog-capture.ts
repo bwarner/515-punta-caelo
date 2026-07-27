@@ -71,6 +71,25 @@ export async function captureEvent(
     // Ignore errors accessing persistence
   }
 
+  // Session properties from the SDK's session manager. Without $session_id,
+  // PostHog's Web Analytics tab (Visitors/Page views/Sessions tiles, Paths,
+  // Sources, Devices) shows zero — those queries are session-based, unlike
+  // plain event insights.
+  let sessionProps: Record<string, unknown> = {};
+  try {
+    const sessionId = posthog.get_session_id?.();
+    if (sessionId) {
+      sessionProps.$session_id = sessionId;
+    }
+    const windowId =
+      posthog.sessionManager?.checkAndGetSessionAndWindowId(true)?.windowId;
+    if (windowId) {
+      sessionProps.$window_id = windowId;
+    }
+  } catch {
+    // Ignore errors accessing the session manager
+  }
+
   const event: PostHogBatchEvent = {
     type: "capture",
     event: eventName,
@@ -92,6 +111,7 @@ export async function captureEvent(
       $viewport_width:
         typeof window !== "undefined" ? window.innerWidth : undefined,
       ...registeredProps,
+      ...sessionProps,
       ...properties,
     },
     timestamp: new Date().toISOString(),

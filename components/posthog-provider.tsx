@@ -3,10 +3,10 @@
 
 import posthog from "posthog-js";
 import { PostHogProvider as PHProvider } from "posthog-js/react";
-import { Suspense, useEffect, type ReactNode } from "react";
+import { Suspense, useEffect, useRef, type ReactNode } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 import { getAppTags, getAppEnv } from "@/lib/app-env";
-import { capturePageview } from "@/lib/posthog-capture";
+import { capturePageview, capturePageleave } from "@/lib/posthog-capture";
 
 function compactRecord(input: Record<string, unknown>) {
   return Object.fromEntries(
@@ -74,23 +74,65 @@ export function PostHogProvider({ children }: { children: ReactNode }) {
 }
 
 /**
- * Captures pageviews on route changes using direct fetch.
- * This works around posthog-js issue #3663 where SDK capture() never sends.
+ * Captures pageviews and pageleaves on route changes using direct fetch.
+ * This works around posthog-js issue #3663 where SDK capture() never sends,
+ * which is also why capture_pageleave in posthog.init() would not work here.
  * Wrapped in Suspense because useSearchParams requires it for static rendering.
  */
 function PostHogPageview() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
+  const lastPageRef = useRef<{ url: string; pathname: string } | null>(null);
 
   useEffect(() => {
     if (!posthog.__loaded) return;
 
-    const url = pathname + (searchParams?.toString() ? `?${searchParams}` : "");
+    const url =
+      typeof window !== "undefined"
+        ? window.location.href
+        : pathname + (searchParams?.toString() ? `?${searchParams}` : "");
+
+    // On SPA navigation, record leaving the previous page before the new
+    // pageview. window.location already points at the new URL, so the
+    // previous page's URL must be passed explicitly.
+    const prev = lastPageRef.current;
+    if (prev && prev.url !== url) {
+      capturePageleave({ $current_url: prev.url, $pathname: prev.pathname });
+    }
+    lastPageRef.current = { url, pathname };
+
     capturePageview({
-      $current_url: typeof window !== "undefined" ? window.location.href : url,
+      $current_url: url,
       $pathname: pathname,
     });
   }, [pathname, searchParams]);
+
+  useEffect(() => {
+    // Hard exits: tab close, reload, or navigation off-site. pagehide also
+    // covers bfcache suspension; captureEvent's keepalive fetch survives
+    // page teardown.
+    const handlePagehide = () => {
+      const prev = lastPageRef.current;
+      if (!prev) return;
+      lastPageRef.current = null;
+      capturePageleave({ $current_url: prev.url, $pathname: prev.pathname });
+    };
+    // Restore tracking if the page comes back from bfcache.
+    const handlePageshow = () => {
+      if (lastPageRef.current || typeof window === "undefined") return;
+      lastPageRef.current = {
+        url: window.location.href,
+        pathname: window.location.pathname,
+      };
+    };
+
+    window.addEventListener("pagehide", handlePagehide);
+    window.addEventListener("pageshow", handlePageshow);
+    return () => {
+      window.removeEventListener("pagehide", handlePagehide);
+      window.removeEventListener("pageshow", handlePageshow);
+    };
+  }, []);
 
   return null;
 }
