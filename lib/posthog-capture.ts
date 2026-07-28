@@ -1,4 +1,4 @@
-/* global window, navigator, fetch */
+/* global window, navigator, fetch, document */
 /**
  * Direct PostHog event capture that bypasses the SDK transport layer.
  *
@@ -90,6 +90,25 @@ export async function captureEvent(
     // Ignore errors accessing the session manager
   }
 
+  // Referrer properties. The SDK adds these automatically; this transport
+  // must set them itself or every session shows as "(direct)" in Web
+  // Analytics' Sources. document.referrer is not updated by SPA pushState
+  // navigations, so it keeps pointing at the original external referrer —
+  // which is exactly what session attribution wants. "$direct" is PostHog's
+  // sentinel for no-referrer traffic.
+  let referrerProps: Record<string, unknown> = {};
+  try {
+    if (typeof document !== "undefined") {
+      const ref = document.referrer;
+      referrerProps = {
+        $referrer: ref || "$direct",
+        $referring_domain: ref ? new URL(ref).hostname : "$direct",
+      };
+    }
+  } catch {
+    // Malformed document.referrer; leave referrer props unset
+  }
+
   const event: PostHogBatchEvent = {
     type: "capture",
     event: eventName,
@@ -110,6 +129,7 @@ export async function captureEvent(
         typeof window !== "undefined" ? window.innerHeight : undefined,
       $viewport_width:
         typeof window !== "undefined" ? window.innerWidth : undefined,
+      ...referrerProps,
       ...registeredProps,
       ...sessionProps,
       ...properties,
