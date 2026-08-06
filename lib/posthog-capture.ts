@@ -11,15 +11,12 @@
 
 import posthog from "posthog-js";
 
-// Get the API host based on environment
-function getApiHost(): string {
-  if (typeof window === "undefined") {
-    return "https://us.i.posthog.com";
-  }
-  return process.env.NODE_ENV === "development"
-    ? "https://us.i.posthog.com"
-    : `${window.location.origin}/relay`;
-}
+// PostHog managed reverse proxy: t.casapuntacaelo.com CNAMEs to PostHog's
+// proxy service, keeping analytics traffic on a first-party domain so
+// ad-blockers that filter *.posthog.com don't drop it. Used in all
+// environments — unlike the old /relay Next.js rewrite, it works from
+// localhost without 431 header-size errors.
+export const POSTHOG_PROXY_HOST = "https://t.casapuntacaelo.com";
 
 // Generate a UUID v4
 function generateUUID(): string {
@@ -137,8 +134,7 @@ export async function captureEvent(
     timestamp: new Date().toISOString(),
   };
 
-  const apiHost = getApiHost();
-  const batchEndpoint = `${apiHost}/batch/`;
+  const batchEndpoint = `${POSTHOG_PROXY_HOST}/batch/`;
 
   try {
     const response = await fetch(batchEndpoint, {
