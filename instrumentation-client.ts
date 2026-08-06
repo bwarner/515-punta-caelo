@@ -1,6 +1,7 @@
 /* global window */
 import posthog from "posthog-js";
 import { getAppTags, getAppEnv } from "@/lib/app-env";
+import { POSTHOG_PROXY_HOST } from "@/lib/posthog-capture";
 
 function compactRecord(input: Record<string, unknown>) {
   return Object.fromEntries(
@@ -13,12 +14,9 @@ function compactRecord(input: Record<string, unknown>) {
 // Initialize PostHog early via Next.js instrumentation.
 // The PostHogProvider component also checks __loaded to avoid double init.
 posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY!, {
-  // Use direct API in development to avoid 431 errors from reverse proxy.
-  // In prod, /relay is rewritten to PostHog in next.config.js
-  api_host:
-    process.env.NODE_ENV === "development"
-      ? "https://us.i.posthog.com"
-      : "/relay",
+  // Managed reverse proxy (see POSTHOG_PROXY_HOST) — same host in every
+  // environment, so no dev/prod split.
+  api_host: POSTHOG_PROXY_HOST,
   ui_host: process.env.NEXT_PUBLIC_POSTHOG_HOST,
   // Include the defaults option as required by PostHog
   defaults: "2025-05-24",
