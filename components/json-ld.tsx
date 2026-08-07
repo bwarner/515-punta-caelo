@@ -114,8 +114,10 @@ export function JsonLd() {
     numberOfBathroomsTotal: 3,
     numberOfFullBathrooms: 3,
     occupancy: {
+      // Google requires "value" here (guests the unit sleeps); maxValue
+      // alone triggers a GSC "Missing field value" error.
       "@type": "QuantitativeValue",
-      maxValue: 6,
+      value: 6,
     },
     floorSize: {
       "@type": "QuantitativeValue",
@@ -184,8 +186,10 @@ export function JsonLd() {
       "@type": "Accommodation",
       additionalType: "EntirePlace",
       occupancy: {
+        // Google requires "value" here (guests the unit sleeps); maxValue
+        // alone triggers a GSC "Missing field value" error.
         "@type": "QuantitativeValue",
-        maxValue: 6,
+        value: 6,
       },
       numberOfBedrooms: 4,
       numberOfBathroomsTotal: 3,
