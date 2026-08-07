@@ -3,14 +3,9 @@
 
 import posthog from "posthog-js";
 import { PostHogProvider as PHProvider } from "posthog-js/react";
-import { Suspense, useEffect, useRef, type ReactNode } from "react";
-import { usePathname, useSearchParams } from "next/navigation";
+import { useEffect, type ReactNode } from "react";
 import { getAppTags, getAppEnv } from "@/lib/app-env";
-import {
-  capturePageview,
-  capturePageleave,
-  POSTHOG_PROXY_HOST,
-} from "@/lib/posthog-capture";
+import { POSTHOG_PROXY_HOST } from "@/lib/posthog-config";
 
 function compactRecord(input: Record<string, unknown>) {
   return Object.fromEntries(
@@ -36,9 +31,10 @@ export function PostHogProvider({ children }: { children: ReactNode }) {
       person_profiles: "always",
       // Enables capturing unhandled exceptions via Error Tracking
       capture_exceptions: true,
-      // Disable automatic pageview - handled via direct capture below
-      // due to posthog-js issue #3663 where SDK capture() never sends events
-      capture_pageview: false,
+      // Native pageview/pageleave capture; "history_change" also tracks SPA
+      // navigations via the History API.
+      capture_pageview: "history_change",
+      capture_pageleave: true,
       // Disable autocapture - too noisy, we use custom events instead
       autocapture: false,
       loaded: (ph) => {
@@ -64,76 +60,5 @@ export function PostHogProvider({ children }: { children: ReactNode }) {
     });
   }, []);
 
-  return (
-    <PHProvider client={posthog}>
-      <Suspense fallback={null}>
-        <PostHogPageview />
-      </Suspense>
-      {children}
-    </PHProvider>
-  );
-}
-
-/**
- * Captures pageviews and pageleaves on route changes using direct fetch.
- * This works around posthog-js issue #3663 where SDK capture() never sends,
- * which is also why capture_pageleave in posthog.init() would not work here.
- * Wrapped in Suspense because useSearchParams requires it for static rendering.
- */
-function PostHogPageview() {
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
-  const lastPageRef = useRef<{ url: string; pathname: string } | null>(null);
-
-  useEffect(() => {
-    if (!posthog.__loaded) return;
-
-    const url =
-      typeof window !== "undefined"
-        ? window.location.href
-        : pathname + (searchParams?.toString() ? `?${searchParams}` : "");
-
-    // On SPA navigation, record leaving the previous page before the new
-    // pageview. window.location already points at the new URL, so the
-    // previous page's URL must be passed explicitly.
-    const prev = lastPageRef.current;
-    if (prev && prev.url !== url) {
-      capturePageleave({ $current_url: prev.url, $pathname: prev.pathname });
-    }
-    lastPageRef.current = { url, pathname };
-
-    capturePageview({
-      $current_url: url,
-      $pathname: pathname,
-    });
-  }, [pathname, searchParams]);
-
-  useEffect(() => {
-    // Hard exits: tab close, reload, or navigation off-site. pagehide also
-    // covers bfcache suspension; captureEvent's keepalive fetch survives
-    // page teardown.
-    const handlePagehide = () => {
-      const prev = lastPageRef.current;
-      if (!prev) return;
-      lastPageRef.current = null;
-      capturePageleave({ $current_url: prev.url, $pathname: prev.pathname });
-    };
-    // Restore tracking if the page comes back from bfcache.
-    const handlePageshow = () => {
-      if (lastPageRef.current || typeof window === "undefined") return;
-      lastPageRef.current = {
-        url: window.location.href,
-        pathname: window.location.pathname,
-      };
-    };
-
-    window.addEventListener("pagehide", handlePagehide);
-    window.addEventListener("pageshow", handlePageshow);
-    return () => {
-      window.removeEventListener("pagehide", handlePagehide);
-      window.removeEventListener("pageshow", handlePageshow);
-    };
-  }, []);
-
-  return null;
+  return <PHProvider client={posthog}>{children}</PHProvider>;
 }

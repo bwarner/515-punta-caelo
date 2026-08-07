@@ -1,7 +1,7 @@
 /* global window */
 import posthog from "posthog-js";
 import { getAppTags, getAppEnv } from "@/lib/app-env";
-import { POSTHOG_PROXY_HOST } from "@/lib/posthog-capture";
+import { POSTHOG_PROXY_HOST } from "@/lib/posthog-config";
 
 function compactRecord(input: Record<string, unknown>) {
   return Object.fromEntries(
@@ -22,9 +22,10 @@ posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY!, {
   defaults: "2025-05-24",
   // Capture events and create person profiles for all users
   person_profiles: "always",
-  // Disable automatic pageview - handled via direct capture in PostHogProvider
-  // due to posthog-js issue #3663 where SDK capture() never sends events
-  capture_pageview: false,
+  // Native pageview/pageleave capture; "history_change" also tracks SPA
+  // navigations via the History API.
+  capture_pageview: "history_change",
+  capture_pageleave: true,
   // Enables capturing unhandled exceptions via Error Tracking
   capture_exceptions: true,
   loaded: (ph) => {

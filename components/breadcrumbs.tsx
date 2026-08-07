@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import { LanguageSwitcher } from "./language-switcher";
-import { captureEvent } from "@/lib/posthog-capture";
+import posthog from "posthog-js";
 
 type Crumb = {
   label: string;
@@ -20,7 +20,7 @@ export function Breadcrumbs({
   current: string;
 }) {
   const handleClick = (crumb: Crumb) => {
-    captureEvent("breadcrumb_clicked", {
+    posthog.capture("breadcrumb_clicked", {
       breadcrumb_label: crumb.label,
       destination_href: crumb.href,
       current_page_title: current,

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { captureEvent } from "@/lib/posthog-capture";
+import posthog from "posthog-js";
 import {
   KeyRound,
   Wifi,
@@ -31,7 +31,7 @@ function GridItem({
   children: React.ReactNode;
 }) {
   const handleClick = () => {
-    captureEvent("guide_section_clicked", {
+    posthog.capture("guide_section_clicked", {
       section_title: title,
       destination_href: href,
     });
