@@ -26,6 +26,8 @@ posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY!, {
   // navigations via the History API.
   capture_pageview: "history_change",
   capture_pageleave: true,
+  // Disable autocapture - too noisy, we use custom events instead
+  autocapture: false,
   // Enables capturing unhandled exceptions via Error Tracking
   capture_exceptions: true,
   loaded: (ph) => {
