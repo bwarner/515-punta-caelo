@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useRef } from "react";
 import QRCode from "qrcode";
-import { captureEvent } from "@/lib/posthog-capture";
+import posthog from "posthog-js";
 
 interface WiFiQRCodeProps {
   ssid: string;
@@ -54,7 +54,7 @@ export default function WiFiQRCode({
   const handleQRCodeInteraction = () => {
     if (!hasTrackedView.current) {
       hasTrackedView.current = true;
-      captureEvent("wifi_qr_code_viewed", {
+      posthog.capture("wifi_qr_code_viewed", {
         wifi_network: ssid,
         security_type: security,
       });

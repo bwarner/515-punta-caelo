@@ -4,7 +4,7 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
-import { captureEvent } from "@/lib/posthog-capture";
+import posthog from "posthog-js";
 import {
   LazyMotion,
   domMax,
@@ -64,7 +64,7 @@ export default function GalleryShowcase({
     (img: GalleryImage, index: number, sectionId: string) => {
       viewed.current = new Set([index]);
       setActive(index);
-      captureEvent("image_gallery_interacted", {
+      posthog.capture("image_gallery_interacted", {
         image_src: img.src,
         image_alt: img.alt,
         image_index: index,
@@ -79,7 +79,7 @@ export default function GalleryShowcase({
 
   const close = useCallback(() => {
     if (viewed.current.size > 0) {
-      captureEvent("gallery_lightbox_closed", {
+      posthog.capture("gallery_lightbox_closed", {
         images_viewed: viewed.current.size,
         total_images: flat.length,
         locale,

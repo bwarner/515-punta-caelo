@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { captureEvent } from "@/lib/posthog-capture";
+import posthog from "posthog-js";
 import { gallerySections } from "@/content/gallery-images.mjs";
 import { cn } from "@/lib/utils";
 
@@ -57,7 +57,7 @@ export default function GalleryTeaser({
   const href = `/${locale}/gallery`;
 
   const track = (sectionId: string) => {
-    captureEvent("gallery_teaser_clicked", {
+    posthog.capture("gallery_teaser_clicked", {
       locale,
       source,
       variant,

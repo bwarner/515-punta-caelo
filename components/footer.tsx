@@ -1,6 +1,6 @@
 "use client";
 
-import { captureEvent } from "@/lib/posthog-capture";
+import posthog from "posthog-js";
 
 function FooterLink({
   href,
@@ -12,7 +12,7 @@ function FooterLink({
   section: string;
 }) {
   const handleClick = () => {
-    captureEvent("footer_link_clicked", {
+    posthog.capture("footer_link_clicked", {
       link_text: children,
       destination_href: href,
       footer_section: section,

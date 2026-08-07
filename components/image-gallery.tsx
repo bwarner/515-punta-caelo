@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { captureEvent } from "@/lib/posthog-capture";
+import posthog from "posthog-js";
 
 export default function ImageGallery({
   images,
@@ -12,7 +12,7 @@ export default function ImageGallery({
     img: { src: string; alt: string },
     index: number,
   ) => {
-    captureEvent("image_gallery_interacted", {
+    posthog.capture("image_gallery_interacted", {
       image_src: img.src,
       image_alt: img.alt,
       image_index: index,
